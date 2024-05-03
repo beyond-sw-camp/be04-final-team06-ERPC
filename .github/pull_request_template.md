@@ -1,11 +1,11 @@
-## - Motivation 🧐
+## 🧐 Motivation 
 
 <br>
 
-## Key Change 🔑
+## 🔑 Key Change
 
 <br>
 
-## Review ✏
+## ✏ Review 
 
 <br>
