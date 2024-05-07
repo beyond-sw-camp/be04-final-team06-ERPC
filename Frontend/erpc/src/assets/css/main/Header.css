@@ -16,7 +16,7 @@ body {
 .logo .logoimage {
     display: flex;
     align-items: center;
-    width: 30px;
+    width: 100px;
     height: auto;
     cursor: pointer;
 }

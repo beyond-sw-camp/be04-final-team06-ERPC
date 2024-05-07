@@ -5,6 +5,7 @@ body {
 .footer {
     display: flex;
     justify-content: center; /* 중앙 배치 */
+    flex-direction: column; 
     align-items: center;
     padding: 25px 50px;
     width: 100vw;
@@ -12,11 +13,22 @@ body {
     background-color: #0C2092;
 }
 
-
-.logo .logoimage {
+.logo2 .logoimage2 {
     display: flex;
     align-items: center;
     width: 150px;
     height: auto;
     cursor: pointer;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-top: 30px;
+}
+
+.middle2 {
+    margin-top: 5px;
+    margin-left: 20px;
 }
