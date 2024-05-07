@@ -1,4 +1,4 @@
-package com.cineverse.erpc.employee.entity;
+package com.cineverse.erpc.employee.aggregate;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "tbl_employee")
-public class Employee {
+public class EmployeeEntity {
     @Id
     @Column(name = "employee_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +42,7 @@ public class Employee {
 
     @Column(name = "team_code_id")
     private int teamCodeId;
+
+    @Column(name = "employee_uuid")
+    private String employeeUUID;
 }

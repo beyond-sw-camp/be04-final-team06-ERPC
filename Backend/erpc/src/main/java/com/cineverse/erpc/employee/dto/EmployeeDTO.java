@@ -19,4 +19,5 @@ public class EmployeeDTO {
     private String resignationDate;
     private int employRankId;
     private int teamCodeId;
+    private String empolyeeUUID;
 }

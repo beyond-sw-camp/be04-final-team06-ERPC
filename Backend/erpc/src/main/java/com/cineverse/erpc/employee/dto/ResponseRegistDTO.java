@@ -5,7 +5,6 @@ import lombok.Data;
 @Data
 public class ResponseRegistDTO {
     private int employCode;
-    private String employPassword;
     private String employEmail;
     private String employHp;
     private String employNumber;
@@ -13,4 +12,5 @@ public class ResponseRegistDTO {
     private String resignationDate;
     private int employRankId;
     private int teamCodeId;
+    private String employeeUUID;
 }
