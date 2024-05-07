@@ -2,11 +2,15 @@
 import Header from './components/main/Header.vue';
 import Footer from './components/main/Footer.vue';
 import CustomerRegist from './components/customer/CustomerRegist.vue'
+import CustomerList from './components/customer/CustomerList.vue';
+import CustomerContents from './components/customer/CustomerContents.vue';
 </script>
 
 <template>
   <Header></Header>
-  <CustomerRegist></CustomerRegist>
+  <!-- <CustomerRegist></CustomerRegist> -->
+  <!-- <CustomerList></CustomerList> -->
+  <CustomerContents></CustomerContents>
   <Footer></Footer>
 </template>
 
