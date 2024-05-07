@@ -11,6 +11,7 @@ body {
     width: 100vw;
     box-sizing: border-box;
     background-color: #0C2092;
+    margin-top: 20px; /* 여백 추가 */
 }
 
 .logo2 .logoimage2 {
