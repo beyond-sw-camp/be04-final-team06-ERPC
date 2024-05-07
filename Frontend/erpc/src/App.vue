@@ -1,10 +1,12 @@
 <script setup>
 import Header from './components/main/Header.vue';
 import Footer from './components/main/Footer.vue';
+import CustomerRegist from './components/customer/CustomerRegist.vue'
 </script>
 
 <template>
   <Header></Header>
+  <CustomerRegist></CustomerRegist>
   <Footer></Footer>
 </template>
 
