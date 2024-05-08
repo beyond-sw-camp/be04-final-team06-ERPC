@@ -9,14 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Setter
 @ToString
 public class EmployeeDTO {
-    private Long employId;
-    private int employCode;
-    private String employPassword;
-    private String employEmail;
-    private String employHp;
-    private String employNumber;
-    private String employDate;
+    private Long employeeId;
+    private String employeeCode;
+    private String employeeName;
+    private String employeePassword;
+    private String employeeEmail;
+    private String employeeHp;
+    private String employeeNumber;
+    private String employmentDate;
     private String resignationDate;
-    private int employRankId;
+    private int employeeRankId;
     private int teamCodeId;
+    private String employeeUUID;
 }

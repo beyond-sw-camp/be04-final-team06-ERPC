@@ -1,0 +1,254 @@
+.customer-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.customer-search {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.maintext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.pdfimage {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.customer-edit,
+.customer-delete {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.customer-box,
+.customer-box2,
+.customer-box3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    height: auto;
+    width: 100%;
+    margin: 25px auto;
+    gap: 1px;
+}
+
+.customer-box {
+    max-width: 400px;
+}
+
+.customer-box2 {
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    /* 자식 요소들을 부모 높이에 맞춰 늘림 */
+    width: 100%;
+    /* 전체 너비 사용 */
+    max-width: 800px;
+    /* 최대 너비 설정 */
+    margin: 20px auto;
+    gap: 20px;
+    /* 섹션 사이의 간격을 조정 */
+}
+
+.customer-box3 {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.customer-search {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.customer-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 수직 방향 중앙 정렬 */
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.customer-code-text {
+    font-size: 20px;
+}
+
+.customer-code-box {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #BEE7FF;
+    border: 2px solid #BEE7FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+}
+
+.customer-box2 {
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    /* 자식 요소들을 부모 높이에 맞춰 늘림 */
+    width: 100%;
+    gap: 20px;
+}
+
+.left,
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    /* 양쪽 높이를 동일하게 맞춤 */
+    align-items: stretch;
+    /* 내부 요소 높이를 맞춤 */
+}
+
+.business-number,
+.business-name,
+.ceo-name,
+.status,
+.grade,
+.corporation,
+.industry,
+.industry-detail,
+.address,
+.call,
+.email,
+.remark,
+.project-number,
+.project-employee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.corporation,
+.remark {
+    margin-bottom: 15px;
+}
+
+.business-number-text,
+.business-name-text,
+.ceo-name-text,
+.status-text,
+.grade-text,
+.corporation-text,
+.industry-text,
+.industry-detail-text,
+.address-text,
+.call-text,
+.email-text,
+.remark-text,
+.project-number-text,
+.project-employee-text {
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.industry-text,
+.industry-detail-text,
+.address-text,
+.call-text,
+.email-text,
+.remark-text {
+    margin-top: 18px;
+}
+
+.business-number-box,
+.business-name-box,
+.ceo-name-box,
+.status-box,
+.grade-box,
+.corporation-box,
+.industry-box,
+.industry-detail-box,
+.address-box,
+.call-box,
+.email-box,
+.remark-box {
+    flex-grow: 1;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 320px;
+    text-align: left;
+    font-family: GmarketSansMedium;
+    font-size: 16px;
+    cursor: default;
+    background-color: white;
+}
+
+.project-number-box,
+.project-employee-box {
+    flex-grow: 1;
+    padding: 12px;
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 200px;
+    text-align: center;
+    font-family: GmarketSansMedium;
+    font-size: 16px;
+    cursor: default;
+}
+
+.project-number-box {
+    background-color: #BEE7FF;
+    border: 2px solid #BEE7FF;
+}
+
+.project-employee-box {
+    background-color: white;
+    border: 1px solid #ccc;
+}

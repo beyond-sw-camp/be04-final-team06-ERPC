@@ -81,6 +81,8 @@
 </script>
 
 <style>
+    @import url('@/assets/css/customer/CustomerRegist.css');
+=======
 .search-content {
     margin-top: 4%;
     display: flex;

@@ -4,13 +4,14 @@ import lombok.Data;
 
 @Data
 public class ResponseRegistDTO {
-    private int employCode;
-    private String employPassword;
-    private String employEmail;
-    private String employHp;
-    private String employNumber;
-    private String employDate;
+    private String employeeCode;
+    private String employeeName;
+    private String employeeEmail;
+    private String employeeHp;
+    private String employeeNumber;
+    private String employmentDate;
     private String resignationDate;
     private int employRankId;
     private int teamCodeId;
+    private String employeeUUID;
 }

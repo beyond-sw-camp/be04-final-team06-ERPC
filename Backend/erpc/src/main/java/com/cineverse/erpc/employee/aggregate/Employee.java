@@ -1,4 +1,4 @@
-package com.cineverse.erpc.employee.entity;
+package com.cineverse.erpc.employee.aggregate;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,32 +14,38 @@ public class Employee {
     @Id
     @Column(name = "employee_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employId;
+    private Long employeeId;
 
     @Column(name = "employee_code")
-    private int employCode;
+    private String employeeCode;
+
+    @Column(name = "employee_name")
+    private String employeeName;
 
     @Column(name = "employee_password")
-    private String employPassword;
+    private String employeePassword;
 
     @Column(name = "employee_email")
-    private String employEmail;
+    private String employeeEmail;
 
     @Column(name = "employee_hp")
-    private String employHp;
+    private String employeeHp;
 
     @Column(name = "employee_number")
-    private String employNumber;
+    private String employeeNumber;
 
-    @Column(name = "employee_date")
-    private String employDate;
+    @Column(name = "employment_date")
+    private String employmentDate;
 
     @Column(name = "resignation_date")
     private String resignationDate;
 
     @Column(name = "employee_rank_id")
-    private int employRankId;
+    private int employeeRankId;
 
     @Column(name = "team_code_id")
     private int teamCodeId;
+
+    @Column(name = "employee_uuid")
+    private String employeeUUID;
 }
