@@ -46,8 +46,9 @@ public class WebSecurity {
         http.csrf((csrf) -> csrf.disable());        // 토큰으로 처리할 예정이기 때문에 필요가 없음
 
         http.authorizeHttpRequests((auth) -> auth
-                .requestMatchers(new AntPathRequestMatcher("/employees/**")).permitAll()
-        )
+                        .requestMatchers(new AntPathRequestMatcher("/employees/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/notice_board/**")).permitAll()
+                )
                 .authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
@@ -60,7 +61,6 @@ public class WebSecurity {
     }
 
     /* 인증 */
-
 
 
 }
