@@ -1,7 +1,12 @@
 <template>
     <div class="customer-content">
         <div class="customer-search">
-            <h1>거래처 정보 조회 내역</h1>
+            <h1 class="maintext">거래처 정보 조회 내역</h1>
+            <div class="customer-btn">
+                <img src="@/assets/img/pdf.png" class="pdfimage">
+                <button class="customer-edit">수정</button>
+                <button class="customer-delete">삭제</button>
+            </div>
         </div>
         <div class="customer-box">
             <div class="customer-code">
@@ -82,5 +87,5 @@
 </script>
 
 <style>
-    @import url('@/assets/css/customer/CustomerContents.css');
+@import url('@/assets/css/customer/CustomerContents.css');
 </style>

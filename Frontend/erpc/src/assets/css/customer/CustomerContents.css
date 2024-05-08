@@ -11,6 +11,35 @@
     margin-top: 3%;
 }
 
+.maintext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.pdfimage {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.customer-edit,
+.customer-delete {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
 .customer-box,
 .customer-box2,
 .customer-box3 {
@@ -18,7 +47,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 15px;
     margin-bottom: 100px;
     border-radius: 10px;
     border: 2px solid #ccc;
@@ -26,7 +54,7 @@
     background-color: whitesmoke;
     height: auto;
     width: 100%;
-    margin: 20px auto;
+    margin: 25px auto;
     gap: 1px;
 }
 
