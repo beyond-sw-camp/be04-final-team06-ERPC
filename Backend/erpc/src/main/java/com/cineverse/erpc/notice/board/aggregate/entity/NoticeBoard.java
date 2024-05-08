@@ -17,7 +17,7 @@ public class NoticeBoard {
     @Id
     @Column(name = "notice_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int noticeId;
+    private Long noticeId;
 
     @Column(name = "notice_title")
     private String noticeTitle;

@@ -34,15 +34,16 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         String registDate = format.format(date);
         noticeDTO.setNoticeDate(registDate);
 
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         NoticeBoard newNotice = modelMapper.map(noticeDTO, NoticeBoard.class);
-        newNotice=noticeBoardRepository.saveAndFlush(newNotice);
+        newNotice = noticeBoardRepository.save(newNotice);
 
         return newNotice;
     }
 
     @Override
     @Transactional
-    public NoticeBoard modifyNotice(int noticeId, NoticeBoardDTO notice) {
+    public NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice) {
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
 
         if (optionalNoticeBoard.isEmpty()) {
@@ -62,7 +63,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
     }
 
     @Override
-    public NoticeBoard deleteNotice(int noticeId) {
+    public NoticeBoard deleteNotice(Long noticeId) {
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
 
         if (optionalNoticeBoard.isEmpty()) {

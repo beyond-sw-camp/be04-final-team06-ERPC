@@ -11,7 +11,7 @@ import lombok.*;
 @ToString
 @Builder
 public class NoticeBoardDTO {
-    private int noticeId;
+    private Long noticeId;
     private String noticeTitle;
     private String noticeContent;
     private String noticeDate;

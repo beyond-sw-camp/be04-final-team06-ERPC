@@ -28,13 +28,13 @@ public class NoticeBoardController {
 
     /* 공지사항 게시글 수정 */
     @PatchMapping("/modify/{noticeId}")
-    public ResponseEntity<NoticeBoard> modifyNotice(@RequestBody NoticeBoardDTO notice, @PathVariable int noticeId) {
+    public ResponseEntity<NoticeBoard> modifyNotice(@RequestBody NoticeBoardDTO notice, @PathVariable Long noticeId) {
         return ResponseEntity.ok(noticeBoardService.modifyNotice(noticeId, notice));
     }
 
     /* 공지사항 게시글 삭제 */
     @PatchMapping("/delete/{noticeId}")
-    public ResponseEntity<NoticeBoard> deleteNotice(@PathVariable int noticeId) {
+    public ResponseEntity<NoticeBoard> deleteNotice(@PathVariable Long noticeId) {
         return ResponseEntity.ok(noticeBoardService.deleteNotice(noticeId));
     }
 
