@@ -9,8 +9,8 @@ import CustomerContents from './components/customer/CustomerContents.vue';
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <!-- <CustomerList></CustomerList> -->
-  <CustomerContents></CustomerContents>
+  <CustomerList></CustomerList>
+  <!-- <CustomerContents></CustomerContents> -->
   <Footer></Footer>
 </template>
 
