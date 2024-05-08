@@ -35,13 +35,8 @@ public class EmployeeController {
 
     @PostMapping("/regist")
     public ResponseEntity<ResponseRegistDTO> registEmployee(@RequestBody RequestRegistDTO employee) {
-        System.out.println(employee.getEmployeePassword());
-        System.out.println();
-        System.out.println();
-
         EmployeeDTO employeeDTO = modelMapper.map(employee, EmployeeDTO.class);
 
-        System.out.println(employeeDTO.getEmployeePassword());
         employeeService.registEmployee(employeeDTO);
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);

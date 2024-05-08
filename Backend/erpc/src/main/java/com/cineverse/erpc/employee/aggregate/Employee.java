@@ -19,6 +19,9 @@ public class Employee {
     @Column(name = "employee_code")
     private String employeeCode;
 
+    @Column(name = "employee_name")
+    private String employeeName;
+
     @Column(name = "employee_password")
     private String employeePassword;
 
@@ -31,8 +34,8 @@ public class Employee {
     @Column(name = "employee_number")
     private String employeeNumber;
 
-    @Column(name = "employee_date")
-    private String employeeDate;
+    @Column(name = "employment_date")
+    private String employmentDate;
 
     @Column(name = "resignation_date")
     private String resignationDate;
