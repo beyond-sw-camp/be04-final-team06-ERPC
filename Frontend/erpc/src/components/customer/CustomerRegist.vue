@@ -4,9 +4,12 @@
             <h1>사업자 신용 정보 조회</h1>
         </div>
         <div class="search-box">
-            <div class="customer-code">
-                <p class="customer-code-text">거래처 코드</p>
-                <input type="text" id="customer-code-box" class="customer-code-box" placeholder="사업자 번호를 입력해주세요.">
+            <div class="business-number">
+                <p class="business-number-text">사업자 번호</p>
+                <input type="text" id="business-number-box" class="business-number-box" placeholder="사업자 번호를 입력해주세요.">
+            </div>
+            <div class="search-btn-div">
+                <button class="search-btn">조회하기</button>
             </div>
         </div>
         <div class="customer-search2">
