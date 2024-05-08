@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/employees")
 public class EmployeeController {
     private Environment env;
     private ModelMapper modelMapper;
@@ -35,8 +35,13 @@ public class EmployeeController {
 
     @PostMapping("/regist")
     public ResponseEntity<ResponseRegistDTO> registEmployee(@RequestBody RequestRegistDTO employee) {
+        System.out.println(employee.getEmployeePassword());
+        System.out.println();
+        System.out.println();
+
         EmployeeDTO employeeDTO = modelMapper.map(employee, EmployeeDTO.class);
 
+        System.out.println(employeeDTO.getEmployeePassword());
         employeeService.registEmployee(employeeDTO);
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);

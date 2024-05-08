@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class RequestRegistDTO {
-    private int employCode;
-    private String employPassword;
-    private String employEmail;
-    private String employHp;
-    private String employNumber;
-    private String employDate;
-    private int employRankId;
+    private String employeeCode;
+    private String employeePassword;
+    private String employeeEmail;
+    private String employeeHp;
+    private String employeeNumber;
+    private String employeeDate;
+    private int employeeRankId;
     private int teamCodeId;
 }
