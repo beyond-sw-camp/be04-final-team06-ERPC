@@ -4,16 +4,13 @@ import Footer from './components/main/Footer.vue';
 import CustomerRegist from './components/customer/CustomerRegist.vue'
 import CustomerList from './components/customer/CustomerList.vue';
 import CustomerContents from './components/customer/CustomerContents.vue';
-import OrderRegist from './components/order/OrderRegist.vue';
-
 </script>
 
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <!-- <CustomerList></CustomerList> -->
+  <CustomerList></CustomerList>
   <!-- <CustomerContents></CustomerContents> -->
-  <OrderRegist></OrderRegist>
   <Footer></Footer>
 </template>
 
