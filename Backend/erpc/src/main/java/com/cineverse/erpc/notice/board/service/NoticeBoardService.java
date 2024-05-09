@@ -6,6 +6,7 @@ import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
 import java.util.List;
 
 public interface NoticeBoardService {
+
     NoticeBoard registNotice(NoticeBoardDTO newNotice);
 
     NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice);
