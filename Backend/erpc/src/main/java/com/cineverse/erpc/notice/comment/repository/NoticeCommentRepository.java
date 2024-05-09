@@ -1,4 +1,11 @@
 package com.cineverse.erpc.notice.comment.repository;
 
-public class NoticeCommentRepository {
+import com.cineverse.erpc.notice.comment.aggregate.entity.NoticeComment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface NoticeCommentRepository extends JpaRepository<NoticeComment, Long> {
+
+    List<NoticeComment> findByCommentDeleteDateIsNullOrderByNoticeCommentIdDesc();
 }

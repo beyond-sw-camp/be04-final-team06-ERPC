@@ -48,6 +48,7 @@ public class WebSecurity {
         http.authorizeHttpRequests((auth) -> auth
                         .requestMatchers(new AntPathRequestMatcher("/employees/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/notice_board/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/notice_comment/**")).permitAll()
                 )
 
                 .authenticationManager(authenticationManager);
