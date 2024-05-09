@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.PatchMapping;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class NoticeBoardServiceImpl implements NoticeBoardService {
+
     private final ModelMapper modelMapper;
     private final NoticeBoardRepository noticeBoardRepository;
 
@@ -78,5 +81,25 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         noticeBoard.setNoticeDeleteDate(deleteDate);
 
         return noticeBoardRepository.save(noticeBoard);
+    }
+
+    @Override
+    public List<NoticeBoard> findNoticeList() {
+        List<NoticeBoard> noticeBoardList = noticeBoardRepository.findByNoticeDeleteDateIsNullOrderByNoticeIdDesc();
+
+        return noticeBoardList.stream().map(notice -> modelMapper
+                        .map(notice, NoticeBoard.class))
+                        .collect(Collectors.toList());
+    }
+
+    @Override
+    public NoticeBoardDTO findNoticeById(Long noticeId) {
+        NoticeBoard noticeBoard=noticeBoardRepository.findById(noticeId)
+                .orElseThrow(EntityNotFoundException::new);
+
+        noticeBoardRepository.save(noticeBoard);
+        NoticeBoardDTO noticeBoardDTO = modelMapper.map(noticeBoard, NoticeBoardDTO.class);
+
+        return noticeBoardDTO;
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/notice_board")
 public class NoticeBoardController {
@@ -39,4 +41,18 @@ public class NoticeBoardController {
     }
 
     /* 공지사항 전체 조회 */
+    @GetMapping("/list")
+    public List<NoticeBoard> findNoticeList() {
+        List<NoticeBoard> noticeList = noticeBoardService.findNoticeList();
+
+        return noticeList;
+    }
+
+    /* 공지사항 단일 조회 */
+    @GetMapping("/{noticeId}")
+    public NoticeBoardDTO findNoticeById(@PathVariable Long noticeId) {
+        NoticeBoardDTO notice = noticeBoardService.findNoticeById(noticeId);
+
+        return notice;
+    }
 }
