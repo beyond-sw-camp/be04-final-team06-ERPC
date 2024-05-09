@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Setter
 @ToString
 public class EmployeeDTO {
-    private Long employeeId;
+    private long employeeId;
     private String employeeCode;
     private String employeeName;
     private String employeePassword;

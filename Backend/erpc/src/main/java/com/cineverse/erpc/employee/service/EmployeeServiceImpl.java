@@ -42,6 +42,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.save(employee);
     }
 
+
+    /* security */
+
     /* UserDetailsService 인터페이스 상속 이후 DB에서 로그인 사용자 정보 조회 후 UserDetails 타입으로 반환하는 기능 */
     @Override
     public UserDetails loadUserByUsername(String employeeCode) throws UsernameNotFoundException {
@@ -54,5 +57,20 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new User(employee.getEmployeeCode(), employee.getEmployeePassword(),
                 true, true, true, true,
                 new ArrayList<>());
+    }
+
+    /* 토큰의 재료인 userId 조회를 위해 만들어진 메소드 */
+    @Override
+    public EmployeeDTO getEmployeeDetailsByEmployeeCode(String employeeCode) {
+
+        Employee employee = employeeRepository.findByEmployeeCode(employeeCode);
+
+        if(employee == null)
+            throw new UsernameNotFoundException(employeeCode + "의 사번은 존재하지 않습니다.");
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        EmployeeDTO employeeDTO = modelMapper.map(employee, EmployeeDTO.class);
+
+        return employeeDTO;
     }
 }

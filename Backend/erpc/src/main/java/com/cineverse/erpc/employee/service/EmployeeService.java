@@ -5,4 +5,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface EmployeeService extends UserDetailsService {
     void registEmployee(EmployeeDTO employeeDTO);
+
+    EmployeeDTO getEmployeeDetailsByEmployeeCode(String employeeCode);
 }
