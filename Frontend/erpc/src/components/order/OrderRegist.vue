@@ -221,7 +221,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 20px auto;
-    margin-bottom: 7%;
+    margin-bottom: 20px;
     gap: 1px;
 }
 
@@ -394,6 +394,7 @@
 .order-regist-btn {
     width: 320px;
     font-size: 18px;
+    margin-bottom: 7%;
 }
 
 </style>

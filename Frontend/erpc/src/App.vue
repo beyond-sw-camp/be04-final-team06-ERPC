@@ -11,10 +11,10 @@ import OrderRegist from './components/order/OrderRegist.vue';
 
 <template>
   <Header></Header>
-  <CustomerRegist></CustomerRegist>
+  <!-- <CustomerRegist></CustomerRegist> -->
   <!-- <CustomerList></CustomerList> -->
   <!-- <CustomerContents></CustomerContents> -->
-  <!-- <OrderRegist></OrderRegist> -->
+  <OrderRegist></OrderRegist>
   <Footer></Footer>
 </template>
 
