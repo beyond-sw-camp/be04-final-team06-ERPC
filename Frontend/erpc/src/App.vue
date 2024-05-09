@@ -7,14 +7,16 @@ import CustomerList from './components/customer/CustomerList.vue';
 import CustomerContents from './components/customer/CustomerContents.vue';
 
 import OrderRegist from './components/order/OrderRegist.vue';
+import OrderList from './components/order/OrderList.vue';
 </script>
 
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <!-- <CustomerList></CustomerList> -->
+  <CustomerList></CustomerList>
   <!-- <CustomerContents></CustomerContents> -->
-  <OrderRegist></OrderRegist>
+  <!-- <OrderRegist></OrderRegist> -->
+  <OrderList></OrderList>
   <Footer></Footer>
 </template>
 
