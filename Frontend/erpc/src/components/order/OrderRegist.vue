@@ -2,6 +2,14 @@
     <div class="regist-content">
         <div class="order-regist">
             <h1>수주 등록</h1>
+            <div class="order-pdf">
+                <button class="order-pdf1">
+                    견적서 업로드<img src="@/assets/img/pdf.png" class="pdfimage1">
+                </button>
+                <button class="order-pdf2">
+                    계약서 업로드<img src="@/assets/img/pdf.png" class="pdfimage2">
+                </button>
+            </div>
         </div>
         <div class="order-search-box">
             <h3>계약서 불러오기</h3>
@@ -123,6 +131,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="order-regist-btn-div">
+            <button class="order-regist-btn">수주 등록</button>
+        </div>
     </div>
 </template>
 
@@ -142,6 +153,58 @@
 .order-regist {
     text-align: center;
     margin-top: 3%;
+}
+
+.order-pdf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #BEE7FF;
+    border: 2px solid #BEE7FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 150px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.order-pdf1,
+.order-pdf2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 270px;
+}
+
+.order-pdf1:hover,
+.order-pdf2:hover {
+    background-color: #d5e6ff;
+}
+
+.pdfimage1,
+.pdfimage2 {
+    width: 30px;
+    height: auto;
+    margin-left: 5px;
+    margin-right: -10px;
 }
 
 .order-list-box {
@@ -214,7 +277,8 @@
     display: inline-block;
 }
 
-.order-dropdown-btn {
+.order-dropdown-btn,
+.order-pdf1-btn {
     background-color: white;
     border: 2px solid #0C2092;
     border-radius: 10px;
@@ -230,7 +294,7 @@
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 10px;
     width: 100%;
@@ -277,7 +341,8 @@
 .contract-number {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 수직 방향 중앙 정렬 */
+    align-items: center;
+    /* 수직 방향 중앙 정렬 */
 }
 
 .contract-number-text {
@@ -299,15 +364,16 @@
     font-size: 18px;
 }
 
-.order-search-btn-div {
+.order-search-btn-div,
+.order-regist-btn-div {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 10px;
 }
 
-.order-search-btn {
-    max-width: 320px;
+.order-search-btn,
+.order-regist-btn {
     padding: 10px 20px;
     font-size: 16px;
     text-align: center;
@@ -320,4 +386,14 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.order-search-btn {
+    max-width: 320px;
+}
+
+.order-regist-btn {
+    width: 320px;
+    font-size: 18px;
+}
+
 </style>

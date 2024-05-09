@@ -8,8 +8,8 @@
                 <p class="business-number-text">사업자 번호</p>
                 <input type="text" id="business-number-box" class="business-number-box" placeholder="사업자 번호를 입력해주세요.">
             </div>
-            <div class="search-btn-div">
-                <button class="search-btn">조회하기</button>
+            <div class="search-btn-div1">
+                <button class="search-btn1">조회하기</button>
             </div>
         </div>
         <div class="customer-search2">
@@ -81,8 +81,6 @@
 </script>
 
 <style>
-    @import url('@/assets/css/customer/CustomerRegist.css');
-=======
 .search-content {
     margin-top: 4%;
     display: flex;
@@ -127,24 +125,36 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: stretch; /* 자식 요소들을 부모 높이에 맞춰 늘림 */
-    width: 100%; /* 전체 너비 사용 */
-    max-width: 800px; /* 최대 너비 설정 */
+    align-items: stretch;
+    /* 자식 요소들을 부모 높이에 맞춰 늘림 */
+    width: 100%;
+    /* 전체 너비 사용 */
+    max-width: 800px;
+    /* 최대 너비 설정 */
     margin: 20px auto;
-    gap: 20px; /* 섹션 사이의 간격을 조정 */
+    gap: 20px;
+    /* 섹션 사이의 간격을 조정 */
 }
 
-.left, .right {
+.left,
+.right {
     display: flex;
     flex-direction: column;
-    width: 50%; /* 왼쪽과 오른쪽 섹션 너비 동일하게 설정 */
-    padding: 10px; /* 패딩으로 내부 여백 추가 */
-    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+    width: 50%;
+    /* 왼쪽과 오른쪽 섹션 너비 동일하게 설정 */
+    padding: 10px;
+    /* 패딩으로 내부 여백 추가 */
+    box-sizing: border-box;
+    /* 패딩과 테두리를 너비에 포함 */
 }
 
-input[type="text"], .search-btn, .regist-btn {
-    padding: 8px 12px; /* 상하 좌우 패딩 */
-    margin: 5px 0; /* 상하 마진 조정으로 중앙 정렬 보완 */
+input[type="text"],
+.search-btn,
+.regist-btn {
+    padding: 8px 12px;
+    /* 상하 좌우 패딩 */
+    margin: 5px 0;
+    /* 상하 마진 조정으로 중앙 정렬 보완 */
 }
 
 .business-number,
@@ -161,7 +171,8 @@ input[type="text"], .search-btn, .regist-btn {
 .remark {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 수직 방향 중앙 정렬 */
+    align-items: center;
+    /* 수직 방향 중앙 정렬 */
 }
 
 .corporation,
@@ -216,7 +227,7 @@ input[type="text"], .search-btn, .regist-btn {
     width: 320px;
 }
 
-.search-btn-div,
+.search-btn-div1,
 .regist-btn-div {
     display: flex;
     justify-content: center;
@@ -224,11 +235,9 @@ input[type="text"], .search-btn, .regist-btn {
     margin-bottom: 10px;
 }
 
-.search-btn,
+.search-btn1,
 .regist-btn {
-    width: 320px;
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 10px 20px;
     text-align: center;
     border: none;
     border-radius: 10px;
@@ -236,10 +245,19 @@ input[type="text"], .search-btn, .regist-btn {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.search-btn1 {
+    max-width: 320px;
 }
 
 .regist-btn {
+    width: 320px;
+    font-size: 18px;
+    margin-top: 20px;
     margin-bottom: 7%;
 }
+
 </style>
