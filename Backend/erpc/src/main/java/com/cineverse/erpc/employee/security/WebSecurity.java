@@ -49,6 +49,7 @@ public class WebSecurity {
                         .requestMatchers(new AntPathRequestMatcher("/employees/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/notice_board/**")).permitAll()
                 )
+
                 .authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
@@ -61,6 +62,5 @@ public class WebSecurity {
     }
 
     /* 인증 */
-
 
 }
