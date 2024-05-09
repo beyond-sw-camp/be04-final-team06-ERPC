@@ -55,10 +55,10 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
         NoticeBoard noticeBoard = optionalNoticeBoard.get();
 
-        if (noticeBoard.getNoticeTitle() != null) {
+        if (notice.getNoticeTitle() != null) {
             noticeBoard.setNoticeTitle(notice.getNoticeTitle());
         }
-        if (noticeBoard.getNoticeContent() != null) {
+        if (notice.getNoticeContent() != null) {
             noticeBoard.setNoticeContent(notice.getNoticeContent());
         }
 
