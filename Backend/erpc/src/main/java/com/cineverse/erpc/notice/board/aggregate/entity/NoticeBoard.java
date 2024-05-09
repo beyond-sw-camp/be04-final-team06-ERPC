@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @ToString
 @Entity
-@Table(name="department_notice")
+@Table(name="tbl_department_notice")
 @Builder
 public class NoticeBoard {
     @Id
