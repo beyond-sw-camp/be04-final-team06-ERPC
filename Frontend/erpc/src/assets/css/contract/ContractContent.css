@@ -1,0 +1,34 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table td,
+  .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .box {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .writebutton {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .writebutton:hover {
+    background-color: #45a049;
+  }
