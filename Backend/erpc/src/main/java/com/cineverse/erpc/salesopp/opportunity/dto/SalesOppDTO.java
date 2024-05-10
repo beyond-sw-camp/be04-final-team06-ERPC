@@ -1,8 +1,7 @@
 package com.cineverse.erpc.salesopp.opportunity.dto;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
-import com.cineverse.erpc.salesopp.opportunity.aggregate.vo.SalesOppStatus;
-import jakarta.persistence.Column;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.entity.SalesOppStatus;
 import lombok.*;
 
 @AllArgsConstructor
