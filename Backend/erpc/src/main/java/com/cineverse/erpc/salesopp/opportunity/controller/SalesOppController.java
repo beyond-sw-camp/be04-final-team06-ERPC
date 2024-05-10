@@ -34,6 +34,12 @@ public class SalesOppController {
         return ResponseEntity.ok(salesOppService.modifySalesOpp(salesOppId, opp));
     }
 
+    /* 영업기회 상태 변경 */
+    @PatchMapping("/status/{salesOppId}")
+    public ResponseEntity<SalesOpp> changeSalesOppStatus(@RequestBody SalesOppDTO opp, @PathVariable Long salesOppId) {
+        return ResponseEntity.ok(salesOppService.changeSalesOppStatus(salesOppId, opp));
+    }
+
     /* 영업기회 삭제 요청 */
 
     /* 영업기회 전체 조회 */

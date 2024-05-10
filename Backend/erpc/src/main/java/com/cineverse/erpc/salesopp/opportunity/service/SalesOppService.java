@@ -11,8 +11,9 @@ public interface SalesOppService {
 
     SalesOpp modifySalesOpp(Long salesOppId, SalesOppDTO opp);
 
+    SalesOpp changeSalesOppStatus(Long salesOppId, SalesOppDTO opp);
+
     List<SalesOpp> findSalesOppList();
 
     SalesOppDTO findSalesOppById(Long salesOppId);
-
 }

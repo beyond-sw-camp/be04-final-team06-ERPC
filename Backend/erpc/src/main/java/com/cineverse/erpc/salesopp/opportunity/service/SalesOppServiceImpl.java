@@ -87,6 +87,25 @@ public class SalesOppServiceImpl implements SalesOppService {
     }
 
     @Override
+    @Transactional
+    public SalesOpp changeSalesOppStatus(Long salesOppId, SalesOppDTO opp) {
+
+        Optional<SalesOpp> optionalSalesOpp = salesOppRepository.findById(salesOppId);
+
+        if (optionalSalesOpp.isEmpty()){
+            throw new UsernameNotFoundException("존재하지 않는 영업기회입니다.");
+        }
+
+        SalesOpp salesOpp = optionalSalesOpp.get();
+
+        if (opp.getSalesOppStatus() != null) {
+            salesOpp.setSalesOppStatus(opp.getSalesOppStatus());
+        }
+
+        return salesOppRepository.save(salesOpp);
+    }
+
+    @Override
     public List<SalesOpp> findSalesOppList() {
         List<SalesOpp> salesOppList = salesOppRepository.findByOppDeleteDateIsNullOrderBySalesOppIdDesc();
 
