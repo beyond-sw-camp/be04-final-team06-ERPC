@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PatchMapping;
 
@@ -46,7 +47,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
     @Override
     @Transactional
-    public NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice) {
+    public NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice) throws UsernameNotFoundException {
+
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
 
         if (optionalNoticeBoard.isEmpty()) {
@@ -66,7 +68,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
     }
 
     @Override
-    public NoticeBoard deleteNotice(Long noticeId) {
+    public NoticeBoard deleteNotice(Long noticeId) throws UsernameNotFoundException {
+
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
 
         if (optionalNoticeBoard.isEmpty()) {
