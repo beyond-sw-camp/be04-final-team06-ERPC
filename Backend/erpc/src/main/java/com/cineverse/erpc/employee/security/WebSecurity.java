@@ -51,6 +51,7 @@ public class WebSecurity {
                         .requestMatchers(new AntPathRequestMatcher("/notice_comment/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/sales_opportunity/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/sales_opp_note/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/warehouse/**")).permitAll()
                 )
 
                 .authenticationManager(authenticationManager);
