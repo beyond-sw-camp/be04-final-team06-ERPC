@@ -8,15 +8,22 @@ import CustomerContents from './components/customer/CustomerContents.vue';
 
 import OrderRegist from './components/order/OrderRegist.vue';
 import OrderList from './components/order/OrderList.vue';
+
+import ContractRegist from './components/contract/ContractRegist.vue';
+import ContractList from './components/contract/ContractList.vue';
+import ContractContent from './components/contract/ContractContent.vue';
 </script>
 
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <CustomerList></CustomerList>
+  <!-- <CustomerList></CustomerList> -->
   <!-- <CustomerContents></CustomerContents> -->
   <!-- <OrderRegist></OrderRegist> -->
-  <OrderList></OrderList>
+  <!-- <OrderList></OrderList> -->
+  <!-- <ContractRegist></ContractRegist> -->
+  <!-- <ContractList></ContractList>  -->
+  <ContractContent></ContractContent>
   <Footer></Footer>
 </template>
 

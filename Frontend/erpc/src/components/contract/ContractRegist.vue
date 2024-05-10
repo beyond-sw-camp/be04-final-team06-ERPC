@@ -1,125 +1,124 @@
 <template>
-    <div>
-      <table class="table">
-        <tr class="top">
-            <td class="post" colspan="3">
-            <h1 class="boardTitle">계약서 등록</h1>
-          </td>
-          <td></td>
-          <td class="thing">
-            <button @click="goToWritePage" class="writebutton">견적서 불러오기</button>
-          </td> 
-        </tr>
-        <tr class="header1">
-          <td>품목 코드</td>
-          <td>품목 이름</td>
-          <td>수량</td>
-          <td>단가</td>
-          <td>합계</td>
-          <td>기타</td>
-        </tr>
-        <tbody>
-    <tr>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-    </tr>
-    </tbody>
-    <tr class="header1">
-          <td>창고 코드</td>
-          <td>창고명</td>
-          <td>구분</td>
-          <td>창고주소</td>
-          <td>사용여부</td>
-          <td>생산 공정명</td>
-          <td>외주 거래처명</td>
-        </tr>
-        <tbody>
-    <tr>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-    </tr>
-    </tbody>
-    <tr class="header1">
-          <td>프로젝트 코드</td>
-          <td>담당자</td>
-          <td>거래처</td>
-          <td>수주금액</td>
-          <td>납기일자</td>
-          <td>비고</td>
-        </tr>
-        <tbody>
-    <tr>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-    </tr>
-    </tbody>
-    <tr class="header1">
-          <td>납부 형태</td>
-          <td>계약금</td>
-          <td>중도금</td>
-          <td>잔금</td>
-        </tr>
-        <tbody>
-    <tr>
-      <td><select class="box" name="search_type" v-model="search_type">
-                <option value="titleContent">일시납부</option>
-                <option value="title">분할납부</option>
-            </select>
-            </td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-      <td><input type="text" class="box"></td>
-    </tr>
-    </tbody>
-      </table>
+    <div class="regist-content">
+        <div class="contract-regist">
+            <h1>계약서 등록</h1>
+        </div>
+        <div class="contract-search-box">
+            <h3>견적서 불러오기</h3>
+            <div class="estimate-number">
+                <p class="estimate-number-text">견적서 코드</p>
+                <input type="text" id="estimate-number-box" class="estitmate-number-box" placeholder="견적서 코드를 입력해주세요.">
+            </div>
+            <div class="contract-search-btn-div">
+                <button class="contract-search-btn">조회하기</button>
+            </div>
+        </div>
+        <div class="contract-list-box">
+            <table class="contract-table">
+                <thead>
+                    <tr>
+                        <th>프로젝트 코드</th>
+                        <th>담당자</th>
+                        <th>거래처 코드</th>
+                        <th>수주 금액</th>
+                        <th>납기 일자</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PJ-20240508001</td>
+                        <td>유관순</td>
+                        <td>AC-20230311001</td>
+                        <td>15,000,000</td>
+                        <td>2024-05-30</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="contract-table2">
+                <thead>
+                    <tr>
+                        <th>품목 코드</th>
+                        <th>품목 이름</th>
+                        <th>수량</th>
+                        <th>단가</th>
+                        <th>합계</th>
+                        <th>기타</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>COM-001</td>
+                        <td>LG 콤퓨타</td>
+                        <td>5</td>
+                        <td>1,800,000</td>
+                        <td>9,000,000</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="contract-table3">
+                <thead>
+                    <tr>
+                        <th>창고 코드</th>
+                        <th>창고명</th>
+                        <th>구분</th>
+                        <th>창고 주소</th>
+                        <th>사용 여부</th>
+                        <th>생산 공정명</th>
+                        <th>외주 거래처명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WH-001</td>
+                        <td>강남 창고</td>
+                        <td>창고</td>
+                        <td>서울특별시 강남구 강남대로 11</td>
+                        <td>Y</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="contract-table4">
+                <thead>
+                    <tr>
+                        <th>납부 형태</th>
+                        <th>계약금</th>
+                        <th>중도금</th>
+                        <th>잔금</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="test">
+                            <div class="contract-dropdown">
+                                <button class="contract-dropdown-btn">일시 납부 or 분할 납부 ▼</button>
+                                <div class="contract-dropdown-content">
+                                    <a href="#">일시 납부</a>
+                                    <a href="#">분할 납부</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>900,000</td>
+                        <td>4,100,000</td>
+                        <td>4,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="contract-regist-btn-div">
+            <button class="contract-regist-btn">계약서 등록</button>
+        </div>
     </div>
-  </template>
+</template>
+
+<script setup>
+
+</script>
+
 <style>
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table td,
-.table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.box {
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-.writebutton {
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.writebutton:hover {
-  background-color: #45a049;
-}
+    @import url('@/assets/css/contract/ContractRegist.css');
 </style>
