@@ -14,5 +14,6 @@ public class SalesOppNoteDTO {
     private String salesOppNote;
     private String salesOppNoteDate;
     private String salesOppNoteDeleteDate;
+    private int salesOppId;
     private Employee employee;
 }

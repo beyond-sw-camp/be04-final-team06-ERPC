@@ -2,8 +2,6 @@ package com.cineverse.erpc.salesopp.note.controller;
 
 import com.cineverse.erpc.salesopp.note.aggregate.entity.SalesOppNote;
 import com.cineverse.erpc.salesopp.note.dto.SalesOppNoteDTO;
-import com.cineverse.erpc.salesopp.opportunity.aggregate.entity.SalesOpp;
-import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
 import com.cineverse.erpc.salesopp.note.service.SalesOppNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,15 +23,16 @@ public class SaleOppNoteController {
 
     /* 영업기회 참고사항 작성 */
     @PostMapping("/regist")
-    public ResponseEntity<SalesOppNoteDTO> registSalesOppNote(@RequestBody SalesOppNoteDTO newSalesOppNote) {
-        salesOppNoteService.registSalesOppNote(newSalesOppNote);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newSalesOppNote);
+    public ResponseEntity<SalesOppNoteDTO> registSalesOppNote(@RequestBody SalesOppNoteDTO oppNoteDTO) {
+        salesOppNoteService.registSalesOppNote(oppNoteDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     /* 영업기회 참고사항 수정 */
     @PatchMapping("/modify/{salesOppNoteId}")
-    public ResponseEntity<SalesOppNote> modifySalesOppNote(@RequestBody SalesOppNoteDTO salesOppNote, @PathVariable Long salesOppNoteId) {
-        return ResponseEntity.ok(salesOppNoteService.modifySalesOppNote(salesOppNoteId, salesOppNote));
+    public ResponseEntity<SalesOppNote> modifySalesOppNote(@RequestBody SalesOppNoteDTO oppNote,
+                                                           @PathVariable Long salesOppNoteId) {
+        return ResponseEntity.ok(salesOppNoteService.modifySalesOppNote(salesOppNoteId, oppNote));
     }
 
     /* 영업기회 참고사항 삭제 */
