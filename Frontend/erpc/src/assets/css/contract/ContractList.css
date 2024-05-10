@@ -1,0 +1,52 @@
+.customer-search {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.business-number {
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    height: 30px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.search-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.align {
+    margin-bottom: 20px;
+}
+
+.contract-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contract-table th,
+.contract-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.contract-table .no-result {
+    text-align: center;
+    padding: 10px;
+}

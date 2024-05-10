@@ -1,9 +1,13 @@
 <script setup>
 import Header from './components/main/Header.vue';
 import Footer from './components/main/Footer.vue';
-import CustomerRegist from './components/customer/CustomerRegist.vue'
+
+import CustomerRegist from './components/customer/CustomerRegist.vue';
 import CustomerList from './components/customer/CustomerList.vue';
 import CustomerContents from './components/customer/CustomerContents.vue';
+
+import OrderRegist from './components/order/OrderRegist.vue';
+import OrderList from './components/order/OrderList.vue';
 </script>
 
 <template>
@@ -11,16 +15,18 @@ import CustomerContents from './components/customer/CustomerContents.vue';
   <!-- <CustomerRegist></CustomerRegist> -->
   <CustomerList></CustomerList>
   <!-- <CustomerContents></CustomerContents> -->
+  <!-- <OrderRegist></OrderRegist> -->
+  <OrderList></OrderList>
   <Footer></Footer>
 </template>
 
 <style>
 @font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
 }
 
 * {
-    font-family: GmarketSansMedium;
+  font-family: GmarketSansMedium;
 }
 </style>

@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -44,7 +45,7 @@ public class NoticeCommentServiceImpl implements NoticeCommentService{
     }
 
     @Override
-    public NoticeComment deleteNoticeComment(Long noticeCommentId) {
+    public NoticeComment deleteNoticeComment(Long noticeCommentId) throws UsernameNotFoundException {
         Optional<NoticeComment> optionalNoticeComment = noticeCommentRepository.findById(noticeCommentId);
         if (optionalNoticeComment.isEmpty()) {
             throw new EntityNotFoundException("존재하지 않는 댓글입니다.");
