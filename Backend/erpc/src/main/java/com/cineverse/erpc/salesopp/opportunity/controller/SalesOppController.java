@@ -17,22 +17,21 @@ public class SalesOppController {
     private final SalesOppService salesOppService;
 
     @Autowired
-
     public SalesOppController(SalesOppService salesOppService) {
         this.salesOppService = salesOppService;
     }
 
     /* 영업기회 등록 */
     @PostMapping("/regist")
-    public ResponseEntity<SalesOppDTO> registSalesOpp(@RequestBody SalesOppDTO newSalesOpp) {
-        salesOppService.registSalesOpp(newSalesOpp);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newSalesOpp);
+    public ResponseEntity<SalesOppDTO> registSalesOpp(@RequestBody SalesOppDTO newOpp) {
+        salesOppService.registSalesOpp(newOpp);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newOpp);
     }
 
     /* 영업기회 수정 */
     @PatchMapping("/modify/{salesOppId}")
-    public ResponseEntity<SalesOppDTO> modifySalesOpp(@RequestBody SalesOppDTO salesOpp, @PathVariable Long salesOppId) {
-        return ResponseEntity.ok(salesOppService.modifySalesOpp(salesOppId, salesOpp));
+    public ResponseEntity<SalesOpp> modifySalesOpp(@RequestBody SalesOppDTO opp, @PathVariable Long salesOppId) {
+        return ResponseEntity.ok(salesOppService.modifySalesOpp(salesOppId, opp));
     }
 
     /* 영업기회 삭제 요청 */
@@ -52,5 +51,4 @@ public class SalesOppController {
 
         return salesOpp;
     }
-
 }

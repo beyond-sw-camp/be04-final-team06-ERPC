@@ -19,29 +19,35 @@ public class SalesOpp {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long salesOppId;
 
-    @Column(name = "opp_accoutn_name")
+    @Column(name = "opp_account_name")
     private String oppAccountName;
 
-    @Column(name = "opp_accoutn_pic")
+    @Column(name = "opp_account_pic")
     private String oppAccountPic;
 
-    @Column(name = "opp_accoutn_contact")
+    @Column(name = "opp_account_contact")
     private String oppAccountContact;
 
-    @Column(name = "opp_accoutn_location")
+    @Column(name = "opp_account_location")
     private String oppAccountLocation;
 
-    @Column(name = "opp_accoutn_email")
+    @Column(name = "opp_account_email")
     private String oppAccountEmail;
 
-    @Column(name = "opp_accoutn_note")
+    @Column(name = "opp_account_note")
     private String oppAccountNote;
+
+    @Column(name = "opp_date")
+    private String oppDate;
+
+    @Column(name = "opp_delete_date")
+    private String oppDeleteDate;
 
     @JoinColumn(name = "employee_id")
     @ManyToOne
     private Employee employee;
 
-    @JoinColumn(name = "sales_opportunity_status_id")
+    @JoinColumn(name = "sales_opp_status_id")
     @ManyToOne
     private SalesOppStatus salesOppStatus;
 

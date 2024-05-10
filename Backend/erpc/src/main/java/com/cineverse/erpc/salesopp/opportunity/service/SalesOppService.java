@@ -6,9 +6,10 @@ import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
 import java.util.List;
 
 public interface SalesOppService {
-    SalesOpp registSalesOpp(SalesOppDTO newSalesOpp);
 
-    SalesOppDTO modifySalesOpp(Long salesOppId, SalesOppDTO salesOpp);
+    SalesOpp registSalesOpp(SalesOppDTO newOpp);
+
+    SalesOpp modifySalesOpp(Long salesOppId, SalesOppDTO opp);
 
     List<SalesOpp> findSalesOppList();
 

@@ -2,6 +2,7 @@ package com.cineverse.erpc.salesopp.opportunity.dto;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.vo.SalesOppStatus;
+import jakarta.persistence.Column;
 import lombok.*;
 
 @AllArgsConstructor
@@ -18,6 +19,8 @@ public class SalesOppDTO {
     private String oppAccountLocation;
     private String oppAccountEmail;
     private String oppAccountNote;
+    private String oppDate;
+    private String oppDeleteDate;
     private Employee employee;
     private SalesOppStatus salesOppStatus;
 }

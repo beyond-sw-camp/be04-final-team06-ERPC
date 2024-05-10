@@ -13,13 +13,10 @@ import lombok.*;
 @Builder
 public class SalesOppStatus {
     @Id
-    @Column(name = "sales_opportunity_status_id")
+    @Column(name = "sales_opp_status_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int salesOpportunityStatusId;
+    private int salesOppStatusId;
 
-    @Column(name = "sales_opportunity_status")
-    private int salesOpportunityStatus;
-
-    @Column(name = "sales_opp_id")
-    private int salesOppId;
+    @Column(name = "sales_opp_status")
+    private String salesOppStatus;
 }

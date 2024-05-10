@@ -22,7 +22,6 @@ public class SalesOppNoteServiceImpl implements SalesOppNoteService {
         this.salesOppNoteRepository = salesOppNoteRepository;
     }
 
-
     @Override
     public void registSalesOppNote(SalesOppNoteDTO newSalesOppNote) {
 
