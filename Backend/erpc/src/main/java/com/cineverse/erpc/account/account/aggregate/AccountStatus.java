@@ -1,4 +1,4 @@
-package com.cineverse.erpc.account.aggregate;
+package com.cineverse.erpc.account.account.aggregate;
 
 import jakarta.persistence.*;
 import lombok.Data;

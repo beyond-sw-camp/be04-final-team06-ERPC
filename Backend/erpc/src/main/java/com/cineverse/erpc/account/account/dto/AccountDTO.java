@@ -1,6 +1,6 @@
-package com.cineverse.erpc.account.dto;
+package com.cineverse.erpc.account.account.dto;
 
-import com.cineverse.erpc.account.aggregate.AccountStatus;
+import com.cineverse.erpc.account.account.aggregate.AccountStatus;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import lombok.Data;
 

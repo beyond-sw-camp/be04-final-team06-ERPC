@@ -1,11 +1,12 @@
-package com.cineverse.erpc.account.dto;
+package com.cineverse.erpc.account.account.dto;
 
-import com.cineverse.erpc.account.aggregate.AccountStatus;
+import com.cineverse.erpc.account.account.aggregate.AccountStatus;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import lombok.Data;
 
 @Data
-public class ResponseFindAccountDTO {
+public class RequestRegistAccountDTO {
+    private long accountId;
     private String accountName;
     private String corporationNum;
     private String accountRepresentitive;   // 대표
@@ -15,7 +16,6 @@ public class ResponseFindAccountDTO {
     private String accountEmail;
     private String accountNote;             // 비고
     private String accountType;             // 업종
-    private String accountCode;
     private Employee employee;
     private AccountStatus accountStatus;
 }
