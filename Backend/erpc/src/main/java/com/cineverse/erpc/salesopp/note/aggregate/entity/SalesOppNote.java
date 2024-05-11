@@ -27,6 +27,9 @@ public class SalesOppNote {
     @Column(name = "sales_opp_note_delete_date")
     private String salesOppNoteDeleteDate;
 
+    @Column(name = "sales_opp_id")
+    private int salesOppId;
+
     @JoinColumn(name = "employee_id")
     @ManyToOne
     private Employee employee;
