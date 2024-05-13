@@ -17,13 +17,13 @@ import ContractContent from './components/contract/ContractContent.vue';
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <!-- <CustomerList></CustomerList> -->
+  <CustomerList></CustomerList>
   <!-- <CustomerContents></CustomerContents> -->
   <!-- <OrderRegist></OrderRegist> -->
   <!-- <OrderList></OrderList> -->
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
-  <ContractContent></ContractContent>
+  <!-- <ContractContent></ContractContent> -->
   <Footer></Footer>
 </template>
 
