@@ -13,6 +13,8 @@ import OrderContents from './components/order/OrderContents.vue';
 import ContractRegist from './components/contract/ContractRegist.vue';
 import ContractList from './components/contract/ContractList.vue';
 import ContractContent from './components/contract/ContractContent.vue';
+
+import EstimateRegist from './components/estimate/EstimateRegist.vue';
 </script>
 
 <template>
