@@ -1,20 +1,20 @@
 <template>
-    <div class="list-content">
+    <div class="customer-list-content">
         <div class="customer-list">
             <h1>거래처 목록</h1>
         </div>
-        <div class="list-search">
-            <div class="dropdown">
-                <button class="dropdown-btn">거래처명 ▼</button>
-                <div class="dropdown-content">
-                    <a href="#">거래처명</a>
-                    <a href="#">거래처 코드</a>
+        <div class="customer-list-search">
+            <div class="customer-dropdown">
+                <button class="customer-dropdown-btn">{{ searchBy }} ▼</button>
+                <div class="customer-dropdown-content">
+                    <a href="#" @click="setSearchBy('거래처명')">거래처명</a>
+                    <a href="#" @click="setSearchBy('거래처 코드')">거래처 코드</a>
                 </div>
             </div>
-            <input type="text" class="search-input" placeholder="검색어를 입력하세요">
-            <button class="search-btn">검색</button>
+            <input type="text" class="customer-search-input" v-model="searchQuery" placeholder="검색어를 입력하세요">
+            <button class="customer-search-btn" @click="applyFilter">검색</button>
         </div>
-        <div class="list-box">
+        <div class="customer-list-box">
             <table class="customer-table">
                 <thead>
                     <tr>
@@ -29,25 +29,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>AC-20240430001</td>
-                        <td>A-회사</td>
-                        <td>123-45-67890</td>
-                        <td>홍길동</td>
-                        <td>소매업</td>
-                        <td>백화점</td>
-                        <td>000-0000-0000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>AC-20240430002</td>
-                        <td>B-회사</td>
-                        <td>234-56-78901</td>
-                        <td>이순신</td>
-                        <td>도매업</td>
-                        <td>가전제품</td>
-                        <td>111-1111-1111</td>
+                    <tr v-for="(customer, index) in filteredCustomers" :key="index">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ customer.code }}</td>
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.registration }}</td>
+                        <td>{{ customer.representative }}</td>
+                        <td>{{ customer.businessType }}</td>
+                        <td>{{ customer.industry }}</td>
+                        <td>{{ customer.phone }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -56,8 +46,35 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
+const customers = ref([
+    { code: 'AC-20240430001', name: 'A-회사', registration: '123-45-67890', representative: '홍길동', businessType: '소매업', industry: '백화점', phone: '000-0000-0000' },
+    { code: 'AC-20240430002', name: 'B-회사', registration: '234-56-78901', representative: '이순신', businessType: '도매업', industry: '가전제품', phone: '111-1111-1111' }
+]);
+const searchQuery = ref('');
+const searchBy = ref('거래처명');
+const filteredCustomers = ref(customers.value);
+
+function setSearchBy(criteria) {
+    searchBy.value = criteria;
+}
+
+function applyFilter() {
+    if (!searchQuery.value) {
+        filteredCustomers.value = customers.value;
+    } else {
+        filteredCustomers.value = customers.value.filter(customer => {
+            if (searchBy.value === '거래처명') {
+                return customer.name.includes(searchQuery.value);
+            } else if (searchBy.value === '거래처 코드') {
+                return customer.code.includes(searchQuery.value);
+            }
+        });
+    }
+}
 </script>
+
 
 <style>
     @import url('@/assets/css/customer/CustomerList.css');

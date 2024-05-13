@@ -19,14 +19,13 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <!-- <CustomerList></CustomerList> -->
+  <CustomerList></CustomerList>
   <!-- <CustomerContents></CustomerContents> -->
   <!-- <OrderRegist></OrderRegist> -->
   <!-- <OrderList></OrderList> -->
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
-  <EstimateRegist></EstimateRegist>
   <Footer></Footer>
 </template>
 
