@@ -22,7 +22,7 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
 <template>
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
-  <CustomerList></CustomerList>
+  <!-- <CustomerList></CustomerList> -->
   <!-- <CustomerContents></CustomerContents> -->
   <!-- <OrderRegist></OrderRegist> -->
   <!-- <OrderList></OrderList> -->
