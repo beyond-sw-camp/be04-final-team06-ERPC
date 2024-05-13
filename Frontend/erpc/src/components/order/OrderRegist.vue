@@ -17,12 +17,12 @@
                 <p class="contract-number-text">계약서 코드</p>
                 <input type="text" id="contract-number-box" class="contract-number-box" placeholder="계약서 코드를 입력해주세요.">
             </div>
-            <div class="order-search-btn-div">
-                <button class="order-search-btn">조회하기</button>
+            <div class="order-search-btn-div1">
+                <button class="order-search-btn1">조회하기</button>
             </div>
         </div>
-        <div class="order-list-box">
-            <table class="order-table">
+        <div class="order-list-box1">
+            <table class="order-table1">
                 <thead>
                     <tr>
                         <th>프로젝트 코드</th>
@@ -99,10 +99,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="test">
-                            <div class="order-dropdown">
-                                <button class="order-dropdown-btn">일시 납부 or 분할 납부 ▼</button>
-                                <div class="order-dropdown-content">
+                        <td class="test1">
+                            <div class="order-dropdown1">
+                                <button class="order-dropdown-btn1">일시 납부 or 분할 납부 ▼</button>
+                                <div class="order-dropdown-content1">
                                     <a href="#">일시 납부</a>
                                     <a href="#">분할 납부</a>
                                 </div>
@@ -131,8 +131,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="order-regist-btn-div">
-            <button class="order-regist-btn">수주 등록</button>
+        <div class="order-regist-btn-div1">
+            <button class="order-regist-btn1">수주 등록</button>
         </div>
     </div>
 </template>

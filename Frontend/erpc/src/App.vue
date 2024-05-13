@@ -8,6 +8,7 @@ import CustomerContents from './components/customer/CustomerContents.vue';
 
 import OrderRegist from './components/order/OrderRegist.vue';
 import OrderList from './components/order/OrderList.vue';
+import OrderContents from './components/order/OrderContents.vue';
 
 import ContractRegist from './components/contract/ContractRegist.vue';
 import ContractList from './components/contract/ContractList.vue';
@@ -16,11 +17,12 @@ import ContractContent from './components/contract/ContractContent.vue';
 
 <template>
   <Header></Header>
-  <!-- <CustomerRegist></CustomerRegist> -->
-  <CustomerList></CustomerList>
+  <CustomerRegist></CustomerRegist>
+  <!-- <CustomerList></CustomerList> -->
   <!-- <CustomerContents></CustomerContents> -->
-  <!-- <OrderRegist></OrderRegist> -->
+  <OrderRegist></OrderRegist>
   <!-- <OrderList></OrderList> -->
+  <OrderContents></OrderContents>
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
