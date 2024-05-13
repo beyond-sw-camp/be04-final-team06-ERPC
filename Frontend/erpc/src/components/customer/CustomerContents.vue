@@ -87,5 +87,5 @@
 </script>
 
 <style>
-@import url('@/assets/css/customer/CustomerContents.css');
+    @import url('@/assets/css/customer/CustomerContents.css');
 </style>

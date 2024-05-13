@@ -8,10 +8,17 @@ import CustomerContents from './components/customer/CustomerContents.vue';
 
 import OrderRegist from './components/order/OrderRegist.vue';
 import OrderList from './components/order/OrderList.vue';
+import OrderContents from './components/order/OrderContents.vue';
+
+import Deposit from './components/statement/Deposit.vue';
+import CBRequest from './components/statement/CBRequest.vue';
+import CBList from './components/statement/CBList.vue'
 
 import ContractRegist from './components/contract/ContractRegist.vue';
 import ContractList from './components/contract/ContractList.vue';
 import ContractContent from './components/contract/ContractContent.vue';
+
+import EstimateRegist from './components/estimate/EstimateRegist.vue';
 </script>
 
 <template>
@@ -21,9 +28,13 @@ import ContractContent from './components/contract/ContractContent.vue';
   <!-- <CustomerContents></CustomerContents> -->
   <!-- <OrderRegist></OrderRegist> -->
   <!-- <OrderList></OrderList> -->
+  <!-- <OrderContents></OrderContents> -->
+  <!-- <Deposit></Deposit> -->
+  <!-- <CBRequest></CBRequest> -->
+  <CBList></CBList>
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
-  <ContractContent></ContractContent>
+  <!-- <ContractContent></ContractContent> -->
   <Footer></Footer>
 </template>
 

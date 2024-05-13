@@ -63,7 +63,7 @@
     margin-right: -10px;
 }
 
-.order-list-box {
+.order-list-box1 {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@
     gap: 1px;
 }
 
-.order-table,
+.order-table1,
 .order-table2,
 .order-table3,
 .order-table4,
@@ -92,8 +92,8 @@
     font-size: 16px;
 }
 
-.order-table th,
-.order-table td,
+.order-table1 th,
+.order-table1 td,
 .order-table2 th,
 .order-table2 td,
 .order-table3 th,
@@ -108,7 +108,7 @@
     font-family: GmarketSansMedium;
 }
 
-.order-table th,
+.order-table1 th,
 .order-table2 th,
 .order-table3 th,
 .order-table4 th,
@@ -120,7 +120,7 @@
     height: 60px;
 }
 
-.order-table td,
+.order-table1 td,
 .order-table2 td,
 .order-table3 td,
 .order-table4 td,
@@ -128,12 +128,12 @@
     height: 40px;
 }
 
-.order-dropdown {
+.order-dropdown1 {
     position: relative;
     display: inline-block;
 }
 
-.order-dropdown-btn,
+.order-dropdown-btn1,
 .order-pdf1-btn {
     background-color: white;
     border: 2px solid #0C2092;
@@ -145,7 +145,7 @@
     color: #0C2092;
 }
 
-.order-dropdown-content {
+.order-dropdown-content1 {
     display: none;
     position: absolute;
     background-color: white;
@@ -156,7 +156,7 @@
     width: 100%;
 }
 
-.order-dropdown-content a {
+.order-dropdown-content1 a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -164,15 +164,15 @@
     border-bottom: 1px solid #ccc;
 }
 
-.order-dropdown-content a:hover {
+.order-dropdown-content1 a:hover {
     background-color: #f1f1f1;
 }
 
-.order-dropdown:hover .order-dropdown-content {
+.order-dropdown1:hover .order-dropdown-content1 {
     display: block;
 }
 
-.test,
+.test1,
 .test2 {
     width: 300px;
 }
@@ -220,16 +220,16 @@
     font-size: 18px;
 }
 
-.order-search-btn-div,
-.order-regist-btn-div {
+.order-search-btn-div1,
+.order-regist-btn-div1 {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 10px;
 }
 
-.order-search-btn,
-.order-regist-btn {
+.order-search-btn1,
+.order-regist-btn1 {
     padding: 10px 20px;
     font-size: 16px;
     text-align: center;
@@ -239,16 +239,17 @@
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
-.order-search-btn {
+.order-search-btn1 {
     max-width: 320px;
 }
 
-.order-regist-btn {
+.order-regist-btn1 {
     width: 320px;
     font-size: 18px;
+    margin-top: 30px;
     margin-bottom: 7%;
 }
