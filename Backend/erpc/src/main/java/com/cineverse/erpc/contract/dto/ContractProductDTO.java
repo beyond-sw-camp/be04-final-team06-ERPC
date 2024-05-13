@@ -12,7 +12,7 @@ import lombok.*;
 public class ContractProductDTO {
     private Long contractProductId;
     private int contractProductCount;
-    private String contractSupplyPrice;
+    private long contractSupplyPrice;
     private Product product;
     private int contractId;
 }

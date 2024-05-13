@@ -1,4 +1,4 @@
-package com.cineverse.erpc.contract.aggregate;
+package com.cineverse.erpc.quotation.quotation.aggregate;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,11 +7,10 @@ import lombok.Data;
 @Entity
 @Table(name = "tbl_transaction")
 public class Transaction {
-
     @Id
-    @Column(name = "transaction_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long transactionId;
+    @Column(name = "transaction_id")
+    private long transactionId;
 
     @Column(name = "transaction_date")
     private String transactionDate;
