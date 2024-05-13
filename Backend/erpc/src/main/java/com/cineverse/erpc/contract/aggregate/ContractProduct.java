@@ -18,7 +18,7 @@ public class ContractProduct {
     private int contractProductCount;
 
     @Column(name = "contract_supply_price")
-    private String contractSupplyPrice;
+    private long contractSupplyPrice;
 
     @JoinColumn(name = "product_id")
     @ManyToOne
