@@ -46,6 +46,10 @@ public class Contract {
     @ManyToOne
     private Employee employee;
 
+    @JoinColumn(name = "transaction_id")
+    @ManyToOne
+    private Transaction transaction;
+
     @JoinColumn(name = "account_id")
     @ManyToOne
     private Account account;

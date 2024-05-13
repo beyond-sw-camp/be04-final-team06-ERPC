@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ContractRepository extends JpaRepository<Contract, Long> {
     List<Contract> findByContractDeleteDateIsNull();
+
+    boolean existsByContractCode(String contractCode);
 }
