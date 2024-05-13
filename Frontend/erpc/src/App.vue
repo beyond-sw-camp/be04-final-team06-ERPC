@@ -10,6 +10,8 @@ import OrderRegist from './components/order/OrderRegist.vue';
 import OrderList from './components/order/OrderList.vue';
 import OrderContents from './components/order/OrderContents.vue';
 
+import ConfirmDeposit from './components/statement/ConfirmDeposit.vue';
+
 import ContractRegist from './components/contract/ContractRegist.vue';
 import ContractList from './components/contract/ContractList.vue';
 import ContractContent from './components/contract/ContractContent.vue';
@@ -19,12 +21,13 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
 
 <template>
   <Header></Header>
-  <CustomerRegist></CustomerRegist>
-  <!-- <CustomerList></CustomerList> -->
+  <!-- <CustomerRegist></CustomerRegist> -->
+  <CustomerList></CustomerList>
   <!-- <CustomerContents></CustomerContents> -->
-  <OrderRegist></OrderRegist>
+  <!-- <OrderRegist></OrderRegist> -->
   <!-- <OrderList></OrderList> -->
-  <OrderContents></OrderContents>
+  <!-- <OrderContents></OrderContents> -->
+  <ConfirmDeposit></ConfirmDeposit>
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
