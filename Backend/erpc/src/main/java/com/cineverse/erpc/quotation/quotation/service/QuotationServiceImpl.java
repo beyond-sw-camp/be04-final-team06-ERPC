@@ -4,6 +4,7 @@ import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.quotation.quotation.dto.RequestRegistQuotationDTO;
+import com.cineverse.erpc.quotation.quotation.dto.ResponseFindQuotationDTO;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
@@ -11,11 +12,14 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,7 +62,7 @@ public class QuotationServiceImpl implements QuotationService{
             } else {
                 transactionCode = "TA-" + registCode + random;
             }
-        } while (isTransationCodeDuplicate(transactionList, transactionCode));
+        } while (isTransactionCodeDuplicate(transactionList, transactionCode));
 
         Transaction transaction = new Transaction();
         transaction.setTransactionDate(registDate);
@@ -116,7 +120,7 @@ public class QuotationServiceImpl implements QuotationService{
         return product;
     }
 
-    private boolean isTransationCodeDuplicate(List<Transaction> transactionList, String transactionCode) {
+    private boolean isTransactionCodeDuplicate(List<Transaction> transactionList, String transactionCode) {
         for (Transaction transaction : transactionList) {
             if (transaction.getTransactionCode().equals(transactionCode)){
                 return true;
@@ -131,5 +135,23 @@ public class QuotationServiceImpl implements QuotationService{
         return transactions.stream().map(transaction -> mapper
                 .map(transaction, Transaction.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Quotation findQuotationById(long quotationId) {
+        Quotation quotation = quotationRepository.findById(quotationId)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
+
+        List<QuotationProduct> quotationProducts =
+                quotationProductRepository.findByQuotationQuotationId(quotationId);
+
+
+        quotation.setQuotationProducts(quotationProducts);
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        ResponseFindQuotationDTO responseFindQuotationDTO =
+                mapper.map(quotation, ResponseFindQuotationDTO.class);
+
+        return quotation;
     }
 }

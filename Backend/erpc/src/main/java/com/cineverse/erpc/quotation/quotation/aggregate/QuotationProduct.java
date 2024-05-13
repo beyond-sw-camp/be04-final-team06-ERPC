@@ -1,6 +1,7 @@
 package com.cineverse.erpc.quotation.quotation.aggregate;
 
 import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -29,5 +30,6 @@ public class QuotationProduct {
 
     @JoinColumn(name = "quotation_id")
     @ManyToOne
+    @JsonIgnore
     private Quotation quotation;
 }
