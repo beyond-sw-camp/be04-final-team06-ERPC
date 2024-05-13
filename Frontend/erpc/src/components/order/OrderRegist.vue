@@ -131,9 +131,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="order-regist-btn-div1">
-            <button class="order-regist-btn1">수주 등록</button>
-        </div>
     </div>
 </template>
 
