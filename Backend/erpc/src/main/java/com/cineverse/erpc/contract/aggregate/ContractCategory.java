@@ -8,11 +8,10 @@ import lombok.Data;
 @Table(name = "tbl_contract_category")
 public class ContractCategory {
     @Id
-    @Column(name = "contract_id")
+    @Column(name = "contract_category_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contractCategoryId;
 
     @Column(name = "contract_category")
     private String contractCategory;
-
 }

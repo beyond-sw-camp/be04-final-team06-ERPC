@@ -14,7 +14,7 @@ public class ContractProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long contractProductId;
 
-    @Column(name = "contract_product_conut")
+    @Column(name = "contract_product_count")
     private int contractProductCount;
 
     @Column(name = "contract_supply_price")
@@ -25,5 +25,5 @@ public class ContractProduct {
     private Product product;
 
     @Column(name = "contract_id")
-    private int contractId;
+    private long contractId;
 }
