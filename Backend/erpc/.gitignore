@@ -27,7 +27,7 @@ out/
 !**/src/test/**/out/
 
 # 추가적으로 BackEnd 디렉토리 아래의 .idea 폴더만 무시
-/BackEnd/.idea/
+/Backend/.idea/
 
 ### NetBeans ###
 /nbproject/private/
