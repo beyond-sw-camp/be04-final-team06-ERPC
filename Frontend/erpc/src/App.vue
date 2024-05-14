@@ -16,6 +16,7 @@ import CBList from './components/bill/CBList.vue'
 import CBContents from './components/bill/CBContents.vue';
 
 import YearPerformance from './components/performance/YearPerformance.vue';
+import TeamPerformance from './components/performance/TeamPerformance.vue'
 
 import ContractRegist from './components/contract/ContractRegist.vue';
 import ContractList from './components/contract/ContractList.vue';
@@ -36,7 +37,8 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
   <!-- <CBRequest></CBRequest> -->
   <!-- <CBList></CBList> -->
   <!-- <CBContents></CBContents> -->
-  <YearPerformance></YearPerformance>
+  <!-- <YearPerformance></YearPerformance> -->
+  <TeamPerformance></TeamPerformance>
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
