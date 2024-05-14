@@ -1,0 +1,295 @@
+.cbtext {
+    margin-bottom: 50px;
+}
+
+.cb-search-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.cb-search,
+.cb-status,
+.cb-search3 {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.cb-status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #CCEAFF;
+    border: 2px solid #CCEAFF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 400px;
+    height: 90px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+    gap: 70px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+.cb-status-result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 3px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 18px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 330px;
+    height: 50px;
+}
+
+
+.cb-search-box3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.cb-search-box3 {
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    /* 자식 요소들을 부모 높이에 맞춰 늘림 */
+    width: 100%;
+    /* 전체 너비 사용 */
+    max-width: 800px;
+    /* 최대 너비 설정 */
+    margin: 20px auto;
+    gap: 20px;
+    /* 섹션 사이의 간격을 조정 */
+}
+
+
+.left3,
+.right3 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    /* 양쪽 높이를 동일하게 맞춤 */
+    align-items: stretch;
+    /* 내부 요소 높이를 맞춤 */
+}
+
+.project-code3,
+.customer-code3,
+.business-number3,
+.business-name3,
+.ceo-name3,
+.billing3,
+.deposit-code3,
+.deposit-date3,
+.corporation3,
+.industry3,
+.industry-detail3,
+.address3,
+.call3,
+.email3,
+.deposit-amount3,
+.remark3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.deposit-date3,
+.remark3 {
+    margin-bottom: 15px;
+}
+
+.project-code-text3,
+.customer-code-text3,
+.business-number-text3,
+.business-name-text3,
+.ceo-name-text3,
+.billing-text3,
+.deposit-code-text3,
+.deposit-date-text3,
+.corporation-text3,
+.industry-text3,
+.industry-detail-text3,
+.address-text3,
+.call-text3,
+.email-text3,
+.deposit-amount-text3,
+.remark-text3 {
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.project-code-text3,
+.customer-code-text3,
+.business-number-text3,
+.business-name-text3,
+.ceo-name-text3,
+.billing-text3,
+.deposit-code-text3,
+.deposit-date-text3 {
+    margin-top: 15px;
+    row-gap: 10px;
+}
+
+.corporation-text3,
+.industry-text3,
+.industry-detail-text3,
+.address-text3,
+.call-text3,
+.email-text3,
+.deposit-amount-text3,
+.remark-text3 {
+    margin-top: 16px;
+}
+
+.project-code-box3,
+.customer-code-box3,
+.business-number-box3,
+.business-name-box3,
+.ceo-name-box3,
+.billing-box3,
+.deposit-code-box3,
+.deposit-date-box3,
+.corporation-box3,
+.industry-box3,
+.industry-detail-box3,
+.address-box3,
+.call-box3,
+.email-box3,
+.deposit-amount-box3,
+.remark-box3 {
+    width: 100%;
+    max-width: 320px;
+    flex-grow: 1;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 320px;
+    text-align: left;
+    font-family: GmarketSansMedium;
+    font-size: 16px;
+    cursor: default;
+    background-color: white;
+}
+
+.deposit-code-box3 {
+    background-color: #CCEAFF;
+}
+
+.order1-pdf,
+.reason-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #CCEAFF;
+    border: 2px solid #CCEAFF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 800px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+    margin-top: 30px;
+}
+
+.order1-pdf {
+    height: 90px;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.reason-box {
+    height: 240px;
+    flex-direction: column;
+    margin-bottom: 7%;
+}
+
+.reason-text {
+    margin-top: -2px;
+    margin-bottom: 6px;
+}
+
+.reason-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 730px;
+    height: 150px;
+}
+
+.order1-pdf1,
+.order1-pdf2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 330px;
+}
+
+.order1-pdf1:hover,
+.order1-pdf2:hover {
+    background-color: #d5e6ff;
+}
+
+.pdfimage1,
+.pdfimage2 {
+    width: 30px;
+    height: auto;
+    margin-left: 5px;
+    margin-right: -10px;
+}

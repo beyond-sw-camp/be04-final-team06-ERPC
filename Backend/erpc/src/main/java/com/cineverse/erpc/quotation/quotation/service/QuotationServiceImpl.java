@@ -3,7 +3,7 @@ package com.cineverse.erpc.quotation.quotation.service;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
-import com.cineverse.erpc.quotation.quotation.dto.RequestRegistQuotationDTO;
+import com.cineverse.erpc.quotation.quotation.dto.*;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,7 +59,7 @@ public class QuotationServiceImpl implements QuotationService{
             } else {
                 transactionCode = "TA-" + registCode + random;
             }
-        } while (isTransationCodeDuplicate(transactionList, transactionCode));
+        } while (isTransactionCodeDuplicate(transactionList, transactionCode));
 
         Transaction transaction = new Transaction();
         transaction.setTransactionDate(registDate);
@@ -116,7 +117,7 @@ public class QuotationServiceImpl implements QuotationService{
         return product;
     }
 
-    private boolean isTransationCodeDuplicate(List<Transaction> transactionList, String transactionCode) {
+    private boolean isTransactionCodeDuplicate(List<Transaction> transactionList, String transactionCode) {
         for (Transaction transaction : transactionList) {
             if (transaction.getTransactionCode().equals(transactionCode)){
                 return true;
@@ -132,4 +133,80 @@ public class QuotationServiceImpl implements QuotationService{
                 .map(transaction, Transaction.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Quotation findQuotationById(long quotationId) {
+        Quotation quotation = quotationRepository.findById(quotationId)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
+
+        List<QuotationProduct> quotationProducts =
+                quotationProductRepository.findByQuotationQuotationId(quotationId);
+
+
+        quotation.setQuotationProduct(quotationProducts);
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        ResponseFindQuotationDTO responseFindQuotationDTO =
+                mapper.map(quotation, ResponseFindQuotationDTO.class);
+
+        return quotation;
+    }
+
+    @Override
+    public List<QuotationDTO> findAllQuotations() {
+        List<Quotation> quotations = quotationRepository.findAll();
+
+        return quotations.stream().map(quotation -> mapper
+                .map(quotation, QuotationDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional
+    public ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation) {
+        Quotation modifyQuotation = quotationRepository.findById(quotationId)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
+
+        if (!quotation.getQuotationProduct().isEmpty()) {
+            for (QuotationProduct product : quotation.getQuotationProduct()) {
+                QuotationProduct quotationProduct = modifyQuotationProduct(product, modifyQuotation);
+            }
+        }
+        if (quotation.getQuotationNote() != null) {
+            modifyQuotation.setQuotationNote(quotation.getQuotationNote());
+        }
+        if (quotation.getQuotationTotalCost() != 0) {
+            modifyQuotation.setQuotationTotalCost(quotation.getQuotationTotalCost());
+        }
+        if (quotation.getQuotationDueDate() != null) {
+            modifyQuotation.setQuotationDueDate(quotation.getQuotationDueDate());
+        }
+        if (quotation.getEmployee() != null) {
+            modifyQuotation.setEmployee(quotation.getEmployee());
+        }
+        if (quotation.getAccount() != null) {
+            modifyQuotation.setAccount(quotation.getAccount());
+        }
+        if (quotation.getWarehouse() != null) {
+            modifyQuotation.setWarehouse(quotation.getWarehouse());
+        }
+
+        quotationRepository.save(modifyQuotation);
+
+        ResponseModifyQuotationDTO responseModifyQuotation =
+                mapper.map(modifyQuotation, ResponseModifyQuotationDTO.class);
+
+        return responseModifyQuotation;
+    }
+
+    /* 수정필요 */
+    private QuotationProduct modifyQuotationProduct(QuotationProduct product, Quotation modifyQuotation) {
+        quotationProductRepository.deleteAllByQuotationQuotationId(modifyQuotation.getQuotationId());
+
+        product.setQuotation(modifyQuotation);
+        QuotationProduct quotationProduct = quotationProductRepository.save(product);
+
+        return quotationProduct;
+    }
+
 }

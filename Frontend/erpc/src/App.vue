@@ -10,9 +10,10 @@ import OrderRegist from './components/order/OrderRegist.vue';
 import OrderList from './components/order/OrderList.vue';
 import OrderContents from './components/order/OrderContents.vue';
 
-import Deposit from './components/statement/Deposit.vue';
-import CBRequest from './components/statement/CBRequest.vue';
-import CBList from './components/statement/CBList.vue'
+import Deposit from './components/bill/Deposit.vue';
+import CBRequest from './components/bill/CBRequest.vue';
+import CBList from './components/bill/CBList.vue'
+import CBContents from './components/bill/CBContents.vue';
 
 import ContractRegist from './components/contract/ContractRegist.vue';
 import ContractList from './components/contract/ContractList.vue';
@@ -31,7 +32,8 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
   <!-- <OrderContents></OrderContents> -->
   <!-- <Deposit></Deposit> -->
   <!-- <CBRequest></CBRequest> -->
-  <CBList></CBList>
+  <!-- <CBList></CBList> -->
+  <CBContents></CBContents>
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
