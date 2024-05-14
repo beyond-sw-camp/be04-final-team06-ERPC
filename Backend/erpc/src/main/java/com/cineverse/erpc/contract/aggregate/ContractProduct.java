@@ -1,6 +1,7 @@
 package com.cineverse.erpc.contract.aggregate;
 
 import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,9 +11,9 @@ import lombok.Data;
 public class ContractProduct {
 
     @Id
-    @Column(name = "contract_product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long contractProductId;
+    @Column(name = "contract_product_id")
+    private int contractProductId;
 
     @Column(name = "contract_product_count")
     private int contractProductCount;
@@ -20,10 +21,15 @@ public class ContractProduct {
     @Column(name = "contract_supply_price")
     private long contractSupplyPrice;
 
+    @Column(name = "contract_production_note")
+    private String contractProductionNote;
+
     @JoinColumn(name = "product_id")
     @ManyToOne
     private Product product;
 
-    @Column(name = "contract_id")
-    private long contractId;
+    @JoinColumn(name = "contract_id")
+    @ManyToOne
+    @JsonIgnore
+    private Contract contract;
 }
