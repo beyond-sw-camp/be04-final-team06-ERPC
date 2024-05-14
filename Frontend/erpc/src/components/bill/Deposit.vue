@@ -68,5 +68,5 @@ function applyFilter() {
 </script>
 
 <style>
-    @import url('@/assets/css/statement/Deposit.css');
+    @import url('@/assets/css/bill/Deposit.css');
 </style>

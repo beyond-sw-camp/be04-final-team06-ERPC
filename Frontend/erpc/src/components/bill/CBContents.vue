@@ -5,7 +5,7 @@
             <h2>승인 결과</h2>
         </div>
         <div class="cb-status">
-            <button class="cb-status-result">진행중</button>
+            <button class="cb-status-result">반려</button>
         </div>
         <div class="cb-search3">
             <h2>세금계산서 발행 정보</h2>
@@ -100,5 +100,5 @@
 </script>
 
 <style>
-    @import url('@/assets/css/statement/CBContents.css');
+    @import url('@/assets/css/bill/CBContents.css');
 </style>

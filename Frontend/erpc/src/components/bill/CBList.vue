@@ -65,5 +65,5 @@ function applyFilter() {
 </script>
 
 <style>
-    @import url('@/assets/css/statement/CBList.css');
+    @import url('@/assets/css/bill/CBList.css');
 </style>

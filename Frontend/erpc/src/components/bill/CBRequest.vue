@@ -109,5 +109,5 @@
 </script>
 
 <style>
-    @import url('@/assets/css/statement/CBRequest.css');
+    @import url('@/assets/css/bill/CBRequest.css');
 </style>
