@@ -53,5 +53,5 @@ public class Quotation {
     private Warehouse warehouse;
 
     @OneToMany(mappedBy = "quotation", cascade = CascadeType.ALL)
-    private List<QuotationProduct> quotationProducts = new ArrayList<>();
+    private List<QuotationProduct> quotationProduct = new ArrayList<>();
 }

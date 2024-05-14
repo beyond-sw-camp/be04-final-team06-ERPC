@@ -1,9 +1,7 @@
 package com.cineverse.erpc.quotation.quotation.controller;
 
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
-import com.cineverse.erpc.quotation.quotation.dto.RequestRegistQuotationDTO;
-import com.cineverse.erpc.quotation.quotation.dto.ResponseFindQuotationDTO;
-import com.cineverse.erpc.quotation.quotation.dto.ResponseRegistQuotationDTO;
+import com.cineverse.erpc.quotation.quotation.dto.*;
 import com.cineverse.erpc.quotation.quotation.service.QuotationService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -11,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/quotation")
@@ -37,9 +37,25 @@ public class QuotationController {
     }
 
     @GetMapping("/{quotationId}")
-    public Quotation fincQuotationByQuotationId(@PathVariable long quotationId) {
+    public Quotation findQuotationByQuotationId(@PathVariable long quotationId) {
         Quotation quotation = quotationService.findQuotationById(quotationId);
 
         return quotation;
+    }
+
+    @GetMapping()
+    public List<QuotationDTO> findAllQuotations() {
+        List<QuotationDTO> quotations = quotationService.findAllQuotations();
+
+        return quotations;
+    }
+
+    @PatchMapping("/modify/{quotationId}")
+    public ResponseEntity<ResponseModifyQuotationDTO> modifyQuotation(@PathVariable long quotationId,
+                                                                      @RequestBody RequestModifyQuotationDTO quotation){
+        ResponseModifyQuotationDTO  responseModifyQuotationDTO =
+                quotationService.modifyQuotation(quotationId, quotation);
+
+        return ResponseEntity.ok().body(responseModifyQuotationDTO);
     }
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface QuotationProductRepository extends JpaRepository<QuotationProduct, Integer> {
 
     List<QuotationProduct> findByQuotationQuotationId(long quotationId);
+
+    void deleteAllByQuotationQuotationId(long quotationId);
 }
