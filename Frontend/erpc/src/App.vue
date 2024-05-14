@@ -29,7 +29,7 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
   <Header></Header>
   <!-- <CustomerRegist></CustomerRegist> -->
   <!-- <CustomerList></CustomerList> -->
-  <!-- <CustomerContents></CustomerContents> -->
+  <CustomerContents></CustomerContents>
   <!-- <OrderRegist></OrderRegist> -->
   <!-- <OrderList></OrderList> -->
   <!-- <OrderContents></OrderContents> -->
@@ -38,7 +38,7 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
   <!-- <CBList></CBList> -->
   <!-- <CBContents></CBContents> -->
   <!-- <YearPerformance></YearPerformance> -->
-  <TeamPerformance></TeamPerformance>
+  <!-- <TeamPerformance></TeamPerformance> -->
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
