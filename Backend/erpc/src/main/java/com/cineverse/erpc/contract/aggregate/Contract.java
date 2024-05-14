@@ -67,5 +67,5 @@ public class Contract {
     private ContractCategory contractCategory;
 
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ContractProduct> contractProducts = new ArrayList<>();
+    private List<ContractProduct> contractProduct = new ArrayList<>();
 }

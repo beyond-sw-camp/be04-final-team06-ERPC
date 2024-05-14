@@ -84,7 +84,7 @@ public class ContractServiceImpl implements ContractService {
                 cp.setContract(newContract);  // 각 ContractProduct에 Contract 설정
                 contractProducts.add(cp);
             }
-            newContract.setContractProducts(contractProducts);
+            newContract.setContractProduct(contractProducts);
         }
 
         newContract = contractRepository.save(newContract);
@@ -125,7 +125,7 @@ public class ContractServiceImpl implements ContractService {
         List<ContractProduct> contractProductList =
                 contractProductRepository.findByContractContractId(contractId);
 
-        contract.setContractProducts(contractProductList);
+        contract.setContractProduct(contractProductList);
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         ContractDTO contractDTO = modelMapper.map(contract, ContractDTO.class);
