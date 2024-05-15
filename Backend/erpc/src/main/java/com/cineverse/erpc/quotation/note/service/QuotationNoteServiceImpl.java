@@ -39,6 +39,7 @@ public class QuotationNoteServiceImpl implements QuotationNoteService{
         quotationNoteRepository.save(quotationNote);
     }
 
+    /* pr테스트 */
     @Override
     public List<ResponseFindAllQuotationNotesDTO> findAllQuotationNotes(long quotationId) {
         List<QuotationNote> quotationNotes = quotationNoteRepository.findByQuotationQuotationId(quotationId);
