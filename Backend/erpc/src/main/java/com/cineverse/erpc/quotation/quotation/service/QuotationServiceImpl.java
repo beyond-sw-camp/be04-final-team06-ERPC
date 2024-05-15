@@ -162,7 +162,7 @@ public class QuotationServiceImpl implements QuotationService{
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation) {
         Quotation modifyQuotation = quotationRepository.findById(quotationId)
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
