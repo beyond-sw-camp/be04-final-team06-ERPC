@@ -79,6 +79,13 @@
                 <button class="project-employee-box" id="project-employee-box">민중원</button>
             </div>
         </div>
+        <div class="customer-process-box">
+            <h2 class="customer-process-text">Process</h2>
+            <div class="customer-process-box-detail">
+                <h4 class="customer-process-writer">민중원 과장</h4>
+                <button class="customer-process-detail">해당 거래처는 납기 일자 꼭 지켜야 됩니다~ 벌써 클레임 전화 10통 받았어요.</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -87,5 +94,5 @@
 </script>
 
 <style>
-    @import url('@/assets/css/customer/CustomerContents.css');
+@import url('@/assets/css/customer/CustomerContents.css');
 </style>

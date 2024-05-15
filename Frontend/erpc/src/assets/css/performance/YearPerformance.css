@@ -1,4 +1,4 @@
-.customer-list-content {
+.year-list-content {
     margin-top: 4%;
     display: flex;
     flex-direction: column;
@@ -6,12 +6,15 @@
     padding: 20px;
 }
 
-.customer-list {
+.year-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin-top: 3%;
 }
 
-.customer-list-search {
+.year-list-search {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,16 +22,15 @@
     gap: 10px;
 }
 
-.customer-dropdown {
+.year-dropdown {
     position: relative;
     display: inline-block;
 }
 
-.customer-dropdown-btn {
+.year-dropdown-btn {
     width: 200px;
-    height: 40px;
-    background-color: white;
-    border: 2px solid #0C2092;
+    background-color: #E5F7FE;
+    border: 3px solid #0C2092;
     border-radius: 10px;
     padding: 6px 30px;
     font-size: 16px;
@@ -37,7 +39,7 @@
     color: #0C2092;
 }
 
-.customer-dropdown-content {
+.year-dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
@@ -48,7 +50,7 @@
     width: 100%;
 }
 
-.customer-dropdown-content a {
+.year-dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -56,42 +58,15 @@
     border-bottom: 1px solid #ccc;
 }
 
-.customer-dropdown-content a:hover {
-    background-color: #f1f1f1;
+.year-dropdown-content a:hover {
+    background-color: #E5F7FE;
 }
 
-.customer-dropdown:hover .customer-dropdown-content {
+.year-dropdown:hover .year-dropdown-content {
     display: block;
 }
 
-.customer-search-input {
-    max-width: 300px;
-    height: 12px;
-    padding: 10px;
-    border: 2px solid #0C2092;
-    border-radius: 10px;
-    outline: none;
-    font-size: 16px;
-    background-color: #E5F0FF;
-    color: #0C2092;
-}
-
-.customer-search-btn {
-    background-color: #0C2092;
-    border: none;
-    color: white;
-    padding: 10px 8px;
-    width: 70px;
-    height: 42px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    outline: none;
-}
-
-.customer-list-box {
+.year-list-box {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -109,28 +84,32 @@
     gap: 1px;
 }
 
-.customer-table {
+.year-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
 }
 
-.customer-table th,
-.customer-table td {
+.year-table th,
+.year-table td {
     text-align: center;
     border: 1px solid #ccc;
-    padding: 8px;
+    padding: 13px;
     font-family: GmarketSansMedium;
 }
 
-.customer-table th {
+.year-table th {
     background-color: #0C2092;
     color: white;
     font-size: 18px;
     padding: 10px;
 }
 
-.customer-table tr:hover {
-    background-color: #d5e6ff;
+.quarter-row {
+    background-color: #E5F7FE;
+}
+
+.total-row {
+    background-color: #F6E5FF;
 }

@@ -2,10 +2,14 @@ package com.cineverse.erpc.contract.dto;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
+import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.entity.Warehouse;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,4 +33,5 @@ public class ContractDTO {
     private Account account;
     private Warehouse warehouse;
     private ContractCategory contractCategory;
+    private List<ContractProduct> contractProduct;
 }

@@ -168,6 +168,7 @@ public class QuotationServiceImpl implements QuotationService{
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
 
         if (!quotation.getQuotationProduct().isEmpty()) {
+            quotationProductRepository.deleteAllByQuotationQuotationId(modifyQuotation.getQuotationId());
             for (QuotationProduct product : quotation.getQuotationProduct()) {
                 QuotationProduct quotationProduct = modifyQuotationProduct(product, modifyQuotation);
             }
@@ -201,8 +202,6 @@ public class QuotationServiceImpl implements QuotationService{
 
     /* 수정필요 */
     private QuotationProduct modifyQuotationProduct(QuotationProduct product, Quotation modifyQuotation) {
-        quotationProductRepository.deleteAllByQuotationQuotationId(modifyQuotation.getQuotationId());
-
         product.setQuotation(modifyQuotation);
         QuotationProduct quotationProduct = quotationProductRepository.save(product);
 

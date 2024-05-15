@@ -5,18 +5,21 @@ import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
 import com.cineverse.erpc.contract.repository.ContractProductRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
+import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.cineverse.erpc.product.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.lang.invoke.CallSite;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,12 +28,17 @@ public class ContractServiceImpl implements ContractService {
     private final ModelMapper modelMapper;
     private final ContractRepository contractRepository;
     private final ContractProductRepository contractProductRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public ContractServiceImpl(ModelMapper modelMapper, ContractRepository contractRepository, ContractProductRepository contractProductRepository) {
+    public ContractServiceImpl(ModelMapper modelMapper,
+                               ContractRepository contractRepository,
+                               ContractProductRepository contractProductRepository,
+                               ProductRepository productRepository) {
         this.modelMapper = modelMapper;
         this.contractRepository = contractRepository;
         this.contractProductRepository = contractProductRepository;
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -40,23 +48,21 @@ public class ContractServiceImpl implements ContractService {
         Date date = new Date();
         SimpleDateFormat dateFormatForCode = new SimpleDateFormat("yyyyMMdd");
         SimpleDateFormat dateFormatForRegist = new SimpleDateFormat("yyyy-MM-dd");
-
-        // contractCode에 들어갈 날짜 형식
-        String dateForCode = dateFormatForCode.format(date);
-
-        // registDate에 들어갈 날짜 형식
+        String codeDate = dateFormatForCode.format(date);
         String registDate = dateFormatForRegist.format(date);
+
         contractDTO.setContractDate(registDate);
 
         String contractCode;
+
         do {
             int random = (int) (Math.random() * 999) + 1;
             if (0 <= random && random <= 9) {
-                contractCode = "CT-" + dateForCode + "00" + random;
+                contractCode = "CT-" + codeDate + "00" + random;
             } else if (10 <= random && random <= 99) {
-                contractCode = "CT-" + dateForCode + "0" + random;
+                contractCode = "CT-" + codeDate + "0" + random;
             } else {
-                contractCode = "CT-" + dateForCode + random;
+                contractCode = "CT-" + codeDate + random;
             }
         } while (isContractCodeDuplicate(contractCode));
 
@@ -65,8 +71,20 @@ public class ContractServiceImpl implements ContractService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Contract newContract = modelMapper.map(contractDTO, Contract.class);
 
-        newContract = contractRepository.save(newContract);
+        if (contractDTO.getContractProduct() != null) {
+            List<ContractProduct> contractProducts = new ArrayList<>();
+            for (ContractProduct cpDTO : contractDTO.getContractProduct()) {
+                ContractProduct cp = modelMapper.map(cpDTO, ContractProduct.class);
+                Product product = productRepository.findById(cpDTO.getProduct().getProductId())
+                        .orElseThrow(() -> new RuntimeException("Product not found"));
+                cp.setProduct(product);
+                cp.setContract(newContract);
+                contractProducts.add(cp);
+            }
+            newContract.setContractProduct(contractProducts);
+        }
 
+        newContract = contractRepository.save(newContract);
         return newContract;
     }
 
@@ -83,7 +101,55 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     @Transactional
-    public Contract modifyContract(Long contractId, ContractDTO contract) {
+    public Contract modifyContract(Long contractId, ContractDTO contract) throws UsernameNotFoundException {
+        Optional<Contract> optionalContract = contractRepository.findById(contractId);
+
+        if(optionalContract.isEmpty()) {
+            throw new EntityNotFoundException("존재하지 않는 계약서입니다.");
+        }
+
+        Contract modCont = optionalContract.get();
+
+        if (contract.getContractNote() != null) {
+            modCont.setContractNote(contract.getContractNote());
+        }
+
+        if (contract.getContractTotalPrice() != null) {
+            modCont.setContractTotalPrice(contract.getContractTotalPrice());
+        }
+
+        if (contract.getContractDueDate() != null) {
+            modCont.setContractDueDate(contract.getContractDueDate());
+        }
+
+        if (contract.getDownPayment() != null) {
+            modCont.setDownPayment(contract.getDownPayment());
+        }
+
+        if (contract.getProgressPayment() != null) {
+            modCont.setProgressPayment(contract.getProgressPayment());
+        }
+
+        if (contract.getBalance() != null) {
+            modCont.setBalance(contract.getBalance());
+        }
+
+        if (contract.getEmployee() != null) {
+            modCont.setEmployee(contract.getEmployee());
+        }
+
+        if (contract.getAccount() != null) {
+            modCont.setAccount(contract.getAccount());
+        }
+
+        if (contract.getWarehouse() != null) {
+            modCont.setWarehouse(contract.getWarehouse());
+        }
+
+        return contractRepository.save(modCont);
+    }
+
+    private ContractProduct modifyContractProduct(ContractProduct product, Contract modifyContract) {
         return null;
     }
 
@@ -101,7 +167,14 @@ public class ContractServiceImpl implements ContractService {
         Contract contract = contractRepository.findById(contractId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
+        List<ContractProduct> contractProductList =
+                contractProductRepository.findByContractContractId(contractId);
+
+        contract.setContractProduct(contractProductList);
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         ContractDTO contractDTO = modelMapper.map(contract, ContractDTO.class);
+
         return contractDTO;
     }
 

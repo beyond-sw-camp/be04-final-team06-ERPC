@@ -7,13 +7,16 @@ import com.cineverse.erpc.warehouse.aggregate.entity.Warehouse;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "tbl_contract")
 public class Contract {
     @Id
-    @Column(name = "contract_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "contract_id")
     private Long contractId;
 
     @Column(name = "contract_date")
@@ -62,4 +65,7 @@ public class Contract {
     @JoinColumn(name = "contract_category_id")
     @ManyToOne
     private ContractCategory contractCategory;
+
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ContractProduct> contractProduct = new ArrayList<>();
 }
