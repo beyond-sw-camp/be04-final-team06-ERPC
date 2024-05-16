@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private ModelMapper mapper;
-    private OrderRepository orderRepository;
-    private OrderProductRepository orderProductRepository;
+    private final ModelMapper mapper;
+    private final OrderRepository orderRepository;
+    private final OrderProductRepository orderProductRepository;
 
     @Autowired
     public OrderServiceImpl(ModelMapper mapper,
