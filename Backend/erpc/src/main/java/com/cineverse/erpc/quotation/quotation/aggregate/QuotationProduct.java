@@ -13,7 +13,7 @@ public class QuotationProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quotation_product_id")
-    private int quotationProductId;
+    private long quotationProductId;
 
     @Column(name = "quotation_product_count")
     private int quotationProductCount;

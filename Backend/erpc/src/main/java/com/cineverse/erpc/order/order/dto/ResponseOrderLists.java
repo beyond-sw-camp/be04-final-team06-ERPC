@@ -1,0 +1,23 @@
+package com.cineverse.erpc.order.order.dto;
+
+import com.cineverse.erpc.account.account.aggregate.Account;
+import com.cineverse.erpc.contract.aggregate.ContractCategory;
+import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.order.order.aggregate.OrderProduct;
+import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
+import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
+import com.cineverse.erpc.warehouse.aggregate.entity.Warehouse;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+public class ResponseOrderLists {
+    private long orderTotalPrice;
+    private String depositDate;
+    private String orderDate;
+    private Account account;
+    private Employee employee;
+    private Transaction transaction;
+    private ShipmentStatus shipmentStatus;
+}

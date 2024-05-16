@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface QuotationProductRepository extends JpaRepository<QuotationProduct, Integer> {
+public interface QuotationProductRepository extends JpaRepository<QuotationProduct, Long> {
 
     List<QuotationProduct> findByQuotationQuotationId(long quotationId);
 
