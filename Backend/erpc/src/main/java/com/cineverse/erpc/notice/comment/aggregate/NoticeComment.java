@@ -1,4 +1,4 @@
-package com.cineverse.erpc.notice.comment.aggregate.entity;
+package com.cineverse.erpc.notice.comment.aggregate;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import jakarta.persistence.*;

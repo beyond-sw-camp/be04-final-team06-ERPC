@@ -1,11 +1,9 @@
 package com.cineverse.erpc.notice.comment.controller;
 
-import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
-import com.cineverse.erpc.notice.comment.aggregate.entity.NoticeComment;
+import com.cineverse.erpc.notice.comment.aggregate.NoticeComment;
 import com.cineverse.erpc.notice.comment.dto.NoticeCommentDTO;
 import com.cineverse.erpc.notice.comment.service.NoticeCommentService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

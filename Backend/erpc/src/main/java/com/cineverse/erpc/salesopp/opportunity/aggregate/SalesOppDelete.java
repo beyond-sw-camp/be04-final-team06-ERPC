@@ -1,4 +1,4 @@
-package com.cineverse.erpc.salesopp.opportunity.aggregate.vo;
+package com.cineverse.erpc.salesopp.opportunity.aggregate;
 
 import jakarta.persistence.*;
 import lombok.*;

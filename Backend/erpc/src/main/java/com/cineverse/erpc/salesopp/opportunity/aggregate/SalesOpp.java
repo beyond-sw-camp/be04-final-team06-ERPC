@@ -1,4 +1,4 @@
-package com.cineverse.erpc.salesopp.opportunity.aggregate.entity;
+package com.cineverse.erpc.salesopp.opportunity.aggregate;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import jakarta.persistence.*;

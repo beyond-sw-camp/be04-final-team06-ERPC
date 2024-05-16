@@ -1,6 +1,6 @@
 package com.cineverse.erpc.salesopp.note.repository;
 
-import com.cineverse.erpc.salesopp.note.aggregate.entity.SalesOppNote;
+import com.cineverse.erpc.salesopp.note.aggregate.SalesOppNote;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

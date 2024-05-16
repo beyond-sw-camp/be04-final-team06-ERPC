@@ -1,6 +1,6 @@
 package com.cineverse.erpc.product.controller;
 
-import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.cineverse.erpc.product.aggregate.Product;
 import com.cineverse.erpc.product.dto.ProductDTO;
 import com.cineverse.erpc.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

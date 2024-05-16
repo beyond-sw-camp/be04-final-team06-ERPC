@@ -1,6 +1,6 @@
 package com.cineverse.erpc.notice.board.service;
 
-import com.cineverse.erpc.notice.board.aggregate.entity.NoticeBoard;
+import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
 
 import java.util.List;

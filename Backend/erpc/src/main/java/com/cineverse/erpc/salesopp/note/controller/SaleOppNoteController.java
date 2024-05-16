@@ -1,6 +1,6 @@
 package com.cineverse.erpc.salesopp.note.controller;
 
-import com.cineverse.erpc.salesopp.note.aggregate.entity.SalesOppNote;
+import com.cineverse.erpc.salesopp.note.aggregate.SalesOppNote;
 import com.cineverse.erpc.salesopp.note.dto.SalesOppNoteDTO;
 import com.cineverse.erpc.salesopp.note.service.SalesOppNoteService;
 import org.springframework.beans.factory.annotation.Autowired;

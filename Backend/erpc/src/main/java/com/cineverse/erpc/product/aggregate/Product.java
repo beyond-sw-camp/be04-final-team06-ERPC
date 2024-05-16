@@ -1,4 +1,4 @@
-package com.cineverse.erpc.product.aggregate.entity;
+package com.cineverse.erpc.product.aggregate;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.cineverse.erpc.notice.board.aggregate.entity;
+package com.cineverse.erpc.notice.board.aggregate;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.aggregate.Team;

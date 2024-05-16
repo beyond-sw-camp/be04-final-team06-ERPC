@@ -5,7 +5,7 @@ import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
 import com.cineverse.erpc.contract.repository.ContractProductRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
-import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.cineverse.erpc.product.aggregate.Product;
 import com.cineverse.erpc.product.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;

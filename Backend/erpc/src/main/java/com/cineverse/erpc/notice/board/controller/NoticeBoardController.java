@@ -1,6 +1,6 @@
 package com.cineverse.erpc.notice.board.controller;
 
-import com.cineverse.erpc.notice.board.aggregate.entity.NoticeBoard;
+import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
 import com.cineverse.erpc.notice.board.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
