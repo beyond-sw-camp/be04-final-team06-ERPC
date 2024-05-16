@@ -1,6 +1,6 @@
 package com.cineverse.erpc.contract.dto;
 
-import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.cineverse.erpc.product.aggregate.Product;
 import lombok.*;
 
 @AllArgsConstructor

@@ -1,6 +1,6 @@
 package com.cineverse.erpc.salesopp.note.service;
 
-import com.cineverse.erpc.salesopp.note.aggregate.entity.SalesOppNote;
+import com.cineverse.erpc.salesopp.note.aggregate.SalesOppNote;
 import com.cineverse.erpc.salesopp.note.dto.SalesOppNoteDTO;
 import com.cineverse.erpc.salesopp.note.repository.SalesOppNoteRepository;
 import jakarta.persistence.EntityNotFoundException;

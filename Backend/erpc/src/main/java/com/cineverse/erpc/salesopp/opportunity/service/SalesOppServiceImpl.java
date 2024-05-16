@@ -1,6 +1,6 @@
 package com.cineverse.erpc.salesopp.opportunity.service;
 
-import com.cineverse.erpc.salesopp.opportunity.aggregate.entity.SalesOpp;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
 import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppRepository;
 import jakarta.persistence.EntityNotFoundException;

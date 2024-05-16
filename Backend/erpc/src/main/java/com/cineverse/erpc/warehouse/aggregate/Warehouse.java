@@ -1,4 +1,4 @@
-package com.cineverse.erpc.warehouse.aggregate.entity;
+package com.cineverse.erpc.warehouse.aggregate;
 
 import jakarta.persistence.*;
 import lombok.*;

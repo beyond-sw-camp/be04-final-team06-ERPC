@@ -1,6 +1,6 @@
 package com.cineverse.erpc.warehouse.controller;
 
-import com.cineverse.erpc.warehouse.aggregate.entity.Warehouse;
+import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import com.cineverse.erpc.warehouse.service.WarehouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

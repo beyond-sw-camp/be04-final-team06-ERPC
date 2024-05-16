@@ -1,6 +1,6 @@
 package com.cineverse.erpc.salesopp.opportunity.controller;
 
-import com.cineverse.erpc.salesopp.opportunity.aggregate.entity.SalesOpp;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
 import com.cineverse.erpc.salesopp.opportunity.service.SalesOppService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.cineverse.erpc.notice.board.service;
 
-import com.cineverse.erpc.notice.board.aggregate.entity.NoticeBoard;
+import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
 import com.cineverse.erpc.notice.board.repository.NoticeBoardRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -10,7 +10,6 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PatchMapping;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
