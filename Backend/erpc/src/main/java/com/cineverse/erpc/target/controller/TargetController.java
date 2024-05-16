@@ -3,9 +3,7 @@ package com.cineverse.erpc.target.controller;
 import com.cineverse.erpc.target.aggregate.Target;
 import com.cineverse.erpc.target.service.TargetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,15 +18,33 @@ public class TargetController {
         this.targetService = targetService;
     }
 
-    /* 개인별 실적 조회 */
     @GetMapping("/employee/{employeeId}")
-    public List<Target> getTotalTargetList() {
-        List<Target> targetList = targetService.findTotalTarget();
-
-        return targetList;
+    public List<Target> getTargetsByEmployee(@PathVariable Long employeeId) {
+        return targetService.getTargetsByEmployee(employeeId);
     }
 
-    /* 팀별 실적 조회 */
+    @GetMapping("/team/{teamCodeId}")
+    public List<Target> getTargetsByTeam(@PathVariable Integer teamCodeId) {
+        return targetService.getTargetsByTeam(teamCodeId);
+    }
 
-    /* 통합 실적 조회 */
+    @GetMapping("/integrate")
+    public List<Target> getIntegrateTargets() {
+        return targetService.getIntegrateTargets();
+    }
+
+    @GetMapping("/monthly")
+    public List<Target> getMonthlyTargets(@RequestParam String year, @RequestParam String month) {
+        return targetService.getMonthlyTargets(year, month);
+    }
+
+    @GetMapping("/quarterly")
+    public List<Target> getQuarterlyTargets(@RequestParam String year, @RequestParam String quarter) {
+        return targetService.getQuarterlyTargets(year, quarter);
+    }
+
+    @GetMapping("/by-category")
+    public List<Target> getTargetsByYear(@RequestParam String year) {
+        return targetService.getTargetsByYear(year);
+    }
 }
