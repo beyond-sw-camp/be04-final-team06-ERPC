@@ -53,6 +53,7 @@ public class WebSecurity {
                         .requestMatchers(new AntPathRequestMatcher("/sales_opp_note/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/warehouse/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/product/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/target/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/account/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/account_note/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/contract/**")).permitAll()
