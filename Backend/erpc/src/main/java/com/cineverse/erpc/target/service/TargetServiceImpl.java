@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class TargetServiceImpl implements TargetService{
+
     private final ModelMapper modelMapper;
     private final TargetRepository targetRepository;
 
@@ -20,7 +21,32 @@ public class TargetServiceImpl implements TargetService{
     }
 
     @Override
-    public List<Target> findTotalTarget() {
-        return List.of();
+    public List<Target> getTargetsByEmployee(Long employeeId) {
+        return targetRepository.findByEmployeeEmployeeId(employeeId);
+    }
+
+    @Override
+    public List<Target> getTargetsByTeam(Integer teamCodeId) {
+        return targetRepository.findByTeamTeamCodeId(teamCodeId);
+    }
+
+    @Override
+    public List<Target> getIntegrateTargets() {
+        return targetRepository.findByEmployeeIsNullAndTeamIsNull();
+    }
+
+    @Override
+    public List<Target> getMonthlyTargets(String year, String month) {
+        return targetRepository.findByTargetYearAndTargetMonth(year, month);
+    }
+
+    @Override
+    public List<Target> getQuarterlyTargets(String year, String quarter) {
+        return targetRepository.findByTargetYearAndTargetQuarter(year, quarter);
+    }
+
+    @Override
+    public List<Target> getTargetsByYear(String year) {
+        return targetRepository.findByTargetYearAndTargetQuarterIsNullAndTargetMonthIsNull(year);
     }
 }
