@@ -16,6 +16,6 @@ public class TargetType {
     @Column(name = "target_type_id")
     private int targetTypeId;
 
-    @Column(name = "target_type_id")
+    @Column(name = "target_type")
     private String targetType;
 }

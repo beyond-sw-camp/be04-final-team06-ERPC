@@ -1,10 +1,7 @@
 package com.cineverse.erpc.order.order.controller;
 
 import com.cineverse.erpc.order.order.aggregate.Order;
-import com.cineverse.erpc.order.order.dto.OrderDTO;
-import com.cineverse.erpc.order.order.dto.RequestRegistOrderDTO;
-import com.cineverse.erpc.order.order.dto.ResponseOrderLists;
-import com.cineverse.erpc.order.order.dto.ResponseRegistOrderDTO;
+import com.cineverse.erpc.order.order.dto.*;
 import com.cineverse.erpc.order.order.service.OrderService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -52,4 +49,12 @@ public class OrderController {
         return orderService.findAllOrders();
     }
     /* 수정 */
+    @PatchMapping("/modify/{orderId}")
+    public ResponseEntity<ResponseModifyOrder> modifyOrder(@PathVariable long orderId,
+                                                           @RequestBody RequestModifyOrder requestModifyOrder) {
+        ResponseModifyOrder responseModifyOrder =
+                orderService.modifyOrder(orderId, requestModifyOrder);
+
+        return ResponseEntity.ok().body(responseModifyOrder);
+    }
 }
