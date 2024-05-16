@@ -6,7 +6,7 @@ import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
-import com.cineverse.erpc.warehouse.aggregate.entity.Warehouse;
+import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import lombok.Data;
 
 import java.util.List;

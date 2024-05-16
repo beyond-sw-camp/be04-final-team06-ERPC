@@ -1,6 +1,6 @@
 package com.cineverse.erpc.order.order.aggregate;
 
-import com.cineverse.erpc.product.aggregate.entity.Product;
+import com.cineverse.erpc.product.aggregate.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
