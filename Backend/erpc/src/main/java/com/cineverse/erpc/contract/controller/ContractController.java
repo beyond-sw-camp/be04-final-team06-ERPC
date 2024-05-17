@@ -18,12 +18,10 @@ import java.util.List;
 public class ContractController {
 
     private final ContractService contractService;
-    private final ModelMapper modelMapper;
 
     @Autowired
-    public ContractController(ContractService contractService, ModelMapper modelMapper) {
+    public ContractController(ContractService contractService) {
         this.contractService = contractService;
-        this.modelMapper = modelMapper;
     }
 
     /* 계약서 작성 */
