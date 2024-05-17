@@ -69,7 +69,7 @@ public class WebSecurity {
                 .authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
-//        http.logout(logoutSuccessUrl("logout"));
+        http.logout((auth) -> auth.logoutUrl("/logout"));
 
         return http.build();
     }
