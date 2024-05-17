@@ -27,27 +27,42 @@ import ContractContent from './components/contract/ContractContent.vue';
 import EstimateRegist from './components/estimate/EstimateRegist.vue';
 
 const menuItems = ref([
-  '공지 사항',
-  '결재 관리',
-  '영업 기회',
-  '품목 관리',
-  '거래처 관리',
-  '견적서 관리',
-  '계약서 관리',
-  '수주 관리',
-  '전표 관리',
-  '실적 관리'
+  { title: '공지 사항', subItems: [], isOpen: false },
+  { title: '결재 관리', subItems: [], isOpen: false },
+  { title: '영업 기회', subItems: [], isOpen: false },
+  { title: '품목 관리', subItems: [], isOpen: false },
+  {
+    title: '거래처 관리',
+    subItems: ['거래처 등록', '거래처 목록'],
+    isOpen: false
+  },
+  {
+    title: '견적서 관리',
+    subItems: ['견적서 등록', '견적서 목록'],
+    isOpen: false
+  },
+  { title: '계약서 관리',
+    subItems: ['계약서 등록', '계약서 목록'],
+    isOpen: false
+  },
+  { title: '수주 관리',
+    subItems: ['수주 등록', '수주 목록'],
+    isOpen: false
+  },
+  { title: '전표 관리',
+    subItems: ['수금 조회', 'CB 요청', 'CB 요청 내역'],
+    isOpen: false
+  },
+  { title: '실적 관리',
+    subItems: ['연간 실적 조회', 'Team 실적 조회'],
+    isOpen: false
+  }
 ]);
 
-const toggleButtonText = (event) => {
-  const button = event.currentTarget;
-  const img = button.querySelector('img');
-  if (img.src.includes('plus.png')) {
-    img.src = require('@/assets/img/minus.png');
-  } else {
-    img.src = require('@/assets/img/plus.png');
-  }
+const toggleSubItems = (index) => {
+  menuItems.value[index].isOpen = !menuItems.value[index].isOpen;
 };
+
 </script>
 
 <template>
@@ -56,10 +71,17 @@ const toggleButtonText = (event) => {
     <div class="main1">
       <ul class="menu">
         <li class="menu-item" v-for="(item, index) in menuItems" :key="index">
-          <span class="menu-button-text">{{ item }}</span>
-          <button class="menu-button" @click="toggleButtonText">
-            <img src="@/assets/img/plus.png" class="menuimage">
-          </button>
+          <div class="menu-header">
+            <span class="menu-button-text">{{ item.title }}</span>
+            <button class="menu-button" @click="(event) => { toggleSubItems(index); }">
+              <img src="@/assets/img/plus.png" class="menuimage">
+            </button>
+          </div>
+          <ul v-if="item.isOpen" class="sub-menu">
+            <li v-for="(subItem, subIndex) in item.subItems" :key="subIndex">
+              {{ subItem }}
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -84,26 +106,6 @@ const toggleButtonText = (event) => {
   <Footer></Footer>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      menuItems: [
-        '공지 사항',
-        '결재 관리',
-        '영업 기회',
-        '품목 관리',
-        '거래처 관리',
-        '견적서 관리',
-        '계약서 관리',
-        '수주 관리',
-        '전표 관리',
-        '실적 관리'
-      ]
-    };
-  }
-};
-</script>
 
 <style>
 @font-face {
@@ -140,10 +142,18 @@ export default {
 
 .menu-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .menu-button {
@@ -177,5 +187,16 @@ export default {
 .menuimage {
   width: 15px;
   height: 15px;
+}
+
+.sub-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0 20px;
+}
+
+.sub-menu li {
+  padding: 5px 0;
+  color: #666;
 }
 </style>
