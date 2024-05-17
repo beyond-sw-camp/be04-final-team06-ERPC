@@ -279,10 +279,25 @@
     color: #0C2092;
 }
 
+.customer-process-box-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.process-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .customer-process-writer {
-    margin-top: 2px;
-    margin-left: 5px;
-    margin-bottom: 5px;
+    margin: 0;
+    margin-left: 25px;
 }
 
 .customer-process-detail {
@@ -292,11 +307,27 @@
     background-color: white;
     border: 2px solid #0C2092;
     border-radius: 10px;
-    padding: 6px 10px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 15px;
     outline: none;
     color: black;
     font-weight: bold;
-    width: 730px;
+    width: 95%;
     height: auto;
+    margin-left: 21px;
+    margin-top: -10px;
+}
+
+.process-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6E5FF;
+    border: 2px solid #F6E5FF;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: normal;
+    color: black;
+    margin-right: 20px;
 }
