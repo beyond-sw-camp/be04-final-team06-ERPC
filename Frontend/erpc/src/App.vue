@@ -2,27 +2,8 @@
 import Header from './components/main/Header.vue';
 import Footer from './components/main/Footer.vue';
 
-import CustomerRegist from './components/customer/CustomerRegist.vue';
-import CustomerList from './components/customer/CustomerList.vue';
-import CustomerContents from './components/customer/CustomerContents.vue';
-
-import OrderRegist from './components/order/OrderRegist.vue';
-import OrderList from './components/order/OrderList.vue';
-import OrderContents from './components/order/OrderContents.vue';
-
-import Deposit from './components/bill/Deposit.vue';
-import CBRequest from './components/bill/CBRequest.vue';
-import CBList from './components/bill/CBList.vue';
-import CBContents from './components/bill/CBContents.vue';
-
-import YearPerformance from './components/performance/YearPerformance.vue';
-import TeamPerformance from './components/performance/TeamPerformance.vue';
-
-import ContractRegist from './components/contract/ContractRegist.vue';
-import ContractList from './components/contract/ContractList.vue';
-import ContractContent from './components/contract/ContractContent.vue';
-
-import EstimateRegist from './components/estimate/EstimateRegist.vue';
+import { RouterView } from 'vue-router';
+import { ref } from 'vue';
 
 const menuItems = ref([
   { title: '공지 사항', subItems: [], isOpen: false },
@@ -102,21 +83,7 @@ const toggleSubItems = (index) => {
       </ul>
     </div>
     <div class="main2">
-      <!-- <CustomerRegist></CustomerRegist> -->
-      <!-- <CustomerList></CustomerList> -->
-      <!-- <CustomerContents></CustomerContents> -->
-      <!-- <OrderRegist></OrderRegist> -->
-      <!-- <OrderList></OrderList> -->
-      <OrderContents></OrderContents>
-      <!-- <Deposit></Deposit> -->
-      <!-- <CBRequest></CBRequest> -->
-      <!-- <CBList></CBList> -->
-      <!-- <CBContents></CBContents> -->
-      <!-- <YearPerformance></YearPerformance> -->
-      <!-- <TeamPerformance></TeamPerformance> -->
-      <!-- <ContractRegist></ContractRegist> -->
-      <!-- <ContractList></ContractList>  -->
-      <!-- <ContractContent></ContractContent> -->
+      <RouterView />
     </div>
   </main>
   <Footer></Footer>
