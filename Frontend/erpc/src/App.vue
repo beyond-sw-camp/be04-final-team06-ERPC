@@ -43,8 +43,8 @@ const menuItems = ref([
   { title: '전표 관리',
     subItems: [
       { title: '수금 조회', path: '/bill/deposit' },
-      { title: 'CB 요청', path: '/bill/cb-request' },
-      { title: 'CB 요청 내역', path: '/bill/cb-list' }
+      { title: 'CB 요청', path: '/bill/request' },
+      { title: 'CB 요청 내역', path: '/bill/list' }
     ],
     isOpen: false
   },

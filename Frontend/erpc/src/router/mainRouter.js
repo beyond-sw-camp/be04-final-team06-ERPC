@@ -46,6 +46,22 @@ const routes = [
     {
         path: '/order/contents',
         component: OrderContents
+    },
+    {
+        path: '/bill/deposit',
+        component: Deposit
+    },
+    {
+        path: '/bill/request',
+        component: CBRequest
+    },
+    {
+        path: '/bill/list',
+        component: CBList
+    },
+    {
+        path: '/bill/contents',
+        component: CBContents
     }
 ];
 

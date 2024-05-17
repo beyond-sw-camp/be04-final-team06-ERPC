@@ -84,9 +84,4 @@ function goToCustomerContents(customerCode) {
 
 <style>
 @import url('@/assets/css/customer/CustomerList.css');
-
-.customer-table tr:hover {
-    background-color: #d5e6ff;
-    cursor: pointer;
-}
 </style>

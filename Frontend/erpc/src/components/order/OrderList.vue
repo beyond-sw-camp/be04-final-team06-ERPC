@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="order in filteredOrders" :key="order.id">
+                    <tr v-for="order in filteredOrders" :key="order.id"  @click="goToOrderContents(order.code)">
                         <td>{{ order.id }}</td>
                         <td>{{ order.projectCode }}</td>
                         <td>{{ order.amount }}</td>
@@ -45,6 +45,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const orders = ref([
     { id: 1, projectCode: 'PJ-20240508001', amount: '600,000', creationDate: '2024-04-01', dueDate: '2025-04-04', status: '진행중', inCharge: '유관순' },
@@ -70,6 +73,10 @@ function applyFilter() {
             }
         });
     }
+}
+
+function goToOrderContents(orderCode) {
+    router.push({ path: '/order/contents', query: { code: orderCode } });
 }
 </script>
 

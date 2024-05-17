@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(cb, index) in filteredcbs" :key="index">
+                    <tr v-for="(cb, index) in filteredcbs" :key="index" @click="goToCBContents(cb.code)">
                         <td>{{ index + 1 }}</td>
                         <td>{{ cb.code }}</td>
                         <td>{{ cb.cbor }}</td>
@@ -43,6 +43,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const cbs = ref([
     { code: 'PJ-20240401001', cbor: 'A-회사', amount: '600,000', date: '2024-04-01', status: '진행중' },
@@ -61,6 +64,10 @@ function applyFilter() {
     } else {
         filteredcbs.value = cbs.value;
     }
+}
+
+function goToCBContents(cbCode) {
+    router.push({ path: '/bill/contents', query: { code: cbCode } });
 }
 </script>
 
