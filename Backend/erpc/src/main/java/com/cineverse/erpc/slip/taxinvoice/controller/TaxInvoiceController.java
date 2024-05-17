@@ -29,9 +29,6 @@ public class TaxInvoiceController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newTaxInvoice);
     }
 
-    /* 세금계산서 처리  */
-//    @PatchMapping("/process")
-
     /* 요청 세금계산서 전체 조회   */
     @GetMapping("/list")
     public List<TaxInvoiceRequest> findTaxInvoiceList() {
@@ -47,4 +44,8 @@ public class TaxInvoiceController {
 
         return taxInvoice;
     }
+
+    /* 세금계산서 처리  */
+//    @PatchMapping("/process")
+
 }

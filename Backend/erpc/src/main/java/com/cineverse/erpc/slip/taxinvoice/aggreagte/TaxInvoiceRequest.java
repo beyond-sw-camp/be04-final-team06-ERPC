@@ -20,9 +20,6 @@ public class TaxInvoiceRequest {
     @Column(name = "tax_invoice_request_date")
     private String taxInvoiceRequestDate;
 
-    @Column(name = "tax_invoice_dispose_date")
-    private String taxInvoiceDisposeDate;
-
     @Column(name = "tax_invoice_note")
     private String taxInvoiceNote;
 

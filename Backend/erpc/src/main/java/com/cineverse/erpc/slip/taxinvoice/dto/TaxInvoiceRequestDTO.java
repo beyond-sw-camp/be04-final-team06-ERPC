@@ -15,7 +15,6 @@ import lombok.*;
 public class TaxInvoiceRequestDTO {
     private long taxInvoiceRequestId;
     private String taxInvoiceRequestDate;
-    private String taxInvoiceDisposeDate;
     private String taxInvoiceNote;
     private Order order;
     private Account account;

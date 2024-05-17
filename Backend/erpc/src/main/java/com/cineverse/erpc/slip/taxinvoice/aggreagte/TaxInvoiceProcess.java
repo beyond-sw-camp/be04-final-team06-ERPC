@@ -16,6 +16,9 @@ public class TaxInvoiceProcess {
     @Column(name = "tax_invoice_process_content")
     private String taxInvoiceProcessContent;
 
+    @Column(name = "tax_invoice_process_date")
+    private String taxInvoiceProcessDate;
+
     @Column(name = "tax_invoice_request_id")
     private long taxInvoiceRequestId;
 

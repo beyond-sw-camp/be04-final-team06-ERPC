@@ -12,6 +12,7 @@ import lombok.*;
 public class TaxInvoiceProcessDTO {
     private long taxInvoiceProcessId;
     private String taxInvoiceProcessContent;
+    private String taxInvoiceProcessDate;
     private long taxInvoiceRequestId;
     private TaxInvoiceRequestStatus taxInvoiceRequestStatus;
 }
