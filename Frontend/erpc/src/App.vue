@@ -34,7 +34,7 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
   <!-- <OrderList></OrderList> -->
   <!-- <OrderContents></OrderContents> -->
   <!-- <Deposit></Deposit> -->
-  <CBRequest></CBRequest>
+  <!-- <CBRequest></CBRequest> -->
   <!-- <CBList></CBList> -->
   <!-- <CBContents></CBContents> -->
   <!-- <YearPerformance></YearPerformance> -->
