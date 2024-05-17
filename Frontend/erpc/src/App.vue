@@ -27,18 +27,18 @@ import EstimateRegist from './components/estimate/EstimateRegist.vue';
 
 <template>
   <Header></Header>
-  <!-- <CustomerRegist></CustomerRegist> -->
-  <!-- <CustomerList></CustomerList> -->
+  <CustomerRegist></CustomerRegist>
+  <CustomerList></CustomerList>
   <CustomerContents></CustomerContents>
-  <!-- <OrderRegist></OrderRegist> -->
-  <!-- <OrderList></OrderList> -->
+  <OrderRegist></OrderRegist>
+  <OrderList></OrderList>
   <OrderContents></OrderContents>
-  <!-- <Deposit></Deposit> -->
-  <!-- <CBRequest></CBRequest> -->
-  <!-- <CBList></CBList> -->
-  <!-- <CBContents></CBContents> -->
-  <!-- <YearPerformance></YearPerformance> -->
-  <!-- <TeamPerformance></TeamPerformance> -->
+  <Deposit></Deposit>
+  <CBRequest></CBRequest>
+  <CBList></CBList>
+  <CBContents></CBContents>
+  <YearPerformance></YearPerformance>
+  <TeamPerformance></TeamPerformance>
   <!-- <ContractRegist></ContractRegist> -->
   <!-- <ContractList></ContractList>  -->
   <!-- <ContractContent></ContractContent> -->
