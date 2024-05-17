@@ -6,5 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ContractProductRepository extends JpaRepository<ContractProduct, Long> {
+
     List<ContractProduct> findByContractContractId(Long contractId);
+
+    void deleteByContractContractId(Long contractId);
 }

@@ -12,14 +12,12 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -76,7 +74,7 @@ public class ContractServiceImpl implements ContractService {
             for (ContractProduct cpDTO : contractDTO.getContractProduct()) {
                 ContractProduct cp = modelMapper.map(cpDTO, ContractProduct.class);
                 Product product = productRepository.findById(cpDTO.getProduct().getProductId())
-                        .orElseThrow(() -> new RuntimeException("Product not found"));
+                        .orElseThrow(() -> new RuntimeException("존재하지 않는 상품입니다."));
                 cp.setProduct(product);
                 cp.setContract(newContract);
                 contractProducts.add(cp);
@@ -94,56 +92,53 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     @Transactional
-    public Contract modifyContract(Long contractId, ContractDTO contract) throws UsernameNotFoundException {
-        Optional<Contract> optionalContract = contractRepository.findById(contractId);
+    public Contract modifyContract(Long contractId, ContractDTO contractDTO) {
+        Contract existingContract = contractRepository.findById(contractId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
-        if(optionalContract.isEmpty()) {
-            throw new EntityNotFoundException("존재하지 않는 계약서입니다.");
+        contractProductRepository.deleteByContractContractId(contractId);
+
+        if (contractDTO.getContractNote() != null) {
+            existingContract.setContractNote(contractDTO.getContractNote());
+        }
+        if (contractDTO.getContractTotalPrice() != null) {
+            existingContract.setContractTotalPrice(contractDTO.getContractTotalPrice());
+        }
+        if (contractDTO.getContractDueDate() != null) {
+            existingContract.setContractDueDate(contractDTO.getContractDueDate());
+        }
+        if (contractDTO.getDownPayment() != null) {
+            existingContract.setDownPayment(contractDTO.getDownPayment());
+        }
+        if (contractDTO.getProgressPayment() != null) {
+            existingContract.setProgressPayment(contractDTO.getProgressPayment());
+        }
+        if (contractDTO.getBalance() != null) {
+            existingContract.setBalance(contractDTO.getBalance());
+        }
+        if (contractDTO.getEmployee() != null) {
+            existingContract.setEmployee(contractDTO.getEmployee());
+        }
+        if (contractDTO.getAccount() != null) {
+            existingContract.setAccount(contractDTO.getAccount());
+        }
+        if (contractDTO.getWarehouse() != null) {
+            existingContract.setWarehouse(contractDTO.getWarehouse());
         }
 
-        Contract modCont = optionalContract.get();
+        List<ContractProduct> newContractProducts = contractDTO.getContractProduct().stream()
+                .map(cpDTO -> {
+                    ContractProduct cp = modelMapper.map(cpDTO, ContractProduct.class);
+                    Product product = productRepository.findById(cpDTO.getProduct().getProductId())
+                            .orElseThrow(() -> new RuntimeException("존재하지 않는 상품입니다."));
+                    cp.setProduct(product);
+                    cp.setContract(existingContract);
+                    return cp;
+                }).collect(Collectors.toList());
 
-        if (contract.getContractNote() != null) {
-            modCont.setContractNote(contract.getContractNote());
-        }
+        existingContract.setContractProduct(newContractProducts);
 
-        if (contract.getContractTotalPrice() != null) {
-            modCont.setContractTotalPrice(contract.getContractTotalPrice());
-        }
-
-        if (contract.getContractDueDate() != null) {
-            modCont.setContractDueDate(contract.getContractDueDate());
-        }
-
-        if (contract.getDownPayment() != null) {
-            modCont.setDownPayment(contract.getDownPayment());
-        }
-
-        if (contract.getProgressPayment() != null) {
-            modCont.setProgressPayment(contract.getProgressPayment());
-        }
-
-        if (contract.getBalance() != null) {
-            modCont.setBalance(contract.getBalance());
-        }
-
-        if (contract.getEmployee() != null) {
-            modCont.setEmployee(contract.getEmployee());
-        }
-
-        if (contract.getAccount() != null) {
-            modCont.setAccount(contract.getAccount());
-        }
-
-        if (contract.getWarehouse() != null) {
-            modCont.setWarehouse(contract.getWarehouse());
-        }
-
-        return contractRepository.save(modCont);
-    }
-
-    private ContractProduct modifyContractProduct(ContractProduct product, Contract modifyContract) {
-        return null;
+        return contractRepository.save(existingContract);
     }
 
     @Override
