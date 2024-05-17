@@ -18,9 +18,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class WebSecurity {
-    private Environment env;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private EmployeeService employeeService;
+    private final Environment env;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final EmployeeService employeeService;
 
     @Autowired
     public WebSecurity(Environment env,
@@ -69,6 +69,7 @@ public class WebSecurity {
                 .authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
+//        http.logout(logoutSuccessUrl("logout"));
 
         return http.build();
     }
