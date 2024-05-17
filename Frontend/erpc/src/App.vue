@@ -191,12 +191,16 @@ const toggleSubItems = (index) => {
 
 .sub-menu {
   list-style-type: none;
-  padding: 0;
+  width: 156px;
+  padding: 20px;
   margin: 10px 0 0 20px;
+  margin-left: 1px;
+  border: 2px solid #E5F7FE;
+  background-color: #E5F7FE;
 }
 
 .sub-menu li {
   padding: 5px 0;
-  color: #666;
+  color: #0C2092;
 }
 </style>
