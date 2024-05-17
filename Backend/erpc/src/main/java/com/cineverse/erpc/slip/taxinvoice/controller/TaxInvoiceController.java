@@ -45,7 +45,4 @@ public class TaxInvoiceController {
         return taxInvoice;
     }
 
-    /* 세금계산서 처리  */
-//    @PatchMapping("/process")
-
 }

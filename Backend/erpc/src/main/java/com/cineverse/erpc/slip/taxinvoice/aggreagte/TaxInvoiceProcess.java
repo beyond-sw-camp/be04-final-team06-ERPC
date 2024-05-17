@@ -19,10 +19,11 @@ public class TaxInvoiceProcess {
     @Column(name = "tax_invoice_process_date")
     private String taxInvoiceProcessDate;
 
-    @Column(name = "tax_invoice_request_id")
-    private long taxInvoiceRequestId;
-
-    @JoinColumn(name = "tax_invocie_request_status_id")
     @ManyToOne
+    @JoinColumn(name = "tax_invoice_request_id", referencedColumnName = "tax_invoice_request_id")
+    private TaxInvoiceRequest taxInvoiceRequest;
+
+    @ManyToOne
+    @JoinColumn(name = "tax_invoice_request_status_id")
     private TaxInvoiceRequestStatus taxInvoiceRequestStatus;
 }
