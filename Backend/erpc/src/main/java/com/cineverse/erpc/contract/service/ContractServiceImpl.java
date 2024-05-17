@@ -89,13 +89,6 @@ public class ContractServiceImpl implements ContractService {
     }
 
     private boolean isContractCodeDuplicate(String contractCode) {
-//        for (ContractDTO contractDTO: contractList) {
-//            if(contractDTO.getContractCode().equals(contractCode)) {
-//                return true;
-//            }
-//        }
-//        return false;
-
         return contractRepository.existsByContractCode(contractCode);
     }
 
