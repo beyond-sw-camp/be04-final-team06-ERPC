@@ -66,7 +66,7 @@
                 </div>
                 <div class="remark">
                     <p class="remark-text">비고</p>
-                    <input type="text" id="remark-box" class="remark-box">
+                    <input type="text" id="remark-box" class="remark-box" placeholder="비고를 입력해주세요.">
                 </div>
             </div>
         </div>

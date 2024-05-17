@@ -66,6 +66,7 @@
 
 .order-search-input {
     max-width: 300px;
+    height: 12px;
     padding: 10px;
     border: 2px solid #0C2092;
     border-radius: 10px;
@@ -131,4 +132,5 @@
 
 .order-table tr:hover {
     background-color: #d5e6ff;
+    cursor: pointer;
 }

@@ -22,10 +22,10 @@ import java.util.stream.Collectors;
 @Service
 public class QuotationServiceImpl implements QuotationService{
 
-    private ModelMapper mapper;
-    private QuotationRepository quotationRepository;
-    private QuotationProductRepository quotationProductRepository;
-    private TransactionRepository transactionRepository;
+    private final ModelMapper mapper;
+    private final QuotationRepository quotationRepository;
+    private final QuotationProductRepository quotationProductRepository;
+    private final TransactionRepository transactionRepository;
 
     @Autowired
     public QuotationServiceImpl(ModelMapper mapper,
