@@ -47,6 +47,10 @@
 
 <script setup>
 import { ref } from 'vue';
+import {useRoute, useRouter} from 'vue-router'
+
+const currentRoute = useRoute();
+const router = useRouter();
 
 const customers = ref([
     { code: 'AC-20240430001', name: 'A-회사', registration: '123-45-67890', representative: '홍길동', businessType: '소매업', industry: '백화점', phone: '000-0000-0000' },

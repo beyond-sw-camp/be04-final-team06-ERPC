@@ -103,6 +103,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import {useRoute, useRouter} from 'vue-router'
+
+const currentRoute = useRoute();
+const router = useRouter();
 
 </script>
 
