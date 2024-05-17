@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(customer, index) in filteredCustomers" :key="index">
+                    <tr v-for="(customer, index) in filteredCustomers" :key="index" @click="goToCustomerContents(customer.code)">
                         <td>{{ index + 1 }}</td>
                         <td>{{ customer.code }}</td>
                         <td>{{ customer.name }}</td>
@@ -47,9 +47,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import {useRoute, useRouter} from 'vue-router'
+import { useRouter } from 'vue-router';
 
-const currentRoute = useRoute();
 const router = useRouter();
 
 const customers = ref([
@@ -77,9 +76,17 @@ function applyFilter() {
         });
     }
 }
+
+function goToCustomerContents(customerCode) {
+    router.push({ path: '/customer/contents', query: { code: customerCode } });
+}
 </script>
 
-
 <style>
-    @import url('@/assets/css/customer/CustomerList.css');
+@import url('@/assets/css/customer/CustomerList.css');
+
+.customer-table tr:hover {
+    background-color: #d5e6ff;
+    cursor: pointer;
+}
 </style>

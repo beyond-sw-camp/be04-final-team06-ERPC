@@ -34,6 +34,18 @@ const routes = [
     {
         path: '/customer/contents',
         component: CustomerContents
+    },
+    {
+        path: '/order/regist',
+        component: OrderRegist
+    },
+    {
+        path: '/order/list',
+        component: OrderList
+    },
+    {
+        path: '/order/contents',
+        component: OrderContents
     }
 ];
 
