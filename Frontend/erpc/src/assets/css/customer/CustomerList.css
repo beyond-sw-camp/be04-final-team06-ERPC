@@ -133,4 +133,5 @@
 
 .customer-table tr:hover {
     background-color: #d5e6ff;
+    cursor: pointer;
 }
