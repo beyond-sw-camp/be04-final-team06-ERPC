@@ -26,6 +26,8 @@ import ContractContent from './components/contract/ContractContent.vue';
 
 import EstimateRegist from './components/estimate/EstimateRegist.vue';
 
+import SalesOppContent from './components/salesopp/SalesOppContent.vue';
+
 const menuItems = ref([
   '공지 사항',
   '결재 관리',
@@ -69,7 +71,7 @@ const toggleButtonText = (event) => {
       <!-- <CustomerContents></CustomerContents> -->
       <!-- <OrderRegist></OrderRegist> -->
       <!-- <OrderList></OrderList> -->
-      <OrderContents></OrderContents>
+      <!-- <OrderContents></OrderContents> -->
       <!-- <Deposit></Deposit> -->
       <!-- <CBRequest></CBRequest> -->
       <!-- <CBList></CBList> -->
@@ -79,6 +81,7 @@ const toggleButtonText = (event) => {
       <!-- <ContractRegist></ContractRegist> -->
       <!-- <ContractList></ContractList>  -->
       <!-- <ContractContent></ContractContent> -->
+      <SalesOppContent></SalesOppContent>
     </div>
   </Main>
   <Footer></Footer>
