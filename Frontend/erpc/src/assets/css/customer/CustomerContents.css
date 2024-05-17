@@ -287,7 +287,7 @@
     width: 100%;
 }
 
-.process-info {
+.customer-process-info {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -319,7 +319,7 @@
     font-weight: normal;
 }
 
-.process-date {
+.customer-process-date {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -333,7 +333,7 @@
     margin-right: 20px;
 }
 
-.process-btn {
+.customer-process-btn {
     display: flex;
     width: 100%;
     justify-content: flex-end;
@@ -341,8 +341,8 @@
     gap: 7px;
 }
 
-.process-edit,
-.process-delete {
+.customer-process-edit,
+.customer-process-delete {
     background-color: #0C2092;
     border: 2px solid #0C2092;
     color: white;
@@ -350,23 +350,24 @@
     padding: 5px 7px;
     margin-top: 10px;
     cursor: pointer;
+    margin-top: 4px;
 }
 
-.process-delete {
+.customer-process-delete {
     margin-right: 20px;
 }
 
-.process-reply {
+.customer-process-reply {
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 7px;
+    gap: 5px;
     margin-top: 10px;
 }
 
-.process-reply-box {
+.customer-process-reply-box {
     background-color: white;
     border: 2px solid #0C2092;
     border-radius: 10px;
@@ -379,14 +380,15 @@
     font-weight: normal;
 }
 
-.process-regist {
+.customer-process-regist {
     background-color: #0C2092;
     border: 2px solid #0C2092;
     width: 90px;
     color: white;
     border-radius: 10px;
     padding: 5px 7px;
-    margin-left: 648px;
+    margin-left: 645px;
     cursor: pointer;
     margin-bottom: 7px;
+    margin-top: -6px;
 }

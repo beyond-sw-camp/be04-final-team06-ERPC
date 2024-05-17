@@ -225,6 +225,26 @@
                 </tbody>
             </table>
         </div>
+        <div class="order-process-box">
+            <h1 class="order-process-text">Process</h1>
+            <div class="order-process-box-detail">
+                <div class="order-process-info">
+                    <h4 class="order-process-writer">민중원 과장</h4>
+                    <p class="order-process-date">2024-04-01</p>
+                </div>
+                <button class="order-process-detail">
+                    프로젝트 진행 정보 공유합니다~
+                </button>
+                <div class="order-process-btn">
+                    <button class="order-process-edit">수정</button>
+                    <button class="order-process-delete">삭제</button>
+                </div>
+                <div class="order-process-reply">
+                    <input type="text" id="order-process-reply-box" class="order-process-reply-box" placeholder="내용을 입력해주세요.">
+                    <button class="order-process-regist">등록하기</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
