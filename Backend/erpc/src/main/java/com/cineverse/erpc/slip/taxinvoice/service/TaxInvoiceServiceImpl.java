@@ -1,4 +1,7 @@
 package com.cineverse.erpc.slip.taxinvoice.service;
 
-public class TaxInvoiceServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 }
