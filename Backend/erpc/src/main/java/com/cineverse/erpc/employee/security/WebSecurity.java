@@ -31,7 +31,7 @@ public class WebSecurity {
         this.employeeService = employeeService;
     }
 
-    /* 인가 */
+    /* 인가 pr테스트*/
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
 
