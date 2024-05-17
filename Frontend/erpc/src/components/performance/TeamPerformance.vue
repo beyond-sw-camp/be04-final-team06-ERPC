@@ -45,6 +45,10 @@
 
 <script setup>
 import { ref } from 'vue';
+import {useRoute, useRouter} from 'vue-router'
+
+const currentRoute = useRoute();
+const router = useRouter();
 
 const teams = ref([
     { month: '202301', goal: '400,000,000', grade: '400,000,000', require: '0', percent: '100%' },

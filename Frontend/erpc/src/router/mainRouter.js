@@ -62,6 +62,14 @@ const routes = [
     {
         path: '/bill/contents',
         component: CBContents
+    },
+    {
+        path: '/performance/year',
+        component: YearPerformance
+    },
+    {
+        path: '/performance/team',
+        component: TeamPerformance
     }
 ];
 

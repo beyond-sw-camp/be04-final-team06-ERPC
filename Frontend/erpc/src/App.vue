@@ -156,6 +156,7 @@ const toggleSubItems = (index) => {
 
 .menu-button-text {
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .main2 {
