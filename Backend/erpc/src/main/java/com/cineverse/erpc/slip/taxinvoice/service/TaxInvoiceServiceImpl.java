@@ -52,10 +52,8 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
         TaxInvoiceRequest newTaxInvoiceRequest = modelMapper.map(taxInvoiceRequestDTO, TaxInvoiceRequest.class);
         newTaxInvoiceRequest = taxInvoiceRepository.save(newTaxInvoiceRequest);
 
-        // Create and save the TaxInvoiceProcess
         TaxInvoiceProcess newTaxInvoiceProcess = new TaxInvoiceProcess();
-        newTaxInvoiceProcess.setTaxInvoiceRequest(newTaxInvoiceRequest);  // Set the FK relationship
-        newTaxInvoiceProcess.setTaxInvoiceProcessContent("Initial process content"); // Default content
+        newTaxInvoiceProcess.setTaxInvoiceRequest(newTaxInvoiceRequest);
 
         TaxInvoiceRequestStatus defaultStatus = taxInvoiceRequestStatusRepository.findById(1)
                 .orElseThrow(() -> new EntityNotFoundException("Default status not found"));
