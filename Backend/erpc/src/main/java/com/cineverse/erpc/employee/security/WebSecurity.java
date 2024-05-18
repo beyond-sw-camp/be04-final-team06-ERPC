@@ -18,9 +18,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class WebSecurity {
-    private Environment env;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private EmployeeService employeeService;
+    private final Environment env;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final EmployeeService employeeService;
 
     @Autowired
     public WebSecurity(Environment env,
@@ -62,11 +62,14 @@ public class WebSecurity {
                         .requestMatchers(new AntPathRequestMatcher("/order/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/order_note/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/collection/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/access/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/tax_invoice/**")).permitAll()
                 )
 
                 .authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
+        http.logout((auth) -> auth.logoutUrl("/logout"));
 
         return http.build();
     }

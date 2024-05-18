@@ -44,6 +44,10 @@
 
 <script setup>
 import { ref } from 'vue';
+import {useRoute, useRouter} from 'vue-router'
+
+const currentRoute = useRoute();
+const router = useRouter();
 
 const years = ref([
     { month: '202301', goal: '1,000,000,000', grade: '900,000,000', salesteam1: '400,000,000', salesteam2: '300,000,000', salesteam3: '200,000,000', percent: '90%' },

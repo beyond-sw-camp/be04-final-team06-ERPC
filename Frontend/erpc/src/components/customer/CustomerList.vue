@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(customer, index) in filteredCustomers" :key="index">
+                    <tr v-for="(customer, index) in filteredCustomers" :key="index" @click="goToCustomerContents(customer.code)">
                         <td>{{ index + 1 }}</td>
                         <td>{{ customer.code }}</td>
                         <td>{{ customer.name }}</td>
@@ -47,6 +47,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const customers = ref([
     { code: 'AC-20240430001', name: 'A-회사', registration: '123-45-67890', representative: '홍길동', businessType: '소매업', industry: '백화점', phone: '000-0000-0000' },
@@ -73,9 +76,12 @@ function applyFilter() {
         });
     }
 }
+
+function goToCustomerContents(customerCode) {
+    router.push({ path: '/customer/contents', query: { code: customerCode } });
+}
 </script>
 
-
 <style>
-    @import url('@/assets/css/customer/CustomerList.css');
+@import url('@/assets/css/customer/CustomerList.css');
 </style>
