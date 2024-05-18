@@ -5,6 +5,7 @@ import com.cineverse.erpc.access.aggregate.EmployeeAccess;
 import com.cineverse.erpc.access.dto.*;
 import com.cineverse.erpc.access.repo.AccessRequestRepository;
 import com.cineverse.erpc.access.repo.EmployeeAccessRepository;
+import com.cineverse.erpc.employee.aggregate.Employee;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,5 +74,14 @@ public class AccessServiceImpl implements AccessService{
         return employeeAccesses.stream().map(employeeAccess -> mapper
                 .map(employeeAccess, ResponseFindEmployeesAccessDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseAddAccessDTO addAccess(RequestAddAccessDTO addAccess) {
+        EmployeeAccess employeeAccess = mapper.map(addAccess, EmployeeAccess.class);
+
+        employeeAccessRepository.save(employeeAccess);
+
+        return mapper.map(employeeAccess, ResponseAddAccessDTO.class);
     }
 }
