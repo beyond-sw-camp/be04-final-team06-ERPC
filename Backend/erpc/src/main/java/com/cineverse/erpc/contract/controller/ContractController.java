@@ -40,7 +40,7 @@ public class ContractController {
     /* 계약서 삭제 요청 */
 
     /* 계약서 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<Contract> findContractList() {
         List<Contract> contractList = contractService.findContractList();
 

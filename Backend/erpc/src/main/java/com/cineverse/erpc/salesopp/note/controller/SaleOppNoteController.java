@@ -42,7 +42,7 @@ public class SaleOppNoteController {
     }
 
     /* 영업기회 참고사항 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<SalesOppNote> findSalesOppNoteList() {
         List<SalesOppNote> salesOppNoteList = salesOppNoteService.findsalesOppNoteList();
 

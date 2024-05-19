@@ -21,7 +21,7 @@ public class WarehouseController {
     }
 
     /* 창고 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<Warehouse> findWarehouseList() {
         List<Warehouse> warehouseList = warehouseService.findWarehouseList();
 

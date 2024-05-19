@@ -30,7 +30,7 @@ public class TaxInvoiceController {
     }
 
     /* 요청 세금계산서 전체 조회   */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<TaxInvoiceRequest> findTaxInvoiceList() {
         List<TaxInvoiceRequest> taxInvoiceRequestList = taxInvoiceService.findTaxInvoiceList();
 
@@ -44,5 +44,4 @@ public class TaxInvoiceController {
 
         return taxInvoice;
     }
-
 }
