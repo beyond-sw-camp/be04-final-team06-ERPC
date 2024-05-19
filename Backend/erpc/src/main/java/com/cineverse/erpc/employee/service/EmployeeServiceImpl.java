@@ -2,7 +2,10 @@ package com.cineverse.erpc.employee.service;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.dto.EmployeeDTO;
+import com.cineverse.erpc.employee.dto.ResponseEmployeeDTO;
+import com.cineverse.erpc.employee.dto.ResponseEmployeesDTO;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.security.core.userdetails.User;
@@ -12,7 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -42,6 +47,22 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.save(employee);
     }
 
+    @Override
+    public List<ResponseEmployeesDTO> findEmployeeList() {
+        List<Employee> employees = employeeRepository.findAll();
+
+        return employees.stream().map(employee -> modelMapper
+                .map(employee, ResponseEmployeesDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseEmployeeDTO findEmployeeById(long employeeId) {
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
+
+        return modelMapper.map(employee, ResponseEmployeeDTO.class);
+    }
 
     /* security */
 
