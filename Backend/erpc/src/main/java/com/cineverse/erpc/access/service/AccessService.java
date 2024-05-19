@@ -14,4 +14,5 @@ public interface AccessService {
     List<ResponseFindEmployeesAccessDTO> findEmployeesAccess(long employeeId);
 
     ResponseAddAccessDTO addAccess(RequestAddAccessDTO addAccess);
+
 }

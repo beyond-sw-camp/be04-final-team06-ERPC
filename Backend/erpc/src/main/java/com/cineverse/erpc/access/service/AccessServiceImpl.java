@@ -1,11 +1,11 @@
 package com.cineverse.erpc.access.service;
 
 import com.cineverse.erpc.access.aggregate.AccessRequest;
+import com.cineverse.erpc.access.aggregate.AccessRight;
 import com.cineverse.erpc.access.aggregate.EmployeeAccess;
 import com.cineverse.erpc.access.dto.*;
 import com.cineverse.erpc.access.repo.AccessRequestRepository;
 import com.cineverse.erpc.access.repo.EmployeeAccessRepository;
-import com.cineverse.erpc.employee.aggregate.Employee;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class AccessServiceImpl implements AccessService{
+public class AccessServiceImpl implements AccessService {
 
     private ModelMapper mapper;
     private AccessRequestRepository accessRequestRepository;
@@ -63,7 +64,7 @@ public class AccessServiceImpl implements AccessService{
         List<AccessRequest> accessRequests = accessRequestRepository.findAll();
 
         return accessRequests.stream().map(accessRequest -> mapper
-                .map(accessRequest, ResponseFindAllAccessRequestDTO.class))
+                        .map(accessRequest, ResponseFindAllAccessRequestDTO.class))
                 .collect(Collectors.toList());
     }
 
@@ -72,16 +73,27 @@ public class AccessServiceImpl implements AccessService{
         List<EmployeeAccess> employeeAccesses = employeeAccessRepository.findAllByEmployeeEmployeeId(employeeId);
 
         return employeeAccesses.stream().map(employeeAccess -> mapper
-                .map(employeeAccess, ResponseFindEmployeesAccessDTO.class))
+                        .map(employeeAccess, ResponseFindEmployeesAccessDTO.class))
                 .collect(Collectors.toList());
     }
 
     @Override
+    @Transactional
     public ResponseAddAccessDTO addAccess(RequestAddAccessDTO addAccess) {
-        EmployeeAccess employeeAccess = mapper.map(addAccess, EmployeeAccess.class);
 
-        employeeAccessRepository.save(employeeAccess);
+        employeeAccessRepository.deleteByEmployeeEmployeeId(addAccess.getEmployee().getEmployeeId());
 
-        return mapper.map(employeeAccess, ResponseAddAccessDTO.class);
+        for (int i = 0; i < addAccess.getAccessRight().size(); i++) {
+            EmployeeAccess employeeAccess = new EmployeeAccess();
+
+            employeeAccess.setEmployee(addAccess.getEmployee());
+            employeeAccess.setAccessRight(addAccess.getAccessRight().get(i));
+
+            employeeAccessRepository.save(employeeAccess);
+        }
+
+        ResponseAddAccessDTO responseAddAccess = mapper.map(addAccess, ResponseAddAccessDTO.class);
+        return responseAddAccess;
     }
 }
+
