@@ -3,11 +3,11 @@ package com.cineverse.erpc.slip.taxinvoice.service;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceProcess;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequestStatus;
+import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceProcessDTO;
 import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceRequestDTO;
 import com.cineverse.erpc.slip.taxinvoice.repository.TaxInvoiceProcessRepository;
-import com.cineverse.erpc.slip.taxinvoice.repository.TaxInvoiceRepository;
+import com.cineverse.erpc.slip.taxinvoice.repository.TaxInvoiceRequestRepository;
 import com.cineverse.erpc.slip.taxinvoice.repository.TaxInvoiceRequestStatusRepository;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -24,17 +24,17 @@ import java.util.stream.Collectors;
 public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 
     private final ModelMapper modelMapper;
-    private final TaxInvoiceRepository taxInvoiceRepository;
+    private final TaxInvoiceRequestRepository taxInvoiceRequestRepository;
     private final TaxInvoiceProcessRepository taxInvoiceProcessRepository;
     private final TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository;
 
     @Autowired
     public TaxInvoiceServiceImpl(ModelMapper modelMapper,
-                                 TaxInvoiceRepository taxInvoiceRepository,
+                                 TaxInvoiceRequestRepository taxInvoiceRequestRepository,
                                  TaxInvoiceProcessRepository taxInvoiceProcessRepository,
                                  TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository) {
         this.modelMapper = modelMapper;
-        this.taxInvoiceRepository = taxInvoiceRepository;
+        this.taxInvoiceRequestRepository = taxInvoiceRequestRepository;
         this.taxInvoiceProcessRepository = taxInvoiceProcessRepository;
         this.taxInvoiceRequestStatusRepository = taxInvoiceRequestStatusRepository;
     }
@@ -50,24 +50,23 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         TaxInvoiceRequest newTaxInvoiceRequest = modelMapper.map(taxInvoiceRequestDTO, TaxInvoiceRequest.class);
-        newTaxInvoiceRequest = taxInvoiceRepository.save(newTaxInvoiceRequest);
+        newTaxInvoiceRequest = taxInvoiceRequestRepository.save(newTaxInvoiceRequest);
 
         TaxInvoiceProcess newTaxInvoiceProcess = new TaxInvoiceProcess();
         newTaxInvoiceProcess.setTaxInvoiceRequest(newTaxInvoiceRequest);
 
         TaxInvoiceRequestStatus defaultStatus = taxInvoiceRequestStatusRepository.findById(1)
-                .orElseThrow(() -> new EntityNotFoundException("Default status not found"));
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 세금처리 상태입니다."));
         newTaxInvoiceProcess.setTaxInvoiceRequestStatus(defaultStatus);
 
         taxInvoiceProcessRepository.save(newTaxInvoiceProcess);
-
 
         return newTaxInvoiceRequest;
     }
 
     @Override
     public List<TaxInvoiceRequest> findTaxInvoiceList() {
-        List<TaxInvoiceRequest> taxInvoiceRequestList = taxInvoiceRepository.findAll();
+        List<TaxInvoiceRequest> taxInvoiceRequestList = taxInvoiceRequestRepository.findAll();
 
         return taxInvoiceRequestList.stream().map(taxInvoiceRequest -> modelMapper
                         .map(taxInvoiceRequest, TaxInvoiceRequest.class))
@@ -76,12 +75,43 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 
     @Override
     public TaxInvoiceRequestDTO findTaxInvoiceById(Long taxInvoiceRequestId) {
-        TaxInvoiceRequest taxInvoiceRequest = taxInvoiceRepository.findById(taxInvoiceRequestId)
+        TaxInvoiceRequest taxInvoiceRequest = taxInvoiceRequestRepository.findById(taxInvoiceRequestId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 요청입니다."));
 
-        taxInvoiceRepository.save(taxInvoiceRequest);
+        taxInvoiceRequestRepository.save(taxInvoiceRequest);
         TaxInvoiceRequestDTO taxInvoiceRequestDTO = modelMapper.map(taxInvoiceRequest, TaxInvoiceRequestDTO.class);
 
         return taxInvoiceRequestDTO;
+    }
+
+    @Override
+    @Transactional
+    public TaxInvoiceProcess modifyProcess(Long taxInvoiceProcessId, TaxInvoiceProcessDTO processDTO) {
+        TaxInvoiceProcess process = taxInvoiceProcessRepository.findById(taxInvoiceProcessId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 세금계약서 요청입니다."));
+
+        process.setTaxInvoiceProcessContent(processDTO.getTaxInvoiceProcessContent());
+
+        if (processDTO.getTaxInvoiceProcessDate() != null && !processDTO.getTaxInvoiceProcessDate().isEmpty()) {
+            process.setTaxInvoiceProcessDate(processDTO.getTaxInvoiceProcessDate());
+        } else {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            process.setTaxInvoiceProcessDate(dateFormat.format(new Date()));
+        }
+
+        if (processDTO.getTaxInvoiceRequestStatus() != null) {
+            process.setTaxInvoiceRequestStatus(processDTO.getTaxInvoiceRequestStatus());
+        }
+
+        return taxInvoiceProcessRepository.save(process);
+    }
+
+    @Override
+    public List<TaxInvoiceProcess> findProcessList() {
+        List<TaxInvoiceProcess> processList = taxInvoiceProcessRepository.findAll();
+
+        return processList.stream().map(process -> modelMapper
+                        .map(process, TaxInvoiceProcess.class))
+                        .collect(Collectors.toList());
     }
 }

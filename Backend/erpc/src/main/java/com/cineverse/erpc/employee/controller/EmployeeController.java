@@ -1,8 +1,6 @@
 package com.cineverse.erpc.employee.controller;
 
-import com.cineverse.erpc.employee.dto.EmployeeDTO;
-import com.cineverse.erpc.employee.dto.RequestRegistDTO;
-import com.cineverse.erpc.employee.dto.ResponseRegistDTO;
+import com.cineverse.erpc.employee.dto.*;
 import com.cineverse.erpc.employee.service.EmployeeService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -11,6 +9,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
@@ -43,5 +43,15 @@ public class EmployeeController {
         ResponseRegistDTO responseRegistDTO = modelMapper.map(employeeDTO, ResponseRegistDTO.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseRegistDTO);
+    }
+
+    @GetMapping
+    public List<ResponseEmployeesDTO> findEmployeeList() {
+        return employeeService.findEmployeeList();
+    }
+
+    @GetMapping("/{employeeId}")
+    public ResponseEmployeeDTO findEmployeeById(@PathVariable long employeeId) {
+        return employeeService.findEmployeeById(employeeId);
     }
 }

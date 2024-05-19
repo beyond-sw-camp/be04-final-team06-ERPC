@@ -20,7 +20,7 @@ public class CollectionController {
         this.collectionService = collectionService;
     }
 
-    @GetMapping("/list")
+    @GetMapping("")
     public List<Collection> findCollectoinList() {
         List<Collection> collectionList = collectionService.findCollectionList();
 

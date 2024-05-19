@@ -41,7 +41,7 @@ public class NoticeBoardController {
     }
 
     /* 공지사항 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<NoticeBoard> findNoticeList() {
         List<NoticeBoard> noticeList = noticeBoardService.findNoticeList();
 

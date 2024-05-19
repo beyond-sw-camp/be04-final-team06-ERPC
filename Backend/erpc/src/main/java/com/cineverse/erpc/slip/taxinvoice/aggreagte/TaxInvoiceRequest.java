@@ -7,6 +7,9 @@ import com.cineverse.erpc.slip.collection.aggregate.Collection;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "tbl_tax_invoice_request")
@@ -38,4 +41,7 @@ public class TaxInvoiceRequest {
     @JoinColumn(name = "collection_id")
     @ManyToOne
     private Collection collection;
+
+    @OneToOne(mappedBy = "taxInvoiceRequest", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private TaxInvoiceProcess taxInvoiceProcess;
 }

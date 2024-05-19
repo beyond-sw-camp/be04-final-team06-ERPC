@@ -1,6 +1,8 @@
 package com.cineverse.erpc.slip.taxinvoice.controller;
 
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceProcess;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
+import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceProcessDTO;
 import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceRequestDTO;
 import com.cineverse.erpc.slip.taxinvoice.service.TaxInvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,7 @@ public class TaxInvoiceController {
     }
 
     /* 요청 세금계산서 전체 조회   */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<TaxInvoiceRequest> findTaxInvoiceList() {
         List<TaxInvoiceRequest> taxInvoiceRequestList = taxInvoiceService.findTaxInvoiceList();
 
@@ -45,4 +47,19 @@ public class TaxInvoiceController {
         return taxInvoice;
     }
 
+    /* 세금계산서 처리 */
+    @PatchMapping("/process/{taxInvoiceProcessId}")
+    public ResponseEntity<TaxInvoiceProcess> modifyProcessStatus(@RequestBody TaxInvoiceProcessDTO processDTO,
+                                                                 @PathVariable Long taxInvoiceProcessId) {
+        TaxInvoiceProcess updatedProcess = taxInvoiceService.modifyProcess(taxInvoiceProcessId, processDTO);
+        return ResponseEntity.ok(updatedProcess);
+    }
+
+    /* 세금계산서 처리 전체 조회 */
+    @GetMapping("/process")
+    public List<TaxInvoiceProcess> findTaxInvoiceProcessList() {
+        List<TaxInvoiceProcess> processList = taxInvoiceService.findProcessList();
+
+        return processList;
+    }
 }

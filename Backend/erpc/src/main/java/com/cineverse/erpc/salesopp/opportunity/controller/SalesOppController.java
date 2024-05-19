@@ -43,7 +43,7 @@ public class SalesOppController {
     /* 영업기회 삭제 요청 */
 
     /* 영업기회 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<SalesOpp> findSalesOppList() {
         List<SalesOpp> salesOppList = salesOppService.findSalesOppList();
 

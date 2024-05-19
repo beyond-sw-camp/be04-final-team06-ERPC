@@ -41,7 +41,7 @@ public class NoticeCommentController {
     }
 
     /* 공지사항 댓글 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<NoticeComment> findNoticeCommentList() {
         List<NoticeComment> noticeCommentList = noticeCommentService.findNoticeCommentList();
 

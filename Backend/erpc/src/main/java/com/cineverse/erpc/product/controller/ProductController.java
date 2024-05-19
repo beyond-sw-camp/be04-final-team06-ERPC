@@ -23,7 +23,7 @@ public class ProductController {
     }
 
     /* 품목 전체 조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<Product> getProductList() {
         List<Product> productList = productService.findProductList();
 
