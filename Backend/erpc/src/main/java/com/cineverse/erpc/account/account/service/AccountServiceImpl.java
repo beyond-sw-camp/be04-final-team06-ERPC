@@ -3,6 +3,7 @@ package com.cineverse.erpc.account.account.service;
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.dto.AccountDTO;
 import com.cineverse.erpc.account.account.dto.ResponseFindAccountDTO;
+import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +53,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public void registAccount(AccountDTO accountDTO) {
+    public ResponseRegistAccountDTO registAccount(AccountDTO accountDTO) {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         String currentDate = format.format(date);
@@ -78,6 +78,9 @@ public class AccountServiceImpl implements AccountService {
         Account account = modelMapper.map(accountDTO, Account.class);
 
         accountRepository.save(account);
+
+
+        return modelMapper.map(account, ResponseRegistAccountDTO.class);
     }
 
     private boolean isAccountCodeDuplicate(List<AccountDTO> accountList, String accountCode) {

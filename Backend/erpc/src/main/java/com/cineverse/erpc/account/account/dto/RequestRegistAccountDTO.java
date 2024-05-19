@@ -2,9 +2,11 @@ package com.cineverse.erpc.account.account.dto;
 
 import com.cineverse.erpc.account.account.aggregate.AccountStatus;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class RequestRegistAccountDTO {
     private long accountId;
     private String accountName;
