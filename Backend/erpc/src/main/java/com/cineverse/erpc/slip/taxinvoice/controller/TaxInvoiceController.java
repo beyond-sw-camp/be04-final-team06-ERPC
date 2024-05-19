@@ -26,7 +26,6 @@ public class TaxInvoiceController {
     /* 세금계산서 요청  */
     @PostMapping("/regist")
     public ResponseEntity<TaxInvoiceRequestDTO> registTaxInvoiceRequest(@RequestBody TaxInvoiceRequestDTO newTaxInvoice) {
-        System.out.println("Received taxInvoiceNote: " + newTaxInvoice.getTaxInvoiceNote());
         taxInvoiceService.registTaxInvoiceRequest(newTaxInvoice);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newTaxInvoice);
@@ -54,5 +53,13 @@ public class TaxInvoiceController {
                                                                  @PathVariable Long taxInvoiceProcessId) {
         TaxInvoiceProcess updatedProcess = taxInvoiceService.modifyProcess(taxInvoiceProcessId, processDTO);
         return ResponseEntity.ok(updatedProcess);
+    }
+
+    /* 세금계산서 처리 전체 조회 */
+    @GetMapping("/process")
+    public List<TaxInvoiceProcess> findTaxInvoiceProcessList() {
+        List<TaxInvoiceProcess> processList = taxInvoiceService.findProcessList();
+
+        return processList;
     }
 }

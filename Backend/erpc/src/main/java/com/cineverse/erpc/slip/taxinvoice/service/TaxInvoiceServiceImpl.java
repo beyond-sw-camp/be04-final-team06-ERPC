@@ -105,4 +105,13 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 
         return taxInvoiceProcessRepository.save(process);
     }
+
+    @Override
+    public List<TaxInvoiceProcess> findProcessList() {
+        List<TaxInvoiceProcess> processList = taxInvoiceProcessRepository.findAll();
+
+        return processList.stream().map(process -> modelMapper
+                        .map(process, TaxInvoiceProcess.class))
+                        .collect(Collectors.toList());
+    }
 }
