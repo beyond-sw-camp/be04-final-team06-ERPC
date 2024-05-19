@@ -1,4 +1,4 @@
-package com.cineverse.erpc.contract.aggregate;
+package com.cineverse.erpc.approval.aggregate;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,8 +8,8 @@ import lombok.Data;
 @Table(name = "tbl_approval_status")
 public class ApprovalStatus {
     @Id
-    @Column(name = "approval_status_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "approval_status_id")
     private int approvalStatusId;
 
     @Column(name = "approval_status")
