@@ -1,5 +1,6 @@
 package com.cineverse.erpc.slip.taxinvoice.aggreagte;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,8 +20,9 @@ public class TaxInvoiceProcess {
     @Column(name = "tax_invoice_process_date")
     private String taxInvoiceProcessDate;
 
-    @ManyToOne
-    @JoinColumn(name = "tax_invoice_request_id", referencedColumnName = "tax_invoice_request_id")
+    @JoinColumn(name = "tax_invoice_request_id")
+    @OneToOne
+    @JsonIgnore
     private TaxInvoiceRequest taxInvoiceRequest;
 
     @ManyToOne

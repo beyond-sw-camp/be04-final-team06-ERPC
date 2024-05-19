@@ -1,6 +1,8 @@
 package com.cineverse.erpc.slip.taxinvoice.controller;
 
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceProcess;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
+import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceProcessDTO;
 import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceRequestDTO;
 import com.cineverse.erpc.slip.taxinvoice.service.TaxInvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ public class TaxInvoiceController {
     /* 세금계산서 요청  */
     @PostMapping("/regist")
     public ResponseEntity<TaxInvoiceRequestDTO> registTaxInvoiceRequest(@RequestBody TaxInvoiceRequestDTO newTaxInvoice) {
+        System.out.println("Received taxInvoiceNote: " + newTaxInvoice.getTaxInvoiceNote());
         taxInvoiceService.registTaxInvoiceRequest(newTaxInvoice);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newTaxInvoice);
@@ -43,5 +46,13 @@ public class TaxInvoiceController {
         TaxInvoiceRequestDTO taxInvoice = taxInvoiceService.findTaxInvoiceById(taxInvoiceRequestId);
 
         return taxInvoice;
+    }
+
+    /* 세금계산서 처리 */
+    @PatchMapping("/process/{taxInvoiceProcessId}")
+    public ResponseEntity<TaxInvoiceProcess> modifyProcessStatus(@RequestBody TaxInvoiceProcessDTO processDTO,
+                                                                 @PathVariable Long taxInvoiceProcessId) {
+        TaxInvoiceProcess updatedProcess = taxInvoiceService.modifyProcess(taxInvoiceProcessId, processDTO);
+        return ResponseEntity.ok(updatedProcess);
     }
 }
