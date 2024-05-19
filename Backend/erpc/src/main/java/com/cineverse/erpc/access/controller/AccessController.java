@@ -52,7 +52,7 @@ public class AccessController {
     /* 권한신청 처리 */
     @PostMapping("/add_access")
     public ResponseEntity<ResponseAddAccessDTO> addAccess(@RequestBody RequestAddAccessDTO addAccess) {
-        ResponseAddAccessDTO responseAddAccess = accessService.addAccess(addAccess);
+       ResponseAddAccessDTO responseAddAccess = accessService.addAccess(addAccess);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseAddAccess);
     }

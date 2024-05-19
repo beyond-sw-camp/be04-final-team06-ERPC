@@ -4,8 +4,10 @@ import com.cineverse.erpc.access.aggregate.AccessRight;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class RequestAddAccessDTO {
-    private long employeeId;
-    private int accessId;
+    private Employee employee;
+    private List<AccessRight> accessRight;
 }

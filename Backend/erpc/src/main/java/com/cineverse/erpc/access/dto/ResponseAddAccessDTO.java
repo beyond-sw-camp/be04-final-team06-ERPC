@@ -4,8 +4,10 @@ import com.cineverse.erpc.access.aggregate.AccessRight;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ResponseAddAccessDTO {
     private Employee employee;
-    private AccessRight accessRight;
+    private List<AccessRight> accessRight;
 }
