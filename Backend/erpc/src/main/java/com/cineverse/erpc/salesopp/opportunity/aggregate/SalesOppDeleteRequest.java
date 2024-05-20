@@ -1,5 +1,7 @@
 package com.cineverse.erpc.salesopp.opportunity.aggregate;
 
+import com.cineverse.erpc.contract.aggregate.Contract;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +25,8 @@ public class SalesOppDeleteRequest {
     @Column(name = "request_status")
     private char requestStatus;
 
-    @Column(name = "sales_opp_id")
-    private int salesOppId;
+    @JoinColumn(name = "sales_opp_id")
+    @ManyToOne
+    @JsonIgnore
+    private SalesOpp salesOpp;
 }

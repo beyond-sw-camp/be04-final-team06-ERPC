@@ -1,4 +1,4 @@
-package com.cineverse.erpc.salesopp.opportunity.dto;
+package com.cineverse.erpc.admin.delete.dto.salesopp;
 
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import lombok.*;

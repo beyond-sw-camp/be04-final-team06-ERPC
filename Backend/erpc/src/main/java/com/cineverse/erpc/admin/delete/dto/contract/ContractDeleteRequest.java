@@ -1,5 +1,6 @@
-package com.cineverse.erpc.contract.aggregate;
+package com.cineverse.erpc.admin.delete.dto.contract;
 
+import com.cineverse.erpc.contract.aggregate.Contract;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
