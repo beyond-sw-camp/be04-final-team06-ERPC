@@ -4,6 +4,7 @@ import com.cineverse.erpc.admin.delete.service.DeleteService;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,5 +37,8 @@ public class DeleteController {
     }
 
     /* 영업기회 삭제 요청 처리 */
+    @PatchMapping("/status/{salesOppDeleteRequestId}")
+    public ResponseEntity<SalesOppDeleteRequest> deleteSalesOpp(@RequestBody SalesOppDeleteRequestDTO deleteOpp, )
+
 
 }
