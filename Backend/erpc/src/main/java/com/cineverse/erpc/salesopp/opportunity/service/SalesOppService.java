@@ -1,7 +1,9 @@
 package com.cineverse.erpc.salesopp.opportunity.service;
 
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
+import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 
 import java.util.List;
 
@@ -16,4 +18,6 @@ public interface SalesOppService {
     List<SalesOpp> findSalesOppList();
 
     SalesOppDTO findSalesOppById(Long salesOppId);
+
+    SalesOppDeleteRequest requestDeleteOpp(SalesOppDeleteRequestDTO deleteOpp);
 }

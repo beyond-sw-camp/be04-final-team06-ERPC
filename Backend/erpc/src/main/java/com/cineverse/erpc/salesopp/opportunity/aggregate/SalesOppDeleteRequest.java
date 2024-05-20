@@ -11,7 +11,7 @@ import lombok.*;
 @Entity
 @Table(name="tbl_sales_opportunity_delete_request")
 @Builder
-public class SalesOppDelete {
+public class SalesOppDeleteRequest {
     @Id
     @Column(name = "sales_opp_delete_request_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class SalesOppDelete {
     private String requestContent;
 
     @Column(name = "request_status")
-    private String requestStatus;
+    private char requestStatus;
 
     @Column(name = "sales_opp_id")
     private int salesOppId;

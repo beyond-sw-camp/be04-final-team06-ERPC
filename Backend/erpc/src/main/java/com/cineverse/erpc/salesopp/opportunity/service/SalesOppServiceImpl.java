@@ -1,7 +1,11 @@
 package com.cineverse.erpc.salesopp.opportunity.service;
 
+import com.cineverse.erpc.admin.delete.aggregate.SalesOppDelete;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
+import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
+import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppDeleteRequestRepository;
 import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -22,12 +26,16 @@ public class SalesOppServiceImpl implements SalesOppService {
 
     private final ModelMapper modelMapper;
     private final SalesOppRepository salesOppRepository;
+    private final SalesOppDeleteRequestRepository salesOppDeleteRequestRepository;
 
     @Autowired
 
-    public SalesOppServiceImpl(ModelMapper modelMapper, SalesOppRepository salesOppRepository) {
+    public SalesOppServiceImpl(ModelMapper modelMapper,
+                               SalesOppRepository salesOppRepository,
+                               SalesOppDeleteRequestRepository salesOppDeleteRequestRepository) {
         this.modelMapper = modelMapper;
         this.salesOppRepository = salesOppRepository;
+        this.salesOppDeleteRequestRepository = salesOppDeleteRequestRepository;
     }
 
     @Override
@@ -103,6 +111,19 @@ public class SalesOppServiceImpl implements SalesOppService {
         }
 
         return salesOppRepository.save(salesOpp);
+    }
+
+    @Override
+    @Transactional
+    public SalesOppDeleteRequest requestDeleteOpp(SalesOppDeleteRequestDTO deleteOpp) {
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        SalesOppDeleteRequest deleteReqOpp = modelMapper.map(deleteOpp, SalesOppDeleteRequest.class);
+        deleteReqOpp = salesOppDeleteRequestRepository.save(deleteReqOpp);
+
+        deleteReqOpp.setRequestStatus('N');
+
+        return deleteReqOpp;
     }
 
     @Override

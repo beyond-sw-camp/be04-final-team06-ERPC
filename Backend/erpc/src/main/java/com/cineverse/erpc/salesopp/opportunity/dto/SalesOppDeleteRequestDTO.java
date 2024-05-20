@@ -8,9 +8,9 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class SalesOppDeleteDTO {
+public class SalesOppDeleteRequestDTO {
     private int salesOppDeleteRequestId;
     private String requestContent;
-    private String requestStatus;
+    private char requestStatus;
     private int salesOppId;
 }
