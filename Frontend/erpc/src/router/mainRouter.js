@@ -23,6 +23,8 @@ import ContractList from '@/components/contract/ContractList.vue';
 import ContractContent from '@/components/contract/ContractContent.vue';
 
 import EstimateRegist from '@/components/estimate/EstimateRegist.vue';
+import EstimateList from '@/components/estimate/EstimateList.vue';
+import EstimateContent from '@/components/estimate/EstimateContent.vue';
 
 const routes = [
     {
@@ -76,6 +78,30 @@ const routes = [
     {
         path: '/performance/team',
         component: TeamPerformance
+    },
+    {
+        path: '/contract/regist',
+        component: ContractRegist
+    },
+    {
+        path: '/contract/list',
+        component: ContractList
+    },
+    {
+        path: '/contract/contents',
+        component: ContractContent
+    },
+    {
+        path: '/estimate/regist',
+        component: EstimateRegist
+    },
+    {
+        path: '/estimate/list',
+        component: EstimateList
+    },
+    {
+        path: '/estimate/contents',
+        component: EstimateContent
     }
 ];
 
