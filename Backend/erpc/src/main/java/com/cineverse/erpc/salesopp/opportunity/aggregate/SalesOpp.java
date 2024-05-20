@@ -50,5 +50,5 @@ public class SalesOpp {
     @ManyToOne
     private SalesOppStatus salesOppStatus;
 
-    // 깃플로우 테스트 2
+    // delete branch 생성
 }
