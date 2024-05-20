@@ -50,5 +50,5 @@ public class SalesOpp {
     @ManyToOne
     private SalesOppStatus salesOppStatus;
 
-    // delete branch 재생성 pr test
+    // delete -> develop
 }
