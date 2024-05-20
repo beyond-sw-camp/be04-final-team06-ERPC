@@ -1,9 +1,8 @@
 package com.cineverse.erpc.admin.delete.controller;
 
-import com.cineverse.erpc.admin.delete.aggregate.SalesOppDelete;
 import com.cineverse.erpc.admin.delete.service.DeleteService;
-import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
-import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
+import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,17 +22,25 @@ public class DeleteController {
 
     /* 영업기회 삭제 요청 전체 조회 */
     @GetMapping("/sales_opp")
-    public List<SalesOppDelete> findSalesOppDeleteRequest() {
-        List<SalesOppDelete> salesOppDeleteRequestList = deleteService.findSalesOppDeleteRequestList();
+    public List<SalesOppDeleteRequest> findSalesOppDeleteRequest() {
+        List<SalesOppDeleteRequest> salesOppDeleteRequestList = deleteService.findSalesOppDeleteRequestList();
 
         return salesOppDeleteRequestList;
     }
 
     /* 영업기회 삭제 요청 단일 조회 */
-//    @GetMapping("/sales_opp/{salesOppDeleteRequestI}")
-//    public
+    @GetMapping("/sales_opp/{salesOppDeleteRequestId}")
+    public SalesOppDeleteRequestDTO findOppDeleteRequest(@PathVariable int salesOppDeleteRequestId) {
+        SalesOppDeleteRequestDTO oppDeleteRequest = deleteService.findSalesOppDeleteRequestById(salesOppDeleteRequestId);
 
+        return oppDeleteRequest;
+    }
 
     /* 영업기회 삭제 요청 처리 */
-
+    @PatchMapping("/sales_opp/status/{salesOppDeleteRequestId}")
+    public ResponseEntity<SalesOppDeleteRequest> deleteSalesOpp(@RequestBody SalesOppDeleteRequestDTO deleteOppDTO,
+                                                                @PathVariable int salesOppDeleteRequestId) {
+        SalesOppDeleteRequest updatedRequest = deleteService.changeRequestStatus(salesOppDeleteRequestId, deleteOppDTO);
+        return ResponseEntity.ok(updatedRequest);
+    }
 }

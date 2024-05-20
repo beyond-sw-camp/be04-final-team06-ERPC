@@ -1,6 +1,5 @@
 package com.cineverse.erpc.salesopp.opportunity.service;
 
-import com.cineverse.erpc.admin.delete.aggregate.SalesOppDelete;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;

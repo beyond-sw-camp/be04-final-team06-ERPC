@@ -26,7 +26,7 @@ public class SalesOppDeleteRequest {
     private char requestStatus;
 
     @JoinColumn(name = "sales_opp_id")
-    @ManyToOne
+    @OneToOne
     @JsonIgnore
     private SalesOpp salesOpp;
 }
