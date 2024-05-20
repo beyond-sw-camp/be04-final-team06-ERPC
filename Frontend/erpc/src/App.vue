@@ -7,7 +7,12 @@ import { ref } from 'vue';
 
 const menuItems = ref([
   { title: '공지 사항', subItems: [], isOpen: false },
-  { title: '결재 관리', subItems: [], isOpen: false },
+  { title: '결재 관리',
+    subItems: [
+      { title: '승인 요청 목록', path: '/approval/list' }
+    ],
+    isOpen: false
+  },
   { title: '영업 기회', subItems: [], isOpen: false },
   { title: '품목 관리', subItems: [], isOpen: false },
   {

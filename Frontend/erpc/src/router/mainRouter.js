@@ -18,6 +18,8 @@ import CBContents from '@/components/bill/CBContents.vue';
 import YearPerformance from '@/components/performance/YearPerformance.vue';
 import TeamPerformance from '@/components/performance/TeamPerformance.vue';
 
+import ApprovalList from '@/components/approval/ApprovalList.vue';
+
 import ContractRegist from '@/components/contract/ContractRegist.vue';
 import ContractList from '@/components/contract/ContractList.vue';
 import ContractContent from '@/components/contract/ContractContent.vue';
@@ -78,6 +80,10 @@ const routes = [
     {
         path: '/performance/team',
         component: TeamPerformance
+    },
+    {
+        path: '/approval/list',
+        component: ApprovalList
     },
     {
         path: '/contract/regist',
