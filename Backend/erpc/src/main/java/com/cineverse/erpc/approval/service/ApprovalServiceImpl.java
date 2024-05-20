@@ -150,7 +150,7 @@ public class ApprovalServiceImpl implements ApprovalService{
         ContractApproval contractApproval = contractApprovalRepository.findById(contractId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
 
-        return mapper.map(contractApproval, )
+        return mapper.map(contractApproval, ResponseFindContractApproval.class);
     }
 
     @Override
