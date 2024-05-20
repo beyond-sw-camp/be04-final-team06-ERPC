@@ -32,6 +32,13 @@ import SalesOppRegist from '@/components/salesopp/SalesOppRegist.vue';
 import SalesOppList from '@/components/salesopp/SalesOppList.vue';
 import SalesOppContent from '@/components/salesopp/SalesOppContent.vue';
 
+import ItemList from '@/components/logistics/ItemList.vue';
+import StorageList from '@/components/logistics/StorageList.vue';
+
+import NoticeRegist from '@/components/notice/NoticeRegist.vue';
+import NoticeList from '@/components/notice/NoticeList.vue';
+import NoticeContent from '@/components/notice/NoticeContent.vue';
+
 const routes = [
     {
         path: '/',
@@ -124,6 +131,26 @@ const routes = [
     {
         path: '/salesopp/contents',
         component: SalesOppContent
+    },
+    {
+        path: '/item/list',
+        component: ItemList
+    },
+    {
+        path: '/storage/list',
+        component: StorageList
+    },
+    {
+        path: '/notice/regist',
+        component: NoticeRegist
+    },
+    {
+        path: '/notice/list',
+        component: NoticeList
+    },
+    {
+        path: '/notice/contents',
+        component: NoticeContent
     }
 ];
 

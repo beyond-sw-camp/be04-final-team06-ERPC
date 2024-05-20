@@ -9,7 +9,8 @@ const menuItems = ref([
   {
     title: '공지 사항',
     subItems: [
-
+      { title: '게시글 작성', path: '/notice/regist' },
+      { title: '게시글 목록', path: '/notice/list' }
     ],
     isOpen: false
   },
@@ -31,8 +32,8 @@ const menuItems = ref([
   {
     title: '품목 관리',
     subItems: [
-      { title: '품목 목록', path: '/salesopp/regist' },
-      { title: '창고 목록', path: '/salesopp/list' }
+      { title: '품목 목록', path: '/item/list' },
+      { title: '창고 목록', path: '/storage/list' }
     ],
     isOpen: false
   },
