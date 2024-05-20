@@ -13,11 +13,14 @@ public class QuotationApproval {
     @Column(name = "quotation_approval_id")
     private long quotationApprovalId;
 
+    @Column(name = "approval_request_date")
+    private String approvalRequestDate;
+
     @Column(name = "approval_date")
-    private String ApprovalDate;
+    private String approvalDate;
 
     @Column(name = "approval_content")
-    private String ApprovalContent;
+    private String approvalContent;
 
     @JoinColumn(name = "quotation_id")
     @ManyToOne

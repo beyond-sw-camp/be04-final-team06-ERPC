@@ -13,11 +13,14 @@ public class ContractApproval {
     @Column(name = "contract_approval_id")
     private long contractApprovalId;
 
+    @Column(name = "approval_request_date")
+    private String approvalRequestDate;
+
     @Column(name = "approval_date")
-    private String ApprovalDate;
+    private String approvalDate;
 
     @Column(name = "approval_content")
-    private String ApprovalContent;
+    private String approvalContent;
 
     @JoinColumn(name = "contract_id")
     @ManyToOne

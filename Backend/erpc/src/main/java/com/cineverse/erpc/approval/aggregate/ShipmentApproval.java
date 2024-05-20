@@ -13,11 +13,14 @@ public class ShipmentApproval {
     @Column(name = "shipment_approval_id")
     private long shipmentApprovalId;
 
+    @Column(name = "approval_request_date")
+    private String approvalRequestDate;
+
     @Column(name = "approval_date")
-    private String ApprovalDate;
+    private String approvalDate;
 
     @Column(name = "approval_content")
-    private String ApprovalContent;
+    private String approvalContent;
 
     @JoinColumn(name = "order_registration_id")
     @ManyToOne
