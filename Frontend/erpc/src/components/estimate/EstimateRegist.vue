@@ -73,7 +73,7 @@
         </div>
         <div class="estimate-attachment">
             <div class="estimate-attachment-header">
-                <h2 class="estimate-pdf">첨부파일</h2>
+                <h2 class="estimate-file">첨부파일</h2>
                 <img src="@/assets/img/pdf.png" class="estimate-pdfimage">
             </div>
             <div class="estimate-attachment-content">
@@ -82,6 +82,9 @@
                     <span class="file-name">제품 카탈로그.pdf</span>
                 </div>
             </div>
+        </div>
+        <div class="estimate-regist-btn-div">
+            <button class="estimate-regist-btn">견적 등록하기</button>
         </div>
     </div>
 </template>
@@ -168,34 +171,6 @@
     width: 100px;
 }
 
-.estimate-regist-btn-div1 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.estimate-regist-btn1 {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
-    background-color: #0C2092;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.estimate-regist-btn1 {
-    width: 320px;
-    font-size: 18px;
-    margin-top: 30px;
-    margin-bottom: 7%;
-}
-
 .estimate-attachment {
     display: flex;
     flex-direction: column;
@@ -206,6 +181,7 @@
     height: 200px;
     background-color: #d5e6ff;
     border-radius: 10px;
+    margin-bottom: 50px;
 }
 
 .estimate-attachment-header {
@@ -248,4 +224,29 @@
 .file-name {
     font-size: 18px;
 }
+
+.estimate-regist-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.estimate-regist-btn {
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 320px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
 </style>
