@@ -163,6 +163,9 @@ public class ApprovalServiceImpl implements ApprovalService{
 
     @Override
     public ResponseFindShipmentApproval findShipmentApproval(long contractId) {
-        return null;
+        ShipmentApproval shipmentApproval = shipmentApprovalRepository.findById(contractId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        return mapper.map(shipmentApproval, ResponseFindShipmentApproval.class);
     }
 }
