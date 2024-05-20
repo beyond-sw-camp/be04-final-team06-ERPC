@@ -50,4 +50,5 @@ public class SalesOpp {
     @ManyToOne
     private SalesOppStatus salesOppStatus;
 
+    // 깃플로우 테스트
 }
