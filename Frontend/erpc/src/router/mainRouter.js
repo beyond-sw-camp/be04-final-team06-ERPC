@@ -28,6 +28,10 @@ import EstimateRegist from '@/components/estimate/EstimateRegist.vue';
 import EstimateList from '@/components/estimate/EstimateList.vue';
 import EstimateContent from '@/components/estimate/EstimateContent.vue';
 
+import SalesOppRegist from '@/components/salesopp/SalesOppRegist.vue';
+import SalesOppList from '@/components/salesopp/SalesOppList.vue';
+import SalesOppContent from '@/components/salesopp/SalesOppContent.vue';
+
 const routes = [
     {
         path: '/',
@@ -108,6 +112,18 @@ const routes = [
     {
         path: '/estimate/contents',
         component: EstimateContent
+    },
+    {
+        path: '/salesopp/regist',
+        component: SalesOppRegist
+    },
+    {
+        path: '/salesopp/list',
+        component: SalesOppList
+    },
+    {
+        path: '/salesopp/contents',
+        component: SalesOppContent
     }
 ];
 
