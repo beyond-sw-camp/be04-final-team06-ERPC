@@ -5,11 +5,7 @@ import com.cineverse.erpc.order.order.aggregate.Order;
 import lombok.Data;
 
 @Data
-public class ResponseFindShipmentApproval {
+public class RequestShipmentApprovalProcess {
     private long shipmentApprovalId;
-    private String approvalRequestDate;
-    private String approvalDate;
-    private String approvalContent;
-    private Order order;
     private ApprovalStatus approvalStatus;
 }

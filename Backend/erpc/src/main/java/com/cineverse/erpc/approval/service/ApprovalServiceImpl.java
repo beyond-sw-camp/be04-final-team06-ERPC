@@ -4,18 +4,9 @@ import com.cineverse.erpc.approval.aggregate.ApprovalStatus;
 import com.cineverse.erpc.approval.aggregate.ContractApproval;
 import com.cineverse.erpc.approval.aggregate.QuotationApproval;
 import com.cineverse.erpc.approval.aggregate.ShipmentApproval;
-import com.cineverse.erpc.approval.dto.contract.RequestRegistContractApproval;
-import com.cineverse.erpc.approval.dto.contract.ResponseContractApprovalList;
-import com.cineverse.erpc.approval.dto.contract.ResponseFindContractApproval;
-import com.cineverse.erpc.approval.dto.contract.ResponseRegistContractApproval;
-import com.cineverse.erpc.approval.dto.quotation.RequestRegistQuotationApproval;
-import com.cineverse.erpc.approval.dto.quotation.ResponseFindQuotationApproval;
-import com.cineverse.erpc.approval.dto.quotation.ResponseQuotationApprovalList;
-import com.cineverse.erpc.approval.dto.quotation.ResponseRegistQuotationApproval;
-import com.cineverse.erpc.approval.dto.shipment.RequestRegistShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseFindShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseRegistShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseShipmentApprovalList;
+import com.cineverse.erpc.approval.dto.contract.*;
+import com.cineverse.erpc.approval.dto.quotation.*;
+import com.cineverse.erpc.approval.dto.shipment.*;
 import com.cineverse.erpc.approval.repo.ContractApprovalRepository;
 import com.cineverse.erpc.approval.repo.QuotationApprovalRepository;
 import com.cineverse.erpc.approval.repo.ShipmentApprovalRepository;
@@ -155,11 +146,71 @@ public class ApprovalServiceImpl implements ApprovalService{
 
     @Override
     public ResponseFindQuotationApproval findQuotationApproval(long quotationId) {
-        return null;
+        QuotationApproval quotationApproval = quotationApprovalRepository.findById(quotationId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        return mapper.map(quotationApproval, ResponseFindQuotationApproval.class);
     }
 
     @Override
     public ResponseFindShipmentApproval findShipmentApproval(long contractId) {
-        return null;
+        ShipmentApproval shipmentApproval = shipmentApprovalRepository.findById(contractId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        return mapper.map(shipmentApproval, ResponseFindShipmentApproval.class);
+    }
+
+    @Override
+    public ResponseContractApprovalProcess contractApprovalProcess(RequestContractApprovalProcess requestApproval) {
+        ContractApproval contractApproval = contractApprovalRepository
+                .findById(requestApproval.getContractApprovalId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String registDate = dateFormat.format(date);
+
+        contractApproval.setApprovalDate(registDate);
+        contractApproval.setApprovalStatus(requestApproval.getApprovalStatus());
+
+        contractApprovalRepository.save(contractApproval);
+
+        return mapper.map(contractApproval, ResponseContractApprovalProcess.class);
+    }
+
+    @Override
+    public ResponseQuotationApprovalProcess quotationApprovalProcess(RequestQuotationApprovalProcess requestApproval) {
+        QuotationApproval quotationApproval = quotationApprovalRepository
+                .findById(requestApproval.getQuotationApprovalId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String registDate = dateFormat.format(date);
+
+         quotationApproval.setApprovalDate(registDate);
+         quotationApproval.setApprovalStatus(requestApproval.getApprovalStatus());
+
+         quotationApprovalRepository.save(quotationApproval);
+
+         return mapper.map(quotationApproval, ResponseQuotationApprovalProcess.class);
+    }
+
+    @Override
+    public ResponseShipmentApprovalProcess shipmentApprovalProcess(RequestShipmentApprovalProcess requestApproval) {
+        ShipmentApproval shipmentApproval = shipmentApprovalRepository
+                .findById(requestApproval.getShipmentApprovalId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String registDate = dateFormat.format(date);
+
+        shipmentApproval.setApprovalDate(registDate);
+        shipmentApproval.setApprovalStatus(requestApproval.getApprovalStatus());
+
+        shipmentApprovalRepository.save(shipmentApproval);
+
+        return mapper.map(shipmentApproval, ResponseShipmentApprovalProcess.class);
     }
 }
