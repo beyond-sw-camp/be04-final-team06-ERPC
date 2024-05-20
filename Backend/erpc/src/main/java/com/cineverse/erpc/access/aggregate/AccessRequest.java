@@ -26,4 +26,6 @@ public class AccessRequest {
     @JoinColumn(name = "employee_id")
     @ManyToOne
     private Employee employee;
+
+    // dev
 }
