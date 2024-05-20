@@ -26,7 +26,7 @@ import EstimateRegist from '@/components/estimate/EstimateRegist.vue';
 
 const routes = [
     {
-        path: '/main',
+        path: '/',
         component: Main
     },
     {
