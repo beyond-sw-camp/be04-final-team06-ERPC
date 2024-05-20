@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+import Main from '@/components/main/Main.vue';
+
 import CustomerRegist from '@/components/customer/CustomerRegist.vue';
 import CustomerList from '@/components/customer/CustomerList.vue';
 import CustomerContents from '@/components/customer/CustomerContents.vue';
@@ -23,6 +25,10 @@ import ContractContent from '@/components/contract/ContractContent.vue';
 import EstimateRegist from '@/components/estimate/EstimateRegist.vue';
 
 const routes = [
+    {
+        path: '/main',
+        component: Main
+    },
     {
         path: '/customer/regist',
         component: CustomerRegist
