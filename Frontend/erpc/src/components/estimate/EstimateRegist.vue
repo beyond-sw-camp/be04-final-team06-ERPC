@@ -19,7 +19,7 @@
                     <tr>
                         <td><input type="text"></td>
                         <td>LG 콤퓨타</td>
-                        <td><input type="text" class="test1"></td>
+                        <td><input type="text" class="estimate-test1"></td>
                         <td>1,800,000</td>
                         <td>9,000,000</td>
                         <td><input type="text"></td>
@@ -63,17 +63,25 @@
                 <tbody>
                     <tr>
                         <td>PJ-20240508001</td>
-                        <td><input type="text" class="test2"></td>
+                        <td><input type="text" class="estimate-test2"></td>
                         <td><input type="text"></td>
-                        <td><input type="text" class="test3"></td>
+                        <td><input type="text" class="estimate-test3"></td>
                         <td><input type="text"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="estimate-attachment">
-            <h3>첨부파일<img src="@/assets/img/pdf.png" class="pdfimage1"></h3>
-            <div class="estimate-attachment-content">견적서 pdf</div>
+            <div class="estimate-attachment-header">
+                <h2 class="estimate-pdf">첨부파일</h2>
+                <img src="@/assets/img/pdf.png" class="estimate-pdfimage">
+            </div>
+            <div class="estimate-attachment-content">
+                <div class="file-list">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">제품 카탈로그.pdf</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -94,58 +102,6 @@
 .estimate-regist {
     text-align: center;
     margin-top: 3%;
-}
-
-.estimate-pdf {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    flex-grow: 1;
-    padding: 10px;
-    background-color: #BEE7FF;
-    border: 2px solid #BEE7FF;
-    border-radius: 10px;
-    box-sizing: border-box;
-    width: 350px;
-    height: 150px;
-    margin-bottom: 20px;
-    font-family: GmarketSansMedium;
-    font-size: 17px;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.estimate-pdf1,
-.estimate-pdf2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: 2px solid #0C2092;
-    border-radius: 10px;
-    padding: 6px 30px;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    color: black;
-    font-weight: bold;
-    width: 270px;
-}
-
-.estimate-pdf1:hover,
-.estimate-pdf2:hover {
-    background-color: #d5e6ff;
-}
-
-.pdfimage1,
-.pdfimage2 {
-    width: 30px;
-    height: auto;
-    margin-left: 5px;
-    margin-right: -10px;
 }
 
 .estimate-list-box {
@@ -203,12 +159,12 @@
     height: 40px;
 }
 
-.test1 {
+.estimate-test1 {
     width: 70px;
 }
 
-.test2,
-.test3 {
+.estimate-test2,
+.estimate-test3 {
     width: 100px;
 }
 
@@ -238,5 +194,58 @@
     font-size: 18px;
     margin-top: 30px;
     margin-bottom: 7%;
+}
+
+.estimate-attachment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #d5e6ff;
+    border-radius: 10px;
+}
+
+.estimate-attachment-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: -20px;
+}
+
+.estimate-pdfimage {
+    width: 30px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.estimate-attachment-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.file-list {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 90%;
+    height: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -5px;
+}
+
+.file-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.file-name {
+    font-size: 18px;
 }
 </style>
