@@ -101,10 +101,10 @@
                     <tr>
                         <td class="test1">
                             <div class="order-dropdown1">
-                                <button class="order-dropdown-btn1">일시 납부 or 분할 납부 ▼</button>
+                                <button class="order-dropdown-btn1">{{ searchBy }} ▼</button>
                                 <div class="order-dropdown-content1">
-                                    <a href="#">일시 납부</a>
-                                    <a href="#">분할 납부</a>
+                                    <a href="#" @click.prevent="setSearchBy('일시 납부')">일시 납부</a>
+                                    <a href="#" @click.prevent="setSearchBy('분할 납부')">분할 납부</a>
                                 </div>
                             </div>
                         </td>
@@ -135,8 +135,19 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+
+const searchBy = ref('일시 납부 or 분할 납부');
+
+function setSearchBy(criteria) {
+    searchBy.value = criteria;
+}
 </script>
+
+
 
 <style>
     @import url('@/assets/css/order/OrderRegist.css');
