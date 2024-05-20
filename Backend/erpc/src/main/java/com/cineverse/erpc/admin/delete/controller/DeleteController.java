@@ -37,8 +37,10 @@ public class DeleteController {
     }
 
     /* 영업기회 삭제 요청 처리 */
-    @PatchMapping("/status/{salesOppDeleteRequestId}")
-    public ResponseEntity<SalesOppDeleteRequest> deleteSalesOpp(@RequestBody SalesOppDeleteRequestDTO deleteOpp, )
-
-
+    @PatchMapping("/sales_opp/status/{salesOppDeleteRequestId}")
+    public ResponseEntity<SalesOppDeleteRequest> deleteSalesOpp(@RequestBody SalesOppDeleteRequestDTO deleteOppDTO,
+                                                                @PathVariable int salesOppDeleteRequestId) {
+        SalesOppDeleteRequest updatedRequest = deleteService.changeRequestStatus(salesOppDeleteRequestId, deleteOppDTO);
+        return ResponseEntity.ok(updatedRequest);
+    }
 }

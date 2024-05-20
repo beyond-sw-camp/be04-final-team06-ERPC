@@ -10,4 +10,6 @@ public interface DeleteService {
     List<SalesOppDeleteRequest> findSalesOppDeleteRequestList();
 
     SalesOppDeleteRequestDTO findSalesOppDeleteRequestById(int salesOppDeleteRequestId);
+
+    SalesOppDeleteRequest changeRequestStatus(int salesOppDeleteRequestId, SalesOppDeleteRequestDTO deleteOpp);
 }
