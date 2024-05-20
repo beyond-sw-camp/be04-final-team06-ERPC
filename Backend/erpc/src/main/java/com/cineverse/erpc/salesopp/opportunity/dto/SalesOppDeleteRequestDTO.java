@@ -1,5 +1,6 @@
 package com.cineverse.erpc.salesopp.opportunity.dto;
 
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import lombok.*;
 
 @NoArgsConstructor
@@ -8,9 +9,9 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class SalesOppDeleteDTO {
+public class SalesOppDeleteRequestDTO {
     private int salesOppDeleteRequestId;
     private String requestContent;
-    private String requestStatus;
-    private int salesOppId;
+    private char requestStatus;
+    private SalesOpp salesOpp;
 }

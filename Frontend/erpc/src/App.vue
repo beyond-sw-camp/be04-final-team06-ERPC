@@ -6,10 +6,37 @@ import { RouterView } from 'vue-router';
 import { ref } from 'vue';
 
 const menuItems = ref([
-  { title: '공지 사항', subItems: [], isOpen: false },
-  { title: '결재 관리', subItems: [], isOpen: false },
-  { title: '영업 기회', subItems: [], isOpen: false },
-  { title: '품목 관리', subItems: [], isOpen: false },
+  {
+    title: '공지 사항',
+    subItems: [
+      { title: '게시글 작성', path: '/notice/regist' },
+      { title: '게시글 목록', path: '/notice/list' }
+    ],
+    isOpen: false
+  },
+  {
+    title: '결재 관리',
+    subItems: [
+      { title: '승인 요청 목록', path: '/approval/list' }
+    ],
+    isOpen: false
+  },
+  {
+    title: '영업 기회',
+    subItems: [
+      { title: '영업 기회 등록', path: '/salesopp/regist' },
+      { title: '영업 기회 목록', path: '/salesopp/list' }
+    ],
+    isOpen: false
+  },
+  {
+    title: '품목 관리',
+    subItems: [
+      { title: '품목 목록', path: '/item/list' },
+      { title: '창고 목록', path: '/storage/list' }
+    ],
+    isOpen: false
+  },
   {
     title: '거래처 관리',
     subItems: [
@@ -26,21 +53,24 @@ const menuItems = ref([
     ],
     isOpen: false
   },
-  { title: '계약서 관리',
+  {
+    title: '계약서 관리',
     subItems: [
       { title: '계약서 등록', path: '/contract/regist' },
       { title: '계약서 목록', path: '/contract/list' }
     ],
     isOpen: false
   },
-  { title: '수주 관리',
+  {
+    title: '수주 관리',
     subItems: [
       { title: '수주 등록', path: '/order/regist' },
       { title: '수주 목록', path: '/order/list' }
     ],
     isOpen: false
   },
-  { title: '전표 관리',
+  {
+    title: '전표 관리',
     subItems: [
       { title: '수금 조회', path: '/bill/deposit' },
       { title: 'CB 요청', path: '/bill/request' },
@@ -48,7 +78,8 @@ const menuItems = ref([
     ],
     isOpen: false
   },
-  { title: '실적 관리',
+  {
+    title: '실적 관리',
     subItems: [
       { title: '연간 실적 조회', path: '/performance/year' },
       { title: 'Team 실적 조회', path: '/performance/team' }

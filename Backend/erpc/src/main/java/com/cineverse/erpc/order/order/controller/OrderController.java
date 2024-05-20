@@ -36,6 +36,7 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
     }
+
     /* 단일조회 */
     @GetMapping("/{orderId}")
     public OrderDTO findOrderByOrderId(@PathVariable long orderId) {
@@ -43,11 +44,13 @@ public class OrderController {
 
         return order;
     }
+
     /* 다중조회 */
     @GetMapping("/list")
     public List<ResponseOrderLists> findAllOrders() {
         return orderService.findAllOrders();
     }
+
     /* 수정 */
     @PatchMapping("/modify/{orderId}")
     public ResponseEntity<ResponseModifyOrder> modifyOrder(@PathVariable long orderId,
@@ -57,4 +60,6 @@ public class OrderController {
 
         return ResponseEntity.ok().body(responseModifyOrder);
     }
+
+
 }

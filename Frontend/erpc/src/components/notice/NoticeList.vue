@@ -50,7 +50,7 @@
   
   <script setup>
   import { onMounted, ref, watch } from "vue";
-  import axios from "axios";
+  // import axios from "axios";
   import router from "@/router/mainRouter";
   
   const free = ref([]);
@@ -117,5 +117,5 @@
   </script>
   
   <style scoped>
-    @import url('@/assets/css/PostMain/freePostMain.css');
+    /* @import url('@/assets/css/PostMain/freePostMain.css'); */
   </style>

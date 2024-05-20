@@ -1,4 +1,4 @@
-package com.cineverse.erpc.approval.dto;
+package com.cineverse.erpc.approval.dto.contract;
 
 import com.cineverse.erpc.approval.aggregate.ApprovalStatus;
 import com.cineverse.erpc.contract.aggregate.Contract;
@@ -7,13 +7,12 @@ import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import lombok.Data;
 
 @Data
-public class ResponseRegistApproval {
+public class ResponseRegistContractApproval {
 
     private long contractApprovalId;
-    private String ApprovalDate;
-    private String ApprovalContent;
-    private Quotation quotation;
+    private String approvalRequestDate;
+    private String approvalDate;
+    private String approvalContent;
     private Contract contract;
-    private Order order;
     private ApprovalStatus approvalStatus;
 }

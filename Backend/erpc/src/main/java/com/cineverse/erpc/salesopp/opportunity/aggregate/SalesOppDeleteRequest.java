@@ -1,5 +1,7 @@
 package com.cineverse.erpc.salesopp.opportunity.aggregate;
 
+import com.cineverse.erpc.contract.aggregate.Contract;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +13,7 @@ import lombok.*;
 @Entity
 @Table(name="tbl_sales_opportunity_delete_request")
 @Builder
-public class SalesOppDelete {
+public class SalesOppDeleteRequest {
     @Id
     @Column(name = "sales_opp_delete_request_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +23,10 @@ public class SalesOppDelete {
     private String requestContent;
 
     @Column(name = "request_status")
-    private String requestStatus;
+    private char requestStatus;
 
-    @Column(name = "sales_opp_id")
-    private int salesOppId;
+    @JoinColumn(name = "sales_opp_id")
+    @ManyToOne
+    @JsonIgnore
+    private SalesOpp salesOpp;
 }

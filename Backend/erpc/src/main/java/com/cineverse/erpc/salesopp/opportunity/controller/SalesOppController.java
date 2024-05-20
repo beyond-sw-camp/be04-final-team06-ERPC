@@ -2,6 +2,7 @@ package com.cineverse.erpc.salesopp.opportunity.controller;
 
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
+import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.service.SalesOppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,6 +42,11 @@ public class SalesOppController {
     }
 
     /* 영업기회 삭제 요청 */
+    @PostMapping("/delete")
+    public ResponseEntity<SalesOppDeleteRequestDTO> deleteSalesOpp(@RequestBody SalesOppDeleteRequestDTO deleteOpp) {
+        salesOppService.requestDeleteOpp(deleteOpp);
+        return ResponseEntity.status(HttpStatus.CREATED).body(deleteOpp);
+    }
 
     /* 영업기회 전체 조회 */
     @GetMapping("")

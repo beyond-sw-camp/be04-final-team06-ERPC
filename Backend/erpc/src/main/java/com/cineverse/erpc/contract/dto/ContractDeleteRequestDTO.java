@@ -10,8 +10,8 @@ import lombok.*;
 @ToString
 @Builder
 public class ContractDeleteRequestDTO {
-    private Long accountDeleteRequestId;
-    private String accountDeleteRequestReason;
-    private String accountDeleteRequestStatus;
+    private Long contractDeleteRequestId;
+    private String contractDeleteRequestReason;
+    private String contractDeleteRequestStatus;
     private Contract contract;
 }
