@@ -155,7 +155,10 @@ public class ApprovalServiceImpl implements ApprovalService{
 
     @Override
     public ResponseFindQuotationApproval findQuotationApproval(long quotationId) {
-        return null;
+        QuotationApproval quotationApproval = quotationApprovalRepository.findById(quotationId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 결재입니다."));
+
+        return mapper.map(quotationApproval, ResponseFindQuotationApproval.class);
     }
 
     @Override
