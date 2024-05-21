@@ -240,11 +240,12 @@ public class DeleteServiceImpl implements DeleteService {
         Account account = accountRepository.findById(accountDeleteRequest.getAccount().getAccountId())
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
 
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDate = dateFormat.format(new Date());
         account.setAccountDeleteDate(currentDate);
         accountRepository.save(account);
-
+      
         accountDeleteRequest.setAccount(account);
 
         return modelMapper.map(accountDeleteRequest, ResponseAccountDeleteRequestProcess.class);
