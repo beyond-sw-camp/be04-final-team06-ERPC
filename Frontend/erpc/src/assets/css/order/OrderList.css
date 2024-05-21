@@ -1,5 +1,5 @@
-.order-list-content {
-    margin-top: 4%;
+.order-content {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
 
 .order-list {
     text-align: center;
-    margin-top: 8%;
+    margin-top: 50px;
 }
 
 .order-list-search {
