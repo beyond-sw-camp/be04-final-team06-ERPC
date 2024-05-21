@@ -1,5 +1,9 @@
 package com.cineverse.erpc.admin.delete.controller;
 
+import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseFindAccoundDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
@@ -101,5 +105,25 @@ public class DeleteController {
                 = deleteService.processQuotationDeleteRequest(requestQuotationDeleteRequestProcess);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseQuotationDeleteRequestProcess);
+    }
+
+    @GetMapping("/account")
+    public List<ResponseAccountDeleteRequestList> findAccountDeleteRequestList() {
+        return deleteService.findAccountDeleteList();
+    }
+
+    @GetMapping("/account/{accountDeleteRequestId}")
+    public ResponseFindAccoundDeleteRequest findAccoundDeleteRequestById(
+            @PathVariable long accountDeleteRequestId) {
+        return deleteService.findAccountDeleteRequestById(accountDeleteRequestId);
+    }
+
+    @PatchMapping("/account/process")
+    public ResponseEntity<ResponseAccountDeleteRequestProcess> accountDeleteRequestProcess(
+            @RequestBody RequestAccountDeleteRequestProcess requestAccountDeleteRequestProcess) {
+        ResponseAccountDeleteRequestProcess responseAccountDeleteRequestProcess
+                = deleteService.accountDeleteRequestProcess(requestAccountDeleteRequestProcess);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseAccountDeleteRequestProcess);
     }
 }
