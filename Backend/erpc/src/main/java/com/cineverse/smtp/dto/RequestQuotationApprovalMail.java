@@ -6,8 +6,6 @@ import com.cineverse.erpc.approval.aggregate.ShipmentApproval;
 import lombok.Data;
 
 @Data
-public class RequestApprovalMail {
+public class RequestQuotationApprovalMail {
     QuotationApproval quotationApproval;
-    ContractApproval contractApproval;
-    ShipmentApproval shipmentApproval;
 }

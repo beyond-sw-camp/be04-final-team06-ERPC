@@ -10,7 +10,9 @@ import com.cineverse.erpc.approval.dto.shipment.*;
 import com.cineverse.erpc.approval.repo.ContractApprovalRepository;
 import com.cineverse.erpc.approval.repo.QuotationApprovalRepository;
 import com.cineverse.erpc.approval.repo.ShipmentApprovalRepository;
-import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.smtp.dto.RequestContractApprovalMail;
+import com.cineverse.smtp.dto.RequestQuotationApprovalMail;
+import com.cineverse.smtp.dto.RequestShipmentApprovalMail;
 import com.cineverse.smtp.service.EmailService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -18,7 +20,6 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -176,8 +177,13 @@ public class ApprovalServiceImpl implements ApprovalService{
 
         contractApproval.setApprovalDate(registDate);
         contractApproval.setApprovalStatus(requestApproval.getApprovalStatus());
+        contractApproval.setApprovalContent(requestApproval.getApprovalContent());
 
         contractApprovalRepository.save(contractApproval);
+
+        RequestContractApprovalMail requestContractApprovalMail = new RequestContractApprovalMail();
+        requestContractApprovalMail.setContractApproval(contractApproval);
+        emailService.sendContractApprovalResultMail(requestContractApprovalMail);
 
         return mapper.map(contractApproval, ResponseContractApprovalProcess.class);
     }
@@ -194,10 +200,16 @@ public class ApprovalServiceImpl implements ApprovalService{
 
          quotationApproval.setApprovalDate(registDate);
          quotationApproval.setApprovalStatus(requestApproval.getApprovalStatus());
+         quotationApproval.setApprovalContent(requestApproval.getApprovalContent());
 
          quotationApprovalRepository.save(quotationApproval);
 
-         return mapper.map(quotationApproval, ResponseQuotationApprovalProcess.class);
+        RequestQuotationApprovalMail requestQuotationApprovalMail= new RequestQuotationApprovalMail();
+        requestQuotationApprovalMail.setQuotationApproval(quotationApproval);
+        emailService.sendQuotationApprovalResultMail(requestQuotationApprovalMail);
+
+
+        return mapper.map(quotationApproval, ResponseQuotationApprovalProcess.class);
     }
 
     @Override
@@ -212,8 +224,13 @@ public class ApprovalServiceImpl implements ApprovalService{
 
         shipmentApproval.setApprovalDate(registDate);
         shipmentApproval.setApprovalStatus(requestApproval.getApprovalStatus());
+        shipmentApproval.setApprovalContent(requestApproval.getApprovalContent());
 
         shipmentApprovalRepository.save(shipmentApproval);
+
+        RequestShipmentApprovalMail requestShipmentApprovalMail = new RequestShipmentApprovalMail();
+        requestShipmentApprovalMail.setShipmentApproval(shipmentApproval);
+        emailService.sendShipmentApprovalResultMail(requestShipmentApprovalMail);
 
         return mapper.map(shipmentApproval, ResponseShipmentApprovalProcess.class);
     }
