@@ -15,10 +15,10 @@
                 <div class="login-container">
                     <h1>ERPC</h1>
                     <label for="employee-id">Employee ID</label>
-                    <input type="text" id="employee-id" name="employee-id">
+                    <input type="text" v-model="employeeId" id="employee-id" name="employee-id">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
-                    <button type="submit">로그인</button>
+                    <input type="password" v-model="password" id="password" name="password">
+                    <button @click="login">로그인</button>
                 </div>
             </div>
         </div>
@@ -26,10 +26,66 @@
 </template>
 
 <script setup>
+// import { ref } from 'vue';
+// import axios from 'axios';
+
+// const employeeCode = ref('');
+// const employeePassword = ref('');
+
+// const login = async () => {
+//     try {
+//         const response = await axios.post(`http://localhost:7775/login`, {
+//             employeeCode: employeeCode.value,
+//             employeePassword: employeePassword.value
+//         });
+
+//         const token = response.headers['token'];
+//         const userId = response.headers['userId'];
+
+//         if (token && userId) {
+//             localStorage.setItem('token', token);
+//             localStorage.setItem('userId', userId);
+//             alert('로그인 성공!');
+//         } else {
+//             alert('로그인 실패: 토큰을 받지 못했습니다.');
+//         }
+//     } catch (error) {
+//         console.error('로그인 오류:', error);
+//         alert('로그인 실패: 서버 오류');
+//     }
+// };
+
+import { ref } from 'vue';
+import axios from 'axios';
+
+const employeeCode = ref('');
+const employeePassword = ref('');
+
+const login = async () => {
+    try {
+        const response = await axios.post('http://localhost:7775/login', {
+            employeeCode: employeeCode.value,
+            employeePassword: employeePassword.value
+        });
+
+        const token = response.headers['token'];
+        const userId = response.headers['userId'];
+
+        if (token && userId) {
+            localStorage.setItem('token', token);
+            localStorage.setItem('userId', userId);
+            alert('로그인 성공!');
+        } else {
+            alert('로그인 실패: 토큰을 받지 못했습니다.');
+        }
+    } catch (error) {
+        console.error('로그인 오류:', error);
+        alert('로그인 실패: 서버 오류');
+    }
+};
 </script>
 
 <style>
-
 .mainpage {
     display: flex;
     flex-direction: column;
@@ -172,6 +228,4 @@
 .login-container button:hover {
     background-color: #051A80;
 }
-
-
 </style>
