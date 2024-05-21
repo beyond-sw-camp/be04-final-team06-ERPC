@@ -115,5 +115,5 @@
 
 </script>
 <style>
- @import url('@/assets/css/contract/ContractContent.css');
+ @import url('@/assets/css/contract/ContractContents.css');
 </style>
