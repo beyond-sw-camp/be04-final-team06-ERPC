@@ -1,13 +1,13 @@
 <template>
     <div class="estimate-content">
         <div class="estimate-list">
-            <h1>견적 목록</h1>
+            <h1>견적서 목록</h1>
         </div>
         <div class="estimate-list-search">
             <div class="estimate-dropdown">
                 <button class="estimate-dropdown-btn">{{ searchBy }} ▼</button>
                 <div class="estimate-dropdown-content">
-                    <a href="#" @click="setSearchBy('프로젝트 코드')">프로젝트 코드</a>
+                    <a href="#" @click="setSearchBy('견적서 코드')">견적서 코드</a>
                     <a href="#" @click="setSearchBy('담당자')">담당자</a>
                 </div>
             </div>
@@ -19,10 +19,10 @@
                 <thead>
                     <tr>
                         <th>번호</th>
-                        <th>프로젝트 코드</th>
-                        <th>수주금액</th>
+                        <th>견적서 코드</th>
+                        <th>견적금액</th>
                         <th>작성일자</th>
-                        <th>납기일자</th>
+                        <th>마감일자</th>
                         <th>결재상태</th>
                         <th>담당자</th>
                     </tr>
@@ -50,11 +50,11 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const estimates = ref([
-    { id: 1, projectCode: 'PJ-20240508001', amount: '600,000', creationDate: '2024-04-01', dueDate: '2025-04-04', status: '진행중', inCharge: '유관순' },
-    { id: 2, projectCode: 'PJ-20240508002', amount: '500,000', creationDate: '2024-04-01', dueDate: '2025-04-04', status: '진행중', inCharge: '이순신' }
+    { id: 1, projectCode: 'QO-20240427001', amount: '600,000', creationDate: '2024-04-01', dueDate: '2025-04-01', status: '진행중', inCharge: '유관순' },
+    { id: 2, projectCode: 'QO-20240427002', amount: '500,000', creationDate: '2024-04-01', dueDate: '2025-04-01', status: '진행중', inCharge: '이순신' }
 ]);
 const searchQuery = ref('');
-const searchBy = ref('프로젝트 코드');
+const searchBy = ref('견적서 코드');
 const filteredEstimates = ref(estimates.value);
 
 function setSearchBy(criteria) {
@@ -66,7 +66,7 @@ function applyFilter() {
         filteredEstimates.value = estimates.value;
     } else {
         filteredEstimates.value = estimates.value.filter(estimate => {
-            if (searchBy.value === '프로젝트 코드') {
+            if (searchBy.value === '견적서 코드') {
                 return estimate.projectCode.includes(searchQuery.value);
             } else if (searchBy.value === '담당자') {
                 return estimate.inCharge.includes(searchQuery.value);
@@ -204,6 +204,7 @@ function goToEstimateContents(estimateCode) {
     border: 1px solid #ccc;
     padding: 8px;
     font-family: GmarketSansMedium;
+    width: 160px; /* 너비 조절 */
 }
 
 .estimate-table th {
