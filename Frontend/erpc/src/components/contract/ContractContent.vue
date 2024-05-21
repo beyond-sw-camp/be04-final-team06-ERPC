@@ -106,7 +106,7 @@
         </div>
         <div class="contract-attachment">
             <h3>첨부파일<img src="@/assets/img/pdf.png" class="pdf"></h3>
-            <div class="contract-attachment-content">견적서 pdf</div>
+            <div class="contract-attachment-content">견적서.pdf</div>
         </div>
     </div>
 </template>
