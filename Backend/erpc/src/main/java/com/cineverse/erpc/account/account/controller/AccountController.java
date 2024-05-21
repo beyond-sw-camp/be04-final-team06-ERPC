@@ -41,6 +41,7 @@ public class AccountController {
 
     @PostMapping("/regist")
     public ResponseEntity<ResponseRegistAccountDTO> registAccount(@RequestBody RequestRegistAccountDTO account) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         AccountDTO accountDTO = modelMapper.map(account, AccountDTO.class);
 
         accountService.registAccount(accountDTO);

@@ -43,6 +43,9 @@ public class Account {
     @Column(name = "account_code")
     private String accountCode;
 
+    @Column(name = "account_delete_date")
+    private String accountDeleteDate;
+
     @JoinColumn(name = "employee_id")
     @ManyToOne
     private Employee employee;
