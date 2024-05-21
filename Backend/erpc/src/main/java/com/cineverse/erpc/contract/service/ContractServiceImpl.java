@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -182,6 +183,14 @@ public class ContractServiceImpl implements ContractService {
         ContractDTO contractDTO = modelMapper.map(contract, ContractDTO.class);
 
         return contractDTO;
+    }
+
+    @Override
+    public ContractDTO findContractByContractCode(String contractCode) {
+        Contract contract = contractRepository.findByContractCode(contractCode)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 계약서 코드입니다: " + contractCode));
+
+        return modelMapper.map(contract, ContractDTO.class);
     }
 
     @Override
