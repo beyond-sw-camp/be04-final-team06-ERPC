@@ -18,11 +18,11 @@
             <table class="estimate2-table1">
                 <thead>
                     <tr>
-                        <th>견적서번호</th>
-                        <th>총비용</th>
-                        <th>작성일자</th>
-                        <th>삭제일자</th>
-                        <th>마감일자</th>
+                        <th>견적서 코드</th>
+                        <th>견적 금액</th>
+                        <th>작성 일자</th>
+                        <th>삭제 일자</th>
+                        <th>마감 일자</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -108,7 +108,7 @@
                     <p class="estimate-process-date">2024-04-01</p>
                 </div>
                 <button class="estimate-process-detail">
-                    프로젝트 진행 정보 공유합니다~
+                    견적서 양식이 일부 수정되었습니다~
                 </button>
                 <div class="estimate-process-btn">
                     <button class="estimate-process-edit">수정</button>
