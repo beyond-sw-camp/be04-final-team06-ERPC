@@ -1,10 +1,18 @@
 package com.cineverse.erpc.admin.delete.service;
 
+import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestProcess;
 import com.cineverse.erpc.contract.aggregate.Contract;
 import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.contract.repository.ContractDeleteRequestRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
+import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.erpc.quotation.quotation.aggregate.QuotationDeleteRequest;
+import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestRepository;
+import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
@@ -29,18 +37,23 @@ public class DeleteServiceImpl implements DeleteService {
     private final SalesOppDeleteRequestRepository salesOppDeleteRequestRepository;
     private final ContractRepository contractRepository;
     private final ContractDeleteRequestRepository contractDeleteRequestRepository;
+    private final QuotationDeleteRequestRepository quotationDeleteRequestRepository;
+    private final QuotationRepository quotationRepository;
 
-    @Autowired
     public DeleteServiceImpl(ModelMapper modelMapper,
                              SalesOppRepository salesOppRepository,
                              SalesOppDeleteRequestRepository salesOppDeleteRequestRepository,
                              ContractRepository contractRepository,
-                             ContractDeleteRequestRepository contractDeleteRequestRepository) {
+                             ContractDeleteRequestRepository contractDeleteRequestRepository,
+                             QuotationDeleteRequestRepository quotationDeleteRequestRepository,
+                             QuotationRepository quotationRepository) {
         this.modelMapper = modelMapper;
         this.salesOppRepository = salesOppRepository;
         this.salesOppDeleteRequestRepository = salesOppDeleteRequestRepository;
         this.contractRepository = contractRepository;
         this.contractDeleteRequestRepository = contractDeleteRequestRepository;
+        this.quotationDeleteRequestRepository = quotationDeleteRequestRepository;
+        this.quotationRepository = quotationRepository;
     }
 
     @Override
@@ -137,5 +150,49 @@ public class DeleteServiceImpl implements DeleteService {
         contractDeleteRequestRepository.save(deleteReqContract);
 
         return deleteReqContract;
+    }
+
+    @Override
+    public List<ResponseQuotationDeleteRequestList> findQuotationDeleteRequestList() {
+        List<QuotationDeleteRequest> quotationDeleteRequests = quotationDeleteRequestRepository.findAll();
+
+        return quotationDeleteRequests.stream().map(quotationDeleteRequest -> modelMapper
+                .map(quotationDeleteRequest, ResponseQuotationDeleteRequestList.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseFindQuotationDeleteRequest findQuotationDeleteRequestById(long quotationDeleteRequestId) {
+        QuotationDeleteRequest quotationDeleteRequest =
+                quotationDeleteRequestRepository.findById(quotationDeleteRequestId)
+                        .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서 삭제 요청입니다."));
+
+        return modelMapper.map(quotationDeleteRequest, ResponseFindQuotationDeleteRequest.class);
+    }
+
+    @Override
+    public ResponseQuotationDeleteRequestProcess processQuotationDeleteRequest(
+            RequestQuotationDeleteRequestProcess requestQuotationDeleteRequestProcess) {
+        QuotationDeleteRequest quotationDeleteRequest =
+                quotationDeleteRequestRepository
+                        .findById(requestQuotationDeleteRequestProcess.getQuotationDeleteRequestId())
+                        .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서 삭제 요청입니다."));
+
+        quotationDeleteRequest.setQuotationDeleteRequestStatus("N");
+        quotationDeleteRequestRepository.save(quotationDeleteRequest);
+
+        Quotation quotation = quotationRepository
+                .findById(quotationDeleteRequest.getQuotation().getQuotationId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서입니다."));
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = dateFormat.format(new Date());
+
+        quotation.setQuotationDeleteDate(currentDate);
+        quotationRepository.save(quotation);
+
+        quotationDeleteRequest.setQuotation(quotation);
+
+        return modelMapper.map(quotationDeleteRequest, ResponseQuotationDeleteRequestProcess.class);
     }
 }

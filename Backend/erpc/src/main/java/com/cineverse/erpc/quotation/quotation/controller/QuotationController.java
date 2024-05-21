@@ -67,6 +67,7 @@ public class QuotationController {
         ResponseDeleteQuotation responseDeleteQuotation = quotationService.deleteQuotation(requestDeleteQuotation);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDeleteQuotation);
+    }
 
     @GetMapping("/code")
     private ResponseQuotationByCode findQuotationByCode (@RequestParam String quotationCode) {

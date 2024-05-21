@@ -1,5 +1,9 @@
 package com.cineverse.erpc.admin.delete.service;
 
+import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestProcess;
 import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
@@ -22,4 +26,10 @@ public interface DeleteService {
 
     ContractDeleteRequest changeContractDeleteRequestStatus(ContractDeleteRequestDTO deleteContractDTO,
                                                             long contractDeleteRequestId);
+
+    List<ResponseQuotationDeleteRequestList> findQuotationDeleteRequestList();
+
+    ResponseFindQuotationDeleteRequest findQuotationDeleteRequestById(long quotationDeleteRequestId);
+
+    ResponseQuotationDeleteRequestProcess processQuotationDeleteRequest(RequestQuotationDeleteRequestProcess requestQuotationDeleteRequestProcess);
 }

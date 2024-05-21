@@ -228,6 +228,7 @@ public class QuotationServiceImpl implements QuotationService{
         quotationDeleteRequestRepository.save(quotationDeleteRequest);
 
         return mapper.map(quotationDeleteRequest, ResponseDeleteQuotation.class);
+    }
 
     @Override
     public ResponseQuotationByCode findQuotationByCode(String quotationCode) {
