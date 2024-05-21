@@ -65,7 +65,7 @@ public class DeleteController {
     }
 
     /* 계약서 삭제 요청 처리 */
-    @PatchMapping("/contract/delete/{contractDeleteRequestId}")
+    @PatchMapping("/contract/status/{contractDeleteRequestId}")
     public ResponseEntity<ContractDeleteRequest> deleteContract(@RequestBody ContractDeleteRequestDTO deleteContractDTO,
                                                                 @PathVariable long contractDeleteRequestId) {
         ContractDeleteRequest updatedContractRequest =
