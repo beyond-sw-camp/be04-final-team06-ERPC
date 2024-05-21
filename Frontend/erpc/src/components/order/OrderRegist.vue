@@ -91,15 +91,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="test1">
-                            <div class="order-dropdown1">
-                                <button class="order-dropdown-btn1">{{ searchBy }} ▼</button>
-                                <div class="order-dropdown-content1">
-                                    <a href="#" @click.prevent="setSearchBy('일시 납부')">일시 납부</a>
-                                    <a href="#" @click.prevent="setSearchBy('분할 납부')">분할 납부</a>
-                                </div>
-                            </div>
-                        </td>
+                        <td class="test">분할 납부</td>
                         <td>900,000</td>
                         <td>4,100,000</td>
                         <td>4,000,000</td>
