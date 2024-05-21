@@ -1,5 +1,9 @@
 package com.cineverse.erpc.admin.delete.service;
 
+import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseFindAccoundDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
@@ -32,4 +36,10 @@ public interface DeleteService {
     ResponseFindQuotationDeleteRequest findQuotationDeleteRequestById(long quotationDeleteRequestId);
 
     ResponseQuotationDeleteRequestProcess processQuotationDeleteRequest(RequestQuotationDeleteRequestProcess requestQuotationDeleteRequestProcess);
+
+    List<ResponseAccountDeleteRequestList> findAccountDeleteList();
+
+    ResponseFindAccoundDeleteRequest findAccountDeleteRequestById(long accountDeleteRequestId);
+
+    ResponseAccountDeleteRequestProcess accountDeleteRequestProcess(RequestAccountDeleteRequestProcess requestAccountDeleteRequestProcess);
 }

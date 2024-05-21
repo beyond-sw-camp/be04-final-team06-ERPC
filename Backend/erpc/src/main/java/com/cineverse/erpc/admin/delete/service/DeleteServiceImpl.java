@@ -1,5 +1,13 @@
 package com.cineverse.erpc.admin.delete.service;
 
+import com.cineverse.erpc.account.account.aggregate.Account;
+import com.cineverse.erpc.account.account.aggregate.AccountDeleteRequest;
+import com.cineverse.erpc.account.account.repository.AccountDeleteRequestRepository;
+import com.cineverse.erpc.account.account.repository.AccountRepository;
+import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseFindAccoundDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
@@ -39,14 +47,19 @@ public class DeleteServiceImpl implements DeleteService {
     private final ContractDeleteRequestRepository contractDeleteRequestRepository;
     private final QuotationDeleteRequestRepository quotationDeleteRequestRepository;
     private final QuotationRepository quotationRepository;
+    private final AccountDeleteRequestRepository accountDeleteRequestRepository;
+    private final AccountRepository accountRepository;
 
+    @Autowired
     public DeleteServiceImpl(ModelMapper modelMapper,
                              SalesOppRepository salesOppRepository,
                              SalesOppDeleteRequestRepository salesOppDeleteRequestRepository,
                              ContractRepository contractRepository,
                              ContractDeleteRequestRepository contractDeleteRequestRepository,
                              QuotationDeleteRequestRepository quotationDeleteRequestRepository,
-                             QuotationRepository quotationRepository) {
+                             QuotationRepository quotationRepository,
+                             AccountDeleteRequestRepository accountDeleteRequestRepository,
+                             AccountRepository accountRepository) {
         this.modelMapper = modelMapper;
         this.salesOppRepository = salesOppRepository;
         this.salesOppDeleteRequestRepository = salesOppDeleteRequestRepository;
@@ -54,6 +67,8 @@ public class DeleteServiceImpl implements DeleteService {
         this.contractDeleteRequestRepository = contractDeleteRequestRepository;
         this.quotationDeleteRequestRepository = quotationDeleteRequestRepository;
         this.quotationRepository = quotationRepository;
+        this.accountDeleteRequestRepository = accountDeleteRequestRepository;
+        this.accountRepository = accountRepository;
     }
 
     @Override
@@ -109,7 +124,7 @@ public class DeleteServiceImpl implements DeleteService {
         List<ContractDeleteRequest> contractDeleteRequestList = contractDeleteRequestRepository.findAll();
 
         return contractDeleteRequestList.stream().map(contractDeleteRequest -> modelMapper
-                .map(contractDeleteRequest, ContractDeleteRequest.class))
+                        .map(contractDeleteRequest, ContractDeleteRequest.class))
                 .collect(Collectors.toList());
     }
 
@@ -140,7 +155,7 @@ public class DeleteServiceImpl implements DeleteService {
 
 
         if (contract == null) {
-            throw new IllegalStateException("해당 삭제 요청 ID에 연결된 계약서가 존재하지 않습니다: "+contractDeleteRequestId);
+            throw new IllegalStateException("해당 삭제 요청 ID에 연결된 계약서가 존재하지 않습니다: " + contractDeleteRequestId);
         }
 
         contract.setContractDeleteDate(deleteDate);
@@ -157,7 +172,7 @@ public class DeleteServiceImpl implements DeleteService {
         List<QuotationDeleteRequest> quotationDeleteRequests = quotationDeleteRequestRepository.findAll();
 
         return quotationDeleteRequests.stream().map(quotationDeleteRequest -> modelMapper
-                .map(quotationDeleteRequest, ResponseQuotationDeleteRequestList.class))
+                        .map(quotationDeleteRequest, ResponseQuotationDeleteRequestList.class))
                 .collect(Collectors.toList());
     }
 
@@ -194,5 +209,39 @@ public class DeleteServiceImpl implements DeleteService {
         quotationDeleteRequest.setQuotation(quotation);
 
         return modelMapper.map(quotationDeleteRequest, ResponseQuotationDeleteRequestProcess.class);
+    }
+
+    @Override
+    public List<ResponseAccountDeleteRequestList> findAccountDeleteList() {
+        List<AccountDeleteRequest> accountDeleteRequests = accountDeleteRequestRepository.findAll();
+
+        return accountDeleteRequests.stream().map(accountDeleteRequest ->
+                        modelMapper.map(accountDeleteRequest, ResponseAccountDeleteRequestList.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseFindAccoundDeleteRequest findAccountDeleteRequestById(long accountDeleteRequestId) {
+        AccountDeleteRequest accountDeleteRequest = accountDeleteRequestRepository
+                .findById(accountDeleteRequestId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 삭제 요청입니다."));
+
+        return modelMapper.map(accountDeleteRequest, ResponseFindAccoundDeleteRequest.class);
+    }
+
+    @Override
+    public ResponseAccountDeleteRequestProcess accountDeleteRequestProcess(
+            RequestAccountDeleteRequestProcess requestAccountDeleteRequestProcess) {
+        AccountDeleteRequest accountDeleteRequest = accountDeleteRequestRepository
+                .findById(requestAccountDeleteRequestProcess.getAccountDeleteRequestId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 삭제 요청입니다."));
+        accountDeleteRequest.setAccountDeleteRequestStatus("Y");
+
+        Account account = accountRepository.findById(accountDeleteRequest.getAccount().getAccountId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
+
+        accountDeleteRequest.setAccount(account);
+
+        return modelMapper.map(accountDeleteRequest, ResponseAccountDeleteRequestProcess.class);
     }
 }

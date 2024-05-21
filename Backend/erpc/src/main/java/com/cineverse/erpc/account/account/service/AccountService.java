@@ -1,8 +1,6 @@
 package com.cineverse.erpc.account.account.service;
 
-import com.cineverse.erpc.account.account.dto.AccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseFindAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
+import com.cineverse.erpc.account.account.dto.*;
 
 import java.util.List;
 
@@ -14,4 +12,6 @@ public interface AccountService {
     ResponseRegistAccountDTO registAccount(AccountDTO accountDTO);
 
     void modifyAccount(AccountDTO accountDTO, long accountId);
+
+    ResponseDeleteAccount deleteAccount(RequestDeleteAccount requestDeleteAccount);
 }

@@ -1,5 +1,6 @@
 package com.cineverse.erpc.quotation.quotation.aggregate;
 
+import com.cineverse.erpc.account.account.aggregate.Account;
 import jakarta.persistence.*;
 import lombok.Data;
 
