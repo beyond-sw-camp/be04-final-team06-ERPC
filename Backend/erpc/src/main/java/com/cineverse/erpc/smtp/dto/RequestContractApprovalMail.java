@@ -1,4 +1,4 @@
-package com.cineverse.smtp.dto;
+package com.cineverse.erpc.smtp.dto;
 
 import com.cineverse.erpc.approval.aggregate.ContractApproval;
 import com.cineverse.erpc.approval.aggregate.QuotationApproval;

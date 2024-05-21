@@ -1,9 +1,9 @@
-package com.cineverse.smtp.service;
+package com.cineverse.erpc.smtp.service;
 
 import com.cineverse.erpc.employee.service.EmployeeService;
-import com.cineverse.smtp.dto.RequestContractApprovalMail;
-import com.cineverse.smtp.dto.RequestQuotationApprovalMail;
-import com.cineverse.smtp.dto.RequestShipmentApprovalMail;
+import com.cineverse.erpc.smtp.dto.RequestContractApprovalMail;
+import com.cineverse.erpc.smtp.dto.RequestShipmentApprovalMail;
+import com.cineverse.erpc.smtp.dto.RequestQuotationApprovalMail;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;

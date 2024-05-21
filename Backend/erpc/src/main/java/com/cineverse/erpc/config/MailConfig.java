@@ -1,7 +1,7 @@
 package com.cineverse.erpc.config;
 
 import com.cineverse.erpc.employee.service.EmployeeService;
-import com.cineverse.smtp.service.EmailService;
+import com.cineverse.erpc.smtp.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
