@@ -1,15 +1,21 @@
 <template>
     <div class="regist-content">
-        <div class="contract-regist">
-            <h1>견적서 조회내역</h1>
+        <div class="order-search">
+            <h1 class="maintext">견적서 정보 조회 내역</h1>
+            <h3 class="maintext2">결재 승인</h3>
+        <div class="estimate-btn">
+            <button class="estimate-request">결재 요청</button>
+            <button class="estimate-edit">수정</button>
+            <button class="estimate-delete">삭제</button>
         </div>
-        <div class="contract-state">
-            <button>결제요청</button>
-            <button>수정</button>
-            <button>삭제요청</button>
+        <div class="estimate-pdf">
+            <button class="estimate-pdf1">
+                견적서 다운로드<img src="@/assets/img/pdf.png" class="pdfimage1">
+            </button>
         </div>
-        <div class="contract-list-box">
-            <table class="contract-table">
+        </div>
+        <div class="estimate-list-box">
+            <table class="estimate2-table1">
                 <thead>
                     <tr>
                         <th>견적서번호</th>
@@ -29,7 +35,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="contract-table2">
+            <table class="estimate2-table2">
                 <thead>
                     <tr>
                         <th>품목 코드</th>
@@ -51,7 +57,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="contract-table3">
+            <table class="estimate2-table3">
                 <thead>
                     <tr>
                         <th>창고 코드</th>
@@ -75,7 +81,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="contract-table4">
+            <table class="estimate2-table4">
                 <thead>
                     <tr>
                         <th>프로젝트 코드</th>
@@ -94,9 +100,25 @@
                 </tbody>
             </table>
         </div>
-        <div class="contract-attachment">
-            <h3>첨부파일<img src="@/assets/img/pdf.png" class="pdf"></h3>
-            <div class="contract-attachment-content">견적서 pdf</div>
+        <div class="estimate-process-box">
+            <h1 class="estimate-process-text">Process</h1>
+            <div class="estimate-process-box-detail">
+                <div class="estimate-process-info">
+                    <h4 class="estimate-process-writer">민중원 과장</h4>
+                    <p class="estimate-process-date">2024-04-01</p>
+                </div>
+                <button class="estimate-process-detail">
+                    프로젝트 진행 정보 공유합니다~
+                </button>
+                <div class="estimate-process-btn">
+                    <button class="estimate-process-edit">수정</button>
+                    <button class="estimate-process-delete">삭제</button>
+                </div>
+                <div class="estimate-process-reply">
+                    <input type="text" id="estimate-process-reply-box" class="estimate-process-reply-box" placeholder="내용을 입력해주세요.">
+                    <button class="estimate-process-regist">등록하기</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -104,6 +126,315 @@
 <script setup>
 
 </script>
+
 <style>
-    @import url('@/assets/css/contract/ContractContent.css');
+.estimate-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.estimate-search {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.maintext,
+.maintext2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.maintext2 {
+    color: #0C2092;
+}
+
+.estimate-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.pdfimage {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.estimate-edit,
+.estimate-delete {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.estimate-delete {
+    margin-right: 15px;
+}
+
+.estimate-request {
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 15px;   
+}
+
+.estimate-pdf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #BEE7FF;
+    border: 2px solid #BEE7FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 150px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.estimate-pdf1,
+.estimate-pdf2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 270px;
+}
+
+.estimate-pdf1:hover,
+.estimate-pdf2:hover {
+    background-color: #d5e6ff;
+}
+
+.pdfimage1,
+.pdfimage2 {
+    width: 30px;
+    height: auto;
+    margin-left: 5px;
+    margin-right: -10px;
+}
+
+.estimate-list-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    gap: 1px;
+}
+
+.estimate2-table1,
+.estimate2-table2,
+.estimate2-table3,
+.estimate2-table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.estimate2-table1 th,
+.estimate2-table1 td,
+.estimate2-table2 th,
+.estimate2-table2 td,
+.estimate2-table3 th,
+.estimate2-table3 td,
+.estimate2-table4 th,
+.estimate2-table4 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.estimate2-table1 th,
+.estimate2-table2 th,
+.estimate2-table3 th,
+.estimate2-table4 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.estimate2-table1 td,
+.estimate2-table2 td,
+.estimate2-table3 td,
+.estimate2-table4 td {
+    height: 40px;
+}
+
+.test {
+    background-color: #d5e6ff;
+}
+
+.estimate-process-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #CCEAFF;
+    border: 2px solid #CCEAFF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 1200px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+    margin-top: 30px;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 7%;
+}
+
+.estimate-process-text {
+    margin-bottom: 20px;
+    color: #0C2092;
+}
+
+.estimate-process-box-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.estimate-process-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.estimate-process-writer {
+    margin: 0;
+    margin-left: 45px;
+}
+
+.estimate-process-detail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 93%;
+    height: auto;
+    margin-left: 40px;
+    margin-top: -10px;
+    font-weight: normal;
+}
+
+.estimate-process-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6E5FF;
+    border: 2px solid #F6E5FF;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: normal;
+    color: black;
+    margin-right: 45px;
+}
+
+.estimate-process-btn {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.estimate-process-edit,
+.estimate-process-delete {
+    background-color: #0C2092;
+    border: 2px solid #0C2092;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 7px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.estimate-process-delete {
+    margin-right: 46px;
+}
+
+.estimate-process-reply {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.estimate-process-reply-box {
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    color: black;
+    width: 90.5%;
+    height: auto;
+    font-weight: normal;
+}
+
+.estimate-process-regist {
+    background-color: #0C2092;
+    border: 2px solid #0C2092;
+    width: 95px;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 7px;
+    margin-left: 992px;
+    cursor: pointer;
+    margin-bottom: 7px;
+}
 </style>
