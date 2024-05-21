@@ -9,6 +9,7 @@ public class ResponseRegistAccountDTO {
     private long accountId;
     private String accountName;
     private String corporationNum;
+    private String accountDeleteDate;
     private String accountRepresentitive;   // 대표
     private String corporationStatus;       // 법인여부
     private String accountLocation;
