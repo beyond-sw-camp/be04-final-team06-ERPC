@@ -58,4 +58,13 @@ public class QuotationController {
 
         return ResponseEntity.ok().body(responseModifyQuotationDTO);
     }
+
+    @PostMapping("/delete")
+    public ResponseEntity<ResponseDeleteQuotation> deleteQuotation(
+            @RequestBody RequestDeleteQuotation requestDeleteQuotation) {
+
+        ResponseDeleteQuotation responseDeleteQuotation = quotationService.deleteQuotation(requestDeleteQuotation);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDeleteQuotation);
+    }
 }

@@ -1,9 +1,11 @@
 package com.cineverse.erpc.quotation.quotation.service;
 
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.erpc.quotation.quotation.aggregate.QuotationDeleteRequest;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.quotation.quotation.dto.*;
+import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
@@ -27,15 +29,19 @@ public class QuotationServiceImpl implements QuotationService{
     private final QuotationProductRepository quotationProductRepository;
     private final TransactionRepository transactionRepository;
 
+    private final QuotationDeleteRequestRepository quotationDeleteRequestRepository;
+
     @Autowired
     public QuotationServiceImpl(ModelMapper mapper,
                                 QuotationRepository quotationRepository,
                                 QuotationProductRepository quotationProductRepository,
-                                TransactionRepository transactionRepository) {
+                                TransactionRepository transactionRepository,
+                                QuotationDeleteRequestRepository quotationDeleteRequestRepository) {
         this.mapper = mapper;
         this.quotationRepository = quotationRepository;
         this.quotationProductRepository = quotationProductRepository;
         this.transactionRepository = transactionRepository;
+        this.quotationDeleteRequestRepository = quotationDeleteRequestRepository;
     }
 
     @Override
@@ -208,4 +214,18 @@ public class QuotationServiceImpl implements QuotationService{
         return quotationProduct;
     }
 
+
+    @Override
+    public ResponseDeleteQuotation deleteQuotation(RequestDeleteQuotation requestDeleteQuotation) {
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        QuotationDeleteRequest quotationDeleteRequest =
+                mapper.map(requestDeleteQuotation, QuotationDeleteRequest.class);
+
+
+        quotationDeleteRequest.setQuotationDeleteRequestStatus("N");
+        quotationDeleteRequestRepository.save(quotationDeleteRequest);
+
+        return mapper.map(quotationDeleteRequest, ResponseDeleteQuotation.class);
+    }
 }
