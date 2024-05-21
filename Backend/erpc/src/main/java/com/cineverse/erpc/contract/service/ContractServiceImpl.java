@@ -1,8 +1,11 @@
 package com.cineverse.erpc.contract.service;
 
 import com.cineverse.erpc.contract.aggregate.Contract;
+import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
+import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
+import com.cineverse.erpc.contract.repository.ContractDeleteRequestRepository;
 import com.cineverse.erpc.contract.repository.ContractProductRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
 import com.cineverse.erpc.product.aggregate.Product;
@@ -27,16 +30,18 @@ public class ContractServiceImpl implements ContractService {
     private final ContractRepository contractRepository;
     private final ContractProductRepository contractProductRepository;
     private final ProductRepository productRepository;
+    private final ContractDeleteRequestRepository contractDeleteRequestRepository;
 
     @Autowired
     public ContractServiceImpl(ModelMapper modelMapper,
                                ContractRepository contractRepository,
                                ContractProductRepository contractProductRepository,
-                               ProductRepository productRepository) {
+                               ProductRepository productRepository, ContractDeleteRequestRepository contractDeleteRequestRepository) {
         this.modelMapper = modelMapper;
         this.contractRepository = contractRepository;
         this.contractProductRepository = contractProductRepository;
         this.productRepository = productRepository;
+        this.contractDeleteRequestRepository = contractDeleteRequestRepository;
     }
 
     @Override
@@ -139,6 +144,19 @@ public class ContractServiceImpl implements ContractService {
         existingContract.setContractProduct(newContractProducts);
 
         return contractRepository.save(existingContract);
+    }
+
+    @Override
+    @Transactional
+    public ContractDeleteRequest requestDeleteContract(ContractDeleteRequestDTO deleteContract) {
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        ContractDeleteRequest deleteReqContract = modelMapper.map(deleteContract, ContractDeleteRequest.class);
+        deleteReqContract = contractDeleteRequestRepository.save(deleteReqContract);
+
+        deleteReqContract.setContractDeleteRequestStatus('N');
+
+        return deleteReqContract;
     }
 
     @Override

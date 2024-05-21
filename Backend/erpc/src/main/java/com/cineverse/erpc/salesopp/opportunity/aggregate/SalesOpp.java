@@ -49,5 +49,4 @@ public class SalesOpp {
     @JoinColumn(name = "sales_opp_status_id")
     @ManyToOne
     private SalesOppStatus salesOppStatus;
-
 }

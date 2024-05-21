@@ -1,17 +1,8 @@
 package com.cineverse.erpc.approval.controller;
 
-import com.cineverse.erpc.approval.dto.contract.RequestRegistContractApproval;
-import com.cineverse.erpc.approval.dto.contract.ResponseContractApprovalList;
-import com.cineverse.erpc.approval.dto.contract.ResponseFindContractApproval;
-import com.cineverse.erpc.approval.dto.contract.ResponseRegistContractApproval;
-import com.cineverse.erpc.approval.dto.quotation.RequestRegistQuotationApproval;
-import com.cineverse.erpc.approval.dto.quotation.ResponseFindQuotationApproval;
-import com.cineverse.erpc.approval.dto.quotation.ResponseQuotationApprovalList;
-import com.cineverse.erpc.approval.dto.quotation.ResponseRegistQuotationApproval;
-import com.cineverse.erpc.approval.dto.shipment.RequestRegistShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseFindShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseRegistShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseShipmentApprovalList;
+import com.cineverse.erpc.approval.dto.contract.*;
+import com.cineverse.erpc.approval.dto.quotation.*;
+import com.cineverse.erpc.approval.dto.shipment.*;
 import com.cineverse.erpc.approval.service.ApprovalService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +74,27 @@ public class ApprovalController {
     @GetMapping("/shipment/{orderRegistrationId}")
     public ResponseFindShipmentApproval findShipmentApproval(@PathVariable long orderRegistrationId) {
         return approvalService.findShipmentApproval(orderRegistrationId);
+    }
+
+    @PatchMapping("/contract/process")
+    public ResponseEntity<ResponseContractApprovalProcess> contractApprovalProcess(
+            @RequestBody RequestContractApprovalProcess requestApproval) {
+        ResponseContractApprovalProcess responseApproval = approvalService.contractApprovalProcess(requestApproval);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseApproval);
+    }
+    @PatchMapping("/quotation/process")
+    public ResponseEntity<ResponseQuotationApprovalProcess> quotationApprovalProcess(
+            @RequestBody RequestQuotationApprovalProcess requestApproval) {
+        ResponseQuotationApprovalProcess responseApproval = approvalService.quotationApprovalProcess(requestApproval);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseApproval);
+    }
+    @PatchMapping("/shipment/process")
+    public ResponseEntity<ResponseShipmentApprovalProcess> shipmentApprovalProcess(
+            @RequestBody RequestShipmentApprovalProcess requestApproval) {
+        ResponseShipmentApprovalProcess responseApproval = approvalService.shipmentApprovalProcess(requestApproval);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseApproval);
     }
 }
