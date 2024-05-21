@@ -2,14 +2,6 @@
     <div class="regist-content">
         <div class="order-regist">
             <h1>수주 등록</h1>
-            <div class="order-pdf">
-                <button class="order-pdf1">
-                    견적서 업로드<img src="@/assets/img/pdf.png" class="pdfimage1">
-                </button>
-                <button class="order-pdf2">
-                    계약서 업로드<img src="@/assets/img/pdf.png" class="pdfimage2">
-                </button>
-            </div>
         </div>
         <div class="order-search-box">
             <h3>계약서 불러오기</h3>
@@ -130,6 +122,23 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="order-attachment">
+            <div class="order-attachment-header">
+                <h2 class="order-file">첨부파일</h2>
+                <img src="@/assets/img/pdf.png" class="order-pdfimage">
+            </div>
+            <div class="order-attachment-content">
+                <div class="file-list">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">견적서.pdf</span>
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">계약서.pdf</span>
+                </div>
+            </div>
+        </div>
+        <div class="order-regist-btn-div1">
+            <button class="order-regist-btn1">수주 등록하기</button>
         </div>
     </div>
 </template>
