@@ -13,4 +13,6 @@ public interface QuotationService {
     List<QuotationDTO> findAllQuotations();
 
     ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation);
+
+    ResponseQuotationByCode findQuotationByCode(String quotationCode);
 }

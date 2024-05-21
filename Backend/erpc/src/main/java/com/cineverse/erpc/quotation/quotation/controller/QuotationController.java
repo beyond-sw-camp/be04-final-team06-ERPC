@@ -58,4 +58,10 @@ public class QuotationController {
 
         return ResponseEntity.ok().body(responseModifyQuotationDTO);
     }
+
+    @GetMapping("/code")
+    private ResponseQuotationByCode findQuotationByCode (@RequestParam String quotationCode) {
+
+        return quotationService.findQuotationByCode(quotationCode);
+    }
 }

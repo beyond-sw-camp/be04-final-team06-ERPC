@@ -7,6 +7,7 @@ import com.cineverse.erpc.quotation.quotation.dto.*;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -208,4 +209,10 @@ public class QuotationServiceImpl implements QuotationService{
         return quotationProduct;
     }
 
+    @Override
+    public ResponseQuotationByCode findQuotationByCode(String quotationCode) {
+        Quotation quotation = quotationRepository.findByQuotationCode(quotationCode);
+
+        return mapper.map(quotation, ResponseQuotationByCode.class);
+    }
 }
