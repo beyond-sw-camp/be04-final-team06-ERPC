@@ -54,4 +54,12 @@ public class EmployeeController {
     public ResponseEmployeeDTO findEmployeeById(@PathVariable long employeeId) {
         return employeeService.findEmployeeById(employeeId);
     }
+
+    @PatchMapping("/modify_password")
+    private ResponseEntity<ResponseModifyPassword> modifyPassword(
+            @RequestBody RequestModifyPassword requestModifyPassword) {
+        ResponseModifyPassword responseModifyPassword = employeeService.modifyPassword(requestModifyPassword);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseModifyPassword);
+    }
 }
