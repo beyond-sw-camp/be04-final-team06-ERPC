@@ -2,7 +2,6 @@
     <div class="regist-content">
         <div class="order-search">
             <h1 class="maintext">견적서 정보 조회 내역</h1>
-            <h3 class="maintext2">결재 승인</h3>
         <div class="estimate-btn">
             <button class="estimate-request">결재 요청</button>
             <button class="estimate-edit">수정</button>
@@ -10,7 +9,7 @@
         </div>
         <div class="estimate-pdf">
             <button class="estimate-pdf1">
-                견적서 다운로드<img src="@/assets/img/pdf.png" class="pdfimage1">
+                제품 카탈로그 다운로드<img src="@/assets/img/pdf.png" class="pdfimage1">
             </button>
         </div>
         </div>
@@ -86,7 +85,7 @@
                     <tr>
                         <th>프로젝트 코드</th>
                         <th>담당자</th>
-                        <th>거래처</th>
+                        <th>거래처명</th>
                         <th>비고</th>
                     </tr>
                 </thead>
@@ -95,7 +94,7 @@
                         <td>PJ-20240508001</td>
                         <td>유관순</td>
                         <td>OO상사</td>
-                        <td></td>
+                        <td class="estimate-contents-test1"></td>
                     </tr>
                 </tbody>
             </table>

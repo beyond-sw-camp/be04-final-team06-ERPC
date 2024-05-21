@@ -50,8 +50,8 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const contracts = ref([
-    { id: 1, code: 'QO-20240427001', amount: '600,000', creationDate: '2024-04-01', dueDate: '2025-04-01', status: '진행중', inCharge: '유관순' },
-    { id: 2, code: 'QO-20240427002', amount: '500,000', creationDate: '2024-04-01', dueDate: '2025-04-01', status: '진행중', inCharge: '이순신' }
+    { id: 1, code: 'CO-20240427001', amount: '600,000', creationDate: '2024-04-01', dueDate: '2025-04-01', status: '진행중', inCharge: '유관순' },
+    { id: 2, code: 'CO-20240427002', amount: '500,000', creationDate: '2024-04-01', dueDate: '2025-04-01', status: '진행중', inCharge: '이순신' }
 ]);
 const searchQuery = ref('');
 const searchBy = ref('계약서 코드');
