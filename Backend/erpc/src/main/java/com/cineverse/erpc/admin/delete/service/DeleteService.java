@@ -13,11 +13,13 @@ public interface DeleteService {
 
     SalesOppDeleteRequestDTO findSalesOppDeleteRequestById(long salesOppDeleteRequestId);
 
-    SalesOppDeleteRequest changeOppDeleteRequestStatus(long salesOppDeleteRequestId, SalesOppDeleteRequestDTO deleteOpp);
+    SalesOppDeleteRequest changeOppDeleteRequestStatus(long salesOppDeleteRequestId,
+                                                       SalesOppDeleteRequestDTO deleteOpp);
 
     List<ContractDeleteRequest> findContractDeleteRequestList();
 
     ContractDeleteRequestDTO findContractDeleteRequestById(long contractDeleteRequestId);
 
-    ContractDeleteRequest changeContractDeleteRequestStatus(ContractDeleteRequestDTO deleteContractDTO, long contractDeleteRequestId);
+    ContractDeleteRequest changeContractDeleteRequestStatus(ContractDeleteRequestDTO deleteContractDTO,
+                                                            long contractDeleteRequestId);
 }

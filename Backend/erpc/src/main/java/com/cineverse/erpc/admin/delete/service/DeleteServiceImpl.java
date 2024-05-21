@@ -58,20 +58,23 @@ public class DeleteServiceImpl implements DeleteService {
                 .orElseThrow(EntityNotFoundException::new);
 
         salesOppDeleteRequestRepository.save(oppDeleteRequest);
-        SalesOppDeleteRequestDTO oppDeleteRequestDTO = modelMapper.map(oppDeleteRequest, SalesOppDeleteRequestDTO.class);
+        SalesOppDeleteRequestDTO oppDeleteRequestDTO =
+                modelMapper.map(oppDeleteRequest, SalesOppDeleteRequestDTO.class);
 
         return oppDeleteRequestDTO;
     }
 
     @Override
     @Transactional
-    public SalesOppDeleteRequest changeOppDeleteRequestStatus(long salesOppDeleteRequestId, SalesOppDeleteRequestDTO deleteOppDTO) {
+    public SalesOppDeleteRequest changeOppDeleteRequestStatus(long salesOppDeleteRequestId,
+                                                              SalesOppDeleteRequestDTO deleteOppDTO) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String deleteDate = dateFormat.format(new Date());
 
         SalesOppDeleteRequest deleteReqOpp = salesOppDeleteRequestRepository.findById(salesOppDeleteRequestId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 영업기회 삭제요청입니다: " + salesOppDeleteRequestId));
+                .orElseThrow(() ->
+                        new IllegalArgumentException("존재하지 않는 영업기회 삭제요청입니다: " + salesOppDeleteRequestId));
 
         SalesOpp salesOpp = deleteReqOpp.getSalesOpp();
 
@@ -117,7 +120,8 @@ public class DeleteServiceImpl implements DeleteService {
         String deleteDate = dateFormat.format(new Date());
 
         ContractDeleteRequest deleteReqContract = contractDeleteRequestRepository.findById(contractDeleteRequestId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 계약서 삭제요청입니다: " + contractDeleteRequestId));
+                .orElseThrow(() ->
+                        new IllegalArgumentException("존재하지 않는 계약서 삭제요청입니다: " + contractDeleteRequestId));
 
         Contract contract = deleteReqContract.getContract();
 

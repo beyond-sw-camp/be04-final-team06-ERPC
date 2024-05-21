@@ -2,7 +2,6 @@ package com.cineverse.erpc.admin.delete.controller;
 
 import com.cineverse.erpc.admin.delete.service.DeleteService;
 import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
-import com.cineverse.erpc.contract.dto.ContractDTO;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
