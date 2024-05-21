@@ -9,6 +9,7 @@ import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestReposit
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -227,5 +228,12 @@ public class QuotationServiceImpl implements QuotationService{
         quotationDeleteRequestRepository.save(quotationDeleteRequest);
 
         return mapper.map(quotationDeleteRequest, ResponseDeleteQuotation.class);
+
+    @Override
+    public ResponseQuotationByCode findQuotationByCode(String quotationCode) {
+        Quotation quotation = quotationRepository.findByQuotationCode(quotationCode);
+
+        return mapper.map(quotation, ResponseQuotationByCode.class);
+
     }
 }

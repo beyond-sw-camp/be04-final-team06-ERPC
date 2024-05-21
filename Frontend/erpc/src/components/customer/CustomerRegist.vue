@@ -70,8 +70,8 @@
                 </div>
             </div>
         </div>
-        <div class="regist-btn-div">
-            <button class="regist-btn">거래처 등록하기</button>
+        <div class="customer-regist-btn-div">
+            <button class="customer-regist-btn">거래처 등록하기</button>
         </div>
     </div>
 </template>

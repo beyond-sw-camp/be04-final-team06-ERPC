@@ -7,5 +7,6 @@ import lombok.Data;
 @Data
 public class RequestShipmentApprovalProcess {
     private long shipmentApprovalId;
+    private String approvalContent;
     private ApprovalStatus approvalStatus;
 }

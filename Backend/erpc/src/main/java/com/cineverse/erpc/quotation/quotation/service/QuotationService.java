@@ -14,5 +14,9 @@ public interface QuotationService {
 
     ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation);
 
+
     ResponseDeleteQuotation deleteQuotation(RequestDeleteQuotation requestDeleteQuotation);
+
+    ResponseQuotationByCode findQuotationByCode(String quotationCode);
+
 }

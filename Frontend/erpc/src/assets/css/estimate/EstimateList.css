@@ -1,17 +1,17 @@
-.order-content {
-    margin-top: 50px;
+.estimate-content {
+    margin-top: 51px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-.order-list {
+.estimate-list {
     text-align: center;
     margin-top: 50px;
 }
 
-.order-list-search {
+.estimate-list-search {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,12 +19,12 @@
     gap: 10px;
 }
 
-.order-dropdown {
+.estimate-dropdown {
     position: relative;
     display: inline-block;
 }
 
-.order-dropdown-btn {
+.estimate-dropdown-btn {
     width: 200px;
     background-color: white;
     border: 2px solid #0C2092;
@@ -36,7 +36,7 @@
     color: #0C2092;
 }
 
-.order-dropdown-content {
+.estimate-dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
@@ -48,7 +48,7 @@
     font-size: 15px;
 }
 
-.order-dropdown-content a {
+.estimate-dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -56,15 +56,15 @@
     border-bottom: 1px solid #ccc;
 }
 
-.order-dropdown-content a:hover {
+.estimate-dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-.order-dropdown:hover .order-dropdown-content {
+.estimate-dropdown:hover .estimate-dropdown-content {
     display: block;
 }
 
-.order-search-input {
+.estimate-search-input {
     max-width: 300px;
     height: 12px;
     padding: 10px;
@@ -72,11 +72,11 @@
     border-radius: 10px;
     outline: none;
     font-size: 16px;
-    background-color: #E5F0FF;
+    background-color: #e5F0FF;
     color: #0C2092;
 }
 
-.order-search-btn {
+.estimate-search-btn {
     background-color: #0C2092;
     border: none;
     color: white;
@@ -90,7 +90,7 @@
     outline: none;
 }
 
-.order-list-box {
+.estimate-list-box {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -108,30 +108,30 @@
     gap: 1px;
 }
 
-.order-table {
+.estimate-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
 }
 
-.order-table th,
-.order-table td {
+.estimate-table th,
+.estimate-table td {
     text-align: center;
-    width: 160px; /* 너비 조절 */
     border: 1px solid #ccc;
     padding: 8px;
     font-family: GmarketSansMedium;
+    width: 160px; /* 너비 조절 */
 }
 
-.order-table th {
+.estimate-table th {
     background-color: #0C2092;
     color: white;
     font-size: 18px;
     padding: 10px;
 }
 
-.order-table tr:hover {
+.estimate-table tr:hover {
     background-color: #d5e6ff;
     cursor: pointer;
 }

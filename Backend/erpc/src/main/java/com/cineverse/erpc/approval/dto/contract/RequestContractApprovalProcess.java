@@ -7,5 +7,6 @@ import lombok.Data;
 @Data
 public class RequestContractApprovalProcess {
     private long contractApprovalId;
+    private String approvalContent;
     private ApprovalStatus approvalStatus;
 }

@@ -105,6 +105,7 @@
 .cb-table td {
     text-align: center;
     border: 1px solid #ccc;
+    width: 160px; /* 너비 조절 */
     padding: 8px;
     font-family: GmarketSansMedium;
 }
