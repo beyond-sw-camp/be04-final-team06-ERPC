@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Builder
 public class SalesOppDeleteRequestDTO {
-    private int salesOppDeleteRequestId;
+    private long salesOppDeleteRequestId;
     private String requestContent;
     private char requestStatus;
     private SalesOpp salesOpp;

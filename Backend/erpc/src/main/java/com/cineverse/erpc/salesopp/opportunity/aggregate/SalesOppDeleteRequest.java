@@ -17,7 +17,7 @@ public class SalesOppDeleteRequest {
     @Id
     @Column(name = "sales_opp_delete_request_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int salesOppDeleteRequestId;
+    private long salesOppDeleteRequestId;
 
     @Column(name = "request_content")
     private String requestContent;

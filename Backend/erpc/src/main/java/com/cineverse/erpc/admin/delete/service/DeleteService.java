@@ -1,5 +1,7 @@
 package com.cineverse.erpc.admin.delete.service;
 
+import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
+import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 
@@ -9,7 +11,13 @@ public interface DeleteService {
 
     List<SalesOppDeleteRequest> findSalesOppDeleteRequestList();
 
-    SalesOppDeleteRequestDTO findSalesOppDeleteRequestById(int salesOppDeleteRequestId);
+    SalesOppDeleteRequestDTO findSalesOppDeleteRequestById(long salesOppDeleteRequestId);
 
-    SalesOppDeleteRequest changeRequestStatus(int salesOppDeleteRequestId, SalesOppDeleteRequestDTO deleteOpp);
+    SalesOppDeleteRequest changeOppDeleteRequestStatus(long salesOppDeleteRequestId, SalesOppDeleteRequestDTO deleteOpp);
+
+    List<ContractDeleteRequest> findContractDeleteRequestList();
+
+    ContractDeleteRequestDTO findContractDeleteRequestById(long contractDeleteRequestId);
+
+    ContractDeleteRequest changeContractDeleteRequestStatus(ContractDeleteRequestDTO deleteContractDTO, long contractDeleteRequestId);
 }

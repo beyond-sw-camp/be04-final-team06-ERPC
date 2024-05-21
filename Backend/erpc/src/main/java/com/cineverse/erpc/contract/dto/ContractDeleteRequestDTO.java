@@ -12,6 +12,6 @@ import lombok.*;
 public class ContractDeleteRequestDTO {
     private Long contractDeleteRequestId;
     private String contractDeleteRequestReason;
-    private String contractDeleteRequestStatus;
+    private char contractDeleteRequestStatus;
     private Contract contract;
 }
