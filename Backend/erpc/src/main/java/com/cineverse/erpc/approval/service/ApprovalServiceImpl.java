@@ -11,6 +11,7 @@ import com.cineverse.erpc.approval.repo.ContractApprovalRepository;
 import com.cineverse.erpc.approval.repo.QuotationApprovalRepository;
 import com.cineverse.erpc.approval.repo.ShipmentApprovalRepository;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.smtp.service.EmailService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -28,16 +29,19 @@ public class ApprovalServiceImpl implements ApprovalService{
     private ContractApprovalRepository contractApprovalRepository;
     private QuotationApprovalRepository quotationApprovalRepository;
     private ShipmentApprovalRepository shipmentApprovalRepository;
+    private EmailService emailService;
 
     @Autowired
     public ApprovalServiceImpl(ModelMapper mapper,
                                ContractApprovalRepository contractApprovalRepository,
                                QuotationApprovalRepository quotationApprovalRepository,
-                               ShipmentApprovalRepository shipmentApprovalRepository) {
+                               ShipmentApprovalRepository shipmentApprovalRepository,
+                               EmailService emailService) {
         this.mapper = mapper;
         this.contractApprovalRepository = contractApprovalRepository;
         this.quotationApprovalRepository = quotationApprovalRepository;
         this.shipmentApprovalRepository = shipmentApprovalRepository;
+        this.emailService = emailService;
     }
 
     @Override
