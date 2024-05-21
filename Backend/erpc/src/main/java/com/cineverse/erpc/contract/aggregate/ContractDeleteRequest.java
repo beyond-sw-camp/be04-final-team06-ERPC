@@ -13,13 +13,13 @@ public class ContractDeleteRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contract_delete_request_id")
-    private Long contractDeleteRequestId;
+    private long contractDeleteRequestId;
 
     @Column(name = "contract_delete_request_reason")
     private String contractDeleteRequestReason;
 
     @Column(name = "contract_delete_request_status")
-    private String contractDeleteRequestStatus;
+    private char contractDeleteRequestStatus;
 
     @JoinColumn(name = "contract_id")
     @ManyToOne

@@ -4,11 +4,13 @@ import com.cineverse.erpc.contract.aggregate.Contract;
 import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
+import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.contract.service.ContractService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +40,12 @@ public class ContractController {
     }
 
     /* 계약서 삭제 요청 */
+    @PostMapping("/delete")
+    public ResponseEntity<ContractDeleteRequestDTO> deleteContract(@RequestBody ContractDeleteRequestDTO deleteContract) {
+        contractService.requestDeleteContract(deleteContract);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(deleteContract);
+    }
 
     /* 계약서 전체 조회 */
     @GetMapping("")
