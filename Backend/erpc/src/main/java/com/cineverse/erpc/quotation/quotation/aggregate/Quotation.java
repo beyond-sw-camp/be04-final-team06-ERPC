@@ -2,10 +2,12 @@ package com.cineverse.erpc.quotation.quotation.aggregate;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.QuotationFile;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -53,4 +55,7 @@ public class Quotation {
 
     @OneToMany(mappedBy = "quotation")
     private List<QuotationProduct> quotationProduct;
+
+    @OneToMany(mappedBy = "quotation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<QuotationFile> quotationFile = new ArrayList<>();
 }

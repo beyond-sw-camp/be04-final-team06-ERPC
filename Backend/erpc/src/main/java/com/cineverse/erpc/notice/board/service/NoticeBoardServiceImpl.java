@@ -1,5 +1,7 @@
 package com.cineverse.erpc.notice.board.service;
 
+import com.cineverse.erpc.file.repository.NoticeFileRepository;
+import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
 import com.cineverse.erpc.notice.board.repository.NoticeBoardRepository;
@@ -10,6 +12,7 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,16 +25,24 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
     private final ModelMapper modelMapper;
     private final NoticeBoardRepository noticeBoardRepository;
+    private final NoticeFileRepository noticeFileRepository;
+    private final FileUploadService fileUploadService;
 
     @Autowired
-    public NoticeBoardServiceImpl(ModelMapper modelMapper, NoticeBoardRepository noticeBoardRepository) {
+    public NoticeBoardServiceImpl(ModelMapper modelMapper,
+                                  NoticeBoardRepository noticeBoardRepository,
+                                  NoticeFileRepository noticeFileRepository,
+                                  FileUploadService fileUploadService) {
         this.modelMapper = modelMapper;
         this.noticeBoardRepository = noticeBoardRepository;
+        this.noticeFileRepository = noticeFileRepository;
+        this.fileUploadService = fileUploadService;
     }
 
     @Override
     @Transactional
-    public NoticeBoard registNotice(NoticeBoardDTO noticeDTO) {
+    public NoticeBoard registNotice(NoticeBoardDTO noticeDTO, MultipartFile[] files) {
+
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String registDate = format.format(date);
@@ -40,6 +51,12 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         NoticeBoard newNotice = modelMapper.map(noticeDTO, NoticeBoard.class);
         newNotice = noticeBoardRepository.save(newNotice);
+
+        for (MultipartFile file : files) {
+            if(!file.isEmpty()) {
+                String url = fileUploadService.saveNoticeFile(file, newNotice);
+            }
+        }
 
         return newNotice;
     }

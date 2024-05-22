@@ -3,11 +3,15 @@ package com.cineverse.erpc.notice.board.controller;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
 import com.cineverse.erpc.notice.board.service.NoticeBoardService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -23,8 +27,17 @@ public class NoticeBoardController {
 
     /* 공지사항 게시글 작성 */
     @PostMapping("/regist")
-    public ResponseEntity<NoticeBoardDTO> registNotice(@RequestBody NoticeBoardDTO newNotice) {
-        noticeBoardService.registNotice(newNotice);
+    public ResponseEntity<NoticeBoardDTO> registNotice(@RequestPart("noticeBoard") String noticeJson,
+                                                       @RequestPart(value = "files", required = false) MultipartFile[] files)
+            throws JsonProcessingException {
+
+        String utf8Json = new String(noticeJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        NoticeBoardDTO newNotice = objectMapper.readValue(utf8Json, NoticeBoardDTO.class);
+
+        noticeBoardService.registNotice(newNotice, files);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(newNotice);
     }
 

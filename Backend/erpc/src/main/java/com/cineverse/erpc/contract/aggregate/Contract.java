@@ -2,6 +2,7 @@ package com.cineverse.erpc.contract.aggregate;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.ContractFile;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import jakarta.persistence.*;
@@ -68,4 +69,7 @@ public class Contract {
 
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ContractProduct> contractProduct = new ArrayList<>();
+
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ContractFile> contractFile = new ArrayList<>();
 }

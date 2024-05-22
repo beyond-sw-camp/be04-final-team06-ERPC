@@ -2,11 +2,12 @@ package com.cineverse.erpc.quotation.quotation.service;
 
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.dto.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface QuotationService {
-    void registQuotation(RequestRegistQuotationDTO quotation);
+    void registQuotation(RequestRegistQuotationDTO quotation, MultipartFile[] files);
 
     Quotation findQuotationById(long quotationId);
 

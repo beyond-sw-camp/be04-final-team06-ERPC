@@ -42,33 +42,35 @@ public class WebSecurity {
         authenticationManagerBuilder.userDetailsService(employeeService).passwordEncoder(bCryptPasswordEncoder);
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
-        http.csrf(csrf -> csrf.disable())  // CSRF 비활성화
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // CORS 설정 적용
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()  // /login 엔드포인트 허용
-                        .requestMatchers(new AntPathRequestMatcher("/employees/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/notice_board/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/notice_comment/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/sales_opportunity/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/sales_opp_note/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/warehouse/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/product/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/target/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/account/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/account_note/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/contract/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/quotation/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/quotation_note/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/order/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/order_note/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/collection/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/access/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/tax_invoice/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/sales/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/approval/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/delete/**")).permitAll()
-                        .anyRequest().authenticated())  // 나머지 요청은 인증 필요
-                .authenticationManager(authenticationManager);
+        // 로그인 이전
+        http.csrf((csrf) -> csrf.disable());  // 토큰으로 처리할 예정이기 때문에 필요가 없음
+
+        http.cors().and().authorizeHttpRequests((auth) -> auth
+                .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()  // /login 엔드포인트 허용
+                .requestMatchers(new AntPathRequestMatcher("/employees/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/notice_board/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/notice_comment/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/sales_opportunity/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/sales_opp_note/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/warehouse/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/product/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/target/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/account/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/account_note/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/contract/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/quotation/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/quotation_note/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/order/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/order_note/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/collection/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/access/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/tax_invoice/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/sales/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/approval/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/delete/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/shipment/**")).permitAll()
+                .anyRequest().authenticated()  // 나머지 요청은 인증 필요
+        ).authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
         http.logout(auth -> auth.logoutUrl("/logout"));
