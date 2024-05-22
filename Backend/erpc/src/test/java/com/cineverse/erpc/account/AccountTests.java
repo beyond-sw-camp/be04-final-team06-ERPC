@@ -1,11 +1,11 @@
 package com.cineverse.erpc.account;
 
+import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.aggregate.AccountStatus;
-import com.cineverse.erpc.account.account.dto.AccountDTO;
-import com.cineverse.erpc.account.account.dto.RequestRegistAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
+import com.cineverse.erpc.account.account.dto.*;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
 import com.cineverse.erpc.account.account.service.AccountService;
+import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestProcess;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -14,6 +14,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
@@ -71,5 +74,93 @@ public class AccountTests {
         assertThat(requestRegistAccount.getAccountType()).isEqualTo(responseRegistAccount.getAccountType());
         assertThat(requestRegistAccount.getEmployee()).isEqualTo(responseRegistAccount.getEmployee());
         assertThat(requestRegistAccount.getAccountStatus()).isEqualTo(responseRegistAccount.getAccountStatus());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("거래처 전체조회 성공 테스트")
+    public void successFindAllAccounts() {
+        List<AccountDTO> accounts = accountService.findAccountLists();
+
+        assertThat(accounts).isNotEmpty();
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("거래처 단일조회 성공 테스트")
+    public void successFindAccount() {
+        Account testAccount = accountRepository.findById(Long.valueOf(1))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 입니다."));
+
+        ResponseFindAccountDTO account = accountService.findAccountByAccountId(1);
+
+        assertThat(account).isNotNull();
+        assertThat(account.getAccountCode()).isEqualTo(testAccount.getAccountCode());
+        assertThat(account.getAccountContact()).isEqualTo(testAccount.getAccountContact());
+        assertThat(account.getAccountEmail()).isEqualTo(testAccount.getAccountEmail());
+        assertThat(account.getAccountLocation()).isEqualTo(testAccount.getAccountLocation());
+        assertThat(account.getAccountNote()).isEqualTo(testAccount.getAccountNote());
+        assertThat(account.getAccountStatus()).isEqualTo(testAccount.getAccountStatus());
+        assertThat(account.getAccountType()).isEqualTo(testAccount.getAccountType());
+        assertThat(account.getAccountRepresentitive()).isEqualTo(testAccount.getAccountRepresentitive());
+        assertThat(account.getEmployee()).isEqualTo(testAccount.getEmployee());
+        assertThat(account.getAccountName()).isEqualTo(testAccount.getAccountName());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("거래처 수정 성공 테스트")
+    public void successModifyAccount() {
+        Account testAccount = accountRepository.findById(Long.valueOf(1))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 입니다."));
+        AccountStatus accountStatus = new AccountStatus();
+        accountStatus.setAccountStatusId(2);
+        accountStatus.setAccountStatus("수정 거래처");
+
+        AccountDTO accountDTO = AccountDTO.builder()
+                .accountName("수정 거래처명")
+                .corporationNum("123-99-93931")
+                .accountRepresentitive("수정 거래처 대표명")
+                .corporationStatus("N")
+                .accountLocation("수정 거래처 주소")
+                .accountContact("02-999-9482")
+                .accountEmail("수정 거래처 이메일")
+                .accountNote("수정 비고")
+                .accountType("수정 거래처 업종")
+                .accountStatus(accountStatus)
+                .build();
+
+        AccountDTO account = accountService.modifyAccount(accountDTO, 1);
+
+        assertThat(account.getAccountName()).isEqualTo("수정 거래처명");
+        assertThat(account.getCorporationNum()).isEqualTo("123-99-93931");
+        assertThat(account.getAccountRepresentitive()).isEqualTo("수정 거래처 대표명");
+        assertThat(account.getCorporationStatus()).isEqualTo("N");
+        assertThat(account.getAccountLocation()).isEqualTo("수정 거래처 주소");
+        assertThat(account.getAccountContact()).isEqualTo("02-999-9482");
+        assertThat(account.getAccountEmail()).isEqualTo("수정 거래처 이메일");
+        assertThat(account.getAccountNote()).isEqualTo("수정 비고");
+        assertThat(account.getAccountType()).isEqualTo("수정 거래처 업종");
+        assertThat(account.getAccountStatus()).isEqualTo(accountStatus);
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("거래처 삭제요청 성공 테스트")
+    public void successAccountDeleteRequest() {
+        Account account = accountRepository.findById(Long.valueOf(1))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
+
+        RequestDeleteAccount testDeleteRequest = RequestDeleteAccount.builder()
+                .accountDeleteRequestReason("테스트 사유")
+                .account(account)
+                .build();
+
+        ResponseDeleteAccount deleteRequest = accountService.deleteAccount(testDeleteRequest);
+
+        assertThat(deleteRequest.getAccount()).isEqualTo(testDeleteRequest.getAccount());
+        assertThat(deleteRequest.getAccountDeleteRequestReason())
+                .isEqualTo(testDeleteRequest.getAccountDeleteRequestReason());
+        assertThat(deleteRequest.getAccountDeleteRequestStatus()).isNotNull();
     }
 }
