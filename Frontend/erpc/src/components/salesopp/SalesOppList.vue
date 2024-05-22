@@ -3,6 +3,10 @@
         <div class="contract-list">
             <h1>영업기회 목록</h1>
         </div>
+        <div class="contract-list-search">
+            <div class="contract-dropdown">
+                <button class="contract-dropdown-btn">거래처 명 </button>
+            </div>
             <input type="text" class="contract-search-input" placeholder="검색어를 입력하세요">
             <button class="contract-search-btn">검색</button>
         </div>
@@ -22,6 +26,7 @@
             </tr>
         </tbody>
     </table>
+        </div>
         </div>
 </template>
 
