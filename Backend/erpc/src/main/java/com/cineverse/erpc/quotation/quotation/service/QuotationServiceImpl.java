@@ -1,5 +1,6 @@
 package com.cineverse.erpc.quotation.quotation.service;
 
+import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
@@ -12,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,21 +28,23 @@ public class QuotationServiceImpl implements QuotationService{
     private final QuotationRepository quotationRepository;
     private final QuotationProductRepository quotationProductRepository;
     private final TransactionRepository transactionRepository;
+    private final FileUploadService fileUploadService;
 
     @Autowired
     public QuotationServiceImpl(ModelMapper mapper,
                                 QuotationRepository quotationRepository,
                                 QuotationProductRepository quotationProductRepository,
-                                TransactionRepository transactionRepository) {
+                                TransactionRepository transactionRepository, FileUploadService fileUploadService) {
         this.mapper = mapper;
         this.quotationRepository = quotationRepository;
         this.quotationProductRepository = quotationProductRepository;
         this.transactionRepository = transactionRepository;
+        this.fileUploadService = fileUploadService;
     }
 
     @Override
     @Transactional
-    public void registQuotation(RequestRegistQuotationDTO requestQuotation) {
+    public void registQuotation(RequestRegistQuotationDTO requestQuotation, MultipartFile[] files) {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat codeFormat = new SimpleDateFormat("yyyyMMdd");
@@ -90,6 +94,12 @@ public class QuotationServiceImpl implements QuotationService{
 
         for (QuotationProduct product : requestQuotation.getQuotationProduct()) {
             QuotationProduct quotationProduct = registQuotationProduct(product, quotation);
+        }
+
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String url = fileUploadService.saveQuotationFile(file, quotation);
+            }
         }
     }
 
