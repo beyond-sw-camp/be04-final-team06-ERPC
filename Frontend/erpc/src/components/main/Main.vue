@@ -26,34 +26,6 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue';
-// import axios from 'axios';
-
-// const employeeCode = ref('');
-// const employeePassword = ref('');
-
-// const login = async () => {
-//     try {
-//         const response = await axios.post(`http://localhost:7775/login`, {
-//             employeeCode: employeeCode.value,
-//             employeePassword: employeePassword.value
-//         });
-
-//         const token = response.headers['token'];
-//         const userId = response.headers['userId'];
-
-//         if (token && userId) {
-//             localStorage.setItem('token', token);
-//             localStorage.setItem('userId', userId);
-//             alert('로그인 성공!');
-//         } else {
-//             alert('로그인 실패: 토큰을 받지 못했습니다.');
-//         }
-//     } catch (error) {
-//         console.error('로그인 오류:', error);
-//         alert('로그인 실패: 서버 오류');
-//     }
-// };
 
 import { ref } from 'vue';
 import axios from 'axios';
@@ -83,6 +55,7 @@ const login = async () => {
         alert('로그인 실패: 서버 오류');
     }
 };
+
 </script>
 
 <style>
