@@ -5,6 +5,7 @@ import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
 import com.cineverse.erpc.contract.repository.ContractProductRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
+import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.product.aggregate.Product;
 import com.cineverse.erpc.product.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -13,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,21 +29,24 @@ public class ContractServiceImpl implements ContractService {
     private final ContractRepository contractRepository;
     private final ContractProductRepository contractProductRepository;
     private final ProductRepository productRepository;
+    private final FileUploadService fileUploadService;
 
     @Autowired
     public ContractServiceImpl(ModelMapper modelMapper,
                                ContractRepository contractRepository,
                                ContractProductRepository contractProductRepository,
-                               ProductRepository productRepository) {
+                               ProductRepository productRepository,
+                               FileUploadService fileUploadService) {
         this.modelMapper = modelMapper;
         this.contractRepository = contractRepository;
         this.contractProductRepository = contractProductRepository;
         this.productRepository = productRepository;
+        this.fileUploadService = fileUploadService;
     }
 
     @Override
     @Transactional
-    public Contract registContract(ContractDTO contractDTO) {
+    public Contract registContract(ContractDTO contractDTO, MultipartFile[] files) {
 
         Date date = new Date();
         SimpleDateFormat dateFormatForCode = new SimpleDateFormat("yyyyMMdd");
@@ -83,6 +88,12 @@ public class ContractServiceImpl implements ContractService {
         }
 
         newContract = contractRepository.save(newContract);
+
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String url = fileUploadService.saveContractFile(file, newContract);
+            }
+        }
         return newContract;
     }
 

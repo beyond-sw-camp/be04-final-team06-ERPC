@@ -83,6 +83,7 @@ public class FileUploadService {
             quotationFile.setUploadDate(quotation.getQuotationDate());
             quotationFile.setUploadUser(quotation.getEmployee().getEmployeeCode());
             quotationFileRepository.save(quotationFile);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -108,7 +109,10 @@ public class FileUploadService {
             amazonS3Client.putObject(bucketName, storedName, multipartFile.getInputStream(), objectMetadata);
 
             String accessUrl = amazonS3Client.getUrl(bucketName, storedName).toString();
+
             contractFile.setAccessUrl(accessUrl);
+            contractFile.setUploadDate(contract.getContractDate());
+            contractFile.setUploadUser(contract.getEmployee().getEmployeeCode());
             contractFileRepository.save(contractFile);
 
         } catch (IOException e) {
