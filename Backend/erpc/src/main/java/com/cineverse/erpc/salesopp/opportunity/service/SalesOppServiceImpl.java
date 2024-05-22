@@ -120,7 +120,7 @@ public class SalesOppServiceImpl implements SalesOppService {
         SalesOppDeleteRequest deleteReqOpp = modelMapper.map(deleteOpp, SalesOppDeleteRequest.class);
         deleteReqOpp = salesOppDeleteRequestRepository.save(deleteReqOpp);
 
-        deleteReqOpp.setRequestStatus('N');
+        deleteReqOpp.setSalesOppDeleteRequestStatus('N');
 
         return deleteReqOpp;
     }

@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 public class SalesOppDeleteRequestDTO {
     private long salesOppDeleteRequestId;
-    private String requestContent;
-    private char requestStatus;
+    private String salesOppDeleteRequestReason;
+    private char salesOppDeleteRequestStatus;
     private SalesOpp salesOpp;
 }
