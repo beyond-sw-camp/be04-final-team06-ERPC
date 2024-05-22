@@ -163,20 +163,6 @@
     height: 40px;
 }
 
-.customer-test1,
-.customer-test2 {
-    width: 170px;
-}
-
-
-.customer-test3 {
-    width: 450px;
-}
-
-.customer-test4 {
-    width: 700px;
-}
-
 .customer-regist-btn-div {
     display: flex;
     justify-content: center;
@@ -198,4 +184,24 @@
     width: 320px;
     font-size: 18px;
     margin-bottom: 100px;
+}
+
+.customer-test1,
+.customer-test2,
+.customer-test3,
+.customer-test4,
+.customer-test5,
+.customer-test6,
+.customer-test7,
+.customer-test8,
+.customer-test9 {
+    height: 35px;
+}
+
+.customer-test4 {
+    width: 300px;
+}
+
+.customer-test9 {
+    width: 500px;
 }
