@@ -15,9 +15,9 @@
                 <div class="login-container">
                     <h1>ERPC</h1>
                     <label for="employee-id">Employee ID</label>
-                    <input type="text" v-model="employeeId" id="employee-id" name="employee-id">
+                    <input type="text" v-model="employeeCode" id="employee-id" name="employee-id">
                     <label for="password">Password</label>
-                    <input type="password" v-model="password" id="password" name="password">
+                    <input type="password" v-model="employeePassword" id="password" name="password">
                     <button @click="login">로그인</button>
                 </div>
             </div>
@@ -26,7 +26,6 @@
 </template>
 
 <script setup>
-
 import { ref } from 'vue';
 import axios from 'axios';
 
@@ -38,10 +37,19 @@ const login = async () => {
         const response = await axios.post('http://localhost:7775/login', {
             employeeCode: employeeCode.value,
             employeePassword: employeePassword.value
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            withCredentials: true // CORS 관련 설정
         });
 
+        // 콘솔에 응답 전체를 출력해 확인
+        console.log(response);
+
+        // 헤더에서 값을 가져옴
         const token = response.headers['token'];
-        const userId = response.headers['userId'];
+        const userId = response.headers['userid'];
 
         if (token && userId) {
             localStorage.setItem('token', token);
@@ -55,8 +63,9 @@ const login = async () => {
         alert('로그인 실패: 서버 오류');
     }
 };
-
 </script>
+
+
 
 <style>
     @import url('@/assets/css/main/Main.css');
