@@ -2,12 +2,10 @@ package com.cineverse.erpc.account;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.aggregate.AccountStatus;
-import com.cineverse.erpc.account.account.dto.AccountDTO;
-import com.cineverse.erpc.account.account.dto.RequestRegistAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseFindAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
+import com.cineverse.erpc.account.account.dto.*;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
 import com.cineverse.erpc.account.account.service.AccountService;
+import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestProcess;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -144,5 +142,25 @@ public class AccountTests {
         assertThat(account.getAccountNote()).isEqualTo("수정 비고");
         assertThat(account.getAccountType()).isEqualTo("수정 거래처 업종");
         assertThat(account.getAccountStatus()).isEqualTo(accountStatus);
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("거래처 삭제요청 성공 테스트")
+    public void successAccountDeleteRequest() {
+        Account account = accountRepository.findById(Long.valueOf(1))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
+
+        RequestDeleteAccount testDeleteRequest = RequestDeleteAccount.builder()
+                .accountDeleteRequestReason("테스트 사유")
+                .account(account)
+                .build();
+
+        ResponseDeleteAccount deleteRequest = accountService.deleteAccount(testDeleteRequest);
+
+        assertThat(deleteRequest.getAccount()).isEqualTo(testDeleteRequest.getAccount());
+        assertThat(deleteRequest.getAccountDeleteRequestReason())
+                .isEqualTo(testDeleteRequest.getAccountDeleteRequestReason());
+        assertThat(deleteRequest.getAccountDeleteRequestStatus()).isNotNull();
     }
 }
