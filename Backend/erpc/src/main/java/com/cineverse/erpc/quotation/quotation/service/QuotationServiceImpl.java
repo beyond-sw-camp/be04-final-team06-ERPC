@@ -32,7 +32,6 @@ public class QuotationServiceImpl implements QuotationService{
     private final QuotationProductRepository quotationProductRepository;
     private final TransactionRepository transactionRepository;
     private final FileUploadService fileUploadService;
-
     private final QuotationDeleteRequestRepository quotationDeleteRequestRepository;
 
     @Autowired
@@ -40,7 +39,7 @@ public class QuotationServiceImpl implements QuotationService{
                                 QuotationRepository quotationRepository,
                                 QuotationProductRepository quotationProductRepository,
                                 TransactionRepository transactionRepository, 
-                                FileUploadService fileUploadService
+                                FileUploadService fileUploadService,
                                 QuotationDeleteRequestRepository quotationDeleteRequestRepository) {
         this.mapper = mapper;
         this.quotationRepository = quotationRepository;

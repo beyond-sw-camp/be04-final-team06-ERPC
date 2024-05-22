@@ -39,7 +39,6 @@ public class ContractServiceImpl implements ContractService {
     public ContractServiceImpl(ModelMapper modelMapper,
                                ContractRepository contractRepository,
                                ContractProductRepository contractProductRepository,
-                               ProductRepository productRepository,
                                FileUploadService fileUploadService,
                                ProductRepository productRepository, 
                                ContractDeleteRequestRepository contractDeleteRequestRepository) 
