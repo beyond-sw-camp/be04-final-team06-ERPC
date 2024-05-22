@@ -9,12 +9,16 @@ import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionSynchronizationAdapter;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -29,6 +33,7 @@ public class FileUploadService {
     private final ContractFileRepository contractFileRepository;
     private final OrderFileRepository orderFileRepository;
     private final TaxInvoiceFileRepository taxInvoiceFileRepository;
+    private final EntityManager entityManager;
 
     @Transactional
     public String saveNoticeFile(MultipartFile multipartFile, NoticeBoard notice) {
@@ -38,6 +43,7 @@ public class FileUploadService {
 
         NoticeFile noticeFile = new NoticeFile();
         noticeFile.setOriginName(originalName);
+        noticeFile.setStoredName(storedName);
         noticeFile.setNotice(notice);
 
         try {
@@ -69,6 +75,7 @@ public class FileUploadService {
 
         QuotationFile quotationFile = new QuotationFile();
         quotationFile.setOriginName(originalName);
+        quotationFile.setStoredName(storedName);
         quotationFile.setQuotation(quotation);
 
         try {
@@ -100,6 +107,7 @@ public class FileUploadService {
 
         ContractFile contractFile = new ContractFile();
         contractFile.setOriginName(originalName);
+        contractFile.setStoredName(storedName);
         contractFile.setContract(contract);
 
         try {
@@ -131,6 +139,7 @@ public class FileUploadService {
 
         OrderFile orderFile = new OrderFile();
         orderFile.setOriginName(originalName);
+        orderFile.setStoredName(storedName);
         orderFile.setOrder(order);
 
         try {
@@ -161,6 +170,7 @@ public class FileUploadService {
 
         TaxInvoiceFile taxFile = new TaxInvoiceFile();
         taxFile.setOriginName(originalName);
+        taxFile.setStoredName(storedName);
         taxFile.setTaxInvoiceRequest(taxInvoice);
 
         try {
@@ -183,4 +193,61 @@ public class FileUploadService {
 
         return taxFile.getAccessUrl();
     }
+
+    @Transactional
+    public void deleteNoticeFiles(long noticeBoardId) {
+        List<NoticeFile> files = noticeFileRepository.findByNotice_NoticeId(noticeBoardId);
+        System.out.println("Found files to delete: " + files.size());
+
+        if (!files.isEmpty()) {
+            for (NoticeFile file : files) {
+                System.out.println("Preparing to delete file ID: " + file.getFileId());
+                noticeFileRepository.delete(file);
+                System.out.println("Deleted file ID from DB: " + file.getFileId());
+            }
+            entityManager.flush();
+            entityManager.clear();
+
+            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
+                @Override
+                public void afterCommit() {
+                    for (NoticeFile file : files) {
+                        try {
+                            amazonS3Client.deleteObject(bucketName, file.getStoredName());
+                            System.out.println("Successfully deleted from S3: " + file.getStoredName());
+                        } catch (Exception e) {
+                            System.out.println("Error deleting file from S3: " + e.getMessage());
+                        }
+                    }
+                }
+            });
+        } else {
+            System.out.println("No files found to delete.");
+        }
+    }
+
+
+//    @Transactional
+//    public void deleteNoticeFiles(NoticeBoard noticeBoard) {
+////        noticeFileRepository.deleteAllByNotice_NoticeId(noticeBoard.getNoticeId());
+////        List<NoticeFile> files = noticeFileRepository.findByNotice_NoticeId(noticeBoard.getNoticeId());
+//        noticeFileRepository.deleteByStoredName(noticeBoard.getNoticeFile().)
+//        entityManager.flush();  // 현재 세션의 상태를 데이터베이스에 동기화
+//        entityManager.clear();  // 세션 캐시를 클리어
+//
+//        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
+//            @Override
+//            public void afterCommit() {
+//                for (NoticeFile file : files) {
+//                    try {
+//                        amazonS3Client.deleteObject(bucketName, file.getOriginName());
+//                        System.out.println("File deleted successfully from S3: " + file.getOriginName());
+//                    } catch (Exception e) {
+//                        System.out.println("Error deleting file from S3: " + e.getMessage());
+//                    }
+//                }
+//            }
+//        });
+//    }
+
 }

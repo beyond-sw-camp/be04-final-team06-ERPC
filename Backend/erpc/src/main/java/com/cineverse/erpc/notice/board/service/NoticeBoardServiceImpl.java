@@ -61,30 +61,72 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         return newNotice;
     }
 
+//    @Override
+//    @Transactional
+//    public NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files)
+//            throws UsernameNotFoundException {
+//
+//        Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
+//
+//        if (optionalNoticeBoard.isEmpty()) {
+//            throw new EntityNotFoundException("존재하지 않는 공지사항입니다.");
+//        }
+//
+//        NoticeBoard noticeBoard = optionalNoticeBoard.get();
+//
+//        if (notice.getNoticeTitle() != null) {
+//            noticeBoard.setNoticeTitle(notice.getNoticeTitle());
+//        }
+//
+//        if (notice.getNoticeContent() != null) {
+//            noticeBoard.setNoticeContent(notice.getNoticeContent());
+//        }
+//        noticeBoardRepository.save(noticeBoard);
+//
+//        if (files != null && files.length > 0) {
+//            fileUploadService.deleteNoticeFiles(noticeId);
+//            for (MultipartFile file : files) {
+//                fileUploadService.saveNoticeFile(file, noticeBoard);
+//            }
+//        }
+//
+//        return noticeBoard;
+//    }
+
     @Override
     @Transactional
-    public NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice) throws UsernameNotFoundException {
+    public NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files)
+            throws UsernameNotFoundException {
 
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
-
         if (optionalNoticeBoard.isEmpty()) {
             throw new EntityNotFoundException("존재하지 않는 공지사항입니다.");
         }
 
         NoticeBoard noticeBoard = optionalNoticeBoard.get();
-
         if (notice.getNoticeTitle() != null) {
             noticeBoard.setNoticeTitle(notice.getNoticeTitle());
         }
         if (notice.getNoticeContent() != null) {
             noticeBoard.setNoticeContent(notice.getNoticeContent());
         }
+        noticeBoardRepository.save(noticeBoard);
 
-        return noticeBoardRepository.save(noticeBoard);
+        if (files != null && files.length > 0) {
+//            noticeFileRepository.deleteByNotice_NoticeId(noticeId);
+            fileUploadService.deleteNoticeFiles(noticeId);  // 기존 파일 삭제
+            for (MultipartFile file : files) {
+                fileUploadService.saveNoticeFile(file, noticeBoard);
+            }
+        }
+
+//        return noticeBoardRepository.save(noticeBoard);
+        return noticeBoard;
     }
 
+
     @Override
-    public NoticeBoard deleteNotice(Long noticeId) throws UsernameNotFoundException {
+    public NoticeBoard deleteNotice(long noticeId) throws UsernameNotFoundException {
 
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
 
@@ -99,7 +141,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         String deleteDate = format.format(date);
         noticeBoard.setNoticeDeleteDate(deleteDate);
 
-        return noticeBoardRepository.save(noticeBoard);
+        return noticeBoard;
     }
 
     @Override
