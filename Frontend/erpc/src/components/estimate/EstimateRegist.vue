@@ -17,12 +17,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text"></td>
+                        <td>
+                            <div class="item-code-div2">
+                                <input type="text" id="item-code-box2" class="item-code-box2" placeholder="품목 코드를 입력해주세요.">
+                                <button class="item-code-btn2">확인</button>
+                            </div>
+                        </td>
                         <td>LG 콤퓨타</td>
-                        <td><input type="text" class="estimate-test1"></td>
+                        <td><input type="text" class="estimate-test2"></td>
                         <td>1,800,000</td>
                         <td>9,000,000</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" class="estimate-test3"></td>
                     </tr>
                 </tbody>
             </table>
@@ -40,7 +45,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text"></td>
+                        <td>
+                            <div class="storage-code-div2">
+                                <input type="text" id="storage-code-box2" class="storage-code-box2" placeholder="품목 코드를 입력해주세요.">
+                                <button class="storage-code-btn2">확인</button>
+                            </div>
+                        </td>
                         <td>강남 창고</td>
                         <td>창고</td>
                         <td>서울특별시 강남구 강남대로 11</td>
@@ -63,10 +73,10 @@
                 <tbody>
                     <tr>
                         <td>PJ-20240508001</td>
-                        <td><input type="text" class="estimate-test2"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text" class="estimate-test3"></td>
-                        <td><input type="text"></td>
+                        <td><input type="text" class="estimate-test5"></td>
+                        <td><input type="text" class="estimate-test6"></td>
+                        <td><input type="text" class="estimate-test7"></td>
+                        <td><input type="text" class="estimate-test8"></td>
                     </tr>
                 </tbody>
             </table>

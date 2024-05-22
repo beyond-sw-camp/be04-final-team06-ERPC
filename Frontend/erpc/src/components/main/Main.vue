@@ -28,6 +28,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
+// import router from '@/router/mainRouter';
 
 const employeeCode = ref('');
 const employeePassword = ref('');
@@ -55,6 +56,8 @@ const login = async () => {
             localStorage.setItem('token', token);
             localStorage.setItem('userId', userId);
             alert('로그인 성공!');
+
+            // router.push('/notice/list');
         } else {
             alert('로그인 실패: 토큰을 받지 못했습니다.');
         }
