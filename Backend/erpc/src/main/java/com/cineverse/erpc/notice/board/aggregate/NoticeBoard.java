@@ -2,8 +2,13 @@ package com.cineverse.erpc.notice.board.aggregate;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.aggregate.Team;
+import com.cineverse.erpc.file.aggregate.ContractFile;
+import com.cineverse.erpc.file.aggregate.NoticeFile;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,4 +43,7 @@ public class NoticeBoard {
     @JoinColumn(name = "team_code_id")
     @ManyToOne
     private Team team;
+
+    @OneToMany(mappedBy = "notice", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<NoticeFile> noticeFile = new ArrayList<>();
 }
