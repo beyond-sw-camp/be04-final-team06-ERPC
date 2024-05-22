@@ -1,8 +1,11 @@
 package com.cineverse.erpc.contract.service;
 
 import com.cineverse.erpc.contract.aggregate.Contract;
+import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
+import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
+import com.cineverse.erpc.contract.repository.ContractDeleteRequestRepository;
 import com.cineverse.erpc.contract.repository.ContractProductRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
 import com.cineverse.erpc.file.service.FileUploadService;
@@ -20,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,18 +34,22 @@ public class ContractServiceImpl implements ContractService {
     private final ContractProductRepository contractProductRepository;
     private final ProductRepository productRepository;
     private final FileUploadService fileUploadService;
-
+    private final ContractDeleteRequestRepository contractDeleteRequestRepository;
     @Autowired
     public ContractServiceImpl(ModelMapper modelMapper,
                                ContractRepository contractRepository,
                                ContractProductRepository contractProductRepository,
                                ProductRepository productRepository,
-                               FileUploadService fileUploadService) {
+                               FileUploadService fileUploadService,
+                               ProductRepository productRepository, 
+                               ContractDeleteRequestRepository contractDeleteRequestRepository) 
+                               {
         this.modelMapper = modelMapper;
         this.contractRepository = contractRepository;
         this.contractProductRepository = contractProductRepository;
         this.productRepository = productRepository;
         this.fileUploadService = fileUploadService;
+        this.contractDeleteRequestRepository = contractDeleteRequestRepository;
     }
 
     @Override
@@ -153,6 +161,19 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
+    @Transactional
+    public ContractDeleteRequest requestDeleteContract(ContractDeleteRequestDTO deleteContract) {
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        ContractDeleteRequest deleteReqContract = modelMapper.map(deleteContract, ContractDeleteRequest.class);
+        deleteReqContract = contractDeleteRequestRepository.save(deleteReqContract);
+
+        deleteReqContract.setContractDeleteRequestStatus('N');
+
+        return deleteReqContract;
+    }
+
+    @Override
     public List<Contract> findContractList() {
         List<Contract> contractList = contractRepository.findByContractDeleteDateIsNull();
 
@@ -175,6 +196,14 @@ public class ContractServiceImpl implements ContractService {
         ContractDTO contractDTO = modelMapper.map(contract, ContractDTO.class);
 
         return contractDTO;
+    }
+
+    @Override
+    public ContractDTO findContractByContractCode(String contractCode) {
+        Contract contract = contractRepository.findByContractCode(contractCode)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 계약서 코드입니다: " + contractCode));
+
+        return modelMapper.map(contract, ContractDTO.class);
     }
 
     @Override

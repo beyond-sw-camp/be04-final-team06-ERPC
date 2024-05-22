@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestRegistDTO {
+    private long employeeId;
     private String employeeCode;
     private String employeeName;
     private String employeePassword;

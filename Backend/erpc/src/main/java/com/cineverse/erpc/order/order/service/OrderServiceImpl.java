@@ -3,12 +3,19 @@ package com.cineverse.erpc.order.order.service;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.order.order.aggregate.Order;
+import com.cineverse.erpc.order.order.aggregate.OrderDeleteRequest;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.order.order.dto.*;
+import com.cineverse.erpc.order.order.repo.OrderDeleteRequestRepository;
 import com.cineverse.erpc.order.order.repo.OrderProductRepository;
 import com.cineverse.erpc.order.order.repo.OrderRepository;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
+import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
+import com.cineverse.erpc.shipment.aggregate.Shipment;
+import com.cineverse.erpc.shipment.repo.ShipmentRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +36,25 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderProductRepository orderProductRepository;
     private final FileUploadService fileUploadService;
+    private final OrderDeleteRequestRepository orderDeleteRequestRepository;
+    private final ShipmentRepository shipmentRepository;
+    private final TransactionRepository transactionRepository;
 
     @Autowired
     public OrderServiceImpl(ModelMapper mapper,
                             OrderRepository orderRepository,
-                            OrderProductRepository orderProductRepository, FileUploadService fileUploadService) {
+                            FileUploadService fileUploadService,
+                            OrderProductRepository orderProductRepository,
+                            OrderDeleteRequestRepository orderDeleteRequestRepository,
+                            ShipmentRepository shipmentRepository,
+                            TransactionRepository transactionRepository) {
+      
         this.mapper = mapper;
         this.orderRepository = orderRepository;
         this.orderProductRepository = orderProductRepository;
+        this.orderDeleteRequestRepository = orderDeleteRequestRepository;
+        this.shipmentRepository = shipmentRepository;
+        this.transactionRepository = transactionRepository;
         this.fileUploadService = fileUploadService;
     }
 
@@ -56,6 +74,16 @@ public class OrderServiceImpl implements OrderService {
         order.setShipmentStatus(shipmentStatus);
 
         orderRepository.save(order);
+
+        Transaction transaction = transactionRepository.findById(order.getTransaction().getTransactionId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래코드 입니다."));
+
+        Shipment shipment = new Shipment();
+        shipment.setOrderDueDate(order.getOrderDueDate());
+        shipment.setTransactionCode(transaction.getTransactionCode());
+        shipment.setShipmentStatus(shipmentStatus);
+        shipmentRepository.save(shipment);
+
 
         for (OrderProduct product : requestOrder.getOrderProduct()) {
             OrderProduct orderProduct = registOrderProduct(product, order);
@@ -200,4 +228,18 @@ public class OrderServiceImpl implements OrderService {
 
         return orderProduct;
     }
+
+    @Override
+    public ResponseDeleteOrder deleteOrder(RequestDeleteOrder requestDeleteOrder) {
+        OrderDeleteRequest orderDeleteRequest = new OrderDeleteRequest();
+        orderDeleteRequest.setOrder(requestDeleteOrder.getOrder());
+        orderDeleteRequest.setOrderDeleteRequestReason(requestDeleteOrder.getOrderDeleteRequestReason());
+        orderDeleteRequest.setOrderDeleteRequestStatus("N");
+
+        orderDeleteRequestRepository.save(orderDeleteRequest);
+
+        return mapper.map(orderDeleteRequest, ResponseDeleteOrder.class);
+    }
+
+
 }

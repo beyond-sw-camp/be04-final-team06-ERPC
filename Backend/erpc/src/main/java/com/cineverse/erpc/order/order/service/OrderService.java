@@ -13,4 +13,6 @@ public interface OrderService {
     List<ResponseOrderLists> findAllOrders();
 
     ResponseModifyOrder modifyOrder(long orderId, RequestModifyOrder requestModifyOrder);
+
+    ResponseDeleteOrder deleteOrder(RequestDeleteOrder requestDeleteOrder);
 }

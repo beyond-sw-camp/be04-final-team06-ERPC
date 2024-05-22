@@ -80,14 +80,6 @@
                         <td>9,000,000</td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td>COM-002</td>
-                        <td>삼성 콤퓨타</td>
-                        <td>5</td>
-                        <td>1,200,000</td>
-                        <td>6,000,000</td>
-                        <td></td>
-                    </tr>
                 </tbody>
             </table>
             <table class="order2-table4">

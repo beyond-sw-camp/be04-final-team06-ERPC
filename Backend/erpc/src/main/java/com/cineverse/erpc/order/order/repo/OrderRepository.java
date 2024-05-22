@@ -12,4 +12,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByEmployeeTeamCodeIdAndDownPaymentIsNotNull(int teamCodeId);
 
     List<Order> findByDownPaymentIsNotNull();
+
+    Order findByTransaction_TransactionCode(String transactionCode);
 }

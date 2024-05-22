@@ -1,9 +1,9 @@
 package com.cineverse.erpc.account.account.service;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
-import com.cineverse.erpc.account.account.dto.AccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseFindAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
+import com.cineverse.erpc.account.account.aggregate.AccountDeleteRequest;
+import com.cineverse.erpc.account.account.dto.*;
+import com.cineverse.erpc.account.account.repository.AccountDeleteRequestRepository;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -23,11 +23,15 @@ public class AccountServiceImpl implements AccountService {
 
     private ModelMapper modelMapper;
     private AccountRepository accountRepository;
+    private AccountDeleteRequestRepository accountDeleteRequestRepository;
 
     @Autowired
-    public AccountServiceImpl(ModelMapper modelMapper, AccountRepository accountRepository) {
+    public AccountServiceImpl(ModelMapper modelMapper,
+                              AccountRepository accountRepository,
+                              AccountDeleteRequestRepository accountDeleteRequestRepository) {
         this.modelMapper = modelMapper;
         this.accountRepository = accountRepository;
+        this.accountDeleteRequestRepository = accountDeleteRequestRepository;
     }
 
     @Override
@@ -140,5 +144,17 @@ public class AccountServiceImpl implements AccountService {
         }
 
         accountRepository.save(account);
+    }
+
+    @Override
+    public ResponseDeleteAccount deleteAccount(RequestDeleteAccount requestDeleteAccount) {
+        AccountDeleteRequest accountDeleteRequest = new AccountDeleteRequest();
+        accountDeleteRequest.setAccountDeleteRequestReason(requestDeleteAccount.getAccountDeleteRequestReason());
+        accountDeleteRequest.setAccount(requestDeleteAccount.getAccount());
+        accountDeleteRequest.setAccountDeleteRequestStatus("N");
+
+        accountDeleteRequestRepository.save(accountDeleteRequest);
+
+        return modelMapper.map(accountDeleteRequest, ResponseDeleteAccount.class);
     }
 }
