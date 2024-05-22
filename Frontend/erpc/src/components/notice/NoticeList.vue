@@ -24,7 +24,8 @@
             </div>
             <div>
               <input type="text" id='searchText' class="form-control" placeholder="Search..."
-                v-model="search_condition" @keyup.enter="callData">
+                v-model="search_condition" @keyup.enter="callData"
+                style="height: 5px; font-size: 12px;">
             </div>
           </td>
         </tr>
@@ -76,11 +77,11 @@
   });
   
   function changeRouter(freeId) {
-    router.push(`/notice_board/${noticeId}`);
+    router.push(`/notice/${noticeId}`);
   }
   
   function goToWritePage(){
-    router.push(`/notice_board/regist`);
+    router.push(`/notice/regist`);
   }
 
   watch([search_condition, search_type], () => {
