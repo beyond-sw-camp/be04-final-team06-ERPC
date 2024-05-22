@@ -80,7 +80,18 @@
                 </table>
             </div>
         </div>
-                <div class="customer-process-box">
+        <div class="customer-box3">
+            <h3>조회된 수주 정보</h3>
+            <div class="project-number">
+                <p class="project-number-text">프로젝트 번호</p>
+                <button class="project-number-box" id="project-number-box">PJ-20240508001</button>
+            </div>
+            <div class="project-employee">
+                <p class="project-employee-text">담당자</p>
+                <button class="project-employee-box" id="project-employee-box">민중원</button>
+            </div>
+        </div>
+        <div class="customer-process-box">
             <h1 class="customer-process-text">Process</h1>
             <div class="customer-process-box-detail">
                 <div class="customer-process-info">
@@ -95,7 +106,8 @@
                     <button class="customer-process-delete">삭제</button>
                 </div>
                 <div class="customer-process-reply">
-                    <input type="text" id="customer-process-reply-box" class="customer-process-reply-box" placeholder="내용을 입력해주세요.">
+                    <input type="text" id="customer-process-reply-box" class="customer-process-reply-box"
+                        placeholder="내용을 입력해주세요.">
                     <button class="customer-process-regist">등록하기</button>
                 </div>
             </div>
@@ -105,7 +117,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import {useRoute, useRouter} from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const currentRoute = useRoute();
 const router = useRouter();
@@ -113,5 +125,5 @@ const router = useRouter();
 </script>
 
 <style>
-    @import url('@/assets/css/customer/CustomerContents.css');
+@import url('@/assets/css/customer/CustomerContents.css');
 </style>
