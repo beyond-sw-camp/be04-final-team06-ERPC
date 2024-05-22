@@ -1,5 +1,6 @@
 package com.cineverse.erpc.slip.taxinvoice.service;
 
+import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceProcess;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequestStatus;
@@ -14,6 +15,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,21 +29,24 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
     private final TaxInvoiceRequestRepository taxInvoiceRequestRepository;
     private final TaxInvoiceProcessRepository taxInvoiceProcessRepository;
     private final TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository;
+    private final FileUploadService fileUploadService;
 
     @Autowired
     public TaxInvoiceServiceImpl(ModelMapper modelMapper,
                                  TaxInvoiceRequestRepository taxInvoiceRequestRepository,
                                  TaxInvoiceProcessRepository taxInvoiceProcessRepository,
-                                 TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository) {
+                                 TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository, FileUploadService fileUploadService) {
         this.modelMapper = modelMapper;
         this.taxInvoiceRequestRepository = taxInvoiceRequestRepository;
         this.taxInvoiceProcessRepository = taxInvoiceProcessRepository;
         this.taxInvoiceRequestStatusRepository = taxInvoiceRequestStatusRepository;
+        this.fileUploadService = fileUploadService;
     }
 
     @Override
     @Transactional
-    public TaxInvoiceRequest registTaxInvoiceRequest(TaxInvoiceRequestDTO taxInvoiceRequestDTO) {
+    public TaxInvoiceRequest registTaxInvoiceRequest(TaxInvoiceRequestDTO taxInvoiceRequestDTO,
+                                                     MultipartFile[] files) {
 
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -60,6 +65,12 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
         newTaxInvoiceProcess.setTaxInvoiceRequestStatus(defaultStatus);
 
         taxInvoiceProcessRepository.save(newTaxInvoiceProcess);
+
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String url = fileUploadService.saveTaxInvoiceFile(file, newTaxInvoiceRequest);
+            }
+        }
 
         return newTaxInvoiceRequest;
     }
