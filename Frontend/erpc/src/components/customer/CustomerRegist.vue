@@ -28,8 +28,8 @@
                     <tbody>
                         <tr>
                             <td>123-45-67890</td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
+                            <td><input type="text" class="customer-test1"></td>
+                            <td><input type="text" class="customer-test2"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -44,8 +44,8 @@
                     <tbody>
                         <tr>
                             <td>정상</td>
-                            <td><input type="text" class="customer-test2"></td>
                             <td><input type="text" class="customer-test3"></td>
+                            <td><input type="text" class="customer-test4"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,10 +60,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
+                            <td><input type="text" class="customer-test5"></td>
+                            <td><input type="text" class="customer-test6"></td>
+                            <td><input type="text" class="customer-test7"></td>
+                            <td><input type="text" class="customer-test8"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,7 +75,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="customer-test4"></td>
+                            <td><input type="text" class="customer-test9"></td>
                         </tr>
                     </tbody>
                 </table>

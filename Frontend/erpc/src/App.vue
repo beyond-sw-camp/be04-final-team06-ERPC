@@ -146,6 +146,15 @@ const toggleSubItems = (index) => {
   padding: 20px;
 }
 
+.main2 {
+  flex: 1.8;
+  min-width: 600px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+}
+
 .menu {
   list-style-type: none;
   padding: 0;
@@ -188,14 +197,6 @@ const toggleSubItems = (index) => {
 .menu-button-text {
   cursor: pointer;
   margin-left: 20px;
-}
-
-.main2 {
-  flex: 1.8;
-  min-width: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .menuimage {

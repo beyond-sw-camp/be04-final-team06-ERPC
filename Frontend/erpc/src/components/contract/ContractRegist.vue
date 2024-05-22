@@ -78,7 +78,7 @@
                         <td>OO상사</td>
                         <td><input type="text" class="contract-test3"></td>
                         <td><input type="text" class="contract-test4"></td>
-                        <td></td>
+                        <td><input type="text" class="contract-test5"></td>
                     </tr>
                 </tbody>
             </table>
@@ -102,9 +102,9 @@
                                 </div>
                             </div>
                         </td>
-                        <td><input type="text" class="contract-test5"></td>
                         <td><input type="text" class="contract-test6"></td>
                         <td><input type="text" class="contract-test7"></td>
+                        <td><input type="text" class="contract-test8"></td>
                     </tr>
                 </tbody>
             </table>

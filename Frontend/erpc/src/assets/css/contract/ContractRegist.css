@@ -271,3 +271,12 @@
 .contract-file-name1 {
     font-size: 18px;
 }
+
+.contract-test3,
+.contract-test4,
+.contract-test5,
+.contract-test6,
+.contract-test7,
+.contract-test8 {
+    height: 35px;
+}
