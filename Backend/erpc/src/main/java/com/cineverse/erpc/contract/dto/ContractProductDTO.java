@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Builder
 public class ContractProductDTO {
-    private Long contractProductId;
+    private long contractProductId;
     private int contractProductCount;
     private long contractSupplyPrice;
     private Product product;

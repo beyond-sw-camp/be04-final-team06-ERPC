@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ContractProductRepository extends JpaRepository<ContractProduct, Long> {
 
-    List<ContractProduct> findByContractContractId(Long contractId);
+    List<ContractProduct> findByContractContractId(long contractId);
 
-    void deleteByContractContractId(Long contractId);
+    void deleteByContractContractId(long contractId);
 }

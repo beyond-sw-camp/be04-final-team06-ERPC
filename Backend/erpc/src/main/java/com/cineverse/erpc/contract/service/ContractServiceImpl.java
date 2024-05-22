@@ -110,7 +110,7 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     @Transactional
-    public Contract modifyContract(Long contractId, ContractDTO contractDTO) {
+    public Contract modifyContract(long contractId, ContractDTO contractDTO) {
         Contract existingContract = contractRepository.findById(contractId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
@@ -182,7 +182,7 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public ContractDTO findContractById(Long contractId) {
+    public ContractDTO findContractById(long contractId) {
         Contract contract = contractRepository.findById(contractId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 

@@ -18,7 +18,7 @@ import java.util.List;
 @ToString
 @Builder
 public class ContractDTO {
-    private Long contractId;
+    private long contractId;
     private String contractDate;
     private String contractDeleteDate;
     private String contractNote;
