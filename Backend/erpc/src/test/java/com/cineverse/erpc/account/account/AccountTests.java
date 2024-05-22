@@ -1,4 +1,4 @@
-package com.cineverse.erpc.account;
+package com.cineverse.erpc.account.account;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.aggregate.AccountStatus;
