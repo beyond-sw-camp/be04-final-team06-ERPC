@@ -40,7 +40,7 @@ public class QuotationServiceImpl implements QuotationService{
                                 QuotationRepository quotationRepository,
                                 QuotationProductRepository quotationProductRepository,
                                 TransactionRepository transactionRepository, 
-                                FileUploadService fileUploadService
+                                FileUploadService fileUploadService,
                                 QuotationDeleteRequestRepository quotationDeleteRequestRepository) {
         this.mapper = mapper;
         this.quotationRepository = quotationRepository;
