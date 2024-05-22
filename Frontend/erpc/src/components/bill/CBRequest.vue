@@ -16,88 +16,83 @@
         <div class="cb-search2">
             <h2>세금계산서 발행 정보</h2>
         </div>
-        <div class="cb-search-box2">
-            <div class="left2">
-                <div class="project-code2">
-                    <div class="project-code-text2">프로젝트 코드</div>
-                    <button class="project-code-box2">PJ-20240508001</button>
-                </div>
-                <div class="customer-code2">
-                    <div class="customer-code-text2">거래처 코드</div>
-                    <button class="customer-code-box2">AC-20240430001</button>
-                </div>
-                <div class="business-number2">
-                    <p class="business-number-text2">사업자 번호</p>
-                    <button class="business-number-box2" id="business-number-box2">123-45-67890</button>
-                </div>
-                <div class="business-name2">
-                    <p class="business-name-text2">사업자명</p>
-                    <button class="business-name-box2" id="business-name-box2">A-회사</button>
-                </div>
-                <div class="ceo-name2">
-                    <p class="ceo-name-text2">대표자명</p>
-                    <button class="ceo-name-box2" id="ceo-name-box2">게이츠</button>
-                </div>
-                <div class="billing2">
-                    <p class="billing-text2">Billing 잔액</p>
-                    <button class="billing-box2" id="billing-box2">6,000,000</button>
-                </div>
-                <div class="deposit-code2">
-                    <p class="deposit-code-text2">입금 코드</p>
-                    <div class="deposit-code-div2">
-                        <input type="text" id="deposit-code-box2" class="deposit-code-box2"
-                            placeholder="입금 코드를 입력해주세요.">
-                        <button class="deposit-code-btn2">확인</button>
-                    </div>
-                </div>
-                <div class="deposit-date2">
-                    <p class="deposit-date-text2">입금 일자</p>
-                    <button class="deposit-date-box2" id="deposit-date-box2">2024-03-31</button>
-                </div>
-            </div>
-            <div class="right2">
-                <div class="corporation2">
-                    <p class="corporation-text2">법인 여부</p>
-                    <button class="corporation-box2" id="corporation-box2">C</button>
-                </div>
-                <div class="industry2">
-                    <p class="industry-text2">업태</p>
-                    <button class="industry-box2" id="industry-box2">제조업</button>
-                </div>
-                <div class="industry-detail2">
-                    <p class="industry-detail-text2">종목</p>
-                    <button class="industry-detail-box2" id="industry-detail-box2">컴퓨터외</button>
-                </div>
-                <div class="address2">
-                    <p class="address-text2">소재지</p>
-                    <button class="address-box2" id="address-box2">서울 강남구</button>
-                </div>
-                <div class="call2">
-                    <p class="call-text2">전화 번호</p>
-                    <button class="call-box2" id="call-box2">000-0000-0000</button>
-                </div>
-                <div class="email2">
-                    <p class="email-text2">이메일</p>
-                    <button class="email-box2" id="email-box2">ABC@gmail.com</button>
-                </div>
-                <div class="deposit-amount2">
-                    <p class="deposit-amount-text2">입금 금액</p>
-                    <button id="deposit-amount-box2" class="deposit-amount-box2">6,000,000</button>
-                </div>
-                <div class="remark2">
-                    <p class="remark-text2">비고</p>
-                    <input type="text" id="remark-box2" class="remark-box2" placeholder="비고란 입력 필수">
-                </div>
-            </div>
+        <div class="cb-list-box1">
+            <table class="cb-table1">
+                <thead>
+                    <tr>
+                        <th>프로젝트 코드</th>
+                        <th>거래처 코드</th>
+                        <th>사업자 번호</th>
+                        <th>사업자명</th>
+                        <th>대표자명</th>
+                        <th>Billing 잔액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PJ-20240508001</td>
+                        <td>AC-20240430001</td>
+                        <td>123-45-67890</td>
+                        <td>A-회사</td>
+                        <td>게이츠</td>
+                        <td>6,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="cb-table2">
+                <thead>
+                    <tr>
+                        <th>입금 코드</th>
+                        <th>입금 일자</th>
+                        <th>법인 여부</th>
+                        <th>업태</th>
+                        <th>종목</th>
+                        <th>소재지</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="deposit-code-div2">
+                                <input type="text" id="deposit-code-box2" class="deposit-code-box2" placeholder="입금 코드를 입력해주세요.">
+                                <button class="deposit-code-btn2">확인</button>
+                            </div>
+                        </td>
+                        <td>2024-03-31</td>
+                        <td>C</td>
+                        <td>제조업</td>
+                        <td>컴퓨터외</td>
+                        <td>서울 강남구</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="cb-table3">
+                <thead>
+                    <tr>
+                        <th>전화 번호</th>
+                        <th>이메일</th>
+                        <th>입금 금액</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000-0000-0000</td>
+                        <td>ABC@gmail.com</td>
+                        <td>6,000,000</td>
+                        <td><input type="text" id="remark-box2" class="remark-box2" placeholder="비고란 입력 필수"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="order1-pdf">
-                <button class="order1-pdf1">
-                    견적서 업로드<img src="@/assets/img/pdf.png" class="pdfimage1">
-                </button>
-                <button class="order1-pdf2">
-                    계약서 업로드<img src="@/assets/img/pdf.png" class="pdfimage2">
-                </button>
-            </div>
+            <button class="order1-pdf1">
+                견적서 업로드<img src="@/assets/img/pdf.png" class="pdfimage1">
+            </button>
+            <button class="order1-pdf2">
+                계약서 업로드<img src="@/assets/img/pdf.png" class="pdfimage2">
+            </button>
+        </div>
         <div class="regist-btn-div">
             <button class="regist-btn2">발행 요청하기</button>
         </div>
@@ -105,7 +100,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
+const currentRoute = useRoute();
+const router = useRouter();
 </script>
 
 <style>
