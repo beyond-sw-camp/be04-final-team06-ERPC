@@ -1,19 +1,19 @@
 <template>
     <hr class="replyregistline">
     <div class="replys">
-      <div class="allreply" v-for="reply in replies" :key="reply.commentId" >
+      <div class="allreply" v-for="reply in replies" :key="reply.notice_comment_id" >
         <div class="replywriterdiv">
           <span v-if="reply.member">{{ reply.member.nickname }}</span>
         </div>
         <div class="replycontentdiv">
-          <p>{{ reply.commentContent }}</p>
+          <p>{{ reply.comment_content }}</p>
         </div>
         <div class="replydatediv">
-          <p>작성일: {{ reply.commentDate }}</p>
+          <p>작성일: {{ reply.comment_date }}</p>
         </div>
         <div class="closebuttondiv">
           <form action="" name="deleteReply" method="post">
-            <button type="button" class="closebutton" @click="removeReply(reply.commentId)">
+            <button type="button" class="closebutton" @click="removeReply(reply.comment_id)">
             </button>
           </form>
         </div>
@@ -88,7 +88,7 @@ const submitReply = async () => {
 
     const freeId = router.currentRoute.value.params.freeId;
 
-    const response = await axios.post('http://localhost:8081/free_comment/regist', {
+    const response = await axios.post('http://localhost:7075/notice_comment/regist', {
       commentContent: newComment.value,
       member: { memberId },
       freeId:  freeId
@@ -104,14 +104,14 @@ const submitReply = async () => {
 const removeReply = async (commentId) => {
   try {
     if (confirm('댓글을 삭제하시겠습니까?')) {
-      await axios.patch(`http://localhost:8081/free_comment/delete/${commentId}`,{
-        commentId: commentId
+      await axios.patch(`http://localhost:7075/notice_comment/delete/${noticeCommentId}`,{
+        noticeCommentId: noticeCommentId
       });
       
-      replies.value = replies.value.filter(reply => reply.commentId !== commentId);
+      replies.value = replies.value.filter(reply => reply.notice_comment_id !== notice_comment_id);
     }
   } catch (error) {
-    console.error('댓글 삭제 중 에러 발생:', error);
+    console.error('댓글 삭제 중 에러 발생:', error);ff 
   }
 };
 
@@ -119,7 +119,7 @@ onMounted(async () => {
   try {
     const freeId = router.currentRoute.value.params.freeId;
     
-    const response = await axios.get(`http://localhost:8081/free_comment/?freeId=${freeId}`);
+    const response = await axios.get(`http://localhost:7075/free_comment/?freeId=${freeId}`);
     replies.value = response.data.filter(comment => {
   const commentfreeId = parseInt(comment.freeId);
   const routerfreeId = parseInt(freeId);
