@@ -31,13 +31,13 @@ public class SaleOppNoteController {
     /* 영업기회 참고사항 수정 */
     @PatchMapping("/modify/{salesOppNoteId}")
     public ResponseEntity<SalesOppNote> modifySalesOppNote(@RequestBody SalesOppNoteDTO oppNote,
-                                                           @PathVariable Long salesOppNoteId) {
+                                                           @PathVariable long salesOppNoteId) {
         return ResponseEntity.ok(salesOppNoteService.modifySalesOppNote(salesOppNoteId, oppNote));
     }
 
     /* 영업기회 참고사항 삭제 */
     @PatchMapping("/delete/{salesOppNoteId}")
-    public ResponseEntity<SalesOppNote> deleteSalesOppNote (@PathVariable Long salesOppNoteId) {
+    public ResponseEntity<SalesOppNote> deleteSalesOppNote (@PathVariable long salesOppNoteId) {
         return ResponseEntity.ok(salesOppNoteService.deleteSalesOppNote(salesOppNoteId));
     }
 

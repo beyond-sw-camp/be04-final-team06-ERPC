@@ -85,7 +85,7 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
     }
 
     @Override
-    public TaxInvoiceRequestDTO findTaxInvoiceById(Long taxInvoiceRequestId) {
+    public TaxInvoiceRequestDTO findTaxInvoiceById(long taxInvoiceRequestId) {
         TaxInvoiceRequest taxInvoiceRequest = taxInvoiceRequestRepository.findById(taxInvoiceRequestId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 요청입니다."));
 
@@ -97,7 +97,7 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 
     @Override
     @Transactional
-    public TaxInvoiceProcess modifyProcess(Long taxInvoiceProcessId, TaxInvoiceProcessDTO processDTO) {
+    public TaxInvoiceProcess modifyProcess(long taxInvoiceProcessId, TaxInvoiceProcessDTO processDTO) {
 
         TaxInvoiceProcess process = taxInvoiceProcessRepository.findById(taxInvoiceProcessId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 세금계약서 요청입니다."));

@@ -53,7 +53,7 @@ public class TaxInvoiceController {
 
     /* 요청 세금계산서 단일 조회  */
     @GetMapping("/{taxInvoiceRequestId}")
-    public TaxInvoiceRequestDTO findTaxInvoiceRequestById(@PathVariable Long taxInvoiceRequestId) {
+    public TaxInvoiceRequestDTO findTaxInvoiceRequestById(@PathVariable long taxInvoiceRequestId) {
         TaxInvoiceRequestDTO taxInvoice = taxInvoiceService.findTaxInvoiceById(taxInvoiceRequestId);
 
         return taxInvoice;
@@ -62,7 +62,7 @@ public class TaxInvoiceController {
     /* 세금계산서 처리 */
     @PatchMapping("/process/{taxInvoiceProcessId}")
     public ResponseEntity<TaxInvoiceProcess> modifyProcessStatus(@RequestBody TaxInvoiceProcessDTO processDTO,
-                                                                 @PathVariable Long taxInvoiceProcessId) {
+                                                                 @PathVariable long taxInvoiceProcessId) {
         TaxInvoiceProcess updatedProcess = taxInvoiceService.modifyProcess(taxInvoiceProcessId, processDTO);
         return ResponseEntity.ok(updatedProcess);
     }

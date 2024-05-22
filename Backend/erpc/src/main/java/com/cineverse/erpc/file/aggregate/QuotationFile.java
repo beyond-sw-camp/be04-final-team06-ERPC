@@ -19,7 +19,7 @@ public class QuotationFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "file_id")
-    private Long fileId;
+    private long fileId;
 
     @Column(name = "origin_name")
     private String originName;

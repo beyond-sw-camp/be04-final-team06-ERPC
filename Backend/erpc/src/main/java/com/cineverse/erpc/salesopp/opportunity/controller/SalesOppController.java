@@ -31,13 +31,13 @@ public class SalesOppController {
 
     /* 영업기회 수정 */
     @PatchMapping("/modify/{salesOppId}")
-    public ResponseEntity<SalesOpp> modifySalesOpp(@RequestBody SalesOppDTO opp, @PathVariable Long salesOppId) {
+    public ResponseEntity<SalesOpp> modifySalesOpp(@RequestBody SalesOppDTO opp, @PathVariable long salesOppId) {
         return ResponseEntity.ok(salesOppService.modifySalesOpp(salesOppId, opp));
     }
 
     /* 영업기회 상태 변경 */
     @PatchMapping("/status/{salesOppId}")
-    public ResponseEntity<SalesOpp> changeSalesOppStatus(@RequestBody SalesOppDTO opp, @PathVariable Long salesOppId) {
+    public ResponseEntity<SalesOpp> changeSalesOppStatus(@RequestBody SalesOppDTO opp, @PathVariable long salesOppId) {
         return ResponseEntity.ok(salesOppService.changeSalesOppStatus(salesOppId, opp));
     }
 
@@ -58,7 +58,7 @@ public class SalesOppController {
 
     /* 영업기회 단일 조회 */
     @GetMapping("/{salesOppId}")
-    public SalesOppDTO findSalesOppById(@PathVariable Long salesOppId) {
+    public SalesOppDTO findSalesOppById(@PathVariable long salesOppId) {
         SalesOppDTO salesOpp = salesOppService.findSalesOppById(salesOppId);
 
         return salesOpp;

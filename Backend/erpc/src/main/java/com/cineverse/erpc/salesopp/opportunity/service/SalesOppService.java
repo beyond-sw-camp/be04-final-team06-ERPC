@@ -11,13 +11,13 @@ public interface SalesOppService {
 
     SalesOpp registSalesOpp(SalesOppDTO newOpp);
 
-    SalesOpp modifySalesOpp(Long salesOppId, SalesOppDTO opp);
+    SalesOpp modifySalesOpp(long salesOppId, SalesOppDTO opp);
 
-    SalesOpp changeSalesOppStatus(Long salesOppId, SalesOppDTO opp);
+    SalesOpp changeSalesOppStatus(long salesOppId, SalesOppDTO opp);
 
     List<SalesOpp> findSalesOppList();
 
-    SalesOppDTO findSalesOppById(Long salesOppId);
+    SalesOppDTO findSalesOppById(long salesOppId);
 
     SalesOppDeleteRequest requestDeleteOpp(SalesOppDeleteRequestDTO deleteOpp);
 }

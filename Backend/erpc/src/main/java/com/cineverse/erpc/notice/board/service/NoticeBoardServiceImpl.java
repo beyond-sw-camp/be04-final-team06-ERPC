@@ -154,7 +154,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
     }
 
     @Override
-    public NoticeBoardDTO findNoticeById(Long noticeId) {
+    public NoticeBoardDTO findNoticeById(long noticeId) {
         NoticeBoard noticeBoard=noticeBoardRepository.findById(noticeId)
                 .orElseThrow(EntityNotFoundException::new);
 

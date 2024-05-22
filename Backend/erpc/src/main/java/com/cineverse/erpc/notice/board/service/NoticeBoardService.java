@@ -16,6 +16,6 @@ public interface NoticeBoardService {
 
     List<NoticeBoard> findNoticeList();
 
-    NoticeBoardDTO findNoticeById(Long noticeId);
+    NoticeBoardDTO findNoticeById(long noticeId);
 
 }
