@@ -31,7 +31,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
     @Autowired
     public NoticeBoardServiceImpl(ModelMapper modelMapper,
                                   NoticeBoardRepository noticeBoardRepository,
-                                  NoticeFileRepository noticeFileRepository, FileUploadService fileUploadService) {
+                                  NoticeFileRepository noticeFileRepository,
+                                  FileUploadService fileUploadService) {
         this.modelMapper = modelMapper;
         this.noticeBoardRepository = noticeBoardRepository;
         this.noticeFileRepository = noticeFileRepository;

@@ -30,11 +30,14 @@ public class NoticeBoardController {
     public ResponseEntity<NoticeBoardDTO> registNotice(@RequestPart("noticeBoard") String noticeJson,
                                                        @RequestPart(value = "files", required = false) MultipartFile[] files)
             throws JsonProcessingException {
+
         String utf8Json = new String(noticeJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         ObjectMapper objectMapper = new ObjectMapper();
-        NoticeBoardDTO newNotice=objectMapper.readValue(utf8Json, NoticeBoardDTO.class);
+
+        NoticeBoardDTO newNotice = objectMapper.readValue(utf8Json, NoticeBoardDTO.class);
 
         noticeBoardService.registNotice(newNotice, files);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(newNotice);
     }
 
