@@ -1,6 +1,7 @@
 package com.cineverse.erpc.order.order.service;
 
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
+import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
@@ -13,6 +14,7 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,19 +28,21 @@ public class OrderServiceImpl implements OrderService {
     private final ModelMapper mapper;
     private final OrderRepository orderRepository;
     private final OrderProductRepository orderProductRepository;
+    private final FileUploadService fileUploadService;
 
     @Autowired
     public OrderServiceImpl(ModelMapper mapper,
                             OrderRepository orderRepository,
-                            OrderProductRepository orderProductRepository) {
+                            OrderProductRepository orderProductRepository, FileUploadService fileUploadService) {
         this.mapper = mapper;
         this.orderRepository = orderRepository;
         this.orderProductRepository = orderProductRepository;
+        this.fileUploadService = fileUploadService;
     }
 
     @Override
     @Transactional
-    public void registOrder(RequestRegistOrderDTO requestOrder) {
+    public void registOrder(RequestRegistOrderDTO requestOrder, MultipartFile[] files) {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDate = dateFormat.format(date);
@@ -55,6 +59,12 @@ public class OrderServiceImpl implements OrderService {
 
         for (OrderProduct product : requestOrder.getOrderProduct()) {
             OrderProduct orderProduct = registOrderProduct(product, order);
+        }
+
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String url = fileUploadService.saveOrderFile(file, order);
+            }
         }
     }
 

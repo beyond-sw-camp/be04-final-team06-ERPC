@@ -32,7 +32,7 @@ public class OrderFile {
     private String uploadUser;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_registration_id")
     @JsonIgnore
     private Order order;
 }

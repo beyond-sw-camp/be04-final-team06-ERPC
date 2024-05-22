@@ -5,9 +5,11 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.cineverse.erpc.contract.aggregate.Contract;
 import com.cineverse.erpc.file.aggregate.ContractFile;
 import com.cineverse.erpc.file.aggregate.NoticeFile;
+import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.file.aggregate.QuotationFile;
 import com.cineverse.erpc.file.repository.*;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
+import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -120,6 +122,36 @@ public class FileUploadService {
         }
 
         return contractFile.getAccessUrl();
+    }
+
+    @Transactional
+    public String saveOrderFile(MultipartFile multipartFile, Order order) {
+
+        String originalName = multipartFile.getOriginalFilename();
+        String storedName = UUID.randomUUID().toString();
+
+        OrderFile orderFile = new OrderFile();
+        orderFile.setOriginName(originalName);
+        orderFile.setOrder(order);
+
+        try {
+            ObjectMetadata objectMetadata = new ObjectMetadata();
+            objectMetadata.setContentType(multipartFile.getContentType());
+            objectMetadata.setContentLength(multipartFile.getInputStream().available());
+
+            amazonS3Client.putObject(bucketName, storedName, multipartFile.getInputStream(), objectMetadata);
+
+            String accessUrl = amazonS3Client.getUrl(bucketName, storedName).toString();
+
+            orderFile.setAccessUrl(accessUrl);
+            orderFile.setUploadDate(order.getOrderDate());
+            orderFile.setUploadUser(order.getEmployee().getEmployeeCode());
+            orderFileRepository.save(orderFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return orderFile.getAccessUrl();
     }
 
 
