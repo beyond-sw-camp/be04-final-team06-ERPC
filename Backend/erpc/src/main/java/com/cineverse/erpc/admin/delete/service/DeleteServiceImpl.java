@@ -113,7 +113,7 @@ public class DeleteServiceImpl implements DeleteService {
         salesOpp.setOppDeleteDate(deleteDate);
         salesOppRepository.save(salesOpp);
 
-        deleteReqOpp.setRequestStatus('Y');
+        deleteReqOpp.setSalesOppDeleteRequestStatus('Y');
         salesOppDeleteRequestRepository.save(deleteReqOpp);
 
         return deleteReqOpp;

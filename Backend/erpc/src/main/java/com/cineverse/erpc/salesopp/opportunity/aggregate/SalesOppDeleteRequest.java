@@ -19,11 +19,11 @@ public class SalesOppDeleteRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long salesOppDeleteRequestId;
 
-    @Column(name = "request_content")
-    private String requestContent;
+    @Column(name = "sales_opp_delete_request_reason")
+    private String salesOppDeleteRequestReason;
 
-    @Column(name = "request_status")
-    private char requestStatus;
+    @Column(name = "sales_opp_delete_request_status")
+    private char salesOppDeleteRequestStatus;
 
     @JoinColumn(name = "sales_opp_id")
     @OneToOne
