@@ -3,18 +3,23 @@ package com.cineverse.erpc.order.order.controller;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.order.order.dto.*;
 import com.cineverse.erpc.order.order.service.OrderService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+
     private ModelMapper mapper;
     private OrderService orderService;
 
@@ -27,12 +32,18 @@ public class OrderController {
     /* 생성 */
     @PostMapping("/regist")
     public ResponseEntity<ResponseRegistOrderDTO> registOrder(
-            @RequestBody RequestRegistOrderDTO requestOrder) {
+            @RequestPart("order") String orderJson,
+            @RequestPart(value = "files", required = false) MultipartFile[] files) throws JsonProcessingException {
 
-        orderService.registOrder(requestOrder);
+        String utf8Json = new String(orderJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        RequestRegistOrderDTO newOrder = objectMapper.readValue(utf8Json, RequestRegistOrderDTO.class);
+
+        orderService.registOrder(newOrder, files);
 
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        ResponseRegistOrderDTO responseOrder = mapper.map(requestOrder, ResponseRegistOrderDTO.class);
+        ResponseRegistOrderDTO responseOrder = mapper.map(newOrder, ResponseRegistOrderDTO.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
     }
@@ -68,5 +79,5 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDeleteOrder);
     }
-
+  
 }

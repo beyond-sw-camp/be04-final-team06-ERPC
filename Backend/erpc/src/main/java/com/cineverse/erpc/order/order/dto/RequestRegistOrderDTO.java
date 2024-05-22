@@ -3,6 +3,7 @@ package com.cineverse.erpc.order.order.dto;
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
@@ -18,10 +19,12 @@ public class RequestRegistOrderDTO {
     private long orderTotalPrice;
     private String orderDueDate;
     private String orderNote;
+    private long totalBalance;
     private Account account;
     private Employee employee;
     private Transaction transaction;
     private Warehouse warehouse;
     private ContractCategory contractCategory;
     private List<OrderProduct> orderProduct;
+    private List<OrderFile> orderFile;
 }
