@@ -57,6 +57,19 @@ public class AccountTests {
                 .build();
 
         ResponseRegistAccountDTO responseRegistAccount = accountService.registAccount(requestRegistAccount);
+
         assertThat(requestRegistAccount.getAccountName()).isEqualTo(responseRegistAccount.getAccountName());
+        assertThat(requestRegistAccount.getCorporationNum()).isEqualTo(responseRegistAccount.getCorporationNum());
+        assertThat(requestRegistAccount.getAccountRepresentitive())
+                .isEqualTo(responseRegistAccount.getAccountRepresentitive());
+        assertThat(requestRegistAccount.getCorporationStatus())
+                .isEqualTo(responseRegistAccount.getCorporationStatus());
+        assertThat(requestRegistAccount.getAccountLocation()).isEqualTo(responseRegistAccount.getAccountLocation());
+        assertThat(requestRegistAccount.getAccountContact()).isEqualTo(responseRegistAccount.getAccountContact());
+        assertThat(requestRegistAccount.getAccountEmail()).isEqualTo(responseRegistAccount.getAccountEmail());
+        assertThat(requestRegistAccount.getAccountNote()).isEqualTo(responseRegistAccount.getAccountNote());
+        assertThat(requestRegistAccount.getAccountType()).isEqualTo(responseRegistAccount.getAccountType());
+        assertThat(requestRegistAccount.getEmployee()).isEqualTo(responseRegistAccount.getEmployee());
+        assertThat(requestRegistAccount.getAccountStatus()).isEqualTo(responseRegistAccount.getAccountStatus());
     }
 }

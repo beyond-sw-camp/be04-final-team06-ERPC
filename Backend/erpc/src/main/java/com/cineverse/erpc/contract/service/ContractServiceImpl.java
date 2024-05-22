@@ -40,8 +40,9 @@ public class ContractServiceImpl implements ContractService {
                                ContractRepository contractRepository,
                                ContractProductRepository contractProductRepository,
                                FileUploadService fileUploadService,
+                               ProductRepository productRepository,
                                ContractDeleteRequestRepository contractDeleteRequestRepository)
-                               {
+    {
         this.modelMapper = modelMapper;
         this.contractRepository = contractRepository;
         this.contractProductRepository = contractProductRepository;
@@ -177,7 +178,7 @@ public class ContractServiceImpl implements ContractService {
 
         return contractList.stream().map(contract -> modelMapper
                         .map(contract, Contract.class))
-                        .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -209,7 +210,7 @@ public class ContractServiceImpl implements ContractService {
         List<ContractProduct> contractProductList = contractProductRepository.findAll();
 
         return contractProductList.stream().map(contractProduct -> modelMapper
-                .map(contractProduct, ContractProduct.class))
+                        .map(contractProduct, ContractProduct.class))
                 .collect(Collectors.toList());
     }
 }
