@@ -41,8 +41,7 @@ public class ContractServiceImpl implements ContractService {
                                ContractProductRepository contractProductRepository,
                                ProductRepository productRepository,
                                FileUploadService fileUploadService,
-                               ProductRepository productRepository, 
-                               ContractDeleteRequestRepository contractDeleteRequestRepository) 
+                               ContractDeleteRequestRepository contractDeleteRequestRepository)
                                {
         this.modelMapper = modelMapper;
         this.contractRepository = contractRepository;
