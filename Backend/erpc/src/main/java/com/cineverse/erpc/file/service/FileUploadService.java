@@ -3,14 +3,12 @@ package com.cineverse.erpc.file.service;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.cineverse.erpc.contract.aggregate.Contract;
-import com.cineverse.erpc.file.aggregate.ContractFile;
-import com.cineverse.erpc.file.aggregate.NoticeFile;
-import com.cineverse.erpc.file.aggregate.OrderFile;
-import com.cineverse.erpc.file.aggregate.QuotationFile;
+import com.cineverse.erpc.file.aggregate.*;
 import com.cineverse.erpc.file.repository.*;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -53,6 +51,7 @@ public class FileUploadService {
             noticeFile.setAccessUrl(accessUrl);
             noticeFile.setUploadDate(notice.getNoticeDate());
             noticeFile.setUploadUser(notice.getEmployee().getEmployeeCode());
+
             noticeFileRepository.save(noticeFile);
 
         } catch (IOException e) {
@@ -154,5 +153,34 @@ public class FileUploadService {
         return orderFile.getAccessUrl();
     }
 
+    @Transactional
+    public String saveTaxInvoiceFile(MultipartFile multipartFile, TaxInvoiceRequest taxInvoice) {
 
+        String originalName = multipartFile.getOriginalFilename();
+        String storedName = UUID.randomUUID().toString();
+
+        TaxInvoiceFile taxFile = new TaxInvoiceFile();
+        taxFile.setOriginName(originalName);
+        taxFile.setTaxInvoiceRequest(taxInvoice);
+
+        try {
+            ObjectMetadata objectMetadata = new ObjectMetadata();
+            objectMetadata.setContentType(multipartFile.getContentType());
+            objectMetadata.setContentLength(multipartFile.getInputStream().available());
+
+            amazonS3Client.putObject(bucketName, storedName, multipartFile.getInputStream(), objectMetadata);
+
+            String accessUrl = amazonS3Client.getUrl(bucketName, storedName).toString();
+            taxFile.setAccessUrl(accessUrl);
+            taxFile.setUploadDate(taxInvoice.getTaxInvoiceRequestDate());
+            taxFile.setUploadUser(taxInvoice.getEmployee().getEmployeeCode());
+
+            taxInvoiceFileRepository.save(taxFile);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return taxFile.getAccessUrl();
+    }
 }

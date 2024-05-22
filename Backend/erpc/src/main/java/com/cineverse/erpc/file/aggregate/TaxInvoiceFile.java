@@ -33,7 +33,7 @@ public class TaxInvoiceFile {
     private String uploadUser;
 
     @ManyToOne
-    @JoinColumn(name = "quotation_id")
+    @JoinColumn(name = "tax_invoice_request_id")
     @JsonIgnore
     private TaxInvoiceRequest taxInvoiceRequest;
 
