@@ -2,9 +2,11 @@ package com.cineverse.erpc.order.order.service;
 
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.order.order.aggregate.Order;
+import com.cineverse.erpc.order.order.aggregate.OrderDeleteRequest;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.order.order.dto.*;
+import com.cineverse.erpc.order.order.repo.OrderDeleteRequestRepository;
 import com.cineverse.erpc.order.order.repo.OrderProductRepository;
 import com.cineverse.erpc.order.order.repo.OrderRepository;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
@@ -26,14 +28,17 @@ public class OrderServiceImpl implements OrderService {
     private final ModelMapper mapper;
     private final OrderRepository orderRepository;
     private final OrderProductRepository orderProductRepository;
+    private final OrderDeleteRequestRepository orderDeleteRequestRepository;
 
     @Autowired
     public OrderServiceImpl(ModelMapper mapper,
                             OrderRepository orderRepository,
-                            OrderProductRepository orderProductRepository) {
+                            OrderProductRepository orderProductRepository,
+                            OrderDeleteRequestRepository orderDeleteRequestRepository) {
         this.mapper = mapper;
         this.orderRepository = orderRepository;
         this.orderProductRepository = orderProductRepository;
+        this.orderDeleteRequestRepository = orderDeleteRequestRepository;
     }
 
     @Override
@@ -190,4 +195,18 @@ public class OrderServiceImpl implements OrderService {
 
         return orderProduct;
     }
+
+    @Override
+    public ResponseDeleteOrder deleteOrder(RequestDeleteOrder requestDeleteOrder) {
+        OrderDeleteRequest orderDeleteRequest = new OrderDeleteRequest();
+        orderDeleteRequest.setOrder(requestDeleteOrder.getOrder());
+        orderDeleteRequest.setOrderDeleteRequestReason(requestDeleteOrder.getOrderDeleteRequestReason());
+        orderDeleteRequest.setOrderDeleteRequestStatus("N");
+
+        orderDeleteRequestRepository.save(orderDeleteRequest);
+
+        return mapper.map(orderDeleteRequest, ResponseDeleteOrder.class);
+    }
+
+
 }

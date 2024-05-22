@@ -61,5 +61,12 @@ public class OrderController {
         return ResponseEntity.ok().body(responseModifyOrder);
     }
 
+    @PostMapping("/delete")
+    public ResponseEntity<ResponseDeleteOrder> deleteOrder (@RequestBody RequestDeleteOrder requestDeleteOrder) {
+
+        ResponseDeleteOrder responseDeleteOrder = orderService.deleteOrder(requestDeleteOrder);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDeleteOrder);
+    }
 
 }
