@@ -13,4 +13,10 @@ public interface QuotationService {
     List<QuotationDTO> findAllQuotations();
 
     ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation);
+
+
+    ResponseDeleteQuotation deleteQuotation(RequestDeleteQuotation requestDeleteQuotation);
+
+    ResponseQuotationByCode findQuotationByCode(String quotationCode);
+
 }

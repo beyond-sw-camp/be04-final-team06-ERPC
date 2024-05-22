@@ -2,15 +2,20 @@ package com.cineverse.erpc.account.account.dto;
 
 import com.cineverse.erpc.account.account.aggregate.AccountStatus;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AccountDTO {
     private long accountId;
     private String accountName;
     private String corporationNum;
+    private String accountDeleteDate;
     private String accountRepresentitive;   // 대표
     private String corporationStatus;       // 법인여부
     private String accountLocation;

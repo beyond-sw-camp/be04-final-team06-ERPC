@@ -1,11 +1,21 @@
 package com.cineverse.erpc.admin.delete.controller;
 
+import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.account.ResponseFindAccoundDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.service.DeleteService;
 import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -72,5 +82,48 @@ public class DeleteController {
                 deleteService.changeContractDeleteRequestStatus(deleteContractDTO, contractDeleteRequestId);
 
         return ResponseEntity.ok(updatedContractRequest);
+    }
+
+    @GetMapping("/quotation")
+    public List<ResponseQuotationDeleteRequestList> findQuotationDeleteRequestList() {
+        return deleteService.findQuotationDeleteRequestList();
+    }
+
+    @GetMapping("/quotation/{quotationDeleteRequestId}")
+    public ResponseEntity<ResponseFindQuotationDeleteRequest> findQuotationDeleteRequestById(
+            @PathVariable long quotationDeleteRequestId) {
+        ResponseFindQuotationDeleteRequest responseQuotationDeleteRequest =
+                deleteService.findQuotationDeleteRequestById(quotationDeleteRequestId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseQuotationDeleteRequest);
+    }
+
+    @PatchMapping("/quotation/process")
+    public ResponseEntity<ResponseQuotationDeleteRequestProcess> processQuotationDeleteRequest(
+            @RequestBody RequestQuotationDeleteRequestProcess requestQuotationDeleteRequestProcess) {
+        ResponseQuotationDeleteRequestProcess responseQuotationDeleteRequestProcess
+                = deleteService.processQuotationDeleteRequest(requestQuotationDeleteRequestProcess);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseQuotationDeleteRequestProcess);
+    }
+
+    @GetMapping("/account")
+    public List<ResponseAccountDeleteRequestList> findAccountDeleteRequestList() {
+        return deleteService.findAccountDeleteList();
+    }
+
+    @GetMapping("/account/{accountDeleteRequestId}")
+    public ResponseFindAccoundDeleteRequest findAccoundDeleteRequestById(
+            @PathVariable long accountDeleteRequestId) {
+        return deleteService.findAccountDeleteRequestById(accountDeleteRequestId);
+    }
+
+    @PatchMapping("/account/process")
+    public ResponseEntity<ResponseAccountDeleteRequestProcess> accountDeleteRequestProcess(
+            @RequestBody RequestAccountDeleteRequestProcess requestAccountDeleteRequestProcess) {
+        ResponseAccountDeleteRequestProcess responseAccountDeleteRequestProcess
+                = deleteService.accountDeleteRequestProcess(requestAccountDeleteRequestProcess);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseAccountDeleteRequestProcess);
     }
 }

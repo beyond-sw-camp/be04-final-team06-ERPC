@@ -7,5 +7,6 @@ import lombok.Data;
 @Data
 public class RequestQuotationApprovalProcess {
     private long quotationApprovalId;
+    private String approvalContent;
     private ApprovalStatus approvalStatus;
 }

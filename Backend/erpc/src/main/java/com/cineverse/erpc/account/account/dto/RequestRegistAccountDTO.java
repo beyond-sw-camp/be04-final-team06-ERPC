@@ -10,6 +10,7 @@ import lombok.Data;
 public class RequestRegistAccountDTO {
     private long accountId;
     private String accountName;
+    private String accountDeleteDate;
     private String corporationNum;
     private String accountRepresentitive;   // 대표
     private String corporationStatus;       // 법인여부

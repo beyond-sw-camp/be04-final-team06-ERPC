@@ -70,4 +70,10 @@ public class ContractController {
 
         return productList;
     }
+
+    /* 계약서 코드로 계약서 조회 */
+    @GetMapping("/code")
+    public ContractDTO findContractByCode(@RequestParam String contractCode) {
+        return contractService.findContractByContractCode(contractCode);
+    }
 }

@@ -37,7 +37,8 @@
             <div class="contract-attachment">
             <h3>첨부파일<img src="@/assets/img/pdf.png" class="pdf"></h3>
             <div class="contract-attachment-content">거래처 정보</div>
-        </div>          
+        </div>
+                  
         </div>
     </div>
 </template>
