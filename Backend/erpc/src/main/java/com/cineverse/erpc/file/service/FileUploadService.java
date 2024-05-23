@@ -194,60 +194,17 @@ public class FileUploadService {
         return taxFile.getAccessUrl();
     }
 
+
     @Transactional
-    public void deleteNoticeFiles(long noticeBoardId) {
-        List<NoticeFile> files = noticeFileRepository.findByNotice_NoticeId(noticeBoardId);
-        System.out.println("Found files to delete: " + files.size());
+    public void deleteFilesByNotice(NoticeBoard noticeBoard) {
+        List<NoticeFile> noticeFiles = noticeFileRepository.findByNotice_NoticeId(noticeBoard.getNoticeId());
 
-        if (!files.isEmpty()) {
-            for (NoticeFile file : files) {
-                System.out.println("Preparing to delete file ID: " + file.getFileId());
-                noticeFileRepository.delete(file);
-                System.out.println("Deleted file ID from DB: " + file.getFileId());
-            }
-            entityManager.flush();
-            entityManager.clear();
-
-            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
-                @Override
-                public void afterCommit() {
-                    for (NoticeFile file : files) {
-                        try {
-                            amazonS3Client.deleteObject(bucketName, file.getStoredName());
-                            System.out.println("Successfully deleted from S3: " + file.getStoredName());
-                        } catch (Exception e) {
-                            System.out.println("Error deleting file from S3: " + e.getMessage());
-                        }
-                    }
-                }
-            });
-        } else {
-            System.out.println("No files found to delete.");
+        for (NoticeFile noticeFile : noticeFiles) {
+            noticeFile.setNotice(null);
+            noticeFileRepository.deleteById(noticeFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, noticeFile.getStoredName());
         }
+
+        noticeBoard.getNoticeFile().clear();
     }
-
-
-//    @Transactional
-//    public void deleteNoticeFiles(NoticeBoard noticeBoard) {
-////        noticeFileRepository.deleteAllByNotice_NoticeId(noticeBoard.getNoticeId());
-////        List<NoticeFile> files = noticeFileRepository.findByNotice_NoticeId(noticeBoard.getNoticeId());
-//        noticeFileRepository.deleteByStoredName(noticeBoard.getNoticeFile().)
-//        entityManager.flush();  // 현재 세션의 상태를 데이터베이스에 동기화
-//        entityManager.clear();  // 세션 캐시를 클리어
-//
-//        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
-//            @Override
-//            public void afterCommit() {
-//                for (NoticeFile file : files) {
-//                    try {
-//                        amazonS3Client.deleteObject(bucketName, file.getOriginName());
-//                        System.out.println("File deleted successfully from S3: " + file.getOriginName());
-//                    } catch (Exception e) {
-//                        System.out.println("Error deleting file from S3: " + e.getMessage());
-//                    }
-//                }
-//            }
-//        });
-//    }
-
 }

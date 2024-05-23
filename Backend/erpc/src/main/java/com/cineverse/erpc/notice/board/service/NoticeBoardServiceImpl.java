@@ -61,66 +61,22 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         return newNotice;
     }
 
-//    @Override
-//    @Transactional
-//    public NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files)
-//            throws UsernameNotFoundException {
-//
-//        Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
-//
-//        if (optionalNoticeBoard.isEmpty()) {
-//            throw new EntityNotFoundException("존재하지 않는 공지사항입니다.");
-//        }
-//
-//        NoticeBoard noticeBoard = optionalNoticeBoard.get();
-//
-//        if (notice.getNoticeTitle() != null) {
-//            noticeBoard.setNoticeTitle(notice.getNoticeTitle());
-//        }
-//
-//        if (notice.getNoticeContent() != null) {
-//            noticeBoard.setNoticeContent(notice.getNoticeContent());
-//        }
-//        noticeBoardRepository.save(noticeBoard);
-//
-//        if (files != null && files.length > 0) {
-//            fileUploadService.deleteNoticeFiles(noticeId);
-//            for (MultipartFile file : files) {
-//                fileUploadService.saveNoticeFile(file, noticeBoard);
-//            }
-//        }
-//
-//        return noticeBoard;
-//    }
-
     @Override
     @Transactional
-    public NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files)
-            throws UsernameNotFoundException {
-
-        Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
-        if (optionalNoticeBoard.isEmpty()) {
-            throw new EntityNotFoundException("존재하지 않는 공지사항입니다.");
-        }
-
-        NoticeBoard noticeBoard = optionalNoticeBoard.get();
-        if (notice.getNoticeTitle() != null) {
-            noticeBoard.setNoticeTitle(notice.getNoticeTitle());
-        }
-        if (notice.getNoticeContent() != null) {
-            noticeBoard.setNoticeContent(notice.getNoticeContent());
-        }
-        noticeBoardRepository.save(noticeBoard);
+    public NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files) {
+        NoticeBoard noticeBoard = noticeBoardRepository.findById(noticeId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항 입니다."));
 
         if (files != null && files.length > 0) {
-//            noticeFileRepository.deleteByNotice_NoticeId(noticeId);
-            fileUploadService.deleteNoticeFiles(noticeId);  // 기존 파일 삭제
+            fileUploadService.deleteFilesByNotice(noticeBoard);
+
             for (MultipartFile file : files) {
                 fileUploadService.saveNoticeFile(file, noticeBoard);
             }
         }
 
-//        return noticeBoardRepository.save(noticeBoard);
+        noticeBoardRepository.save(noticeBoard);
+
         return noticeBoard;
     }
 
