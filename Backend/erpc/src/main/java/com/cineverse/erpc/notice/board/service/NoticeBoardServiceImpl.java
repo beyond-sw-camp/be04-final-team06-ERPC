@@ -1,6 +1,5 @@
 package com.cineverse.erpc.notice.board.service;
 
-import com.cineverse.erpc.file.repository.NoticeFileRepository;
 import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
@@ -25,17 +24,14 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
     private final ModelMapper modelMapper;
     private final NoticeBoardRepository noticeBoardRepository;
-    private final NoticeFileRepository noticeFileRepository;
     private final FileUploadService fileUploadService;
 
     @Autowired
     public NoticeBoardServiceImpl(ModelMapper modelMapper,
                                   NoticeBoardRepository noticeBoardRepository,
-                                  NoticeFileRepository noticeFileRepository,
                                   FileUploadService fileUploadService) {
         this.modelMapper = modelMapper;
         this.noticeBoardRepository = noticeBoardRepository;
-        this.noticeFileRepository = noticeFileRepository;
         this.fileUploadService = fileUploadService;
     }
 
@@ -47,6 +43,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String registDate = format.format(date);
         noticeDTO.setNoticeDate(registDate);
+
+//        String employeeCode = noticeDTO.getEmployee().getEmployeeCode();
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         NoticeBoard newNotice = modelMapper.map(noticeDTO, NoticeBoard.class);
