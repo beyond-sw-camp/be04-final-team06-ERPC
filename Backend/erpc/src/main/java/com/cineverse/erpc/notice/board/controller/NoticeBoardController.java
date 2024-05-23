@@ -26,15 +26,14 @@ public class NoticeBoardController {
     }
 
     /* 공지사항 게시글 작성 */
-    @PostMapping("/regist")
+    @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<NoticeBoardDTO> registNotice(@RequestPart("noticeBoard") String noticeJson,
                                                        @RequestPart(value = "files", required = false) MultipartFile[] files)
             throws JsonProcessingException {
 
-        String utf8Json = new String(noticeJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         ObjectMapper objectMapper = new ObjectMapper();
 
-        NoticeBoardDTO newNotice = objectMapper.readValue(utf8Json, NoticeBoardDTO.class);
+        NoticeBoardDTO newNotice = objectMapper.readValue(noticeJson, NoticeBoardDTO.class);
 
         noticeBoardService.registNotice(newNotice, files);
 
@@ -42,15 +41,13 @@ public class NoticeBoardController {
     }
 
     /* 공지사항 게시글 수정 */
-    @PatchMapping("/modify/{noticeId}")
+    @PatchMapping(path = "/modify/{noticeId}", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<NoticeBoard> modifyNotice(@RequestPart("notice") String noticeJson,
                                                     @RequestPart(value = "files", required = false) MultipartFile[] files,
                                                     @PathVariable long noticeId) throws JsonProcessingException {
 
-        String utf8Json = new String(noticeJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-
         ObjectMapper objectMapper = new ObjectMapper();
-        NoticeBoardDTO notice = objectMapper.readValue(utf8Json, NoticeBoardDTO.class);
+        NoticeBoardDTO notice = objectMapper.readValue(noticeJson, NoticeBoardDTO.class);
 
         noticeBoardService.modifyNotice(noticeId, notice, files);
 
