@@ -12,7 +12,7 @@ public interface OrderService {
 
     List<ResponseOrderLists> findAllOrders();
 
-    ResponseModifyOrder modifyOrder(long orderId, RequestModifyOrder requestModifyOrder);
+    ResponseModifyOrder modifyOrder(long orderId, RequestModifyOrder requestModifyOrder, MultipartFile[] files);
 
     ResponseDeleteOrder deleteOrder(RequestDeleteOrder requestDeleteOrder);
 }
