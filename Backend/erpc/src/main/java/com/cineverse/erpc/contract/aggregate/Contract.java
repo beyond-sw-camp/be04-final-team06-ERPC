@@ -18,7 +18,7 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contract_id")
-    private Long contractId;
+    private long contractId;
 
     @Column(name = "contract_date")
     private String contractDate;

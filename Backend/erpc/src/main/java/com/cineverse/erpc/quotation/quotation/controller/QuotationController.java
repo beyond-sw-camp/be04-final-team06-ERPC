@@ -62,10 +62,16 @@ public class QuotationController {
     }
 
     @PatchMapping("/modify/{quotationId}")
-    public ResponseEntity<ResponseModifyQuotationDTO> modifyQuotation(@PathVariable long quotationId,
-                                                                      @RequestBody RequestModifyQuotationDTO quotation){
-        ResponseModifyQuotationDTO  responseModifyQuotationDTO =
-                quotationService.modifyQuotation(quotationId, quotation);
+    public ResponseEntity<ResponseModifyQuotationDTO> modifyQuotation(@RequestPart("quotation") String quotationJson,
+                                                                      @RequestPart(value = "files", required = false)MultipartFile[] files,
+                                                                      @PathVariable long quotationId) throws JsonProcessingException {
+
+        String utf8Json = new String(quotationJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        RequestModifyQuotationDTO requestModifyQuotationDTO = objectMapper.readValue(utf8Json, RequestModifyQuotationDTO.class);
+
+        ResponseModifyQuotationDTO responseModifyQuotationDTO = quotationService.modifyQuotation(quotationId, requestModifyQuotationDTO, files);
 
         return ResponseEntity.ok().body(responseModifyQuotationDTO);
     }

@@ -180,7 +180,9 @@ public class QuotationServiceImpl implements QuotationService{
 
     @Override
     @Transactional
-    public ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation) {
+    public ResponseModifyQuotationDTO modifyQuotation(long quotationId,
+                                                      RequestModifyQuotationDTO quotation,
+                                                      MultipartFile[] files) {
         Quotation modifyQuotation = quotationRepository.findById(quotationId)
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
 
@@ -209,6 +211,14 @@ public class QuotationServiceImpl implements QuotationService{
             modifyQuotation.setWarehouse(quotation.getWarehouse());
         }
 
+        if (files != null && files.length > 0) {
+            fileUploadService.deleteFilesByQuotation(modifyQuotation);
+
+            for (MultipartFile file : files) {
+                fileUploadService.saveQuotationFile(file, modifyQuotation);
+            }
+        }
+
         quotationRepository.save(modifyQuotation);
 
         ResponseModifyQuotationDTO responseModifyQuotation =
@@ -220,6 +230,7 @@ public class QuotationServiceImpl implements QuotationService{
     /* 수정필요 */
     private QuotationProduct modifyQuotationProduct(QuotationProduct product, Quotation modifyQuotation) {
         product.setQuotation(modifyQuotation);
+
         QuotationProduct quotationProduct = quotationProductRepository.save(product);
 
         return quotationProduct;

@@ -22,7 +22,7 @@ public class NoticeBoard {
     @Id
     @Column(name = "notice_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long noticeId;
+    private long noticeId;
 
     @Column(name = "notice_title")
     private String noticeTitle;

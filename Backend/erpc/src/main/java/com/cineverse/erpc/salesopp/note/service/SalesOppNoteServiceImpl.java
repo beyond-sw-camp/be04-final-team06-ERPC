@@ -49,7 +49,7 @@ public class SalesOppNoteServiceImpl implements SalesOppNoteService {
 
     @Override
     @Transactional
-    public SalesOppNote modifySalesOppNote(Long salesOppNoteId, SalesOppNoteDTO oppNote)
+    public SalesOppNote modifySalesOppNote(long salesOppNoteId, SalesOppNoteDTO oppNote)
             throws UsernameNotFoundException {
 
         Optional<SalesOppNote> optionalSalesOppNote = salesOppNoteRepository.findById(salesOppNoteId);
@@ -68,7 +68,7 @@ public class SalesOppNoteServiceImpl implements SalesOppNoteService {
     }
 
     @Override
-    public SalesOppNote deleteSalesOppNote(Long salesOppNoteId) throws UsernameNotFoundException {
+    public SalesOppNote deleteSalesOppNote(long salesOppNoteId) throws UsernameNotFoundException {
         Optional<SalesOppNote> optionalSalesOppNote = salesOppNoteRepository.findById(salesOppNoteId);
 
         if (optionalSalesOppNote.isEmpty()) {

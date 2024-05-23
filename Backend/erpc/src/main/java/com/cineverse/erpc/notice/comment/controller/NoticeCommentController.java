@@ -35,7 +35,7 @@ public class NoticeCommentController {
 
     /* 공지사항 댓글 삭제 */
     @PatchMapping("/delete/{noticeCommentId}")
-    public ResponseEntity<NoticeComment> deleteNoticeComment(@PathVariable Long noticeCommentId) {
+    public ResponseEntity<NoticeComment> deleteNoticeComment(@PathVariable long noticeCommentId) {
 
         return ResponseEntity.ok(noticeCommentService.deleteNoticeComment(noticeCommentId));
     }

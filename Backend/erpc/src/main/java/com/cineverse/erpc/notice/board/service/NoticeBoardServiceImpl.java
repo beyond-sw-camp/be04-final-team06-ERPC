@@ -1,6 +1,5 @@
 package com.cineverse.erpc.notice.board.service;
 
-import com.cineverse.erpc.file.repository.NoticeFileRepository;
 import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
@@ -25,17 +24,14 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
     private final ModelMapper modelMapper;
     private final NoticeBoardRepository noticeBoardRepository;
-    private final NoticeFileRepository noticeFileRepository;
     private final FileUploadService fileUploadService;
 
     @Autowired
     public NoticeBoardServiceImpl(ModelMapper modelMapper,
                                   NoticeBoardRepository noticeBoardRepository,
-                                  NoticeFileRepository noticeFileRepository,
                                   FileUploadService fileUploadService) {
         this.modelMapper = modelMapper;
         this.noticeBoardRepository = noticeBoardRepository;
-        this.noticeFileRepository = noticeFileRepository;
         this.fileUploadService = fileUploadService;
     }
 
@@ -47,6 +43,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String registDate = format.format(date);
         noticeDTO.setNoticeDate(registDate);
+
+//        String employeeCode = noticeDTO.getEmployee().getEmployeeCode();
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         NoticeBoard newNotice = modelMapper.map(noticeDTO, NoticeBoard.class);
@@ -63,15 +61,9 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
     @Override
     @Transactional
-    public NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice) throws UsernameNotFoundException {
-
-        Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
-
-        if (optionalNoticeBoard.isEmpty()) {
-            throw new EntityNotFoundException("존재하지 않는 공지사항입니다.");
-        }
-
-        NoticeBoard noticeBoard = optionalNoticeBoard.get();
+    public NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files) {
+        NoticeBoard noticeBoard = noticeBoardRepository.findById(noticeId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항 입니다."));
 
         if (notice.getNoticeTitle() != null) {
             noticeBoard.setNoticeTitle(notice.getNoticeTitle());
@@ -80,11 +72,22 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
             noticeBoard.setNoticeContent(notice.getNoticeContent());
         }
 
-        return noticeBoardRepository.save(noticeBoard);
+        if (files != null && files.length > 0) {
+            fileUploadService.deleteFilesByNotice(noticeBoard);
+
+            for (MultipartFile file : files) {
+                fileUploadService.saveNoticeFile(file, noticeBoard);
+            }
+        }
+
+        noticeBoardRepository.save(noticeBoard);
+
+        return noticeBoard;
     }
 
+
     @Override
-    public NoticeBoard deleteNotice(Long noticeId) throws UsernameNotFoundException {
+    public NoticeBoard deleteNotice(long noticeId) throws UsernameNotFoundException {
 
         Optional<NoticeBoard> optionalNoticeBoard = noticeBoardRepository.findById(noticeId);
 
@@ -99,7 +102,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         String deleteDate = format.format(date);
         noticeBoard.setNoticeDeleteDate(deleteDate);
 
-        return noticeBoardRepository.save(noticeBoard);
+        return noticeBoard;
     }
 
     @Override
@@ -112,7 +115,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
     }
 
     @Override
-    public NoticeBoardDTO findNoticeById(Long noticeId) {
+    public NoticeBoardDTO findNoticeById(long noticeId) {
         NoticeBoard noticeBoard=noticeBoardRepository.findById(noticeId)
                 .orElseThrow(EntityNotFoundException::new);
 

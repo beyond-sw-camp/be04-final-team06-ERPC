@@ -14,9 +14,9 @@ public interface TaxInvoiceService {
 
     List<TaxInvoiceRequest> findTaxInvoiceList();
 
-    TaxInvoiceRequestDTO findTaxInvoiceById(Long taxInvoiceRequestId);
+    TaxInvoiceRequestDTO findTaxInvoiceById(long taxInvoiceRequestId);
 
-    TaxInvoiceProcess modifyProcess(Long taxInvoiceProcessId, TaxInvoiceProcessDTO processDTO);
+    TaxInvoiceProcess modifyProcess(long taxInvoiceProcessId, TaxInvoiceProcessDTO processDTO);
 
     List<TaxInvoiceProcess> findProcessList();
 }

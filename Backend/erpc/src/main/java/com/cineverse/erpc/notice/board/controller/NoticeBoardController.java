@@ -43,8 +43,18 @@ public class NoticeBoardController {
 
     /* 공지사항 게시글 수정 */
     @PatchMapping("/modify/{noticeId}")
-    public ResponseEntity<NoticeBoard> modifyNotice(@RequestBody NoticeBoardDTO notice, @PathVariable Long noticeId) {
-        return ResponseEntity.ok(noticeBoardService.modifyNotice(noticeId, notice));
+    public ResponseEntity<NoticeBoard> modifyNotice(@RequestPart("notice") String noticeJson,
+                                                    @RequestPart(value = "files", required = false) MultipartFile[] files,
+                                                    @PathVariable long noticeId) throws JsonProcessingException {
+
+        String utf8Json = new String(noticeJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        NoticeBoardDTO notice = objectMapper.readValue(utf8Json, NoticeBoardDTO.class);
+
+        noticeBoardService.modifyNotice(noticeId, notice, files);
+
+        return ResponseEntity.ok().build();
     }
 
     /* 공지사항 게시글 삭제 */
