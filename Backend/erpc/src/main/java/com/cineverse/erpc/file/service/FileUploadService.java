@@ -243,4 +243,16 @@ public class FileUploadService {
         order.getOrderFile().clear();
     }
 
+    @Transactional
+    public void deleteFilesByTaxInvoice(TaxInvoiceRequest taxInvoice) {
+        List<TaxInvoiceFile> taxInvoiceFiles =
+                taxInvoiceFileRepository.findByTaxInvoiceRequest_TaxInvoiceRequestId(taxInvoice.getTaxInvoiceRequestId());
+
+        for (TaxInvoiceFile taxInvoiceFile : taxInvoiceFiles) {
+            taxInvoiceFile.setTaxInvoiceRequest(null);
+            taxInvoiceFileRepository.deleteById(taxInvoiceFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, taxInvoiceFile.getStoredName());
+        }
+        taxInvoice.getTaxInvoiceFile().clear();
+    }
 }
