@@ -46,6 +46,11 @@ dependencies {
 	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.429' // S3 서비스와 상호 작용
 	implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359' // XML 데이터를 자바 객체로 매핑하는 데 사용
 
+	// POI
+// https://mvnrepository.com/artifact/org.apache.poi/poi
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
+	compileOnly group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'  // XSSFWorkbook 사용가능
+
 	// 토큰
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
