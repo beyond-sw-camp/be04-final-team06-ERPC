@@ -231,4 +231,16 @@ public class FileUploadService {
         contract.getContractFile().clear();
     }
 
+    @Transactional
+    public void deleteFilesByOrder(Order order) {
+        List<OrderFile> orderFiles = orderFileRepository.findByOrder_OrderRegistrationId(order.getOrderRegistrationId());
+
+        for (OrderFile orderFile : orderFiles) {
+            orderFile.setOrder(null);
+            orderFileRepository.deleteById(orderFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, orderFile.getStoredName());
+        }
+        order.getOrderFile().clear();
+    }
+
 }
