@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Builder
 public class SalesOppNoteDTO {
-    private int salesOppNoteId;
+    private long salesOppNoteId;
     private String salesOppNote;
     private String salesOppNoteDate;
     private String salesOppNoteDeleteDate;

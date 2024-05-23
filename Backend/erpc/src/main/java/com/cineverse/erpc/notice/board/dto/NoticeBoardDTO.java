@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 @Builder
 public class NoticeBoardDTO {
-    private Long noticeId;
+    private long noticeId;
     private String noticeTitle;
     private String noticeContent;
     private String noticeDate;

@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class ResponseDeleteAccount {
-    private long quotationDeleteRequestId;
-    private String quotationDeleteRequestReason;
-    private String quotationDeleteRequestStatus;
+    private long accountDeleteRequestId;
+    private String accountDeleteRequestReason;
+    private String accountDeleteRequestStatus;
     private Account account;
 }

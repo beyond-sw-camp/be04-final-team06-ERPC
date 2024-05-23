@@ -19,7 +19,7 @@ public class TargetController {
     }
 
     @GetMapping("/employee/{employeeId}")
-    public List<Target> getTargetsByEmployee(@PathVariable Long employeeId) {
+    public List<Target> getTargetsByEmployee(@PathVariable long employeeId) {
         return targetService.getTargetsByEmployee(employeeId);
     }
 

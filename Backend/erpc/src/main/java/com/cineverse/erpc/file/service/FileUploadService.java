@@ -9,12 +9,16 @@ import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionSynchronizationAdapter;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -29,6 +33,7 @@ public class FileUploadService {
     private final ContractFileRepository contractFileRepository;
     private final OrderFileRepository orderFileRepository;
     private final TaxInvoiceFileRepository taxInvoiceFileRepository;
+    private final EntityManager entityManager;
 
     @Transactional
     public String saveNoticeFile(MultipartFile multipartFile, NoticeBoard notice) {
@@ -38,6 +43,7 @@ public class FileUploadService {
 
         NoticeFile noticeFile = new NoticeFile();
         noticeFile.setOriginName(originalName);
+        noticeFile.setStoredName(storedName);
         noticeFile.setNotice(notice);
 
         try {
@@ -69,6 +75,7 @@ public class FileUploadService {
 
         QuotationFile quotationFile = new QuotationFile();
         quotationFile.setOriginName(originalName);
+        quotationFile.setStoredName(storedName);
         quotationFile.setQuotation(quotation);
 
         try {
@@ -100,6 +107,7 @@ public class FileUploadService {
 
         ContractFile contractFile = new ContractFile();
         contractFile.setOriginName(originalName);
+        contractFile.setStoredName(storedName);
         contractFile.setContract(contract);
 
         try {
@@ -131,6 +139,7 @@ public class FileUploadService {
 
         OrderFile orderFile = new OrderFile();
         orderFile.setOriginName(originalName);
+        orderFile.setStoredName(storedName);
         orderFile.setOrder(order);
 
         try {
@@ -161,6 +170,7 @@ public class FileUploadService {
 
         TaxInvoiceFile taxFile = new TaxInvoiceFile();
         taxFile.setOriginName(originalName);
+        taxFile.setStoredName(storedName);
         taxFile.setTaxInvoiceRequest(taxInvoice);
 
         try {
@@ -182,5 +192,30 @@ public class FileUploadService {
         }
 
         return taxFile.getAccessUrl();
+    }
+
+    @Transactional
+    public void deleteFilesByNotice(NoticeBoard noticeBoard) {
+        List<NoticeFile> noticeFiles = noticeFileRepository.findByNotice_NoticeId(noticeBoard.getNoticeId());
+
+        for (NoticeFile noticeFile : noticeFiles) {
+            noticeFile.setNotice(null);
+            noticeFileRepository.deleteById(noticeFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, noticeFile.getStoredName());
+        }
+        noticeBoard.getNoticeFile().clear();
+    }
+
+    @Transactional
+    public void deleteFilesByQuotation(Quotation quotation) {
+        List<QuotationFile> quotationFiles = quotationFileRepository.
+                findByQuotation_QuotationId(quotation.getQuotationId());
+
+        for (QuotationFile quotationFile : quotationFiles) {
+            quotationFile.setQuotation(null);
+            quotationFileRepository.deleteById(quotationFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, quotationFile.getStoredName());
+        }
+        quotation.getQuotationFile().clear();
     }
 }

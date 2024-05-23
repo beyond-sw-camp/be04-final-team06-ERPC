@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Builder
 public class NoticeCommentDTO  {
-    private Long noticeCommentId;
+    private long noticeCommentId;
     private String commentContent;
     private String commentDate;
     private String commentDeleteDate;

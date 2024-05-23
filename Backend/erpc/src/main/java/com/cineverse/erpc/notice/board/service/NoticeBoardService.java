@@ -10,12 +10,12 @@ public interface NoticeBoardService {
 
     NoticeBoard registNotice(NoticeBoardDTO newNotice, MultipartFile[] files);
 
-    NoticeBoard modifyNotice(Long noticeId, NoticeBoardDTO notice);
+    NoticeBoard modifyNotice(long noticeId, NoticeBoardDTO notice, MultipartFile[] files);
 
-    NoticeBoard deleteNotice(Long noticeId);
+    NoticeBoard deleteNotice(long noticeId);
 
     List<NoticeBoard> findNoticeList();
 
-    NoticeBoardDTO findNoticeById(Long noticeId);
+    NoticeBoardDTO findNoticeById(long noticeId);
 
 }
