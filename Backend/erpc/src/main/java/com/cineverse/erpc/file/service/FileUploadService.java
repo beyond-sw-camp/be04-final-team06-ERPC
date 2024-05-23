@@ -194,7 +194,6 @@ public class FileUploadService {
         return taxFile.getAccessUrl();
     }
 
-
     @Transactional
     public void deleteFilesByNotice(NoticeBoard noticeBoard) {
         List<NoticeFile> noticeFiles = noticeFileRepository.findByNotice_NoticeId(noticeBoard.getNoticeId());
@@ -204,7 +203,19 @@ public class FileUploadService {
             noticeFileRepository.deleteById(noticeFile.getFileId());
             amazonS3Client.deleteObject(bucketName, noticeFile.getStoredName());
         }
-
         noticeBoard.getNoticeFile().clear();
+    }
+
+    @Transactional
+    public void deleteFilesByQuotation(Quotation quotation) {
+        List<QuotationFile> quotationFiles = quotationFileRepository.
+                findByQuotation_QuotationId(quotation.getQuotationId());
+
+        for (QuotationFile quotationFile : quotationFiles) {
+            quotationFile.setQuotation(null);
+            quotationFileRepository.deleteById(quotationFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, quotationFile.getStoredName());
+        }
+        quotation.getQuotationFile().clear();
     }
 }
