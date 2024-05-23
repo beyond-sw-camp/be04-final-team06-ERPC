@@ -202,4 +202,46 @@ public class ApprovalTests {
         assertThat(approvalProcess.getApprovalContent()).isEqualTo(testApprovalProcess.getApprovalContent());
         assertThat(approvalProcess.getApprovalStatus()).isEqualTo(testApprovalProcess.getApprovalStatus());
     }
+
+    @Test
+    @Transactional
+    @DisplayName("계약서 결재처리 성공 테스트")
+    public void successContractApprovalProcessTest() {
+        ApprovalStatus approvalStatus = new ApprovalStatus();
+        approvalStatus.setApprovalStatusId(2);
+        approvalStatus.setApprovalStatus("승인");
+
+        RequestQuotationApprovalProcess approvalProcess = RequestQuotationApprovalProcess.builder()
+                .quotationApprovalId(2)
+                .approvalContent("결제 내용")
+                .approvalStatus(approvalStatus)
+                .build();
+
+        ResponseQuotationApprovalProcess testApprovalProcess =
+                approvalService.quotationApprovalProcess(approvalProcess);
+
+        assertThat(approvalProcess.getApprovalContent()).isEqualTo(testApprovalProcess.getApprovalContent());
+        assertThat(approvalProcess.getApprovalStatus()).isEqualTo(testApprovalProcess.getApprovalStatus());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("수주 결재처리 성공 테스트")
+    public void successShipmentApprovalProcessTest() {
+        ApprovalStatus approvalStatus = new ApprovalStatus();
+        approvalStatus.setApprovalStatusId(2);
+        approvalStatus.setApprovalStatus("승인");
+
+        RequestQuotationApprovalProcess approvalProcess = RequestQuotationApprovalProcess.builder()
+                .quotationApprovalId(2)
+                .approvalContent("결제 내용")
+                .approvalStatus(approvalStatus)
+                .build();
+
+        ResponseQuotationApprovalProcess testApprovalProcess =
+                approvalService.quotationApprovalProcess(approvalProcess);
+
+        assertThat(approvalProcess.getApprovalContent()).isEqualTo(testApprovalProcess.getApprovalContent());
+        assertThat(approvalProcess.getApprovalStatus()).isEqualTo(testApprovalProcess.getApprovalStatus());
+    }
 }
