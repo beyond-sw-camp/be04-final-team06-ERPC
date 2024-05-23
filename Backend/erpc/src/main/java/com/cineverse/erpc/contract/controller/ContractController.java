@@ -29,7 +29,6 @@ public class ContractController {
     }
 
     /* 계약서 작성 */
-    // 깃 합병 오류 해결용 주석
     @PostMapping("/regist")
     public ResponseEntity<ContractDTO> registContract(@RequestPart("contract") String contractJson,
                                                       @RequestPart(value = "files", required = false) MultipartFile[] files)
