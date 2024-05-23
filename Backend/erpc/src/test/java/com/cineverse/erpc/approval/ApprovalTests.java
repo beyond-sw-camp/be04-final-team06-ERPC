@@ -1,15 +1,9 @@
 package com.cineverse.erpc.approval;
 
 import com.cineverse.erpc.approval.aggregate.ApprovalStatus;
-import com.cineverse.erpc.approval.dto.contract.RequestRegistContractApproval;
-import com.cineverse.erpc.approval.dto.contract.ResponseContractApprovalList;
-import com.cineverse.erpc.approval.dto.contract.ResponseFindContractApproval;
-import com.cineverse.erpc.approval.dto.contract.ResponseRegistContractApproval;
+import com.cineverse.erpc.approval.dto.contract.*;
 import com.cineverse.erpc.approval.dto.quotation.*;
-import com.cineverse.erpc.approval.dto.shipment.RequestRegistShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseFindShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseRegistShipmentApproval;
-import com.cineverse.erpc.approval.dto.shipment.ResponseShipmentApprovalList;
+import com.cineverse.erpc.approval.dto.shipment.*;
 import com.cineverse.erpc.approval.repo.ContractApprovalRepository;
 import com.cineverse.erpc.approval.repo.QuotationApprovalRepository;
 import com.cineverse.erpc.approval.repo.ShipmentApprovalRepository;
@@ -211,14 +205,14 @@ public class ApprovalTests {
         approvalStatus.setApprovalStatusId(2);
         approvalStatus.setApprovalStatus("승인");
 
-        RequestQuotationApprovalProcess approvalProcess = RequestQuotationApprovalProcess.builder()
-                .quotationApprovalId(2)
+        RequestContractApprovalProcess approvalProcess = RequestContractApprovalProcess.builder()
+                .contractApprovalId(2)
                 .approvalContent("결제 내용")
                 .approvalStatus(approvalStatus)
                 .build();
 
-        ResponseQuotationApprovalProcess testApprovalProcess =
-                approvalService.quotationApprovalProcess(approvalProcess);
+        ResponseContractApprovalProcess testApprovalProcess =
+                approvalService.contractApprovalProcess(approvalProcess);
 
         assertThat(approvalProcess.getApprovalContent()).isEqualTo(testApprovalProcess.getApprovalContent());
         assertThat(approvalProcess.getApprovalStatus()).isEqualTo(testApprovalProcess.getApprovalStatus());
@@ -232,14 +226,14 @@ public class ApprovalTests {
         approvalStatus.setApprovalStatusId(2);
         approvalStatus.setApprovalStatus("승인");
 
-        RequestQuotationApprovalProcess approvalProcess = RequestQuotationApprovalProcess.builder()
-                .quotationApprovalId(2)
+        RequestShipmentApprovalProcess approvalProcess = RequestShipmentApprovalProcess.builder()
+                .shipmentApprovalId(2)
                 .approvalContent("결제 내용")
                 .approvalStatus(approvalStatus)
                 .build();
 
-        ResponseQuotationApprovalProcess testApprovalProcess =
-                approvalService.quotationApprovalProcess(approvalProcess);
+        ResponseShipmentApprovalProcess testApprovalProcess =
+                approvalService.shipmentApprovalProcess(approvalProcess);
 
         assertThat(approvalProcess.getApprovalContent()).isEqualTo(testApprovalProcess.getApprovalContent());
         assertThat(approvalProcess.getApprovalStatus()).isEqualTo(testApprovalProcess.getApprovalStatus());
