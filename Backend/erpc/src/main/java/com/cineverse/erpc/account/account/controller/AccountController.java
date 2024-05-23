@@ -1,9 +1,6 @@
 package com.cineverse.erpc.account.account.controller;
 
-import com.cineverse.erpc.account.account.dto.AccountDTO;
-import com.cineverse.erpc.account.account.dto.RequestRegistAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseFindAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
+import com.cineverse.erpc.account.account.dto.*;
 import com.cineverse.erpc.account.account.service.AccountService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -44,6 +41,7 @@ public class AccountController {
 
     @PostMapping("/regist")
     public ResponseEntity<ResponseRegistAccountDTO> registAccount(@RequestBody RequestRegistAccountDTO account) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         AccountDTO accountDTO = modelMapper.map(account, AccountDTO.class);
 
         accountService.registAccount(accountDTO);
@@ -65,5 +63,14 @@ public class AccountController {
         ResponseRegistAccountDTO responseRegistAccountDTO = modelMapper.map(accountDTO, ResponseRegistAccountDTO.class);
 
         return ResponseEntity.ok().body(responseRegistAccountDTO);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<ResponseDeleteAccount> deleteAccount(
+            @RequestBody RequestDeleteAccount requestDeleteAccount) {
+
+        ResponseDeleteAccount responseDeleteAccount = accountService.deleteAccount(requestDeleteAccount);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDeleteAccount);
     }
 }

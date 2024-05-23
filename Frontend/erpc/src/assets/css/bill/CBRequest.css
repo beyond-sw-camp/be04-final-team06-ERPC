@@ -40,158 +40,89 @@
 .cb-search-box2 {
     max-width: 800px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    /* 자식 요소들을 부모 높이에 맞춰 늘림 */
-    width: 100%;
-    /* 전체 너비 사용 */
-    max-width: 800px;
-    /* 최대 너비 설정 */
-    margin: 20px auto;
-    gap: 80px;
-    /* 섹션 사이의 간격을 조정 */
-}
-
-
-.left,
-.right {
-    display: flex;
     flex-direction: column;
-    width: 50%;
-    padding: 10px;
-    box-sizing: border-box;
-    flex-grow: 1;
-    /* 양쪽 높이를 동일하게 맞춤 */
-    align-items: stretch;
-    /* 내부 요소 높이를 맞춤 */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto;
+    gap: 20px;
 }
 
-input[type="text"],
-.search-btn,
-.regist-btn {
-    padding: 13px 12px;
-    /* 상하 좌우 패딩 */
-    margin: 5px 0;
-    /* 상하 마진 조정으로 중앙 정렬 보완 */
-}
-
-.project-code2,
-.customer-code2,
-.business-number2,
-.business-name2,
-.ceo-name2,
-.billing2,
-.deposit-code2,
-.deposit-date2,
-.corporation2,
-.industry2,
-.industry-detail2,
-.address2,
-.call2,
-.email2,
-.deposit-amount2,
-.remark2 {
+.cb-list-box1 {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1;
-}
-
-.deposit-date2,
-.remark2 {
-    margin-bottom: 15px;
-}
-
-.project-code-text2,
-.customer-code-text2,
-.business-number-text2,
-.business-name-text2,
-.ceo-name-text2,
-.billing-text2,
-.deposit-code-text2,
-.deposit-date-text2,
-.corporation-text2,
-.industry-text2,
-.industry-detail-text2,
-.address-text2,
-.call-text2,
-.email-text2,
-.deposit-amount-text2,
-.remark-text2 {
-    min-width: 50px;
-    margin-right: 10px;
-    margin-bottom: 2px;
-}
-
-.project-code-text2,
-.customer-code-text2,
-.business-number-text2,
-.business-name-text2,
-.ceo-name-text2,
-.billing-text2,
-.deposit-code-text2,
-.deposit-date-text2 {
-    margin-top: 16px;
-    row-gap: 12px;
-}
-
-.corporation-text2,
-.industry-text2,
-.industry-detail-text2,
-.address-text2,
-.call-text2,
-.email-text2,
-.deposit-amount-text2,
-.remark-text2 {
-    margin-top: 16.5px;
-}
-
-.deposit-code-text2,
-.remark-text2 {
-    margin-bottom: -4px;
-}
-
-.project-code-box2,
-.customer-code-box2,
-.business-number-box2,
-.business-name-box2,
-.ceo-name-box2,
-.billing-box2,
-.deposit-code-box2,
-.deposit-date-box2,
-.corporation-box2,
-.industry-box2,
-.industry-detail-box2,
-.address-box2,
-.call-box2,
-.email-box2,
-.deposit-amount-box2,
-.remark-box2 {
-    width: 100%;
-    max-width: 320px;
-    flex-grow: 1;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin: 15px;
+    margin-bottom: 100px;
     border-radius: 10px;
     box-sizing: border-box;
-    width: 320px;
-    text-align: left;
-    font-family: GmarketSansMedium;
-    font-size: 16px;
-    cursor: default;
     background-color: white;
+    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    gap: 1px;
+}
+
+.cb-table1,
+.cb-table2,
+.cb-table3,
+.cb-table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.cb-table1 th,
+.cb-table1 td,
+.cb-table2 th,
+.cb-table2 td,
+.cb-table3 th,
+.cb-table3 td,
+.cb-table4 th,
+.cb-table4 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.cb-table1 th,
+.cb-table2 th,
+.cb-table3 th,
+.cb-table4 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.cb-table1 td,
+.cb-table2 td,
+.cb-table3 td,
+.cb-table4 td {
+    height: 40px;
+}
+
+.deposit-code-box2,
+.remark-box2 {
+    height: 35px; 
+    font-size: 15px;
 }
 
 .deposit-code-btn2 {
-    margin-left: -60px;
-    margin-right: 20px;
-    background-color: #BEE7FF;
-    border: 2px solid #BEE7FF;
-    border-radius: 10px;
-    width: 50px;
+    border-radius: 5px;
+    border: 2px solid #0C2092;
+    margin-left: 10px;
     height: 30px;
+    width: auto;
+    background-color: #0C2092;
+    color: white;
+    font-size: 14px;
     cursor: pointer;
 }
 

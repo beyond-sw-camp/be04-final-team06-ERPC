@@ -1,17 +1,22 @@
 package com.cineverse.erpc.quotation.quotation.service;
 
+import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
+import com.cineverse.erpc.quotation.quotation.aggregate.QuotationDeleteRequest;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.quotation.quotation.dto.*;
+import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,21 +31,27 @@ public class QuotationServiceImpl implements QuotationService{
     private final QuotationRepository quotationRepository;
     private final QuotationProductRepository quotationProductRepository;
     private final TransactionRepository transactionRepository;
+    private final FileUploadService fileUploadService;
+    private final QuotationDeleteRequestRepository quotationDeleteRequestRepository;
 
     @Autowired
     public QuotationServiceImpl(ModelMapper mapper,
                                 QuotationRepository quotationRepository,
                                 QuotationProductRepository quotationProductRepository,
-                                TransactionRepository transactionRepository) {
+                                TransactionRepository transactionRepository, 
+                                FileUploadService fileUploadService,
+                                QuotationDeleteRequestRepository quotationDeleteRequestRepository) {
         this.mapper = mapper;
         this.quotationRepository = quotationRepository;
         this.quotationProductRepository = quotationProductRepository;
         this.transactionRepository = transactionRepository;
+        this.fileUploadService = fileUploadService;
+        this.quotationDeleteRequestRepository = quotationDeleteRequestRepository;
     }
 
     @Override
     @Transactional
-    public void registQuotation(RequestRegistQuotationDTO requestQuotation) {
+    public void registQuotation(RequestRegistQuotationDTO requestQuotation, MultipartFile[] files) {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat codeFormat = new SimpleDateFormat("yyyyMMdd");
@@ -90,6 +101,12 @@ public class QuotationServiceImpl implements QuotationService{
 
         for (QuotationProduct product : requestQuotation.getQuotationProduct()) {
             QuotationProduct quotationProduct = registQuotationProduct(product, quotation);
+        }
+
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String url = fileUploadService.saveQuotationFile(file, quotation);
+            }
         }
     }
 
@@ -163,7 +180,9 @@ public class QuotationServiceImpl implements QuotationService{
 
     @Override
     @Transactional
-    public ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation) {
+    public ResponseModifyQuotationDTO modifyQuotation(long quotationId,
+                                                      RequestModifyQuotationDTO quotation,
+                                                      MultipartFile[] files) {
         Quotation modifyQuotation = quotationRepository.findById(quotationId)
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
 
@@ -192,6 +211,14 @@ public class QuotationServiceImpl implements QuotationService{
             modifyQuotation.setWarehouse(quotation.getWarehouse());
         }
 
+        if (files != null && files.length > 0) {
+            fileUploadService.deleteFilesByQuotation(modifyQuotation);
+
+            for (MultipartFile file : files) {
+                fileUploadService.saveQuotationFile(file, modifyQuotation);
+            }
+        }
+
         quotationRepository.save(modifyQuotation);
 
         ResponseModifyQuotationDTO responseModifyQuotation =
@@ -203,9 +230,32 @@ public class QuotationServiceImpl implements QuotationService{
     /* 수정필요 */
     private QuotationProduct modifyQuotationProduct(QuotationProduct product, Quotation modifyQuotation) {
         product.setQuotation(modifyQuotation);
+
         QuotationProduct quotationProduct = quotationProductRepository.save(product);
 
         return quotationProduct;
     }
 
+
+    @Override
+    public ResponseDeleteQuotation deleteQuotation(RequestDeleteQuotation requestDeleteQuotation) {
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        QuotationDeleteRequest quotationDeleteRequest =
+                mapper.map(requestDeleteQuotation, QuotationDeleteRequest.class);
+
+
+        quotationDeleteRequest.setQuotationDeleteRequestStatus("N");
+        quotationDeleteRequestRepository.save(quotationDeleteRequest);
+
+        return mapper.map(quotationDeleteRequest, ResponseDeleteQuotation.class);
+    }
+
+    @Override
+    public ResponseQuotationByCode findQuotationByCode(String quotationCode) {
+        Quotation quotation = quotationRepository.findByQuotationCode(quotationCode);
+
+        return mapper.map(quotation, ResponseQuotationByCode.class);
+
+    }
 }

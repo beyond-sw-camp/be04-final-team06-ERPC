@@ -9,7 +9,7 @@ public interface NoticeCommentService {
 
     NoticeComment registNoticeComment(NoticeCommentDTO noticeComment);
 
-    NoticeComment deleteNoticeComment(Long noticeCommentId);
+    NoticeComment deleteNoticeComment(long noticeCommentId);
 
     List<NoticeComment> findNoticeCommentList();
 

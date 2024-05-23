@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ResponseFindShipmentApproval {
-    private long contractApprovalId;
+    private long shipmentApprovalId;
     private String approvalRequestDate;
     private String approvalDate;
     private String approvalContent;

@@ -21,7 +21,7 @@ public class TargetServiceImpl implements TargetService{
     }
 
     @Override
-    public List<Target> getTargetsByEmployee(Long employeeId) {
+    public List<Target> getTargetsByEmployee(long employeeId) {
         return targetRepository.findByEmployeeEmployeeId(employeeId);
     }
 

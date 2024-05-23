@@ -2,6 +2,7 @@ package com.cineverse.erpc.quotation.quotation.dto;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.QuotationFile;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
@@ -22,4 +23,5 @@ public class ResponseFindQuotationDTO {
     private Transaction transaction;
     private Warehouse warehouse;
     private List<QuotationProduct> quotationProduct;
+    private List<QuotationFile> quotationFile;
 }

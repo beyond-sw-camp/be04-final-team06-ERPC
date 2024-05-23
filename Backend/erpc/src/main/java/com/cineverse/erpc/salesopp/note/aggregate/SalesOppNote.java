@@ -16,7 +16,7 @@ public class SalesOppNote {
     @Id
     @Column(name = "sales_opp_note_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int salesOppNoteId;
+    private long salesOppNoteId;
 
     @Column(name = "sales_opp_note")
     private String salesOppNote;

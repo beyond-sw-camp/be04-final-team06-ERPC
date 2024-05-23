@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductDTO findProductById(Long productId) {
+    public ProductDTO findProductById(long productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(EntityNotFoundException::new);
 
