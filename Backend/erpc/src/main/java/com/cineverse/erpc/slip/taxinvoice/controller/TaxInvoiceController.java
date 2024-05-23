@@ -5,11 +5,15 @@ import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceProcessDTO;
 import com.cineverse.erpc.slip.taxinvoice.dto.TaxInvoiceRequestDTO;
 import com.cineverse.erpc.slip.taxinvoice.service.TaxInvoiceService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -25,8 +29,16 @@ public class TaxInvoiceController {
 
     /* 세금계산서 요청  */
     @PostMapping("/regist")
-    public ResponseEntity<TaxInvoiceRequestDTO> registTaxInvoiceRequest(@RequestBody TaxInvoiceRequestDTO newTaxInvoice) {
-        taxInvoiceService.registTaxInvoiceRequest(newTaxInvoice);
+    public ResponseEntity<TaxInvoiceRequestDTO> registTaxInvoiceRequest(@RequestPart("taxInvoiceRequest") String taxInvoiceJson,
+                                                                        @RequestPart(value = "files", required = false) MultipartFile[] files)
+            throws JsonProcessingException {
+
+        String utf8Json = new String(taxInvoiceJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        TaxInvoiceRequestDTO newTaxInvoice = objectMapper.readValue(utf8Json, TaxInvoiceRequestDTO.class);
+
+        taxInvoiceService.registTaxInvoiceRequest(newTaxInvoice, files);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newTaxInvoice);
     }
@@ -41,7 +53,7 @@ public class TaxInvoiceController {
 
     /* 요청 세금계산서 단일 조회  */
     @GetMapping("/{taxInvoiceRequestId}")
-    public TaxInvoiceRequestDTO findTaxInvoiceRequestById(@PathVariable Long taxInvoiceRequestId) {
+    public TaxInvoiceRequestDTO findTaxInvoiceRequestById(@PathVariable long taxInvoiceRequestId) {
         TaxInvoiceRequestDTO taxInvoice = taxInvoiceService.findTaxInvoiceById(taxInvoiceRequestId);
 
         return taxInvoice;
@@ -50,7 +62,7 @@ public class TaxInvoiceController {
     /* 세금계산서 처리 */
     @PatchMapping("/process/{taxInvoiceProcessId}")
     public ResponseEntity<TaxInvoiceProcess> modifyProcessStatus(@RequestBody TaxInvoiceProcessDTO processDTO,
-                                                                 @PathVariable Long taxInvoiceProcessId) {
+                                                                 @PathVariable long taxInvoiceProcessId) {
         TaxInvoiceProcess updatedProcess = taxInvoiceService.modifyProcess(taxInvoiceProcessId, processDTO);
         return ResponseEntity.ok(updatedProcess);
     }

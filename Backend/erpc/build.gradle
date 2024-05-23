@@ -40,6 +40,11 @@ dependencies {
 	// swagger 추가
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 
+	// AWS 추가
+//	implementation("com.amazonaws:aws-java-sdk-s3:1.12.174")
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.429' // S3 서비스와 상호 작용
+	implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359' // XML 데이터를 자바 객체로 매핑하는 데 사용
 
 	// 토큰
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
