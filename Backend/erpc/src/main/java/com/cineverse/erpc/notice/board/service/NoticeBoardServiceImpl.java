@@ -67,6 +67,13 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         NoticeBoard noticeBoard = noticeBoardRepository.findById(noticeId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항 입니다."));
 
+        if (notice.getNoticeTitle() != null) {
+            noticeBoard.setNoticeTitle(notice.getNoticeTitle());
+        }
+        if (notice.getNoticeContent() != null) {
+            noticeBoard.setNoticeContent(notice.getNoticeContent());
+        }
+
         if (files != null && files.length > 0) {
             fileUploadService.deleteFilesByNotice(noticeBoard);
 
