@@ -10,4 +10,5 @@ public class ResponseAccountNoteRegistDTO {
     private String accountNoteDate;
     private String accountDeleteDate;
     private Employee employee;
+    private Account account;
 }

@@ -2,6 +2,7 @@ package com.cineverse.erpc.account.note.service;
 
 import com.cineverse.erpc.account.note.aggregate.AccountNote;
 import com.cineverse.erpc.account.note.dto.RequestAccountNoteRegistDTO;
+import com.cineverse.erpc.account.note.dto.ResponseAccountNoteRegistDTO;
 import com.cineverse.erpc.account.note.dto.ResponseFindAllAccountNotesDTO;
 import com.cineverse.erpc.account.note.repo.AccountNoteRepository;
 import org.modelmapper.ModelMapper;
@@ -27,7 +28,7 @@ public class AccountNoteServiceImpl implements AccountNoteService{
     }
 
     @Override
-    public void registAccountNote(RequestAccountNoteRegistDTO requestAccountNote) {
+    public ResponseAccountNoteRegistDTO registAccountNote(RequestAccountNoteRegistDTO requestAccountNote) {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         AccountNote accountNote = modelMapper.map(requestAccountNote, AccountNote.class);
 
@@ -37,6 +38,8 @@ public class AccountNoteServiceImpl implements AccountNoteService{
         accountNote.setAccountNoteDate(currentDate);
 
         accountNoteRepository.save(accountNote);
+
+        return modelMapper.map(accountNote, ResponseAccountNoteRegistDTO.class);
     }
 
     @Override
