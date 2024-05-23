@@ -13,7 +13,7 @@ import java.util.List;
 public interface ContractService {
     Contract registContract(ContractDTO newContract, MultipartFile[] files);
 
-    Contract modifyContract(long contractId, ContractDTO contract);
+    Contract modifyContract(long contractId, ContractDTO contract, MultipartFile[] files);
 
     List<Contract> findContractList();
 
