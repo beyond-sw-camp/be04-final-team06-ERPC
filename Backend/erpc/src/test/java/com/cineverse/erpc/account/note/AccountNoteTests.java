@@ -2,8 +2,10 @@ package com.cineverse.erpc.account.note;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
+import com.cineverse.erpc.account.note.aggregate.AccountNote;
 import com.cineverse.erpc.account.note.dto.RequestAccountNoteRegistDTO;
 import com.cineverse.erpc.account.note.dto.ResponseAccountNoteRegistDTO;
+import com.cineverse.erpc.account.note.dto.ResponseDeleteAccountNote;
 import com.cineverse.erpc.account.note.dto.ResponseFindAllAccountNotesDTO;
 import com.cineverse.erpc.account.note.repo.AccountNoteRepository;
 import com.cineverse.erpc.account.note.service.AccountNoteService;
@@ -73,4 +75,15 @@ public class AccountNoteTests {
         assertThat(accountNotes).isNotEmpty();
     }
 
+    @Test
+    @Transactional
+    @DisplayName("거래처 참고사항 삭제 성공 테스트")
+    public void successDeleteAccountNoteTest() {
+        AccountNote accountNote = accountNoteRepository.findById(Long.valueOf(2))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 참고사항 입니다."));
+        assertThat(accountNote.getAccountDeleteDate()).isNull();
+
+        ResponseDeleteAccountNote testAccount = accountNoteService.deleteAccountNote(2);
+        assertThat(testAccount.getAccountDeleteDate()).isNotNull();
+    }
 }
