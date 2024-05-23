@@ -29,15 +29,15 @@ public class QuotationController {
         this.quotationService = quotationService;
     }
 
-    @PostMapping("/regist")
+    @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<ResponseRegistQuotationDTO> registQuotation(
             @RequestPart("quotation") String quotationJson,
             @RequestPart(value = "files", required = false)MultipartFile[] files) throws JsonProcessingException {
 
-        String utf8Json = new String(quotationJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         ObjectMapper objectMapper = new ObjectMapper();
 
-        RequestRegistQuotationDTO newQuotation = objectMapper.readValue(utf8Json, RequestRegistQuotationDTO.class);
+        RequestRegistQuotationDTO newQuotation =
+                objectMapper.readValue(quotationJson, RequestRegistQuotationDTO.class);
 
         quotationService.registQuotation(newQuotation, files);
 
@@ -61,15 +61,14 @@ public class QuotationController {
         return quotations;
     }
 
-    @PatchMapping("/modify/{quotationId}")
+    @PatchMapping(path = "/modify/{quotationId}", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<ResponseModifyQuotationDTO> modifyQuotation(@RequestPart("quotation") String quotationJson,
                                                                       @RequestPart(value = "files", required = false)MultipartFile[] files,
                                                                       @PathVariable long quotationId) throws JsonProcessingException {
 
-        String utf8Json = new String(quotationJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 
         ObjectMapper objectMapper = new ObjectMapper();
-        RequestModifyQuotationDTO requestModifyQuotationDTO = objectMapper.readValue(utf8Json, RequestModifyQuotationDTO.class);
+        RequestModifyQuotationDTO requestModifyQuotationDTO = objectMapper.readValue(quotationJson, RequestModifyQuotationDTO.class);
 
         ResponseModifyQuotationDTO responseModifyQuotationDTO = quotationService.modifyQuotation(quotationId, requestModifyQuotationDTO, files);
 
