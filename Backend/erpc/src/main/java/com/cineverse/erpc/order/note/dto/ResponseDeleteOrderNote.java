@@ -2,13 +2,20 @@ package com.cineverse.erpc.order.note.dto;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.order.order.aggregate.Order;
-import lombok.Builder;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-@Builder
-public class RequestRegistOrderNoteDTO {
+public class ResponseDeleteOrderNote {
+    private long orderNoteId;
+
     private String orderNote;
+
+    private String orderNoteDate;
+
+    private String orderDeleteDate;
+
     private Order order;
+
     private Employee employee;
 }
