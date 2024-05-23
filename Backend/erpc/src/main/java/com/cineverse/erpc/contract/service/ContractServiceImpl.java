@@ -110,7 +110,7 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     @Transactional
-    public Contract modifyContract(long contractId, ContractDTO contractDTO) {
+    public Contract modifyContract(long contractId, ContractDTO contractDTO, MultipartFile[] files) {
         Contract existingContract = contractRepository.findById(contractId)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
@@ -155,6 +155,14 @@ public class ContractServiceImpl implements ContractService {
                 }).collect(Collectors.toList());
 
         existingContract.setContractProduct(newContractProducts);
+
+        if (files != null && files.length > 0) {
+            fileUploadService.deleteFilesByContract(existingContract);
+
+            for (MultipartFile file : files) {
+                fileUploadService.saveContractFile(file, existingContract);
+            }
+        }
 
         return contractRepository.save(existingContract);
     }

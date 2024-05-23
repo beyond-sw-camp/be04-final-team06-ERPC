@@ -46,8 +46,17 @@ public class ContractController {
 
     /* 계약서 수정 */
     @PatchMapping("/modify/{contractId}")
-    public ResponseEntity<Contract> modifyContract(@RequestBody ContractDTO contract, @PathVariable Long contractId) {
-        return ResponseEntity.ok(contractService.modifyContract(contractId, contract));
+    public ResponseEntity<Contract> modifyContract(@RequestPart("contract") String contractJson,
+                                                   @RequestPart(value = "files", required = false) MultipartFile[] files,
+                                                   @PathVariable Long contractId) throws JsonProcessingException {
+
+       String utf8Json = new String(contractJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+       ObjectMapper objectMapper = new ObjectMapper();
+       ContractDTO contract = objectMapper.readValue(utf8Json, ContractDTO.class);
+
+       contractService.modifyContract(contractId, contract, files);
+
+       return ResponseEntity.ok().build();
     }
 
     /* 계약서 삭제 요청 */

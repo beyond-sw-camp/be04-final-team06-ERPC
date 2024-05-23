@@ -218,4 +218,17 @@ public class FileUploadService {
         }
         quotation.getQuotationFile().clear();
     }
+
+    @Transactional
+    public void deleteFilesByContract(Contract contract) {
+        List<ContractFile> contractFiles = contractFileRepository.findByContract_ContractId(contract.getContractId());
+
+        for (ContractFile contractFile : contractFiles) {
+            contractFile.setContract(null);
+            contractFileRepository.deleteById(contractFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, contractFile.getStoredName());
+        }
+        contract.getContractFile().clear();
+    }
+
 }
