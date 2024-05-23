@@ -28,7 +28,7 @@ public class ContractController {
         this.contractService = contractService;
     }
 
-
+    /* 계약서 작성 */
     @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<ContractDTO> registContract(@RequestPart("contract") String contractJson,
                                                       @RequestPart(value = "files", required = false) MultipartFile[] files)
@@ -42,8 +42,6 @@ public class ContractController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newContract);
     }
-
-
 
     /* 계약서 수정 */
     @PatchMapping(path = "/modify/{contractId}", consumes = {"multipart/form-data;charset=UTF-8"})

@@ -77,7 +77,7 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
 
     @Override
     public List<TaxInvoiceRequest> findTaxInvoiceList() {
-        List<TaxInvoiceRequest> taxInvoiceRequestList = taxInvoiceRequestRepository.findAll();
+        List<TaxInvoiceRequest> taxInvoiceRequestList = taxInvoiceRequestRepository.findAllByOrderByTaxInvoiceRequestIdDesc();
 
         return taxInvoiceRequestList.stream().map(taxInvoiceRequest -> modelMapper
                         .map(taxInvoiceRequest, TaxInvoiceRequest.class))
