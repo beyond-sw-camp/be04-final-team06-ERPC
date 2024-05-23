@@ -36,26 +36,26 @@
     if (submitting.value) return; 
     submitting.value = true; 
   
-    try {
-      const memberIdCookie = document.cookie.split('; ')
-        .find(cookie => cookie.startsWith('memberId='));
+     try {
+    //   const memberIdCookie = document.cookie.split('; ')
+    //     .find(cookie => cookie.startsWith('memberId='));
   
-      if (!memberIdCookie) {
-        console.error('사용자 정보가 없습니다.');
-        return;
-      }
+    //   if (!memberIdCookie) {
+    //     console.error('사용자 정보가 없습니다.');
+    //     return;
+    //   }
   
-      const memberId = memberIdCookie.split('=')[1];
-      if (!memberId) {
-        console.error('사용자 아이디가 없습니다.');
-        return;
-      }
+    //   const memberId = memberIdCookie.split('=')[1];
+    //   if (!memberId) {
+    //     console.error('사용자 아이디가 없습니다.');
+    //     return;
+    //   }
   
       const formData = new FormData();
       formData.append('freeBoard', JSON.stringify({
         freeTitle: freeTitle.value,
         freeContent: freeContent.value,
-        member: { memberId: memberId },
+        // member: { memberId: memberId },
       }));
   
       if (images.value.length > 0) {
@@ -66,10 +66,10 @@
         formData.append('images', new Blob(), 'empty_image');
       }
   
-      await axios.post('http://localhost:8081/free_board/regist', formData);
+      await axios.post('http://localhost:7775/notice_board/regist', formData);
   
       console.log('게시물 작성 완료');
-      router.push('/free_board/list');
+      router.push('/notice/list');
     } catch (error) {
       console.error('게시물 작성 오류:', error);
     } finally {
