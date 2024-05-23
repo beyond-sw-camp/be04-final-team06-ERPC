@@ -5,12 +5,14 @@ import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.file.aggregate.QuotationFile;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Builder
 @Entity
 @Table(name = "tbl_quotation")
 public class Quotation {
