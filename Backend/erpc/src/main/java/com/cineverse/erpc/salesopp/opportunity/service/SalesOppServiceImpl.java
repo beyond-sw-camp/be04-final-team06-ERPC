@@ -56,7 +56,7 @@ public class SalesOppServiceImpl implements SalesOppService {
 
     @Override
     @Transactional
-    public SalesOpp modifySalesOpp(Long salesOppId, SalesOppDTO opp) throws UsernameNotFoundException {
+    public SalesOpp modifySalesOpp(long salesOppId, SalesOppDTO opp) throws UsernameNotFoundException {
 
         Optional<SalesOpp> optionalSalesOpp = salesOppRepository.findById(salesOppId);
 
@@ -95,7 +95,7 @@ public class SalesOppServiceImpl implements SalesOppService {
 
     @Override
     @Transactional
-    public SalesOpp changeSalesOppStatus(Long salesOppId, SalesOppDTO opp) {
+    public SalesOpp changeSalesOppStatus(long salesOppId, SalesOppDTO opp) {
 
         Optional<SalesOpp> optionalSalesOpp = salesOppRepository.findById(salesOppId);
 
@@ -120,7 +120,7 @@ public class SalesOppServiceImpl implements SalesOppService {
         SalesOppDeleteRequest deleteReqOpp = modelMapper.map(deleteOpp, SalesOppDeleteRequest.class);
         deleteReqOpp = salesOppDeleteRequestRepository.save(deleteReqOpp);
 
-        deleteReqOpp.setRequestStatus('N');
+        deleteReqOpp.setSalesOppDeleteRequestStatus('N');
 
         return deleteReqOpp;
     }
@@ -135,7 +135,7 @@ public class SalesOppServiceImpl implements SalesOppService {
     }
 
     @Override
-    public SalesOppDTO findSalesOppById(Long salesOppId) {
+    public SalesOppDTO findSalesOppById(long salesOppId) {
 
         SalesOpp salesOpp = salesOppRepository.findById(salesOppId)
                 .orElseThrow(EntityNotFoundException::new);

@@ -45,7 +45,7 @@ public class NoticeCommentServiceImpl implements NoticeCommentService{
     }
 
     @Override
-    public NoticeComment deleteNoticeComment(Long noticeCommentId) throws UsernameNotFoundException {
+    public NoticeComment deleteNoticeComment(long noticeCommentId) throws UsernameNotFoundException {
         Optional<NoticeComment> optionalNoticeComment = noticeCommentRepository.findById(noticeCommentId);
         if (optionalNoticeComment.isEmpty()) {
             throw new EntityNotFoundException("존재하지 않는 댓글입니다.");

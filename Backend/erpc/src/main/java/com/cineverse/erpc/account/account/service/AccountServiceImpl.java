@@ -1,9 +1,9 @@
 package com.cineverse.erpc.account.account.service;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
-import com.cineverse.erpc.account.account.dto.AccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseFindAccountDTO;
-import com.cineverse.erpc.account.account.dto.ResponseRegistAccountDTO;
+import com.cineverse.erpc.account.account.aggregate.AccountDeleteRequest;
+import com.cineverse.erpc.account.account.dto.*;
+import com.cineverse.erpc.account.account.repository.AccountDeleteRequestRepository;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -23,11 +23,15 @@ public class AccountServiceImpl implements AccountService {
 
     private ModelMapper modelMapper;
     private AccountRepository accountRepository;
+    private AccountDeleteRequestRepository accountDeleteRequestRepository;
 
     @Autowired
-    public AccountServiceImpl(ModelMapper modelMapper, AccountRepository accountRepository) {
+    public AccountServiceImpl(ModelMapper modelMapper,
+                              AccountRepository accountRepository,
+                              AccountDeleteRequestRepository accountDeleteRequestRepository) {
         this.modelMapper = modelMapper;
         this.accountRepository = accountRepository;
+        this.accountDeleteRequestRepository = accountDeleteRequestRepository;
     }
 
     @Override
@@ -94,7 +98,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public void modifyAccount(AccountDTO accountDTO, long accountId) {
+    public AccountDTO modifyAccount(AccountDTO accountDTO, long accountId) {
         Optional<Account> optionalAccount = accountRepository.findById(accountId);
 
         if (optionalAccount.isEmpty())
@@ -140,5 +144,19 @@ public class AccountServiceImpl implements AccountService {
         }
 
         accountRepository.save(account);
+
+        return modelMapper.map(account, AccountDTO.class);
+    }
+
+    @Override
+    public ResponseDeleteAccount deleteAccount(RequestDeleteAccount requestDeleteAccount) {
+        AccountDeleteRequest accountDeleteRequest = new AccountDeleteRequest();
+        accountDeleteRequest.setAccountDeleteRequestReason(requestDeleteAccount.getAccountDeleteRequestReason());
+        accountDeleteRequest.setAccount(requestDeleteAccount.getAccount());
+        accountDeleteRequest.setAccountDeleteRequestStatus("N");
+
+        accountDeleteRequestRepository.save(accountDeleteRequest);
+
+        return modelMapper.map(accountDeleteRequest, ResponseDeleteAccount.class);
     }
 }

@@ -1,9 +1,7 @@
 package com.cineverse.erpc.employee.service;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
-import com.cineverse.erpc.employee.dto.EmployeeDTO;
-import com.cineverse.erpc.employee.dto.ResponseEmployeeDTO;
-import com.cineverse.erpc.employee.dto.ResponseEmployeesDTO;
+import com.cineverse.erpc.employee.dto.*;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -13,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public void registEmployee(EmployeeDTO employeeDTO) {
 
         employeeDTO.setEmployeeUUID(UUID.randomUUID().toString());
@@ -93,5 +93,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         EmployeeDTO employeeDTO = modelMapper.map(employee, EmployeeDTO.class);
 
         return employeeDTO;
+    }
+
+    @Override
+    public ResponseModifyPassword modifyPassword(RequestModifyPassword requestModifyPassword) {
+        Employee employee = employeeRepository.findById(requestModifyPassword.getEmployeeId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
+
+        employee.setEmployeePassword(bCryptPasswordEncoder.encode(requestModifyPassword.getEmployeePassword()));
+
+        employeeRepository.save(employee);
+
+        return modelMapper.map(employee, ResponseModifyPassword.class);
     }
 }

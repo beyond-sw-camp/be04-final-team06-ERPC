@@ -2,6 +2,7 @@ package com.cineverse.erpc.slip.taxinvoice.dto;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.TaxInvoiceFile;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.slip.collection.aggregate.Collection;
 import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceProcess;
@@ -24,4 +25,5 @@ public class TaxInvoiceRequestDTO {
     private Employee employee;
     private Collection collection;
     private TaxInvoiceProcess taxInvoiceProcess;
+    private List<TaxInvoiceFile> taxInvoiceFile;
 }

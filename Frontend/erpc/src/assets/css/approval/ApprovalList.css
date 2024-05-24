@@ -105,6 +105,7 @@
 .approval-table td {
     text-align: center;
     border: 1px solid #ccc;
+    width: 160px;
     padding: 8px;
     font-family: GmarketSansMedium;
 }

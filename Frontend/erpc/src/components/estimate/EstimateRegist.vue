@@ -17,12 +17,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text"></td>
+                        <td>
+                            <div class="item-code-div2">
+                                <input type="text" id="item-code-box2" class="item-code-box2" placeholder="품목 코드를 입력해주세요.">
+                                <button class="item-code-btn2">확인</button>
+                            </div>
+                        </td>
                         <td>LG 콤퓨타</td>
-                        <td><input type="text" class="estimate-test1"></td>
+                        <td><input type="text" class="estimate-test2"></td>
                         <td>1,800,000</td>
                         <td>9,000,000</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" class="estimate-test3"></td>
                     </tr>
                 </tbody>
             </table>
@@ -40,7 +45,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text"></td>
+                        <td>
+                            <div class="storage-code-div2">
+                                <input type="text" id="storage-code-box2" class="storage-code-box2" placeholder="품목 코드를 입력해주세요.">
+                                <button class="storage-code-btn2">확인</button>
+                            </div>
+                        </td>
                         <td>강남 창고</td>
                         <td>창고</td>
                         <td>서울특별시 강남구 강남대로 11</td>
@@ -55,7 +65,7 @@
                     <tr>
                         <th>프로젝트 코드</th>
                         <th>담당자</th>
-                        <th>거래처</th>
+                        <th>거래처명</th>
                         <th>마감일자</th>
                         <th>비고</th>
                     </tr>
@@ -63,10 +73,10 @@
                 <tbody>
                     <tr>
                         <td>PJ-20240508001</td>
-                        <td><input type="text" class="estimate-test2"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text" class="estimate-test3"></td>
-                        <td><input type="text"></td>
+                        <td><input type="text" class="estimate-test5"></td>
+                        <td><input type="text" class="estimate-test6"></td>
+                        <td><input type="text" class="estimate-test7"></td>
+                        <td><input type="text" class="estimate-test8"></td>
                     </tr>
                 </tbody>
             </table>
@@ -89,164 +99,11 @@
     </div>
 </template>
 
+
 <script setup>
 
 </script>
 
 <style>
-.regist-content {
-    margin-top: 4%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.estimate-regist {
-    text-align: center;
-    margin-top: 3%;
-}
-
-.estimate-list-box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px;
-    margin-bottom: 100px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    background-color: white;
-    height: auto;
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    margin-bottom: 20px;
-    gap: 1px;
-}
-
-.estimate-table1,
-.estimate-table2,
-.estimate-table3 {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
-}
-
-.estimate-table1 th,
-.estimate-table1 td,
-.estimate-table2 th,
-.estimate-table2 td,
-.estimate-table3 th,
-.estimate-table3 td {
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 8px;
-    font-family: GmarketSansMedium;
-}
-
-.estimate-table1 th,
-.estimate-table2 th,
-.estimate-table3 th {
-    background-color: whitesmoke;
-    color: black;
-    font-size: 18px;
-    padding: 10px;
-    height: 60px;
-}
-
-.estimate-table1 td,
-.estimate-table2 td,
-.estimate-table3 td {
-    height: 40px;
-}
-
-.estimate-test1 {
-    width: 70px;
-}
-
-.estimate-test2,
-.estimate-test3 {
-    width: 100px;
-}
-
-.estimate-attachment {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 200px;
-    background-color: #d5e6ff;
-    border-radius: 10px;
-    margin-bottom: 50px;
-}
-
-.estimate-attachment-header {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: -20px;
-}
-
-.estimate-pdfimage {
-    width: 30px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-}
-
-.estimate-attachment-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.file-list {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    width: 90%;
-    height: 70px;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: -5px;
-}
-
-.file-icon {
-    font-size: 24px;
-    margin-right: 5px;
-}
-
-.file-name {
-    font-size: 18px;
-}
-
-.estimate-regist-btn-div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.estimate-regist-btn {
-    padding: 10px 20px;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
-    background-color: #0C2092;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 320px;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 100px;
-}
-
+    @import url('@/assets/css/estimate/EstimateRegist.css');
 </style>

@@ -16,7 +16,7 @@ public class NoticeComment {
     @Id
     @Column(name = "notice_comment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long noticeCommentId;
+    private long noticeCommentId;
 
     @Column(name = "comment_content")
     private String commentContent;

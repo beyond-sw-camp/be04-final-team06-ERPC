@@ -6,6 +6,14 @@ import CustomerRegist from '@/components/customer/CustomerRegist.vue';
 import CustomerList from '@/components/customer/CustomerList.vue';
 import CustomerContents from '@/components/customer/CustomerContents.vue';
 
+import EstimateRegist from '@/components/estimate/EstimateRegist.vue';
+import EstimateList from '@/components/estimate/EstimateList.vue';
+import EstimateContents from '@/components/estimate/EstimateContents.vue';
+
+import ContractRegist from '@/components/contract/ContractRegist.vue';
+import ContractList from '@/components/contract/ContractList.vue';
+import ContractContents from '@/components/contract/ContractContents.vue';
+
 import OrderRegist from '@/components/order/OrderRegist.vue';
 import OrderList from '@/components/order/OrderList.vue';
 import OrderContents from '@/components/order/OrderContents.vue';
@@ -19,14 +27,6 @@ import YearPerformance from '@/components/performance/YearPerformance.vue';
 import TeamPerformance from '@/components/performance/TeamPerformance.vue';
 
 import ApprovalList from '@/components/approval/ApprovalList.vue';
-
-import ContractRegist from '@/components/contract/ContractRegist.vue';
-import ContractList from '@/components/contract/ContractList.vue';
-import ContractContent from '@/components/contract/ContractContent.vue';
-
-import EstimateRegist from '@/components/estimate/EstimateRegist.vue';
-import EstimateList from '@/components/estimate/EstimateList.vue';
-import EstimateContent from '@/components/estimate/EstimateContent.vue';
 
 import SalesOppRegist from '@/components/salesopp/SalesOppRegist.vue';
 import SalesOppList from '@/components/salesopp/SalesOppList.vue';
@@ -55,6 +55,30 @@ const routes = [
     {
         path: '/customer/contents',
         component: CustomerContents
+    },
+    {
+        path: '/estimate/regist',
+        component: EstimateRegist
+    },
+    {
+        path: '/estimate/list',
+        component: EstimateList
+    },
+    {
+        path: '/estimate/contents',
+        component: EstimateContents
+    },
+    {
+        path: '/contract/regist',
+        component: ContractRegist
+    },
+    {
+        path: '/contract/list',
+        component: ContractList
+    },
+    {
+        path: '/contract/contents',
+        component: ContractContents
     },
     {
         path: '/order/regist',
@@ -97,30 +121,6 @@ const routes = [
         component: ApprovalList
     },
     {
-        path: '/contract/regist',
-        component: ContractRegist
-    },
-    {
-        path: '/contract/list',
-        component: ContractList
-    },
-    {
-        path: '/contract/contents',
-        component: ContractContent
-    },
-    {
-        path: '/estimate/regist',
-        component: EstimateRegist
-    },
-    {
-        path: '/estimate/list',
-        component: EstimateList
-    },
-    {
-        path: '/estimate/contents',
-        component: EstimateContent
-    },
-    {
         path: '/salesopp/regist',
         component: SalesOppRegist
     },
@@ -149,7 +149,7 @@ const routes = [
         component: NoticeList
     },
     {
-        path: '/notice/contents',
+        path: '/notice/:notice_id',
         component: NoticeContent
     }
 ];

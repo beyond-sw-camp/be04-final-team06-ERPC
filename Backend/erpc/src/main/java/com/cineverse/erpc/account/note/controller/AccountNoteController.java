@@ -1,6 +1,7 @@
 package com.cineverse.erpc.account.note.controller;
 
 import com.cineverse.erpc.account.note.dto.RequestAccountNoteRegistDTO;
+import com.cineverse.erpc.account.note.dto.ResponseDeleteAccountNote;
 import com.cineverse.erpc.account.note.dto.ResponseFindAllAccountNotesDTO;
 import com.cineverse.erpc.account.note.dto.ResponseAccountNoteRegistDTO;
 import com.cineverse.erpc.account.note.service.AccountNoteService;
@@ -45,5 +46,11 @@ public class AccountNoteController {
                 accountNoteService.findAllAccountNotes(accountId);
 
         return accountNotes;
+    }
+
+    @PatchMapping("/delete/{accountNoteId}")
+    public ResponseDeleteAccountNote deleteAccountNote(@PathVariable long accountNoteId) {
+
+        return accountNoteService.deleteAccountNote(accountNoteId);
     }
 }

@@ -3,6 +3,7 @@ package com.cineverse.erpc.order.order.dto;
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
@@ -37,4 +38,5 @@ public class OrderDTO {
     private ShipmentStatus shipmentStatus;
     private ContractCategory contractCategory;
     private List<OrderProduct> orderProduct;
+    private List<OrderFile> orderFile;
 }
