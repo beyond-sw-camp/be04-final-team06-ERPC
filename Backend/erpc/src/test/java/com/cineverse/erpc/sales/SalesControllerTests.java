@@ -22,7 +22,9 @@ class SalesControllerTests {
     private final TeamRepository teamRepository;
 
     @Autowired
-    public SalesControllerTests(SalesService salesService, EmployeeRepository employeeRepository, TeamRepository teamRepository) {
+    public SalesControllerTests(SalesService salesService,
+                                EmployeeRepository employeeRepository,
+                                TeamRepository teamRepository) {
         this.salesService = salesService;
         this.employeeRepository = employeeRepository;
         this.teamRepository = teamRepository;
