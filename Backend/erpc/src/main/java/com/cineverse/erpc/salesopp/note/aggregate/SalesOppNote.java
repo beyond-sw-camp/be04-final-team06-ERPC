@@ -1,6 +1,7 @@
 package com.cineverse.erpc.salesopp.note.aggregate;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,8 +28,9 @@ public class SalesOppNote {
     @Column(name = "sales_opp_note_delete_date")
     private String salesOppNoteDeleteDate;
 
-    @Column(name = "sales_opp_id")
-    private int salesOppId;
+    @JoinColumn(name = "sales_opp_id")
+    @ManyToOne
+    private SalesOpp salesOpp;
 
     @JoinColumn(name = "employee_id")
     @ManyToOne

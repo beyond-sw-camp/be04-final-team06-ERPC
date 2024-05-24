@@ -1,6 +1,7 @@
 package com.cineverse.erpc.salesopp.note.dto;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import lombok.*;
 
 @NoArgsConstructor
@@ -14,6 +15,6 @@ public class SalesOppNoteDTO {
     private String salesOppNote;
     private String salesOppNoteDate;
     private String salesOppNoteDeleteDate;
-    private int salesOppId;
+    private SalesOpp salesOpp;
     private Employee employee;
 }
