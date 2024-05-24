@@ -3,11 +3,13 @@ package com.cineverse.erpc.order.order.aggregate;
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -94,4 +96,7 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderProduct> orderProduct;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<OrderFile> orderFile = new ArrayList<>();
 }

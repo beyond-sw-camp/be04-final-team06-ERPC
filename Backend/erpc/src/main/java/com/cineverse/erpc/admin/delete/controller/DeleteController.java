@@ -4,6 +4,10 @@ import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestPr
 import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestList;
 import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.account.ResponseFindAccoundDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.order.RequestOrderDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.order.ResponseFindOrderDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.order.ResponseOrderDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.order.ResponseOrderDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
@@ -11,6 +15,7 @@ import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequ
 import com.cineverse.erpc.admin.delete.service.DeleteService;
 import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
+import com.cineverse.erpc.order.order.dto.ResponseDeleteOrder;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,5 +130,24 @@ public class DeleteController {
                 = deleteService.accountDeleteRequestProcess(requestAccountDeleteRequestProcess);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseAccountDeleteRequestProcess);
+    }
+
+    @GetMapping("/order")
+    public List<ResponseOrderDeleteRequestList> orderDeleteRequestList() {
+        return deleteService.findOrderDeleteRequestList();
+    }
+
+    @GetMapping("/order/{orderDeleteRequestId}")
+    private ResponseFindOrderDeleteRequest findOrderDeleteRequestById(@PathVariable long orderDeleteRequestId) {
+        return deleteService.findOrderDeleteRequestById(orderDeleteRequestId);
+    }
+
+    @PatchMapping("/order/process")
+    private ResponseEntity<ResponseOrderDeleteRequestProcess> processOrderDeleteRequest(
+            @RequestBody RequestOrderDeleteRequestProcess requestOrderDeleteRequestProcess) {
+        ResponseOrderDeleteRequestProcess orderDeleteRequestProcess =
+                deleteService.processOrderDeleteRequest(requestOrderDeleteRequestProcess);
+
+        return ResponseEntity.status(HttpStatus.OK).body(orderDeleteRequestProcess);
     }
 }

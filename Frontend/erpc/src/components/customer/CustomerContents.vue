@@ -14,58 +14,70 @@
                 <button class="customer-code-box">AC-20240430001</button>
             </div>
         </div>
-        <div class="customer-box2">
-            <div class="left">
-                <div class="business-number">
-                    <p class="business-number-text">사업자 번호</p>
-                    <button class="business-number-box" id="business-number-box">123-45-67890</button>
-                </div>
-                <div class="business-name">
-                    <p class="business-name-text">사업자명</p>
-                    <button class="business-name-box" id="business-name-box">A-회사</button>
-                </div>
-                <div class="ceo-name">
-                    <p class="ceo-name-text">대표자명</p>
-                    <button class="ceo-name-box" id="ceo-name-box">게이츠</button>
-                </div>
-                <div class="status">
-                    <p class="status-text">기업 상태 (휴/폐업 여부)</p>
-                    <button class="status-box" id="status-box">정상</button>
-                </div>
-                <div class="grade">
-                    <p class="grade-text">기업 신용등급</p>
-                    <button class="grade-box" id="grade-box">B+</button>
-                </div>
-                <div class="corporation">
-                    <p class="corporation-text">법인 여부</p>
-                    <button class="corporation-box" id="corporation-box">C</button>
-                </div>
-            </div>
-            <div class="right">
-                <div class="industry">
-                    <p class="industry-text">업태</p>
-                    <button class="industry-box" id="industry-box">제조업</button>
-                </div>
-                <div class="industry-detail">
-                    <p class="industry-detail-text">종목</p>
-                    <button class="industry-detail-box" id="industry-detail-box">컴퓨터외</button>
-                </div>
-                <div class="address">
-                    <p class="address-text">소재지</p>
-                    <button class="address-box" id="address-box">서울 강남구</button>
-                </div>
-                <div class="call">
-                    <p class="call-text">전화 번호</p>
-                    <button class="call-box" id="call-box">000-0000-0000</button>
-                </div>
-                <div class="email">
-                    <p class="email-text">이메일</p>
-                    <button class="email-box" id="email-box">ABC@gmail.com</button>
-                </div>
-                <div class="remark">
-                    <p class="remark-text">비고</p>
-                    <button class="remark-box" id="remark-box">담당 영업사원 퇴사</button>
-                </div>
+        <div class="customer-content2">
+            <div class="customer-list-box1">
+                <table class="customer-table1">
+                    <thead>
+                        <tr>
+                            <th>사업자 번호</th>
+                            <th>사업자명</th>
+                            <th>대표자명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123-45-67890</td>
+                            <td>A-회사</td>
+                            <td>김이원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="customer-table2">
+                    <thead>
+                        <tr>
+                            <th>기업 상태 (휴/폐업 여부)</th>
+                            <th>법인 여부</th>
+                            <th>소재지</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>정상</td>
+                            <td>P</td>
+                            <td>서울시 양천구 목동서로</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="customer-table3">
+                    <thead>
+                        <tr>
+                            <th>업태</th>
+                            <th>종목</th>
+                            <th>전화번호</th>
+                            <th>이메일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>판매업</td>
+                            <td>판매업2</td>
+                            <td>000-0000-0000</td>
+                            <td>abc@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="customer-table4">
+                    <thead>
+                        <tr>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="customer-box3">
@@ -80,7 +92,7 @@
             </div>
         </div>
         <div class="customer-process-box">
-            <h2 class="customer-process-text">Process</h2>
+            <h1 class="customer-process-text">Process</h1>
             <div class="customer-process-box-detail">
                 <div class="customer-process-info">
                     <h4 class="customer-process-writer">민중원 과장</h4>
@@ -94,7 +106,8 @@
                     <button class="customer-process-delete">삭제</button>
                 </div>
                 <div class="customer-process-reply">
-                    <input type="text" id="customer-process-reply-box" class="customer-process-reply-box" placeholder="내용을 입력해주세요.">
+                    <input type="text" id="customer-process-reply-box" class="customer-process-reply-box"
+                        placeholder="내용을 입력해주세요.">
                     <button class="customer-process-regist">등록하기</button>
                 </div>
             </div>
@@ -104,7 +117,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import {useRoute, useRouter} from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const currentRoute = useRoute();
 const router = useRouter();

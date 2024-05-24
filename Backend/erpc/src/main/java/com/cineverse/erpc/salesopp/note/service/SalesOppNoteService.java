@@ -9,9 +9,9 @@ public interface SalesOppNoteService {
 
     SalesOppNote registSalesOppNote(SalesOppNoteDTO oppNote);
 
-    SalesOppNote modifySalesOppNote(Long salesOppNoteId, SalesOppNoteDTO oppNote);
+    SalesOppNote modifySalesOppNote(long salesOppNoteId, SalesOppNoteDTO oppNote);
 
-    SalesOppNote deleteSalesOppNote(Long salesOppNoteId);
+    SalesOppNote deleteSalesOppNote(long salesOppNoteId);
 
     List<SalesOppNote> findsalesOppNoteList();
 }

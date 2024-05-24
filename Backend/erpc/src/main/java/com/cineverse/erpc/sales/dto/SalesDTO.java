@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @Builder
 public class SalesDTO {
-    private Long employeeSales;
-    private Long teamSales;
-    private Long totalSales;
+    private long employeeSales;
+    private long teamSales;
+    private long totalSales;
 }

@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     margin: 15px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     border-radius: 10px;
     border: 2px solid #ccc;
     box-sizing: border-box;
@@ -105,9 +105,39 @@
 .cb-table td {
     text-align: center;
     border: 1px solid #ccc;
-    width: 160px; /* 너비 조절 */
+    width: 220px; /* 너비 조절 */
     padding: 8px;
     font-family: GmarketSansMedium;
+}
+
+.cb-table th:nth-child(1),
+.cb-table td:nth-child(1) {
+    width: 50px; 
+}
+
+.cb-table th:nth-child(2),
+.cb-table td:nth-child(2) {
+    width: 200px; 
+}
+
+.cb-table th:nth-child(3),
+.cb-table td:nth-child(3) {
+    width: 200px; 
+}
+
+.cb-table th:nth-child(4),
+.cb-table td:nth-child(4) {
+    width: 200px; 
+}
+
+.cb-table th:nth-child(5),
+.cb-table td:nth-child(5) {
+    width: 150px; 
+}
+
+.cb-table th:nth-child(6),
+.cb-table td:nth-child(6) {
+    width: 100px; 
 }
 
 .cb-table th {

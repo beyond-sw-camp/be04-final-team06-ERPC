@@ -3,15 +3,19 @@ package com.cineverse.erpc.order.order.dto;
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ResponseModifyOrder {
     private long orderRegistrationId;
     private String contactDate;
@@ -37,4 +41,5 @@ public class ResponseModifyOrder {
     private ShipmentStatus shipmentStatus;
     private ContractCategory contractCategory;
     private List<OrderProduct> orderProduct;
+    private List<OrderFile> orderFile;
 }

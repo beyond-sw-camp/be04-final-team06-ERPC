@@ -3,18 +3,23 @@ package com.cineverse.erpc.quotation.quotation.controller;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.dto.*;
 import com.cineverse.erpc.quotation.quotation.service.QuotationService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
 @RequestMapping("/quotation")
 public class QuotationController {
+
     private ModelMapper mapper;
     private QuotationService quotationService;
 
@@ -24,14 +29,20 @@ public class QuotationController {
         this.quotationService = quotationService;
     }
 
-    @PostMapping("/regist")
+    @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<ResponseRegistQuotationDTO> registQuotation(
-            @RequestBody RequestRegistQuotationDTO quotation) {
+            @RequestPart("quotation") String quotationJson,
+            @RequestPart(value = "files", required = false)MultipartFile[] files) throws JsonProcessingException {
 
-        quotationService.registQuotation(quotation);
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        RequestRegistQuotationDTO newQuotation =
+                objectMapper.readValue(quotationJson, RequestRegistQuotationDTO.class);
+
+        quotationService.registQuotation(newQuotation, files);
 
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        ResponseRegistQuotationDTO responseRegistQuotation = mapper.map(quotation, ResponseRegistQuotationDTO.class);
+        ResponseRegistQuotationDTO responseRegistQuotation = mapper.map(newQuotation, ResponseRegistQuotationDTO.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseRegistQuotation);
     }
@@ -50,11 +61,16 @@ public class QuotationController {
         return quotations;
     }
 
-    @PatchMapping("/modify/{quotationId}")
-    public ResponseEntity<ResponseModifyQuotationDTO> modifyQuotation(@PathVariable long quotationId,
-                                                                      @RequestBody RequestModifyQuotationDTO quotation){
-        ResponseModifyQuotationDTO  responseModifyQuotationDTO =
-                quotationService.modifyQuotation(quotationId, quotation);
+    @PatchMapping(path = "/modify/{quotationId}", consumes = {"multipart/form-data;charset=UTF-8"})
+    public ResponseEntity<ResponseModifyQuotationDTO> modifyQuotation(@RequestPart("quotation") String quotationJson,
+                                                                      @RequestPart(value = "files", required = false)MultipartFile[] files,
+                                                                      @PathVariable long quotationId) throws JsonProcessingException {
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        RequestModifyQuotationDTO requestModifyQuotationDTO = objectMapper.readValue(quotationJson, RequestModifyQuotationDTO.class);
+
+        ResponseModifyQuotationDTO responseModifyQuotationDTO = quotationService.modifyQuotation(quotationId, requestModifyQuotationDTO, files);
 
         return ResponseEntity.ok().body(responseModifyQuotationDTO);
     }

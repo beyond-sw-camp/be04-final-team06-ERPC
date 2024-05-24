@@ -66,7 +66,7 @@
 
 .customer-search-input {
     max-width: 300px;
-    height: 12px;
+    height: 17.5px;
     padding: 10px;
     border: 2px solid #0C2092;
     border-radius: 10px;
@@ -122,6 +122,7 @@
     border: 1px solid #ccc;
     padding: 8px;
     font-family: GmarketSansMedium;
+    width: 160px; /* 너비 조절 */
 }
 
 .customer-table th {

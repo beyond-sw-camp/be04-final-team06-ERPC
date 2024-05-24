@@ -8,6 +8,10 @@ import com.cineverse.erpc.admin.delete.dto.account.RequestAccountDeleteRequestPr
 import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestList;
 import com.cineverse.erpc.admin.delete.dto.account.ResponseAccountDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.account.ResponseFindAccoundDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.order.RequestOrderDeleteRequestProcess;
+import com.cineverse.erpc.admin.delete.dto.order.ResponseFindOrderDeleteRequest;
+import com.cineverse.erpc.admin.delete.dto.order.ResponseOrderDeleteRequestList;
+import com.cineverse.erpc.admin.delete.dto.order.ResponseOrderDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.RequestQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDeleteRequest;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
@@ -17,6 +21,11 @@ import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
 import com.cineverse.erpc.contract.repository.ContractDeleteRequestRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
+import com.cineverse.erpc.order.order.aggregate.Order;
+import com.cineverse.erpc.order.order.aggregate.OrderDeleteRequest;
+import com.cineverse.erpc.order.order.dto.ResponseDeleteOrder;
+import com.cineverse.erpc.order.order.repo.OrderDeleteRequestRepository;
+import com.cineverse.erpc.order.order.repo.OrderRepository;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationDeleteRequest;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestRepository;
@@ -49,6 +58,8 @@ public class DeleteServiceImpl implements DeleteService {
     private final QuotationRepository quotationRepository;
     private final AccountDeleteRequestRepository accountDeleteRequestRepository;
     private final AccountRepository accountRepository;
+    private final OrderDeleteRequestRepository orderDeleteRequestRepository;
+    private final OrderRepository orderRepository;
 
     @Autowired
     public DeleteServiceImpl(ModelMapper modelMapper,
@@ -59,7 +70,9 @@ public class DeleteServiceImpl implements DeleteService {
                              QuotationDeleteRequestRepository quotationDeleteRequestRepository,
                              QuotationRepository quotationRepository,
                              AccountDeleteRequestRepository accountDeleteRequestRepository,
-                             AccountRepository accountRepository) {
+                             AccountRepository accountRepository,
+                             OrderDeleteRequestRepository orderDeleteRequestRepository,
+                             OrderRepository orderRepository) {
         this.modelMapper = modelMapper;
         this.salesOppRepository = salesOppRepository;
         this.salesOppDeleteRequestRepository = salesOppDeleteRequestRepository;
@@ -69,6 +82,8 @@ public class DeleteServiceImpl implements DeleteService {
         this.quotationRepository = quotationRepository;
         this.accountDeleteRequestRepository = accountDeleteRequestRepository;
         this.accountRepository = accountRepository;
+        this.orderDeleteRequestRepository = orderDeleteRequestRepository;
+        this.orderRepository = orderRepository;
     }
 
     @Override
@@ -113,7 +128,7 @@ public class DeleteServiceImpl implements DeleteService {
         salesOpp.setOppDeleteDate(deleteDate);
         salesOppRepository.save(salesOpp);
 
-        deleteReqOpp.setRequestStatus('Y');
+        deleteReqOpp.setSalesOppDeleteRequestStatus('Y');
         salesOppDeleteRequestRepository.save(deleteReqOpp);
 
         return deleteReqOpp;
@@ -245,9 +260,48 @@ public class DeleteServiceImpl implements DeleteService {
         String currentDate = dateFormat.format(new Date());
         account.setAccountDeleteDate(currentDate);
         accountRepository.save(account);
-      
+
         accountDeleteRequest.setAccount(account);
 
         return modelMapper.map(accountDeleteRequest, ResponseAccountDeleteRequestProcess.class);
+    }
+
+    @Override
+    public List<ResponseOrderDeleteRequestList> findOrderDeleteRequestList() {
+        List<OrderDeleteRequest> orderDeleteRequests = orderDeleteRequestRepository.findAll();
+
+        return orderDeleteRequests.stream().map(orderDeleteRequest -> modelMapper
+                        .map(orderDeleteRequest, ResponseOrderDeleteRequestList.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseFindOrderDeleteRequest findOrderDeleteRequestById(long orderDeleteRequestId) {
+        OrderDeleteRequest orderDeleteRequest = orderDeleteRequestRepository.findById(orderDeleteRequestId)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주 삭제요청 입니다."));
+
+        return modelMapper.map(orderDeleteRequest, ResponseFindOrderDeleteRequest.class);
+    }
+
+    @Override
+    public ResponseOrderDeleteRequestProcess processOrderDeleteRequest(
+            RequestOrderDeleteRequestProcess requestOrderDeleteRequestProcess) {
+        OrderDeleteRequest orderDeleteRequest =
+                orderDeleteRequestRepository.findById(requestOrderDeleteRequestProcess.getOrderDeleteRequestId())
+                        .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주 삭제요청 입니다."));
+        orderDeleteRequest.setOrderDeleteRequestStatus("Y");
+        orderDeleteRequestRepository.save(orderDeleteRequest);
+
+        Order order = orderRepository.findById(orderDeleteRequest.getOrder().getOrderRegistrationId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주입니다."));
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = dateFormat.format(new Date());
+        order.setOrderDeleteDate(currentDate);
+        orderRepository.save(order);
+
+        orderDeleteRequest.setOrder(order);
+
+        return modelMapper.map(orderDeleteRequest, ResponseOrderDeleteRequestProcess.class);
     }
 }

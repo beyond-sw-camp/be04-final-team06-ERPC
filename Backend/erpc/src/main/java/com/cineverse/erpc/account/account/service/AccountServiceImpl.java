@@ -98,7 +98,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public void modifyAccount(AccountDTO accountDTO, long accountId) {
+    public AccountDTO modifyAccount(AccountDTO accountDTO, long accountId) {
         Optional<Account> optionalAccount = accountRepository.findById(accountId);
 
         if (optionalAccount.isEmpty())
@@ -144,6 +144,8 @@ public class AccountServiceImpl implements AccountService {
         }
 
         accountRepository.save(account);
+
+        return modelMapper.map(account, AccountDTO.class);
     }
 
     @Override
