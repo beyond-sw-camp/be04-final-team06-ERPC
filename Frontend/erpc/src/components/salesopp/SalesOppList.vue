@@ -21,14 +21,47 @@
                     </tr>
                 </thead>
                 <tbody>
-            <tr>
-                <td colspan="4" class="no-result">검색 결과가 없습니다.</td>
-            </tr>
+                    <tr v-for="(approval, index) in filteredapprovals" :key="index" @click="goTosalesOppContents(approval.code)">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ approval.approvalor }}</td>
+                        <td>{{ approval.date }}</td>
+                        <td>{{ approval.status }}</td>
+                    </tr>
         </tbody>
     </table>
         </div>
         </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const approvals = ref([
+    { code: 'PJ-20240401001', approvalor: 'A-회사',  date: '2024-04-01', status: '진행중' },
+    { code: 'PJ-20240401002', approvalor: 'B-회사',  date: '2024-04-01', status: '승인' },
+    { code: 'PJ-20240401003', approvalor: 'C-회사',  date: '2024-03-31', status: '반려' }
+]);
+const startDate = ref('');
+const endDate = ref('');
+const filteredapprovals = ref(approvals.value);
+
+function applyFilter() {
+    if (startDate.value && endDate.value) {
+        filteredapprovals.value = approvals.value.filter(approval => {
+            return approval.date >= startDate.value && approval.date <= endDate.value;
+        });
+    } else {
+        filteredapprovals.value = approvals.value;
+    }
+}
+
+function goTosalesOppContents(approvalCode) {
+    router.push({ path: '/salesopp/contents', query: { code: approvalCode } });
+}
+</script>
 
 <style>
     @import url('@/assets/css/contract/ContractList.css');

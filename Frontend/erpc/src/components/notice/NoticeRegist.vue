@@ -36,7 +36,7 @@
     if (submitting.value) return; 
     submitting.value = true; 
   
-    try {
+     try {
       const memberIdCookie = document.cookie.split('; ')
         .find(cookie => cookie.startsWith('memberId='));
   
@@ -55,7 +55,7 @@
       formData.append('freeBoard', JSON.stringify({
         freeTitle: freeTitle.value,
         freeContent: freeContent.value,
-        member: { memberId: memberId },
+        // member: { memberId: memberId },
       }));
   
       if (images.value.length > 0) {
@@ -66,10 +66,10 @@
         formData.append('images', new Blob(), 'empty_image');
       }
   
-      await axios.post('http://localhost:8081/free_board/regist', formData);
+      await axios.post('http://localhost:7775/notice_board/regist', formData);
   
       console.log('게시물 작성 완료');
-      router.push('/free_board/list');
+      router.push('/notice/list');
     } catch (error) {
       console.error('게시물 작성 오류:', error);
     } finally {

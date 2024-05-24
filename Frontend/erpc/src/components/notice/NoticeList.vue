@@ -51,7 +51,7 @@
   
   <script setup>
   import { onMounted, ref, watch } from "vue";
-  // import axios from "axios";
+  import axios from "axios";
   import router from "@/router/mainRouter";
   
   const notice = ref([]);
@@ -65,7 +65,6 @@
       .then(response => {
         notice.value = response.data;
         filteredfree.value = response.data; 
-        console.log(free.value);
       })
       .catch(error => {
         console.error("Error fetching free:", error);
@@ -76,7 +75,7 @@
     fetchfree();
   });
   
-  function changeRouter(freeId) {
+  function changeRouter(noticeId) {
     router.push(`/notice/${noticeId}`);
   }
   
@@ -88,7 +87,7 @@
     if (search_condition.value && search_type.value) {
       filterfree();
     } else {
-      filteredfree.value = free.value;
+      filteredfree.value = notice.value;
     }
   });
   
