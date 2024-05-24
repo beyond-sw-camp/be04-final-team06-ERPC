@@ -218,4 +218,41 @@ public class FileUploadService {
         }
         quotation.getQuotationFile().clear();
     }
+
+    @Transactional
+    public void deleteFilesByContract(Contract contract) {
+        List<ContractFile> contractFiles = contractFileRepository.findByContract_ContractId(contract.getContractId());
+
+        for (ContractFile contractFile : contractFiles) {
+            contractFile.setContract(null);
+            contractFileRepository.deleteById(contractFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, contractFile.getStoredName());
+        }
+        contract.getContractFile().clear();
+    }
+
+    @Transactional
+    public void deleteFilesByOrder(Order order) {
+        List<OrderFile> orderFiles = orderFileRepository.findByOrder_OrderRegistrationId(order.getOrderRegistrationId());
+
+        for (OrderFile orderFile : orderFiles) {
+            orderFile.setOrder(null);
+            orderFileRepository.deleteById(orderFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, orderFile.getStoredName());
+        }
+        order.getOrderFile().clear();
+    }
+
+    @Transactional
+    public void deleteFilesByTaxInvoice(TaxInvoiceRequest taxInvoice) {
+        List<TaxInvoiceFile> taxInvoiceFiles =
+                taxInvoiceFileRepository.findByTaxInvoiceRequest_TaxInvoiceRequestId(taxInvoice.getTaxInvoiceRequestId());
+
+        for (TaxInvoiceFile taxInvoiceFile : taxInvoiceFiles) {
+            taxInvoiceFile.setTaxInvoiceRequest(null);
+            taxInvoiceFileRepository.deleteById(taxInvoiceFile.getFileId());
+            amazonS3Client.deleteObject(bucketName, taxInvoiceFile.getStoredName());
+        }
+        taxInvoice.getTaxInvoiceFile().clear();
+    }
 }

@@ -1,6 +1,5 @@
 package com.cineverse.erpc.order.order.service;
 
-import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.order.order.aggregate.OrderDeleteRequest;
@@ -10,7 +9,6 @@ import com.cineverse.erpc.order.order.dto.*;
 import com.cineverse.erpc.order.order.repo.OrderDeleteRequestRepository;
 import com.cineverse.erpc.order.order.repo.OrderProductRepository;
 import com.cineverse.erpc.order.order.repo.OrderRepository;
-import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
 import com.cineverse.erpc.shipment.aggregate.Shipment;
@@ -60,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void registOrder(RequestRegistOrderDTO requestOrder, MultipartFile[] files) {
+    public ResponseRegistOrderDTO registOrder(RequestRegistOrderDTO requestOrder, MultipartFile[] files) {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDate = dateFormat.format(date);
@@ -94,6 +92,9 @@ public class OrderServiceImpl implements OrderService {
                 String url = fileUploadService.saveOrderFile(file, order);
             }
         }
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        return mapper.map(order, ResponseRegistOrderDTO.class);
     }
 
     private OrderProduct registOrderProduct(OrderProduct product, Order order) {
@@ -124,7 +125,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public ResponseModifyOrder modifyOrder(long orderId, RequestModifyOrder requestModifyOrder) {
+    public ResponseModifyOrder modifyOrder(long orderId, RequestModifyOrder requestModifyOrder, MultipartFile[] files) {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 수주 입니다."));
 
@@ -215,6 +216,14 @@ public class OrderServiceImpl implements OrderService {
             order.setContractCategory(requestModifyOrder.getContractCategory());
         }
 
+        if (files != null && files.length > 0) {
+            fileUploadService.deleteFilesByOrder(order);
+
+            for (MultipartFile file : files) {
+                fileUploadService.saveOrderFile(file, order);
+            }
+        }
+
         orderRepository.save(order);
 
         ResponseModifyOrder modifyOrder = mapper.map(order, ResponseModifyOrder.class);
@@ -240,6 +249,4 @@ public class OrderServiceImpl implements OrderService {
 
         return mapper.map(orderDeleteRequest, ResponseDeleteOrder.class);
     }
-
-
 }

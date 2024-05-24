@@ -40,11 +40,13 @@ public class Employee {
     @Column(name = "resignation_date")
     private String resignationDate;
 
-    @Column(name = "employee_rank_id")
-    private int employeeRankId;
+    @JoinColumn(name = "employee_rank_id")
+    @ManyToOne
+    private EmployeeRank employeeRank;
 
-    @Column(name = "team_code_id")
-    private int teamCodeId;
+    @JoinColumn(name = "team_code_id")
+    @ManyToOne
+    private TeamCode teamCode;
 
     @Column(name = "employee_uuid")
     private String employeeUUID;

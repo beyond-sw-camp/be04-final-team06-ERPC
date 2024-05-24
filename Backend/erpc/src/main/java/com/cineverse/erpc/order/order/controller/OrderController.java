@@ -30,15 +30,14 @@ public class OrderController {
     }
 
     /* 생성 */
-    @PostMapping("/regist")
+    @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<ResponseRegistOrderDTO> registOrder(
             @RequestPart("order") String orderJson,
             @RequestPart(value = "files", required = false) MultipartFile[] files) throws JsonProcessingException {
 
-        String utf8Json = new String(orderJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         ObjectMapper objectMapper = new ObjectMapper();
 
-        RequestRegistOrderDTO newOrder = objectMapper.readValue(utf8Json, RequestRegistOrderDTO.class);
+        RequestRegistOrderDTO newOrder = objectMapper.readValue(orderJson, RequestRegistOrderDTO.class);
 
         orderService.registOrder(newOrder, files);
 
@@ -57,17 +56,22 @@ public class OrderController {
     }
 
     /* 다중조회 */
-    @GetMapping("/list")
+    @GetMapping("")
     public List<ResponseOrderLists> findAllOrders() {
         return orderService.findAllOrders();
     }
 
     /* 수정 */
-    @PatchMapping("/modify/{orderId}")
-    public ResponseEntity<ResponseModifyOrder> modifyOrder(@PathVariable long orderId,
-                                                           @RequestBody RequestModifyOrder requestModifyOrder) {
-        ResponseModifyOrder responseModifyOrder =
-                orderService.modifyOrder(orderId, requestModifyOrder);
+    @PatchMapping(path = "/modify/{orderId}", consumes = {"multipart/form-data;charset=UTF-8"})
+    public ResponseEntity<ResponseModifyOrder> modifyOrder(@RequestPart("order") String orderJson,
+                                                           @RequestPart(value = "files", required = false) MultipartFile[] files,
+                                                           @PathVariable long orderId) throws JsonProcessingException {
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        RequestModifyOrder requestModifyOrder = objectMapper.readValue(orderJson, RequestModifyOrder.class);
+
+        ResponseModifyOrder responseModifyOrder = orderService.modifyOrder(orderId, requestModifyOrder, files);
 
         return ResponseEntity.ok().body(responseModifyOrder);
     }
@@ -79,5 +83,4 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDeleteOrder);
     }
-  
 }

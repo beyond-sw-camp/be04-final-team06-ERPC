@@ -25,7 +25,7 @@ public class SalesServiceImpl implements SalesService {
 
     @Override
     public Long calculateTeamSales(int teamCodeId) {
-        List<Order> orders = orderRepository.findByEmployeeTeamCodeIdAndDownPaymentIsNotNull(teamCodeId);
+        List<Order> orders = orderRepository.findByEmployeeTeamCodeTeamCodeIdAndDownPaymentIsNotNull(teamCodeId);
         return orders.stream().mapToLong(Order::getOrderTotalPrice).sum();
     }
 

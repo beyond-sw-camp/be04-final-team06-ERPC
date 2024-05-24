@@ -24,24 +24,25 @@
             </div>
             <div>
               <input type="text" id='searchText' class="form-control" placeholder="Search..."
-                v-model="search_condition" @keyup.enter="callData">
+                v-model="search_condition" @keyup.enter="callData"
+                style="height: 5px; font-size: 12px;">
             </div>
           </td>
         </tr>
         <tr class="header1">
-          <td class="num">게시글 번호</td>
-          <td>게시글 제목</td>
-          <td>조회수</td>
+          <td class="num">No</td>
+          <td>제목</td>
           <td>작성자</td>
+          <td>작성부서</td>
           <td>작성일자</td>
         </tr>
         <tbody>
-    <tr v-for="(item, index) in filteredfree" :key="item.freeId" class="allpost" @click="changeRouter(item.freeId)">
-      <td>{{ item.freeId}}</td>
-      <td class="boardname">{{ item.freeTitle }}</td>
-      <td>{{ item.freeViewCount }}</td>
-      <td>{{ item.member.nickname }}</td>
-      <td>{{ item.freeDate }}</td>
+    <tr v-for="(item, index) in filteredfree" :key="item.noticeId" class="allpost" @click="changeRouter(item.noticeId)">
+      <td>{{ item.noticeId}}</td>
+      <td class="boardname">{{ item.noticeTitle }}</td>
+      <td>{{ item.employee.employeeName }}</td>
+      <td>{{ item.employee.team_code_id }}</td>
+      <td>{{ item.noticeDate }}</td>
     </tr>
   </tbody>
       </table>
@@ -50,21 +51,20 @@
   
   <script setup>
   import { onMounted, ref, watch } from "vue";
-  // import axios from "axios";
+  import axios from "axios";
   import router from "@/router/mainRouter";
   
-  const free = ref([]);
+  const notice = ref([]);
   const index = 1;
   const search_condition = ref("");
   const search_type = ref("titleContent");
   const filteredfree = ref([]);
   
   const fetchfree = () => {
-    axios.get(`http://localhost:8081/free_board/list`)
+    axios.get(`http://localhost:7775/notice_board`)
       .then(response => {
-        free.value = response.data;
+        notice.value = response.data;
         filteredfree.value = response.data; 
-        console.log(free.value);
       })
       .catch(error => {
         console.error("Error fetching free:", error);
@@ -75,19 +75,19 @@
     fetchfree();
   });
   
-  function changeRouter(freeId) {
-    router.push(`/free_board/${freeId}`);
+  function changeRouter(noticeId) {
+    router.push(`/notice/${noticeId}`);
   }
   
   function goToWritePage(){
-    router.push(`/free_board/regist`);
+    router.push(`/notice/regist`);
   }
 
   watch([search_condition, search_type], () => {
     if (search_condition.value && search_type.value) {
       filterfree();
     } else {
-      filteredfree.value = free.value;
+      filteredfree.value = notice.value;
     }
   });
   
@@ -117,5 +117,5 @@
   </script>
   
   <style scoped>
-    /* @import url('@/assets/css/PostMain/freePostMain.css'); */
+     @import url('@/assets/css/notice/NoticeList.css'); 
   </style>
