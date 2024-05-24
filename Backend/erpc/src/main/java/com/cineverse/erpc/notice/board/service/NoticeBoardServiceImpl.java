@@ -85,7 +85,6 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
         return noticeBoard;
     }
 
-
     @Override
     public NoticeBoard deleteNotice(long noticeId) throws UsernameNotFoundException {
 

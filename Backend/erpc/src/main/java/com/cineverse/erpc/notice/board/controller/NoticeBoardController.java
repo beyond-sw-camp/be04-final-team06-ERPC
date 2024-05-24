@@ -56,7 +56,7 @@ public class NoticeBoardController {
 
     /* 공지사항 게시글 삭제 */
     @PatchMapping("/delete/{noticeId}")
-    public ResponseEntity<NoticeBoard> deleteNotice(@PathVariable Long noticeId) {
+    public ResponseEntity<NoticeBoard> deleteNotice(@PathVariable long noticeId) {
         return ResponseEntity.ok(noticeBoardService.deleteNotice(noticeId));
     }
 
