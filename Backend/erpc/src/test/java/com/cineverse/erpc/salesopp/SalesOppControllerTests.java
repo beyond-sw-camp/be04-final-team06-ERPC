@@ -3,8 +3,10 @@ package com.cineverse.erpc.salesopp;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppStatus;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
+import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppRepository;
 import com.cineverse.erpc.salesopp.opportunity.service.SalesOppService;
 import jakarta.persistence.EntityNotFoundException;
@@ -110,9 +112,23 @@ class SalesOppControllerTests {
 
     @Test
     @Transactional
-    @DisplayName("영업기회 삭제요청 테스트")
-    public void deleteSalesOpp() {
+    @DisplayName("영업기회 삭제 요청 성공 테스트")
+    public void successSalesOppDeleteRequest() {
+
+        SalesOpp salesOpp = salesOppRepository.findById(Long.valueOf(2))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
+
+        SalesOppDeleteRequestDTO requestDeleteOpp = SalesOppDeleteRequestDTO.builder()
+                .salesOppDeleteRequestReason("테스트 삭제 사유")
+                .salesOpp(salesOpp)
+                .build();
+
+        SalesOppDeleteRequest deletedOpp = salesOppService.requestDeleteOpp(requestDeleteOpp);
+
+        assertThat(requestDeleteOpp.getSalesOppDeleteRequestReason()).isEqualTo(deletedOpp.getSalesOppDeleteRequestReason());
+        assertThat(requestDeleteOpp.getSalesOpp()).isEqualTo(deletedOpp.getSalesOpp());
     }
+
 
     @Test
     @Transactional
@@ -127,5 +143,17 @@ class SalesOppControllerTests {
     @Transactional
     @DisplayName("영업기회 단일 조회 테스트")
     public void findSalesOppById() {
+        SalesOpp testOpp = salesOppRepository.findById(Long.valueOf(2))
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
+
+        SalesOppDTO salesOpp = salesOppService.findSalesOppById(2);
+
+        assertThat(salesOpp.getOppAccountName()).isEqualTo(testOpp.getOppAccountName());
+        assertThat(salesOpp.getOppAccountPic()).isEqualTo(testOpp.getOppAccountPic());
+        assertThat(salesOpp.getOppAccountContact()).isEqualTo(testOpp.getOppAccountContact());
+        assertThat(salesOpp.getOppAccountLocation()).isEqualTo(testOpp.getOppAccountLocation());
+        assertThat(salesOpp.getOppAccountEmail()).isEqualTo(testOpp.getOppAccountEmail());
+        assertThat(salesOpp.getOppAccountNote()).isEqualTo(testOpp.getOppAccountNote());
+        assertThat(salesOpp.getEmployee()).isEqualTo(testOpp.getEmployee());
     }
 }
