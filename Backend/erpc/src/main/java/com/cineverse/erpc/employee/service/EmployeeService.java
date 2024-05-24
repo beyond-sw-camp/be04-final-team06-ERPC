@@ -15,4 +15,6 @@ public interface EmployeeService extends UserDetailsService {
     ResponseEmployeeDTO findEmployeeById(long employeeId);
 
     ResponseModifyPassword modifyPassword(RequestModifyPassword requestModifyPassword);
+
+    ResponseModifyEmployee modifyEmployee(RequestModifyEmployee requestModifyEmployee);
 }
