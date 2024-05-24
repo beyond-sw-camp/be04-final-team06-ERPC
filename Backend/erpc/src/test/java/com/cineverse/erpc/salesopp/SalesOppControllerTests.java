@@ -129,7 +129,6 @@ class SalesOppControllerTests {
         assertThat(requestDeleteOpp.getSalesOpp()).isEqualTo(deletedOpp.getSalesOpp());
     }
 
-
     @Test
     @Transactional
     @DisplayName("영업기회 전체 조회 테스트")
