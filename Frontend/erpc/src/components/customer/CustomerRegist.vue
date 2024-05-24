@@ -36,7 +36,7 @@
                 <table class="customer-table2">
                     <thead>
                         <tr>
-                            <th>기업 상태 (휴/폐업 여부)</th>
+                            <th>기업 상태</th>
                             <th>법인 여부</th>
                             <th>소재지</th>
                         </tr>
@@ -96,6 +96,7 @@ import axios from 'axios';
 const brNo = ref('');
 const businessStatus = ref('');
 const businessNumber = ref('');
+const taxType = ref('');
 
 const fetchBusinessData = async () => {
     try {
@@ -105,11 +106,18 @@ const fetchBusinessData = async () => {
         });
         console.log('API 응답:', response.data); // API 응답 로그
         if (response.data.data && response.data.data.length > 0) {
-            businessNumber.value = response.data.data[0].b_no;
-            businessStatus.value = response.data.data[0].b_stt;
-            console.log('사업자 번호:', businessNumber.value, '사업자 상태:', businessStatus.value); // 상태 로그
+            const result = response.data.data[0];
+            businessNumber.value = result.b_no;
+            businessStatus.value = result.b_stt;
+            taxType.value = result.tax_type;
+            console.log('사업자 번호:', businessNumber.value, '사업자 상태:', businessStatus.value, '세금 유형:', taxType.value); // 상태 로그
+
+            if (taxType.value === "국세청에 등록되지 않은 사업자등록번호입니다.") {
+                alert(taxType.value);
+            }
         } else {
             alert('조회된 결과가 없습니다.');
+            console.warn('조회된 결과가 없습니다.');
         }
     } catch (error) {
         console.error('Error fetching business data:', error);
@@ -117,6 +125,8 @@ const fetchBusinessData = async () => {
     }
 }
 </script>
+
+
 
 
 
