@@ -52,7 +52,6 @@ public class NoticeBoardControllerTests {
                 .employee(employee)
                 .team(team)
                 .build();
-
         MultipartFile[] files = new MultipartFile[0];
 
         NoticeBoard notice = noticeBoardService.registNotice(testNotice, files);
