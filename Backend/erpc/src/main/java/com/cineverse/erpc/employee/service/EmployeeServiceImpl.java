@@ -35,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public void registEmployee(EmployeeDTO employeeDTO) {
+    public ResponseRegistDTO registEmployee(EmployeeDTO employeeDTO) {
 
         employeeDTO.setEmployeeUUID(UUID.randomUUID().toString());
 
@@ -45,6 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setEmployeePassword(bCryptPasswordEncoder.encode(employeeDTO.getEmployeePassword()));
 
         employeeRepository.save(employee);
+        return modelMapper.map(employee, ResponseRegistDTO.class);
     }
 
     @Override

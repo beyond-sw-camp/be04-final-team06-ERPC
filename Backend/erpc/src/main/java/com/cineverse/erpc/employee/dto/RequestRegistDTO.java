@@ -1,8 +1,12 @@
 package com.cineverse.erpc.employee.dto;
 
+import com.cineverse.erpc.employee.aggregate.EmployeeRank;
+import com.cineverse.erpc.employee.aggregate.TeamCode;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class RequestRegistDTO {
     private long employeeId;
     private String employeeCode;
@@ -12,6 +16,6 @@ public class RequestRegistDTO {
     private String employeeHp;
     private String employeeNumber;
     private String employmentDate;
-    private int employeeRankId;
-    private int teamCodeId;
+    private EmployeeRank employeeRank;
+    private TeamCode teamCode;
 }

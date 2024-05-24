@@ -1,7 +1,7 @@
 package com.cineverse.erpc.target.dto;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
-import com.cineverse.erpc.employee.aggregate.Team;
+import com.cineverse.erpc.employee.aggregate.TeamCode;
 import lombok.*;
 
 @NoArgsConstructor
@@ -15,6 +15,6 @@ public class TargetDTO {
     private String targetYear;
     private String targetQuarter;
     private String targetMonth;
-    private Team team;
+    private TeamCode team;
     private Employee employee;
 }
