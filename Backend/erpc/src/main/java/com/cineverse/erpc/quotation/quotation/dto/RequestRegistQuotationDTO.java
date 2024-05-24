@@ -5,11 +5,13 @@ import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.file.aggregate.QuotationFile;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Builder
 public class RequestRegistQuotationDTO {
     private String quotationNote;
     private long quotationTotalCost;
