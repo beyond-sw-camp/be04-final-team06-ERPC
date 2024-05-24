@@ -87,8 +87,6 @@
     </div>
 </template>
 
-
-
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
@@ -125,10 +123,6 @@ const fetchBusinessData = async () => {
     }
 }
 </script>
-
-
-
-
 
 <style>
     @import url('@/assets/css/customer/CustomerRegist.css');

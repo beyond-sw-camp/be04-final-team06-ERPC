@@ -19,14 +19,14 @@
                     <tr>
                         <td>
                             <div class="item-code-div2">
-                                <input type="text" id="item-code-box2" class="item-code-box2" placeholder="품목 코드를 입력해주세요.">
-                                <button class="item-code-btn2">확인</button>
+                                <input type="text" v-model="itemCode" class="item-code-box2" placeholder="품목 코드를 입력해주세요.">
+                                <button @click="fetchProductData" class="item-code-btn2">확인</button>
                             </div>
                         </td>
-                        <td>LG 콤퓨타</td>
-                        <td><input type="text" class="estimate-test2"></td>
-                        <td>1,800,000</td>
-                        <td>9,000,000</td>
+                        <td>{{ productName }}</td>
+                        <td><input type="number" v-model.number="quantity" class="estimate-test2"></td>
+                        <td>{{ productPrice }}</td>
+                        <td>{{ supplyValue }}</td>
                         <td><input type="text" class="estimate-test3"></td>
                     </tr>
                 </tbody>
@@ -101,8 +101,43 @@
 
 
 <script setup>
+import { ref, watch } from 'vue';
+import axios from 'axios';
 
+const itemCode = ref('');
+const productName = ref('');
+const productPrice = ref(0);
+const quantity = ref(0);
+const supplyValue = ref(0);
+
+const fetchProductData = async () => {
+    try {
+        const response = await axios.get('http://localhost:7775/product');
+        const products = response.data;
+        const product = products.find(p => p.productCode === itemCode.value);
+        if (product) {
+            productName.value = product.productName;
+            productPrice.value = product.productPrice;
+            updateSupplyValue(); // 수량과 단가로 공급가액 계산
+        } else {
+            alert('해당 품목 코드를 찾을 수 없습니다.');
+        }
+    } catch (error) {
+        console.error('Error fetching product data:', error);
+        alert('제품 정보를 조회하는 중 오류가 발생했습니다.');
+    }
+}
+
+const updateSupplyValue = () => {
+    supplyValue.value = productPrice.value * quantity.value;
+};
+
+// 수량이 변경될 때 공급가액을 자동으로 업데이트
+watch(quantity, (newQuantity) => {
+    updateSupplyValue();
+});
 </script>
+
 
 <style>
     @import url('@/assets/css/estimate/EstimateRegist.css');

@@ -69,8 +69,14 @@
     padding: 8px;
 }
 
+.estimate-test2 {
+    width: 80px; /* 수량 필드의 너비를 좁게 설정 */
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
 .estimate-test1,
-.estimate-test2,
 .estimate-test3,
 .estimate-test4,
 .estimate-test5,
@@ -104,6 +110,7 @@
     font-size: 14px;
     cursor: pointer;
 }
+
 
 .estimate-attachment {
     display: flex;
@@ -183,3 +190,4 @@
     margin-top: 20px;
     margin-bottom: 100px;
 }
+
