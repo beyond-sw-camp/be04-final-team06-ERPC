@@ -1,5 +1,7 @@
 package com.cineverse.erpc.excel;
 
+import com.cineverse.erpc.contract.dto.ContractProductDTO;
+import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.dto.OrderDTO;
 import com.cineverse.erpc.order.order.service.OrderService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -45,7 +47,9 @@ public class OrderExcelController {
         bodyStyle.setAlignment(HorizontalAlignment.CENTER);
 
         String[] headers = {
-                "거래코드", "거래처명", "수주금액", "계약금", "중도금", "잔금",
+                "거래코드", "거래처명",
+                "상품명", "상품수량", "상품단가", "출하창고",
+                "수주금액", "계약금", "중도금", "잔금",
                 "납기기한일", "계약일", "출고일", "수령일", "담당자", "비고", "작성일자"
         };
 
@@ -59,17 +63,27 @@ public class OrderExcelController {
         Row row = sheet.createRow(1);
         row.createCell(0).setCellValue(order.getTransaction().getTransactionCode());
         row.createCell(1).setCellValue(order.getAccount().getAccountName());
-        row.createCell(2).setCellValue(order.getOrderTotalPrice());
-        row.createCell(3).setCellValue(order.getDownPayment());
-        row.createCell(4).setCellValue(order.getProgressPayment());
-        row.createCell(5).setCellValue(order.getBalance());
-        row.createCell(6).setCellValue(order.getOrderDueDate());
-        row.createCell(7).setCellValue(order.getContactDate());
-        row.createCell(8).setCellValue(order.getReleaseDate());
-        row.createCell(9).setCellValue(order.getArriveDate());
-        row.createCell(10).setCellValue(order.getEmployee().getEmployeeName());
-        row.createCell(11).setCellValue(order.getOrderNote());
-        row.createCell(12).setCellValue(order.getOrderDate());
+
+        int rowNum = 2;
+        for (OrderProduct product : order.getOrderProduct()) {
+            Row productRow = sheet.createRow(rowNum++);
+            productRow.createCell(2).setCellValue(product.getProduct().getProductName());
+            productRow.createCell(3).setCellValue(product.getOrderProductCount());
+            productRow.createCell(4).setCellValue(product.getOrderSupplyPrice());
+            productRow.createCell(5).setCellValue(order.getWarehouse().getWarehouseName());
+        }
+
+        row.createCell(6).setCellValue(order.getOrderTotalPrice());
+        row.createCell(7).setCellValue(order.getDownPayment());
+        row.createCell(8).setCellValue(order.getProgressPayment());
+        row.createCell(9).setCellValue(order.getBalance());
+        row.createCell(10).setCellValue(order.getOrderDueDate());
+        row.createCell(11).setCellValue(order.getContactDate());
+        row.createCell(12).setCellValue(order.getReleaseDate());
+        row.createCell(13).setCellValue(order.getArriveDate());
+        row.createCell(14).setCellValue(order.getEmployee().getEmployeeName());
+        row.createCell(15).setCellValue(order.getOrderNote());
+        row.createCell(16).setCellValue(order.getOrderDate());
 
         for (int k = 0; k < headers.length; k++) {
             sheet.autoSizeColumn(k);
