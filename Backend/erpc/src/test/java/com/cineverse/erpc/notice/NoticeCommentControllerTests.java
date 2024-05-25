@@ -74,8 +74,10 @@ class NoticeCommentControllerTests {
     @Transactional
     @DisplayName("공지사항 댓글 전체 조회 테스트")
     public void findNoticeCommentList() {
-        List<NoticeComment> noticeCommentList = noticeCommentService.findNoticeCommentList();
+        List<NoticeComment> actualCommentList = noticeCommentRepository.findByCommentDeleteDateIsNullOrderByNoticeCommentIdDesc();
+        List<NoticeComment> testCommentList = noticeCommentService.findNoticeCommentList();
 
-        assertThat(noticeCommentList).isNotEmpty();
+        assertThat(actualCommentList.size()).isEqualTo(testCommentList.size());
+        assertThat(testCommentList).isNotEmpty();
     }
 }
