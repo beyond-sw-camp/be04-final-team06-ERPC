@@ -18,8 +18,12 @@ import java.io.IOException;
 @RequestMapping("excel")
 public class ContractExcelController {
 
+    private final ContractService contractService;
+
     @Autowired
-    private ContractService contractService;
+    public ContractExcelController(ContractService contractService) {
+        this.contractService = contractService;
+    }
 
     @GetMapping("contract/{contractId}")
     public void contractDownload(@PathVariable long contractId, HttpServletResponse response) throws IOException {
@@ -80,11 +84,6 @@ public class ContractExcelController {
             balanceCell.setCellValue("");
         }
 
-        row.createCell(11).setCellValue(contract.getContractDueDate());
-        row.createCell(12).setCellValue(contract.getEmployee().getEmployeeName());
-        row.createCell(13).setCellValue(contract.getContractNote());
-        row.createCell(14).setCellValue(contract.getContractDate());
-
         int rowNum = 2;
         for (ContractProductDTO product : contract.getContractProduct()) {
             Row productRow = sheet.createRow(rowNum++);
@@ -92,6 +91,11 @@ public class ContractExcelController {
             productRow.createCell(9).setCellValue(product.getContractProductCount());
             productRow.createCell(10).setCellValue(product.getContractSupplyPrice());
         }
+
+        row.createCell(11).setCellValue(contract.getContractDueDate());
+        row.createCell(12).setCellValue(contract.getEmployee().getEmployeeName());
+        row.createCell(13).setCellValue(contract.getContractNote());
+        row.createCell(14).setCellValue(contract.getContractDate());
 
         for (int k = 0; k < headers.length; k++) {
             sheet.autoSizeColumn(k);
