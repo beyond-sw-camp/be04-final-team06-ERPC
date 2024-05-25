@@ -22,7 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NoticeCommentControllerTests {
 
     private final NoticeCommentRepository noticeCommentRepository;
-    private final NoticeBoardRepository noticeBoardRepository;
     private final NoticeCommentService noticeCommentService;
     private final EmployeeRepository employeeRepository;
 
@@ -32,7 +31,6 @@ class NoticeCommentControllerTests {
                                         NoticeCommentService noticeCommentService,
                                         EmployeeRepository employeeRepository) {
         this.noticeCommentRepository = noticeCommentRepository;
-        this.noticeBoardRepository = noticeBoardRepository;
         this.noticeCommentService = noticeCommentService;
         this.employeeRepository = employeeRepository;
     }

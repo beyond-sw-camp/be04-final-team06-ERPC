@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ResponseFindOrderNotesDTO {
+    private long orderNoteId;
     private String orderNote;
     private String orderNoteDate;
     private String orderDeleteDate;

@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ResponseRegistDTO {
+    private long employeeId;
     private String employeeCode;
     private String employeeName;
     private String employeeEmail;

@@ -34,5 +34,4 @@ public class SalesServiceImpl implements SalesService {
         List<Order> orders = orderRepository.findByDownPaymentIsNotNull();
         return orders.stream().mapToLong(Order::getOrderTotalPrice).sum();
     }
-
 }

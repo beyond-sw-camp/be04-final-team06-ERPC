@@ -125,4 +125,3 @@ public class AccessTests {
         assertThat(addAccess.getAccessRight().get(0)).isEqualTo(responseAddAccess.getAccessRight().get(0));
         assertThat(addAccess.getAccessRight().get(1)).isEqualTo(responseAddAccess.getAccessRight().get(1));
     }
-}

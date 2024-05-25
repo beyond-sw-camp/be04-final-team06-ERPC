@@ -1,7 +1,7 @@
 package com.cineverse.erpc.notice;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
-import com.cineverse.erpc.employee.aggregate.Team;
+import com.cineverse.erpc.employee.aggregate.TeamCode;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
 import com.cineverse.erpc.notice.board.aggregate.NoticeBoard;
 import com.cineverse.erpc.notice.board.dto.NoticeBoardDTO;
@@ -42,7 +42,7 @@ public class NoticeBoardControllerTests {
         Employee employee = employeeRepository.findById(Long.valueOf(1))
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
-        Team team = new Team();
+        TeamCode team = new TeamCode();
         team.setTeamCodeId(1);
         team.setTeamCode("영업 1팀");
 
