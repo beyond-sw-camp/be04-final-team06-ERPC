@@ -32,9 +32,11 @@ class ProductControllerTests {
     @Transactional
     @DisplayName("품목 전체 조회 테스트")
     public void getProductList() {
-        List<Product> productList = productService.findProductList();
+        List<Product> actualProductList = productRepository.findAll();
+        List<Product> testProductList = productService.findProductList();
 
-        assertThat(productList).isNotEmpty();
+        assertThat(actualProductList.size()).isEqualTo(testProductList.size());
+        assertThat(testProductList).isNotEmpty();
     }
 
     @Test
