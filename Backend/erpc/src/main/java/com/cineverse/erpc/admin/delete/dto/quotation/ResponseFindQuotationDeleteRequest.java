@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class ResponseFindQuotationDeleteRequest {
+    private long quotationDeleteRequestId;
     private String quotationDeleteRequestReason;
     private String quotationDeleteRequestStatus;
     private Quotation quotation;

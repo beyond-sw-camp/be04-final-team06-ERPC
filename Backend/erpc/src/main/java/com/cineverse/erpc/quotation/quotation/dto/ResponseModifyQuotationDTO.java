@@ -11,6 +11,7 @@ import java.util.List;
 
 @Data
 public class ResponseModifyQuotationDTO {
+    private long quotationId;
     private String quotationNote;
     private long quotationTotalCost;
     private String quotationDueDate;
