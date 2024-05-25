@@ -1,11 +1,10 @@
-package com.cineverse.erpc.excel.controller;
+package com.cineverse.erpc.excel;
 
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.service.QuotationService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,8 +46,9 @@ public class QuotationExcelController {
         bodyStyle.setAlignment(HorizontalAlignment.CENTER);
 
         String[] headers = {
-                "견적서코드", "거래처명", "거래번호", "총비용",
-                "상품명", "상품수량", "상품단가", "마감일자", "담당자명", "비고", "작성일자"
+                "견적서코드", "거래처명", "거래번호",
+                "상품명", "상품수량", "상품단가",
+                "총비용", "마감일자", "담당자명", "비고", "작성일자"
         };
 
         Row headerRow = sheet.createRow(0);
@@ -62,16 +62,16 @@ public class QuotationExcelController {
         row.createCell(0).setCellValue(quotation.getQuotationCode());
         row.createCell(1).setCellValue(quotation.getAccount().getAccountName());
         row.createCell(2).setCellValue(quotation.getTransaction().getTransactionCode());
-        row.createCell(3).setCellValue(quotation.getQuotationTotalCost());
 
         int rowNum = 2;
         for (QuotationProduct product : quotation.getQuotationProduct()) {
             Row productRow = sheet.createRow(rowNum++);
-            productRow.createCell(4).setCellValue(product.getProduct().getProductId());
-            productRow.createCell(5).setCellValue(product.getQuotationProductCount());
-            productRow.createCell(6).setCellValue(product.getQuotationSupplyPrice());
+            productRow.createCell(3).setCellValue(product.getProduct().getProductId());
+            productRow.createCell(4).setCellValue(product.getQuotationProductCount());
+            productRow.createCell(5).setCellValue(product.getQuotationSupplyPrice());
         }
 
+        row.createCell(6).setCellValue(quotation.getQuotationTotalCost());
         row.createCell(7).setCellValue(quotation.getQuotationDueDate());
         row.createCell(8).setCellValue(quotation.getEmployee().getEmployeeName());
         row.createCell(9).setCellValue(quotation.getQuotationNote());
@@ -82,7 +82,7 @@ public class QuotationExcelController {
         }
 
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        String filename = "quotation-" + quotation.getQuotationId() + ".xlsx";
+        String filename = quotation.getQuotationCode() + ".xlsx";
         response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
 
         wb.write(response.getOutputStream());
