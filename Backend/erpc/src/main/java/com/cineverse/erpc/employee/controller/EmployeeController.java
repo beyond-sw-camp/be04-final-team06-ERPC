@@ -62,4 +62,13 @@ public class EmployeeController {
 
         return ResponseEntity.status(HttpStatus.OK).body(responseModifyPassword);
     }
+
+    @PatchMapping("/modify")
+    private ResponseEntity<ResponseModifyEmployee> modifyEmployee(
+            @RequestBody RequestModifyEmployee requestModifyEmployee) {
+        ResponseModifyEmployee responseModifyEmployee = employeeService.modifyEmployee(requestModifyEmployee);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseModifyEmployee);
+    }
+
 }

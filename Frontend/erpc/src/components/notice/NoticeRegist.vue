@@ -37,19 +37,19 @@
     submitting.value = true; 
   
      try {
-    //   const memberIdCookie = document.cookie.split('; ')
-    //     .find(cookie => cookie.startsWith('memberId='));
+      const memberIdCookie = document.cookie.split('; ')
+        .find(cookie => cookie.startsWith('memberId='));
   
-    //   if (!memberIdCookie) {
-    //     console.error('사용자 정보가 없습니다.');
-    //     return;
-    //   }
+      if (!memberIdCookie) {
+        console.error('사용자 정보가 없습니다.');
+        return;
+      }
   
-    //   const memberId = memberIdCookie.split('=')[1];
-    //   if (!memberId) {
-    //     console.error('사용자 아이디가 없습니다.');
-    //     return;
-    //   }
+      const memberId = memberIdCookie.split('=')[1];
+      if (!memberId) {
+        console.error('사용자 아이디가 없습니다.');
+        return;
+      }
   
       const formData = new FormData();
       formData.append('freeBoard', JSON.stringify({

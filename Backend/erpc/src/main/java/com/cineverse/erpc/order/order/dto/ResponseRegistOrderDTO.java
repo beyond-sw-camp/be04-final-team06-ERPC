@@ -8,12 +8,14 @@ import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class ResponseRegistOrderDTO {
+    private long orderRegistrationId;
     private String contactDate;
     private long orderTotalPrice;
     private String orderDueDate;

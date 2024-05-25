@@ -28,15 +28,14 @@ public class TaxInvoiceController {
     }
 
     /* 세금계산서 요청  */
-    @PostMapping("/regist")
+    @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<TaxInvoiceRequestDTO> registTaxInvoiceRequest(@RequestPart("taxInvoiceRequest") String taxInvoiceJson,
                                                                         @RequestPart(value = "files", required = false) MultipartFile[] files)
             throws JsonProcessingException {
 
-        String utf8Json = new String(taxInvoiceJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         ObjectMapper objectMapper = new ObjectMapper();
 
-        TaxInvoiceRequestDTO newTaxInvoice = objectMapper.readValue(utf8Json, TaxInvoiceRequestDTO.class);
+        TaxInvoiceRequestDTO newTaxInvoice = objectMapper.readValue(taxInvoiceJson, TaxInvoiceRequestDTO.class);
 
         taxInvoiceService.registTaxInvoiceRequest(newTaxInvoice, files);
 

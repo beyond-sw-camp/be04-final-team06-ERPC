@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 public class ResponseAddAccessDTO {
+    private long accessRequestId;
     private Employee employee;
     private List<AccessRight> accessRight;
 }

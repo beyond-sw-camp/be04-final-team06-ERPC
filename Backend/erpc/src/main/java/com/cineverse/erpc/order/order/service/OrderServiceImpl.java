@@ -1,6 +1,5 @@
 package com.cineverse.erpc.order.order.service;
 
-import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.file.service.FileUploadService;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.order.order.aggregate.OrderDeleteRequest;
@@ -10,7 +9,6 @@ import com.cineverse.erpc.order.order.dto.*;
 import com.cineverse.erpc.order.order.repo.OrderDeleteRequestRepository;
 import com.cineverse.erpc.order.order.repo.OrderProductRepository;
 import com.cineverse.erpc.order.order.repo.OrderRepository;
-import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
 import com.cineverse.erpc.shipment.aggregate.Shipment;
@@ -60,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void registOrder(RequestRegistOrderDTO requestOrder, MultipartFile[] files) {
+    public ResponseRegistOrderDTO registOrder(RequestRegistOrderDTO requestOrder, MultipartFile[] files) {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDate = dateFormat.format(date);
@@ -94,6 +92,9 @@ public class OrderServiceImpl implements OrderService {
                 String url = fileUploadService.saveOrderFile(file, order);
             }
         }
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        return mapper.map(order, ResponseRegistOrderDTO.class);
     }
 
     private OrderProduct registOrderProduct(OrderProduct product, Order order) {
