@@ -1,4 +1,4 @@
-package com.cineverse.erpc.excel.controller;
+package com.cineverse.erpc.excel;
 
 import com.cineverse.erpc.contract.dto.ContractDTO;
 import com.cineverse.erpc.contract.dto.ContractProductDTO;
@@ -102,7 +102,7 @@ public class ContractExcelController {
         }
 
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        String filename = "contract-" + contract.getContractId() + ".xlsx";
+        String filename = contract.getContractCode() + ".xlsx";
         response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
 
         wb.write(response.getOutputStream());

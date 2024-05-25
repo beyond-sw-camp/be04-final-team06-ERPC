@@ -1,11 +1,10 @@
-package com.cineverse.erpc.excel.controller;
+package com.cineverse.erpc.excel;
 
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.service.QuotationService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,7 +81,7 @@ public class QuotationExcelController {
         }
 
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        String filename = "quotation-" + quotation.getQuotationId() + ".xlsx";
+        String filename = quotation.getQuotationCode() + ".xlsx";
         response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
 
         wb.write(response.getOutputStream());
