@@ -1,22 +1,22 @@
-
-
-//import com.akatsuki.pioms.product.dto.ProductDTO;
-//import com.akatsuki.pioms.product.service.ProductService;
-import jakarta.servlet.http.HttpServletResponse;
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
+//package com.cineverse.erpc.excel.controller;
+//
+////import com.akatsuki.pioms.product.dto.ProductDTO;
+////import com.akatsuki.pioms.product.service.ProductService;
+//import jakarta.servlet.http.HttpServletResponse;
+//import org.apache.poi.ss.usermodel.*;
+//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+//import org.springframework.context.annotation.ComponentScan;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RestController;
+//
+//import java.util.List;
+//
 //@RestController
 //@RequestMapping("admin/exceldownload")
 //@ComponentScan
-public class ExcelTest {
-
+//public class ExcelTest {
+//
 //    private ProductService productService;
 //    private List<ProductDTO> productList;
 //
@@ -147,4 +147,4 @@ public class ExcelTest {
 //        wb.write(response.getOutputStream());
 //        wb.close();
 //    }
-}
+//}

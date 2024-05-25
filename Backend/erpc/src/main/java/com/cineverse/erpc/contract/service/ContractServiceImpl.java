@@ -5,6 +5,7 @@ import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
 import com.cineverse.erpc.contract.aggregate.ContractProduct;
 import com.cineverse.erpc.contract.dto.ContractDTO;
 import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
+import com.cineverse.erpc.contract.dto.ContractProductDTO;
 import com.cineverse.erpc.contract.repository.ContractDeleteRequestRepository;
 import com.cineverse.erpc.contract.repository.ContractProductRepository;
 import com.cineverse.erpc.contract.repository.ContractRepository;
@@ -83,7 +84,7 @@ public class ContractServiceImpl implements ContractService {
 
         if (contractDTO.getContractProduct() != null) {
             List<ContractProduct> contractProducts = new ArrayList<>();
-            for (ContractProduct cpDTO : contractDTO.getContractProduct()) {
+            for (ContractProductDTO cpDTO : contractDTO.getContractProduct()) {
                 ContractProduct cp = modelMapper.map(cpDTO, ContractProduct.class);
                 Product product = productRepository.findById(cpDTO.getProduct().getProductId())
                         .orElseThrow(() -> new RuntimeException("존재하지 않는 상품입니다."));
@@ -182,7 +183,7 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public List<Contract> findContractList() {
-        List<Contract> contractList = contractRepository.findByContractDeleteDateIsNull();
+        List<Contract> contractList = contractRepository.findByContractDeleteDateIsNullOrderByContractIdDesc();
 
         return contractList.stream().map(contract -> modelMapper
                         .map(contract, Contract.class))
