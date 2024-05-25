@@ -98,8 +98,10 @@ public class NoticeBoardControllerTests {
     @Transactional
     @DisplayName("공지사항 전체 조회 테스트")
     public void findNoticeList() {
+        List<NoticeBoard> actualNoticeList = noticeBoardRepository.findByNoticeDeleteDateIsNullOrderByNoticeIdDesc();
         List<NoticeBoard> testNoticeList = noticeBoardService.findNoticeList();
 
+        assertThat(actualNoticeList.size()).isEqualTo(testNoticeList.size());
         assertThat(testNoticeList).isNotEmpty();
     }
 
