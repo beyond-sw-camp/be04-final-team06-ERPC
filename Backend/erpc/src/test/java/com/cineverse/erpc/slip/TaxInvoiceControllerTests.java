@@ -1,4 +1,4 @@
-package com.cineverse.erpc.slip.taxinvoice;
+package com.cineverse.erpc.slip;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.repository.AccountRepository;
