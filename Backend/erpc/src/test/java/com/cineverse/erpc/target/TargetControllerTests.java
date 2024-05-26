@@ -1,4 +1,4 @@
-package com.cineverse.erpc.target.controller;
+package com.cineverse.erpc.target;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.aggregate.TeamCode;
