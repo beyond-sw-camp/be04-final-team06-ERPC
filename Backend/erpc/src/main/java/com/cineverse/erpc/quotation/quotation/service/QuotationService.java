@@ -13,7 +13,7 @@ public interface QuotationService {
 
     List<QuotationDTO> findAllQuotations();
 
-    ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation, MultipartFile[] files);
+    ResponseModifyQuotationDTO modifyQuotation(RequestModifyQuotationDTO quotation, MultipartFile[] files);
 
     ResponseDeleteQuotation deleteQuotation(RequestDeleteQuotation requestDeleteQuotation);
 

@@ -2,13 +2,14 @@ package com.cineverse.erpc.quotation.note.dto;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
-public class RequestRegistQuotationNoteDTO {
+public class ResponseDeleteQuotationNote {
+    private long quotationNoteId;
     private String quotationNote;
+    private String quotationNoteDate;
+    private String quotationDeleteDate;
     private Employee employee;
     private Quotation quotation;
 }
