@@ -15,6 +15,7 @@ import java.util.List;
 
 @Data
 public class ResponseRegistOrderDTO {
+    private long orderRegistrationId;
     private String contactDate;
     private long orderTotalPrice;
     private String orderDueDate;

@@ -11,12 +11,10 @@ import java.util.List;
 @Service
 public class TargetServiceImpl implements TargetService{
 
-    private final ModelMapper modelMapper;
     private final TargetRepository targetRepository;
 
     @Autowired
-    public TargetServiceImpl(ModelMapper modelMapper, TargetRepository targetRepository) {
-        this.modelMapper = modelMapper;
+    public TargetServiceImpl(TargetRepository targetRepository) {
         this.targetRepository = targetRepository;
     }
 

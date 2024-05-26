@@ -11,6 +11,7 @@ import lombok.*;
 @Builder
 public class ContractProductDTO {
     private long contractProductId;
+    private String contractProductionNote;
     private int contractProductCount;
     private long contractSupplyPrice;
     private Product product;

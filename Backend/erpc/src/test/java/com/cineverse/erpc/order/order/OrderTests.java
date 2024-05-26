@@ -1,4 +1,4 @@
-package com.cineverse.erpc.account.order.order;
+package com.cineverse.erpc.order.order;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.account.account.repository.AccountRepository;

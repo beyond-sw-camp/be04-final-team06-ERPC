@@ -9,7 +9,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findByEmployeeEmployeeIdAndDownPaymentIsNotNull(long employeeId);
 
-    List<Order> findByEmployeeTeamCodeIdAndDownPaymentIsNotNull(int teamCodeId);
+    List<Order> findByEmployeeTeamCodeTeamCodeIdAndDownPaymentIsNotNull(int teamCodeId);
 
     List<Order> findByDownPaymentIsNotNull();
 

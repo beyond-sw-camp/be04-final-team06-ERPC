@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ResponseFindEmployeesAccessDTO {
+    private long accessRequestId;
     private Employee employee;
     private AccessRight accessRight;
 }

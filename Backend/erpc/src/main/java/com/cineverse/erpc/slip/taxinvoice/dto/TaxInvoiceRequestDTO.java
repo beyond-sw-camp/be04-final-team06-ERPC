@@ -5,7 +5,7 @@ import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.file.aggregate.TaxInvoiceFile;
 import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.slip.collection.aggregate.Collection;
-import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceProcess;
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequestStatus;
 import lombok.*;
 
 import java.util.List;
@@ -24,6 +24,6 @@ public class TaxInvoiceRequestDTO {
     private Account account;
     private Employee employee;
     private Collection collection;
-    private TaxInvoiceProcess taxInvoiceProcess;
+    private TaxInvoiceRequestStatus taxInvoiceRequestStatus;
     private List<TaxInvoiceFile> taxInvoiceFile;
 }

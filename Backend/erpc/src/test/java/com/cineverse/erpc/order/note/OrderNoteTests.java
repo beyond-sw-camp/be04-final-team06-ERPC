@@ -1,4 +1,4 @@
-package com.cineverse.erpc.account.order.note;
+package com.cineverse.erpc.order.note;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.employee.repo.EmployeeRepository;
