@@ -4,7 +4,9 @@ import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.file.aggregate.TaxInvoiceFile;
 import com.cineverse.erpc.order.order.aggregate.Order;
+import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.slip.collection.aggregate.Collection;
+import com.cineverse.erpc.slip.taxinvoiceissue.aggregate.TaxInvoiceIssue;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -43,8 +45,9 @@ public class TaxInvoiceRequest {
     @ManyToOne
     private Collection collection;
 
-    @OneToOne(mappedBy = "taxInvoiceRequest", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private TaxInvoiceProcess taxInvoiceProcess;
+    @JoinColumn(name = "tax_invoice_request_status_id")
+    @ManyToOne
+    private TaxInvoiceRequestStatus taxInvoiceRequestStatus;
 
     @OneToMany(mappedBy = "taxInvoiceRequest", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TaxInvoiceFile> taxInvoiceFile = new ArrayList<>();

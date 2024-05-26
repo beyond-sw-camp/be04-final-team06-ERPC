@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface TaxInvoiceRequestRepository extends JpaRepository<TaxInvoiceRequest, Long> {
     List<TaxInvoiceRequest> findAllByOrderByTaxInvoiceRequestIdDesc();
+
+    TaxInvoiceRequest findByTaxInvoiceRequestId(long taxInvoiceRequestId);
 }
