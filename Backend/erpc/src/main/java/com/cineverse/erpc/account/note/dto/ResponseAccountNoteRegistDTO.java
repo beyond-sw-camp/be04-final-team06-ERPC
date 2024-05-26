@@ -6,8 +6,10 @@ import lombok.Data;
 
 @Data
 public class ResponseAccountNoteRegistDTO {
+    private long accountNoteId;
     private String accountNote;
     private String accountNoteDate;
     private String accountDeleteDate;
     private Employee employee;
+    private Account account;
 }

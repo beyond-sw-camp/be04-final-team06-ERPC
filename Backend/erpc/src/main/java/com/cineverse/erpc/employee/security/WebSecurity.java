@@ -16,8 +16,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 
@@ -38,13 +36,10 @@ public class WebSecurity {
     }
 
     @Bean
-    protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
-
-        // 로그인 시 추가할 내용
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(employeeService).passwordEncoder(bCryptPasswordEncoder);
-
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
         // 로그인 이전
@@ -74,11 +69,13 @@ public class WebSecurity {
                 .requestMatchers(new AntPathRequestMatcher("/approval/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/delete/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/shipment/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/excel/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/issue/**")).permitAll()
                 .anyRequest().authenticated()  // 나머지 요청은 인증 필요
         ).authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
-        http.logout((auth) -> auth.logoutUrl("/logout"));
+        http.logout(auth -> auth.logoutUrl("/logout"));
 
         return http.build();
     }
@@ -88,29 +85,17 @@ public class WebSecurity {
     }
 
     @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
-            }
-        };
-    }
-
-    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setExposedHeaders(Arrays.asList("token", "userId"));  // 노출할 헤더 설정
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 }

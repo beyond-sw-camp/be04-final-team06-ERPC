@@ -1,7 +1,7 @@
 package com.cineverse.erpc.target.aggregate;
 
 import com.cineverse.erpc.employee.aggregate.Employee;
-import com.cineverse.erpc.employee.aggregate.Team;
+import com.cineverse.erpc.employee.aggregate.TeamCode;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,5 +36,5 @@ public class Target {
 
     @JoinColumn(name = "team_code_id")
     @ManyToOne
-    private Team team;
+    private TeamCode team;
 }

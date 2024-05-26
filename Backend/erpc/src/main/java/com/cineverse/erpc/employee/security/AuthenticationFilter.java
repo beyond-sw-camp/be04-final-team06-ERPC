@@ -24,8 +24,8 @@ import java.util.Date;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private EmployeeService employeeService;
-    private Environment environment;
+    private final EmployeeService employeeService;
+    private final Environment environment;
 
     public AuthenticationFilter(AuthenticationManager authenticationManager,
                                 EmployeeService employeeService,
@@ -35,7 +35,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         this.environment = environment;
     }
 
-    /* 로그인 시도 시 동작하는 기능(Post 방식의 /login 요청) -> request body에 담겨 온다.(stream 활용) */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException {
@@ -52,29 +51,29 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         }
     }
 
-    /* 로그인 성공 시 JWT 토큰 생성하는 기능 */
     @Override
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
-
         String employeeCode = ((User) authResult.getPrincipal()).getUsername();
 
         System.out.println("시크릿 키: " + environment.getProperty("token.secret"));
         System.out.println("employeeCode = " + employeeCode);
 
         EmployeeDTO employeeDetails = employeeService.getEmployeeDetailsByEmployeeCode(employeeCode);
-        String employeeId = employeeDetails.getEmployeeUUID();
+        String employeeId = Long.toString(employeeDetails.getEmployeeId());
 
         String token = Jwts.builder()
                 .setSubject(employeeId)
-                .setExpiration(new Date(System.currentTimeMillis()
-                        + Long.valueOf(environment.getProperty("token.expiration_time"))))
+                .setExpiration(new Date(System.currentTimeMillis() +
+                        Long.parseLong(environment.getProperty("token.expiration_time"))))
                 .signWith(SignatureAlgorithm.HS512, environment.getProperty("token.secret"))
                 .compact();
 
-        response.addHeader("token", token);
-        response.addHeader("userId", employeeId);
+        // Access-Control-Expose-Headers 헤더 추가
+        response.setHeader("Access-Control-Expose-Headers", "token, userId");
+        response.setHeader("token", token);
+        response.setHeader("userId", employeeId);
     }
 }

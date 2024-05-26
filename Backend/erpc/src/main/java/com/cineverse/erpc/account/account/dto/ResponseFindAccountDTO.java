@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ResponseFindAccountDTO {
+    private long accountId;
     private String accountName;
     private String corporationNum;
     private String accountDeleteDate;

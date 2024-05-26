@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ContractRepository extends JpaRepository<Contract, Long> {
-    List<Contract> findByContractDeleteDateIsNull();
 
+    List<Contract> findByContractDeleteDateIsNullOrderByContractIdDesc();
     boolean existsByContractCode(String contractCode);
 
     Optional<Contract> findByContractCode(String contractCode);
+
 }

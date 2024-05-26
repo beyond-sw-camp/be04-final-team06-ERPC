@@ -35,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public void registEmployee(EmployeeDTO employeeDTO) {
+    public ResponseRegistDTO registEmployee(EmployeeDTO employeeDTO) {
 
         employeeDTO.setEmployeeUUID(UUID.randomUUID().toString());
 
@@ -45,6 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setEmployeePassword(bCryptPasswordEncoder.encode(employeeDTO.getEmployeePassword()));
 
         employeeRepository.save(employee);
+        return modelMapper.map(employee, ResponseRegistDTO.class);
     }
 
     @Override
@@ -105,5 +106,56 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.save(employee);
 
         return modelMapper.map(employee, ResponseModifyPassword.class);
+    }
+
+    @Override
+    public ResponseModifyEmployee modifyEmployee(RequestModifyEmployee requestModifyEmployee) {
+        Employee employee = employeeRepository.findById(requestModifyEmployee.getEmployeeId())
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
+
+        if (requestModifyEmployee.getEmployeeCode() != null) {
+            employee.setEmployeeCode(requestModifyEmployee.getEmployeeCode());
+        }
+
+        if (requestModifyEmployee.getEmployeeName() != null) {
+            employee.setEmployeeName(requestModifyEmployee.getEmployeeName());
+        }
+
+        if (requestModifyEmployee.getEmployeePassword() != null) {
+            employee.setEmployeePassword(
+                    bCryptPasswordEncoder.encode(requestModifyEmployee.getEmployeePassword()));
+        }
+
+        if (requestModifyEmployee.getEmployeeEmail() != null) {
+            employee.setEmployeeEmail(requestModifyEmployee.getEmployeeEmail());
+        }
+
+        if (requestModifyEmployee.getEmployeeHp() != null) {
+            employee.setEmployeeHp(requestModifyEmployee.getEmployeeHp());
+        }
+
+        if (requestModifyEmployee.getEmployeeNumber() != null) {
+            employee.setEmployeeNumber(requestModifyEmployee.getEmployeeNumber());
+        }
+
+        if (requestModifyEmployee.getEmploymentDate() != null) {
+            employee.setEmploymentDate(requestModifyEmployee.getEmploymentDate());
+        }
+
+        if (requestModifyEmployee.getResignationDate() != null) {
+            employee.setResignationDate(requestModifyEmployee.getResignationDate());
+        }
+
+        if (requestModifyEmployee.getEmployeeRank() != null) {
+            employee.setEmployeeRank(requestModifyEmployee.getEmployeeRank());
+        }
+
+        if (requestModifyEmployee.getTeamCode() != null) {
+            employee.setTeamCode(requestModifyEmployee.getTeamCode());
+        }
+
+        employeeRepository.save(employee);
+
+        return modelMapper.map(employee, ResponseModifyEmployee.class);
     }
 }

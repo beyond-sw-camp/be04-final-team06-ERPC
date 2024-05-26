@@ -21,7 +21,7 @@ public class CollectionController {
     }
 
     @GetMapping("")
-    public List<Collection> findCollectoinList() {
+    public List<Collection> findCollectionList() {
         List<Collection> collectionList = collectionService.findCollectionList();
 
         return collectionList;

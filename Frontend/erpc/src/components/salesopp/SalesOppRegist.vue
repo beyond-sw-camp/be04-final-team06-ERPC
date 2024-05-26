@@ -34,11 +34,21 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="contract-attachment">
-            <h3>첨부파일<img src="@/assets/img/pdf.png" class="pdf"></h3>
-            <div class="contract-attachment-content">거래처 정보</div>
         </div>
-                  
+        <div class="estimate-attachment">
+            <div class="estimate-attachment-header">
+                <h2 class="estimate-file">첨부파일</h2>
+                <img src="@/assets/img/pdf.png" class="estimate-pdfimage">
+            </div>
+            <div class="estimate-attachment-content">
+                <div class="file-list">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">제품 카탈로그.pdf</span>
+                </div>
+            </div>
+        </div>
+        <div class="estimate-regist-btn-div">
+            <button class="estimate-regist-btn">영업기회 등록하기</button>
         </div>
     </div>
 </template>
