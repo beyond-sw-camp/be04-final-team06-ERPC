@@ -36,6 +36,7 @@ public class ContractServiceImpl implements ContractService {
     private final ProductRepository productRepository;
     private final FileUploadService fileUploadService;
     private final ContractDeleteRequestRepository contractDeleteRequestRepository;
+
     @Autowired
     public ContractServiceImpl(ModelMapper modelMapper,
                                ContractRepository contractRepository,
@@ -131,6 +132,9 @@ public class ContractServiceImpl implements ContractService {
         }
         if (contractDTO.getProgressPayment() != null) {
             existingContract.setProgressPayment(contractDTO.getProgressPayment());
+        }
+        if ((contractDTO.getContractCategory()) != null) {
+            existingContract.setContractCategory(contractDTO.getContractCategory());
         }
         if (contractDTO.getBalance() != null) {
             existingContract.setBalance(contractDTO.getBalance());
