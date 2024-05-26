@@ -1,4 +1,4 @@
-package com.cineverse.erpc.slip.collection;
+package com.cineverse.erpc.slip;
 
 import com.cineverse.erpc.slip.collection.aggregate.Collection;
 import com.cineverse.erpc.slip.collection.repository.CollectionRepository;
