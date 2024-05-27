@@ -39,5 +39,4 @@ public class TaxInvoiceFile {
     @JoinColumn(name = "tax_invoice_request_id")
     @JsonIgnore
     private TaxInvoiceRequest taxInvoiceRequest;
-
 }
