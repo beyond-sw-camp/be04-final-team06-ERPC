@@ -7,6 +7,7 @@ import com.cineverse.erpc.order.order.aggregate.Order;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.slip.collection.aggregate.Collection;
 import com.cineverse.erpc.slip.taxinvoiceissue.aggregate.TaxInvoiceIssue;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -31,22 +32,27 @@ public class TaxInvoiceRequest {
 
     @JoinColumn(name = "order_registration_id")
     @ManyToOne
+    @JsonIgnore
     private Order order;
 
     @JoinColumn(name = "account_id")
     @ManyToOne
+    @JsonIgnore
     private Account account;
 
     @JoinColumn(name = "employee_id")
     @ManyToOne
+    @JsonIgnore
     private Employee employee;
 
     @JoinColumn(name = "collection_id")
     @ManyToOne
+    @JsonIgnore
     private Collection collection;
 
     @JoinColumn(name = "tax_invoice_request_status_id")
     @ManyToOne
+    @JsonIgnore
     private TaxInvoiceRequestStatus taxInvoiceRequestStatus;
 
     @OneToMany(mappedBy = "taxInvoiceRequest", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

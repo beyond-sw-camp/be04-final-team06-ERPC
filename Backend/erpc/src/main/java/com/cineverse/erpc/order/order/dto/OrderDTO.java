@@ -4,9 +4,11 @@ import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.file.aggregate.OrderFile;
+import com.cineverse.erpc.file.aggregate.TaxInvoiceFile;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import lombok.Data;
 
@@ -39,4 +41,5 @@ public class OrderDTO {
     private ContractCategory contractCategory;
     private List<OrderProduct> orderProduct;
     private List<OrderFile> orderFile;
+    private List<TaxInvoiceRequest> taxInvoiceRequest;
 }
