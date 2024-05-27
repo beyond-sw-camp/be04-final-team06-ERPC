@@ -122,10 +122,10 @@
     const userId = localStorage.getItem('userId');
     console.log('onMounted에서 가져온 userId:', userId);
     if (userId) {
-      employeeId.value = userId; // employeeId를 userId로 설정합니다.
+      employeeId.value = userId; 
     } else {
       console.error('로컬 스토리지에서 사용자 ID를 가져올 수 없습니다.');
-      // 처리를 하거나 오류를 처리하는 방법을 추가해야 할 수도 있습니다.
+  
     }
   };
     

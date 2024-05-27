@@ -39,6 +39,10 @@ import NoticeRegist from '@/components/notice/NoticeRegist.vue';
 import NoticeList from '@/components/notice/NoticeList.vue';
 import NoticeContent from '@/components/notice/NoticeContent.vue';
 
+import EmployeeList from '@/components/employee/EmployeeList.vue';
+import EmployeeDetail from '@/components/employee/EmployeeDetail.vue';
+import RegisterEmployee from '@/components/employee/RegisterEmployee.vue';
+
 const routes = [
     {
         path: '/',
@@ -151,8 +155,12 @@ const routes = [
     {
         path: '/notice/:noticeId',
         component: NoticeContent
-    }
-];
+    },
+    
+        { path: '/employees', component: EmployeeList },
+        { path: '/employees/:employeeId', component: EmployeeDetail },
+        { path: '/employees/register', component: RegisterEmployee },
+      ];
 
 const router = createRouter({
     history: createWebHistory(),

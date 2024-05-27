@@ -21,7 +21,7 @@
   </template>
   
   <script>
-  import axios from '../plugins/axios';
+  import axios from 'axios';
   
   export default {
     data() {
@@ -36,8 +36,8 @@
     methods: {
       async registerEmployee() {
         try {
-          const response = await axios.post('/regist', this.employee);
-          this.$router.push('/');
+          const response = await axios.post('http://localhost:7775/employees/regist', this.employee);
+          this.$router.push('/employees');
         } catch (error) {
           console.error('Error registering employee:', error);
         }
