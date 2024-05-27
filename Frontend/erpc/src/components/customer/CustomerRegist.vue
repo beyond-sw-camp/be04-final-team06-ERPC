@@ -28,8 +28,8 @@
                     <tbody>
                         <tr>
                             <td>{{ businessNumber }}</td>
-                            <td><input type="text" class="customer-test1"></td>
-                            <td><input type="text" class="customer-test2"></td>
+                            <td><input type="text" v-model="accountName" class="customer-test1"></td>
+                            <td><input type="text" v-model="accountRepresentative" class="customer-test2"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -44,26 +44,24 @@
                     <tbody>
                         <tr>
                             <td>{{ businessStatus }}</td>
-                            <td><input type="text" class="customer-test3"></td>
-                            <td><input type="text" class="customer-test4"></td>
+                            <td><input type="text" v-model="corporationStatus" class="customer-test3"></td>
+                            <td><input type="text" v-model="accountLocation" class="customer-test4"></td>
                         </tr>
                     </tbody>
                 </table>
                 <table class="customer-table3">
                     <thead>
                         <tr>
-                            <th>업태</th>
-                            <th>종목</th>
+                            <th>업종</th>
                             <th>전화번호</th>
                             <th>이메일</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="customer-test5"></td>
-                            <td><input type="text" class="customer-test6"></td>
-                            <td><input type="text" class="customer-test7"></td>
-                            <td><input type="text" class="customer-test8"></td>
+                            <td><input type="text" v-model="accountType" class="customer-test5"></td>
+                            <td><input type="text" v-model="accountContact" class="customer-test6"></td>
+                            <td><input type="text" v-model="accountEmail" class="customer-test7"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,14 +73,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="customer-test9"></td>
+                            <td><input type="text" v-model="accountNote" class="customer-test9"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="customer-regist-btn-div">
-            <button class="customer-regist-btn">거래처 등록하기</button>
+            <button @click="registerAccount" class="customer-regist-btn">거래처 등록하기</button>
         </div>
     </div>
 </template>
@@ -95,21 +93,28 @@ const brNo = ref('');
 const businessStatus = ref('');
 const businessNumber = ref('');
 const taxType = ref('');
+const accountName = ref('');
+const accountRepresentative = ref('');
+const corporationStatus = ref('');
+const accountLocation = ref('');
+const accountContact = ref('');
+const accountEmail = ref('');
+const accountNote = ref('');
+const accountType = ref('');
 
 const fetchBusinessData = async () => {
     try {
-        console.log('사업자 번호:', brNo.value); // 사업자 번호 로그
+        console.log('사업자 번호:', brNo.value);
         const response = await axios.post('https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=IU5nhZBdwX%2FQMWdk0H0JTyf%2BUeqSzFG7Q6JNh%2Fvwuj%2BIt4%2F1wIy2ikm65nd5EisKla2Z3w1InmzW8MMEhu%2BRNA%3D%3D', {
             b_no: [brNo.value]
         });
-        console.log('API 응답:', response.data); // API 응답 로그
+        console.log('API 응답:', response.data);
         if (response.data.data && response.data.data.length > 0) {
             const result = response.data.data[0];
             businessNumber.value = result.b_no;
             businessStatus.value = result.b_stt;
             taxType.value = result.tax_type;
-            console.log('사업자 번호:', businessNumber.value, '사업자 상태:', businessStatus.value, '세금 유형:', taxType.value); // 상태 로그
-
+            console.log('사업자 번호:', businessNumber.value, '사업자 상태:', businessStatus.value, '세금 유형:', taxType.value);
             if (taxType.value === "국세청에 등록되지 않은 사업자등록번호입니다.") {
                 alert(taxType.value);
             }
@@ -120,6 +125,36 @@ const fetchBusinessData = async () => {
     } catch (error) {
         console.error('Error fetching business data:', error);
         alert('사업자 정보를 조회하는 중 오류가 발생했습니다.');
+    }
+}
+
+const registerAccount = async () => {
+    const postData = {
+        accountName: accountName.value,
+        corporationNum: businessNumber.value,
+        accountDeleteDate: null,
+        accountRepresentitive: accountRepresentative.value,
+        corporationStatus: corporationStatus.value,
+        accountLocation: accountLocation.value,
+        accountContact: accountContact.value,
+        accountEmail: accountEmail.value,
+        accountNote: accountNote.value,
+        accountType: accountType.value,
+        employee: {
+            employeeId: 1
+        },
+        accountStatus: {
+            accountStatusId: 4
+        }
+    };
+
+    try {
+        const response = await axios.post('http://localhost:7775/account/regist', postData);
+        console.log('등록 응답:', response.data);
+        alert('거래처 등록이 완료되었습니다.');
+    } catch (error) {
+        console.error('등록 중 오류 발생:', error);
+        alert('거래처 등록 중 오류가 발생했습니다.');
     }
 }
 </script>
