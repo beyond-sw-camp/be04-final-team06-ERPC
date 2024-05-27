@@ -115,8 +115,8 @@ public class AccountServiceImpl implements AccountService {
         if (accountDTO.getCorporationNum() != null) {
             account.setCorporationNum(accountDTO.getCorporationNum());
         }
-        if (accountDTO.getAccountRepresentitive() != null) {
-            account.setAccountRepresentitive(accountDTO.getAccountRepresentitive());
+        if (accountDTO.getAccountRepresentative() != null) {
+            account.setAccountRepresentative(accountDTO.getAccountRepresentative());
         }
         if (accountDTO.getCorporationStatus() != null) {
             account.setCorporationStatus(accountDTO.getCorporationStatus());
