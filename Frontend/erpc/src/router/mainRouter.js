@@ -149,7 +149,7 @@ const routes = [
         component: NoticeList
     },
     {
-        path: '/notice/:notice_id',
+        path: '/notice/:noticeId',
         component: NoticeContent
     }
 ];

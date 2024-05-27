@@ -30,40 +30,34 @@
   const freeTitle = ref('');
   const freeContent = ref('');
   const images = ref([]);
-  const submitting = ref(false); 
+  const submitting = ref(false);
   
   const submitPost = async () => {
-    if (submitting.value) return; 
-    submitting.value = true; 
+    if (submitting.value) return;
+    submitting.value = true;
   
-     try {
-      const memberIdCookie = document.cookie.split('; ')
-        .find(cookie => cookie.startsWith('memberId='));
-  
-      if (!memberIdCookie) {
-        console.error('사용자 정보가 없습니다.');
-        return;
-      }
-  
-      const memberId = memberIdCookie.split('=')[1];
-      if (!memberId) {
-        console.error('사용자 아이디가 없습니다.');
-        return;
-      }
+    try {
+    // 로컬 스토리지에서 userId 가져오기
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      console.error('사용자 정보가 없습니다.');
+      return;
+    }
   
       const formData = new FormData();
-      formData.append('freeBoard', JSON.stringify({
-        freeTitle: freeTitle.value,
-        freeContent: freeContent.value,
-        // member: { memberId: memberId },
+      formData.append('noticeBoard', JSON.stringify({
+        noticeTitle: freeTitle.value,
+        noticeContent: freeContent.value,
+        employee: { employeeId: userId },
+        team: { teamCodeId: 1 }  
       }));
   
       if (images.value.length > 0) {
         images.value.forEach(image => {
-          formData.append('images', image);
+          formData.append('files', image);
         });
       } else {
-        formData.append('images', new Blob(), 'empty_image');
+        formData.append('files', new Blob(), 'empty_image');
       }
   
       await axios.post('http://localhost:7775/notice_board/regist', formData);

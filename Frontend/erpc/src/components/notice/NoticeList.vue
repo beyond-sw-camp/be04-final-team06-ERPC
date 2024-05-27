@@ -25,7 +25,7 @@
             <div>
               <input type="text" id='searchText' class="form-control" placeholder="Search..."
                 v-model="search_condition" @keyup.enter="callData"
-                style="height: 5px; font-size: 12px;">
+                style="height: 30px; font-size: 12px;">
             </div>
           </td>
         </tr>
@@ -38,10 +38,10 @@
         </tr>
         <tbody>
     <tr v-for="(item, index) in filteredfree" :key="item.noticeId" class="allpost" @click="changeRouter(item.noticeId)">
-      <td>{{ item.noticeId}}</td>
+      <td>{{ index + 1 }}</td>
       <td class="boardname">{{ item.noticeTitle }}</td>
       <td>{{ item.employee.employeeName }}</td>
-      <td>{{ item.employee.team_code_id }}</td>
+      <td>{{ item.team.team_code_id }}</td>
       <td>{{ item.noticeDate }}</td>
     </tr>
   </tbody>

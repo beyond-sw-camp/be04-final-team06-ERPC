@@ -3,8 +3,8 @@
         <div class="contract-list">
             <h1>품목 목록</h1>
         </div>
-        <div class="contract-list-box">
-            <table class="contract-table">
+        <div class="contract-list-box7">
+            <table class="contract-table7">
                 <thead>
                     <tr class="header1">
                         <th>번호</th>

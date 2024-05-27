@@ -11,7 +11,7 @@
             <button class="contract-search-btn">검색</button>
         </div>
         <div class="contract-list-box">
-            <table class="contract-table">
+            <table class="contract-table7">
                 <thead>
                     <tr class="header1">
                         <th>번호</th>
