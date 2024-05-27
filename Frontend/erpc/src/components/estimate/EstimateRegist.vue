@@ -63,20 +63,25 @@
             <table class="estimate-table3">
                 <thead>
                     <tr>
-                        <th>프로젝트 코드</th>
-                        <th>담당자</th>
+                        <th>거래처 코드</th>
                         <th>거래처명</th>
+                        <th>담당자</th>
                         <th>마감일자</th>
                         <th>비고</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>PJ-20240508001</td>
-                        <td><input type="text" class="estimate-test5"></td>
-                        <td><input type="text" class="estimate-test6"></td>
-                        <td><input type="text" class="estimate-test7"></td>
-                        <td><input type="text" class="estimate-test8"></td>
+                        <td>
+                            <div class="customer-code-div2">
+                                <input type="text" v-model="customerCode" class="customer-code-box2" placeholder="거래처 코드를 입력해주세요.">
+                                <button @click="fetchCustomerData" class="customer-code-btn2">확인</button>
+                            </div>
+                        </td>
+                        <td>{{ customerName }}</td>
+                        <td><input type="text" v-model="responsiblePerson" class="estimate-test7"></td>
+                        <td><input type="date" class="due-date-box" id="due-date-box" v-model.trim="dueDate"></td>
+                        <td><input type="text" v-model="accountNote" class="customer-test9"></td>
                     </tr>
                 </tbody>
             </table>
@@ -99,8 +104,6 @@
     </div>
 </template>
 
-
-
 <script setup>
 import { ref, watch } from 'vue';
 import axios from 'axios';
@@ -118,6 +121,11 @@ const warehouseLocation = ref('');
 const warehouseUsage = ref('');
 const productionLineName = ref('');
 const outsourceName = ref('');
+
+const customerCode = ref('');
+const customerName = ref('');
+const responsiblePerson = ref('');
+const dueDate = ref('');
 
 const fetchProductData = async () => {
     try {
@@ -162,6 +170,24 @@ const fetchWarehouseData = async () => {
     }
 };
 
+const fetchCustomerData = async () => {
+    try {
+        const response = await axios.get('http://localhost:7775/account/list');
+        const customers = response.data;
+        const customer = customers.find(c => c.accountCode === customerCode.value);
+        if (customer) {
+            customerName.value = customer.accountName;
+        } else {
+            clearCustomerData();
+            alert('해당 거래처 코드를 찾을 수 없습니다.');
+        }
+    } catch (error) {
+        console.error('Error fetching customer data:', error);
+        clearCustomerData();
+        alert('거래처 정보를 조회하는 중 오류가 발생했습니다.');
+    }
+};
+
 const updateSupplyValue = () => {
     supplyValue.value = productPrice.value * Math.max(quantity.value, 0);
 };
@@ -191,11 +217,13 @@ const clearWarehouseData = () => {
     productionLineName.value = '';
     outsourceName.value = '';
 };
+
+// 거래처 데이터를 초기화하는 함수
+const clearCustomerData = () => {
+    customerName.value = '';
+};
 </script>
 
-
-
-
 <style>
-    @import url('@/assets/css/estimate/EstimateRegist.css');
+@import url('@/assets/css/estimate/EstimateRegist.css');
 </style>
