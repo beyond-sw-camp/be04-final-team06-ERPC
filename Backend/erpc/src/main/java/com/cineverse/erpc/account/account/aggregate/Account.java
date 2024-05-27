@@ -19,7 +19,7 @@ public class Account {
     @Column(name = "corporation_num")
     private String corporationNum;
 
-    @Column(name = "account_representitive")
+    @Column(name = "account_representative")
     private String accountRepresentative;   // 대표
 
     @Column(name = "corporation_status")
