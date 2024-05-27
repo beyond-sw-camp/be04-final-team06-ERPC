@@ -23,21 +23,19 @@
                         <th>사업자명</th>
                         <th>사업자 번호</th>
                         <th>대표자명</th>
-                        <th>업태</th>
-                        <th>종목</th>
+                        <th>업종</th>
                         <th>전화번호</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(customer, index) in filteredCustomers" :key="index" @click="goToCustomerContents(customer.code)">
+                    <tr v-for="(customer, index) in filteredCustomers" :key="index" @click="goToCustomerContents(customer.accountCode)">
                         <td>{{ index + 1 }}</td>
-                        <td>{{ customer.code }}</td>
-                        <td>{{ customer.name }}</td>
-                        <td>{{ customer.registration }}</td>
-                        <td>{{ customer.representative }}</td>
-                        <td>{{ customer.businessType }}</td>
-                        <td>{{ customer.industry }}</td>
-                        <td>{{ customer.phone }}</td>
+                        <td>{{ customer.accountCode }}</td>
+                        <td>{{ customer.accountName }}</td>
+                        <td>{{ customer.corporationNum }}</td>
+                        <td>{{ customer.accountRepresentitive }}</td>
+                        <td>{{ customer.accountType }}</td>
+                        <td>{{ customer.accountContact }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -46,18 +44,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-
-const customers = ref([
-    { code: 'AC-20240430001', name: 'A-회사', registration: '123-45-67890', representative: '홍길동', businessType: '소매업', industry: '백화점', phone: '000-0000-0000' },
-    { code: 'AC-20240430002', name: 'B-회사', registration: '234-56-78901', representative: '이순신', businessType: '도매업', industry: '가전제품', phone: '111-1111-1111' }
-]);
+const customers = ref([]);
 const searchQuery = ref('');
 const searchBy = ref('거래처명');
 const filteredCustomers = ref(customers.value);
+
+onMounted(async () => {
+    try {
+        const response = await axios.get('http://localhost:7775/account/list');
+        customers.value = response.data;
+        filteredCustomers.value = customers.value;
+    } catch (error) {
+        console.error('Error fetching customers:', error);
+    }
+});
 
 function setSearchBy(criteria) {
     searchBy.value = criteria;
@@ -67,11 +72,12 @@ function applyFilter() {
     if (!searchQuery.value) {
         filteredCustomers.value = customers.value;
     } else {
+        const query = searchQuery.value.toUpperCase(); // 검색어를 대문자로 변환
         filteredCustomers.value = customers.value.filter(customer => {
             if (searchBy.value === '거래처명') {
-                return customer.name.includes(searchQuery.value);
+                return customer.accountName.toUpperCase().includes(query); // 대상 문자열을 대문자로 변환 후 비교
             } else if (searchBy.value === '거래처 코드') {
-                return customer.code.includes(searchQuery.value);
+                return customer.accountCode.toUpperCase().includes(query); // 대상 문자열을 대문자로 변환 후 비교
             }
         });
     }
