@@ -48,7 +48,7 @@ public class AccountTests {
         AccountDTO requestRegistAccount = AccountDTO.builder()
                 .accountName("테스트 거래처명")
                 .corporationNum("123-93-93931")
-                .accountRepresentitive("테스트 거래처 대표명")
+                .accountRepresentative("테스트 거래처 대표명")
                 .corporationStatus("Y")
                 .accountLocation("테스트 거래처 주소")
                 .accountContact("02-123-9482")
@@ -63,8 +63,8 @@ public class AccountTests {
 
         assertThat(requestRegistAccount.getAccountName()).isEqualTo(responseRegistAccount.getAccountName());
         assertThat(requestRegistAccount.getCorporationNum()).isEqualTo(responseRegistAccount.getCorporationNum());
-        assertThat(requestRegistAccount.getAccountRepresentitive())
-                .isEqualTo(responseRegistAccount.getAccountRepresentitive());
+        assertThat(requestRegistAccount.getAccountRepresentative())
+                .isEqualTo(responseRegistAccount.getAccountRepresentative());
         assertThat(requestRegistAccount.getCorporationStatus())
                 .isEqualTo(responseRegistAccount.getCorporationStatus());
         assertThat(requestRegistAccount.getAccountLocation()).isEqualTo(responseRegistAccount.getAccountLocation());
@@ -102,7 +102,7 @@ public class AccountTests {
         assertThat(account.getAccountNote()).isEqualTo(testAccount.getAccountNote());
         assertThat(account.getAccountStatus()).isEqualTo(testAccount.getAccountStatus());
         assertThat(account.getAccountType()).isEqualTo(testAccount.getAccountType());
-        assertThat(account.getAccountRepresentitive()).isEqualTo(testAccount.getAccountRepresentitive());
+        assertThat(account.getAccountRepresentative()).isEqualTo(testAccount.getAccountRepresentative());
         assertThat(account.getEmployee()).isEqualTo(testAccount.getEmployee());
         assertThat(account.getAccountName()).isEqualTo(testAccount.getAccountName());
     }
@@ -120,7 +120,7 @@ public class AccountTests {
         AccountDTO accountDTO = AccountDTO.builder()
                 .accountName("수정 거래처명")
                 .corporationNum("123-99-93931")
-                .accountRepresentitive("수정 거래처 대표명")
+                .accountRepresentative("수정 거래처 대표명")
                 .corporationStatus("N")
                 .accountLocation("수정 거래처 주소")
                 .accountContact("02-999-9482")
@@ -134,7 +134,7 @@ public class AccountTests {
 
         assertThat(account.getAccountName()).isEqualTo("수정 거래처명");
         assertThat(account.getCorporationNum()).isEqualTo("123-99-93931");
-        assertThat(account.getAccountRepresentitive()).isEqualTo("수정 거래처 대표명");
+        assertThat(account.getAccountRepresentative()).isEqualTo("수정 거래처 대표명");
         assertThat(account.getCorporationStatus()).isEqualTo("N");
         assertThat(account.getAccountLocation()).isEqualTo("수정 거래처 주소");
         assertThat(account.getAccountContact()).isEqualTo("02-999-9482");
