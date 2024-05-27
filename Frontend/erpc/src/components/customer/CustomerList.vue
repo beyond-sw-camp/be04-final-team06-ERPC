@@ -28,12 +28,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(customer, index) in filteredCustomers" :key="index" @click="goToCustomerContents(customer.accountCode)">
+                    <tr v-for="(customer, index) in filteredCustomers" :key="index" @click="goToCustomerContents(customer.accountId)">
                         <td>{{ index + 1 }}</td>
                         <td>{{ customer.accountCode }}</td>
                         <td>{{ customer.accountName }}</td>
                         <td>{{ customer.corporationNum }}</td>
-                        <td>{{ customer.accountRepresentitive }}</td>
+                        <td>{{ customer.accountRepresentative }}</td>
                         <td>{{ customer.accountType }}</td>
                         <td>{{ customer.accountContact }}</td>
                     </tr>
@@ -83,8 +83,8 @@ function applyFilter() {
     }
 }
 
-function goToCustomerContents(customerCode) {
-    router.push({ path: '/customer/contents', query: { code: customerCode } });
+function goToCustomerContents(accountId) {
+    router.push({ path: `/customer/contents/${accountId}` });
 }
 </script>
 

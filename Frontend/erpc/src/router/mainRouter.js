@@ -53,7 +53,7 @@ const routes = [
         component: CustomerList
     },
     {
-        path: '/customer/contents',
+        path: '/customer/contents/:accountId',
         component: CustomerContents
     },
     {

@@ -11,7 +11,7 @@
         <div class="customer-box">
             <div class="customer-code">
                 <div class="customer-code-text">거래처 코드</div>
-                <button class="customer-code-box">AC-20240430001</button>
+                <button class="customer-code-box">{{ accountData.accountCode }}</button>
             </div>
         </div>
         <div class="customer-content2">
@@ -26,9 +26,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>123-45-67890</td>
-                            <td>A-회사</td>
-                            <td>김이원</td>
+                            <td>{{ accountData.corporationNum }}</td>
+                            <td>{{ accountData.accountName }}</td>
+                            <td>{{ accountData.accountRepresentative }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -42,27 +42,25 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>정상</td>
-                            <td>P</td>
-                            <td>서울시 양천구 목동서로</td>
+                            <td>{{ accountData.accountStatus?.accountStatus }}</td>
+                            <td>{{ accountData.corporationStatus }}</td>
+                            <td>{{ accountData.accountLocation }}</td>
                         </tr>
                     </tbody>
                 </table>
                 <table class="customer-table3">
                     <thead>
                         <tr>
-                            <th>업태</th>
-                            <th>종목</th>
+                            <th>업종</th>
                             <th>전화번호</th>
                             <th>이메일</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>판매업</td>
-                            <td>판매업2</td>
-                            <td>000-0000-0000</td>
-                            <td>abc@gmail.com</td>
+                            <td>{{ accountData.accountType }}</td>
+                            <td>{{ accountData.accountContact }}</td>
+                            <td>{{ accountData.accountEmail }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,7 +72,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
+                            <td>{{ accountData.accountNote }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -88,7 +86,7 @@
             </div>
             <div class="project-employee">
                 <p class="project-employee-text">담당자</p>
-                <button class="project-employee-box" id="project-employee-box">민중원</button>
+                <button class="project-employee-box" id="project-employee-box">{{ accountData.employee?.employeeName }}</button>
             </div>
         </div>
         <div class="customer-process-box">
@@ -116,12 +114,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import axios from 'axios';
 
-const currentRoute = useRoute();
-const router = useRouter();
+const route = useRoute();
+const accountData = ref({});
 
+onMounted(async () => {
+    const accountId = route.params.accountId;
+    try {
+        const response = await axios.get(`http://localhost:7775/account/${accountId}`);
+        accountData.value = response.data;
+    } catch (error) {
+        console.error('Error fetching account data:', error);
+    }
+});
 </script>
 
 <style>
