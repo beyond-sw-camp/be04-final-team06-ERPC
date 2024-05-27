@@ -16,12 +16,22 @@ import com.cineverse.erpc.admin.delete.dto.quotation.ResponseFindQuotationDelete
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestList;
 import com.cineverse.erpc.admin.delete.dto.quotation.ResponseQuotationDeleteRequestProcess;
 import com.cineverse.erpc.admin.delete.service.DeleteService;
+import com.cineverse.erpc.contract.aggregate.Contract;
+import com.cineverse.erpc.contract.aggregate.ContractDeleteRequest;
+import com.cineverse.erpc.contract.dto.ContractDeleteRequestDTO;
+import com.cineverse.erpc.contract.repository.ContractDeleteRequestRepository;
+import com.cineverse.erpc.contract.repository.ContractRepository;
 import com.cineverse.erpc.order.order.aggregate.OrderDeleteRequest;
 import com.cineverse.erpc.order.order.repo.OrderDeleteRequestRepository;
 import com.cineverse.erpc.quotation.quotation.aggregate.Quotation;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationDeleteRequest;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
+import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
+import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppDeleteRequestRepository;
+import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
@@ -36,25 +46,138 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class DeleteTests {
     private final DeleteService deleteService;
+
+    private final SalesOppDeleteRequestRepository salesOppDeleteRequestRepository;
+    private final SalesOppRepository salesOppRepository;
+    private final ContractDeleteRequestRepository contractDeleteRequestRepository;
+    private final ContractRepository contractRepository;
     private final QuotationDeleteRequestRepository quotationDeleteRequestRepository;
     private final QuotationRepository quotationRepository;
     private final AccountDeleteRequestRepository accountDeleteRequestRepository;
     private final OrderDeleteRequestRepository orderDeleteRequestRepository;
-    private final AccountRepository accountRepository;
+
 
     @Autowired
     public DeleteTests(DeleteService deleteService,
+                       SalesOppDeleteRequestRepository salesOppDeleteRequestRepository,
+                       SalesOppRepository salesOppRepository,
+                       ContractDeleteRequestRepository contractDeleteRequestRepository,
+                       ContractRepository contractRepository,
                        QuotationDeleteRequestRepository quotationDeleteRequestRepository,
                        QuotationRepository quotationRepository,
                        AccountDeleteRequestRepository accountDeleteRequestRepository,
-                       OrderDeleteRequestRepository orderDeleteRequestRepository,
-                       AccountRepository accountRepository) {
+                       OrderDeleteRequestRepository orderDeleteRequestRepository) {
         this.deleteService = deleteService;
+        this.salesOppDeleteRequestRepository = salesOppDeleteRequestRepository;
+        this.salesOppRepository = salesOppRepository;
+        this.contractDeleteRequestRepository = contractDeleteRequestRepository;
+        this.contractRepository = contractRepository;
         this.quotationDeleteRequestRepository = quotationDeleteRequestRepository;
         this.quotationRepository = quotationRepository;
         this.accountDeleteRequestRepository = accountDeleteRequestRepository;
         this.orderDeleteRequestRepository = orderDeleteRequestRepository;
-        this.accountRepository = accountRepository;
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("영업기회 삭제요청 전체조회 테스트")
+    public void findSalesOppDeleteRequestList() {
+        List<SalesOppDeleteRequest> actualSalesOppDeleteRequestList = salesOppDeleteRequestRepository.findAll();
+        List<SalesOppDeleteRequest> testSalesOppDeleteRequestList = deleteService.findSalesOppDeleteRequestList();
+
+        assertThat(testSalesOppDeleteRequestList.size()).isEqualTo(actualSalesOppDeleteRequestList.size());
+        assertThat(testSalesOppDeleteRequestList).isNotEmpty();
+
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("영업기회 삭제요청 단일조회 테스트")
+    public void findSalesOppDeleteRequest() {
+        SalesOppDeleteRequest salesOppDeleteRequest =
+                salesOppDeleteRequestRepository.findById(4L)
+                        .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회 삭제요청입니다."));
+
+        SalesOppDeleteRequestDTO testOppDeleteRequest =
+                deleteService.findSalesOppDeleteRequestById(4);
+
+        assertThat(salesOppDeleteRequest.getSalesOppDeleteRequestReason())
+                .isEqualTo(testOppDeleteRequest.getSalesOppDeleteRequestReason());
+
+        assertThat(salesOppDeleteRequest.getSalesOppDeleteRequestStatus())
+                .isEqualTo(testOppDeleteRequest.getSalesOppDeleteRequestStatus());
+
+        assertThat(salesOppDeleteRequest.getSalesOpp())
+                .isEqualTo(testOppDeleteRequest.getSalesOpp());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("영업기회 삭제처리 테스트")
+    public void deleteSalesOpp() {
+        SalesOpp salesOpp = salesOppRepository.findById(3L)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
+
+        SalesOppDeleteRequestDTO oppDeleteRequest = SalesOppDeleteRequestDTO.builder()
+                .salesOppDeleteRequestId(4)
+                .salesOpp(salesOpp)
+                .build();
+
+        SalesOppDeleteRequest deletedRequest =
+                deleteService.changeOppDeleteRequestStatus(4, oppDeleteRequest);
+
+        assertThat(deletedRequest.getSalesOppDeleteRequestStatus()).isEqualTo('Y');
+        assertThat(salesOpp.getOppDeleteDate()).isNotNull();
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("계약서 삭제요청 전체조회 테스트")
+    public void findContractDeleteRequestList() {
+        List<ContractDeleteRequest> actualContractDeleteRequestList = contractDeleteRequestRepository.findAll();
+        List<ContractDeleteRequest> testContractDeleteRequestList = deleteService.findContractDeleteRequestList();
+
+        assertThat(testContractDeleteRequestList.size()).isEqualTo(actualContractDeleteRequestList.size());
+        assertThat(testContractDeleteRequestList).isNotEmpty();
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("계약서 삭제요청 단일조회 테스트")
+    public void findContractDeleteRequest() {
+        ContractDeleteRequest contractDeleteRequest = contractDeleteRequestRepository.findById(1L)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서 삭제요청입니다."));
+
+        ContractDeleteRequestDTO testContractDeleteRequest =
+                deleteService.findContractDeleteRequestById(1);
+
+        assertThat(contractDeleteRequest.getContractDeleteRequestReason())
+                .isEqualTo(testContractDeleteRequest.getContractDeleteRequestReason());
+
+        assertThat(contractDeleteRequest.getContractDeleteRequestStatus())
+                .isEqualTo(testContractDeleteRequest.getContractDeleteRequestStatus());
+
+        assertThat(contractDeleteRequest.getContract()).isEqualTo(testContractDeleteRequest.getContract());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("계약서 삭제처리 테스트")
+    public void deleteContract() {
+        Contract contract = contractRepository.findById(17L)
+                .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
+
+        ContractDeleteRequestDTO contractDeleteRequest = ContractDeleteRequestDTO.builder()
+                .contractDeleteRequestId(1)
+                .contract(contract)
+                .build();
+
+        ContractDeleteRequest deletedRequest
+                = deleteService.changeContractDeleteRequestStatus(contractDeleteRequest, 1);
+
+        assertThat(deletedRequest.getContractDeleteRequestStatus()).isEqualTo('Y');
+        assertThat(contract.getContractDeleteDate()).isNotNull();
+
     }
 
     @Test
