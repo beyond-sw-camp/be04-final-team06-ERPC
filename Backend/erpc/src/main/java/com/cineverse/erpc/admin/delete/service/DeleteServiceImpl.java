@@ -208,7 +208,7 @@ public class DeleteServiceImpl implements DeleteService {
                         .findById(requestQuotationDeleteRequestProcess.getQuotationDeleteRequestId())
                         .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서 삭제 요청입니다."));
 
-        quotationDeleteRequest.setQuotationDeleteRequestStatus("N");
+        quotationDeleteRequest.setQuotationDeleteRequestStatus("Y");
         quotationDeleteRequestRepository.save(quotationDeleteRequest);
 
         Quotation quotation = quotationRepository
