@@ -33,6 +33,6 @@ public class ContractDTO {
     private Account account;
     private Warehouse warehouse;
     private ContractCategory contractCategory;
-    private List<ContractProduct> contractProduct;
+    private List<ContractProductDTO> contractProduct;
     private List<ContractFile> contractFile;
 }

@@ -14,6 +14,7 @@ import java.util.List;
 
 @Data
 public class ResponseOrderLists {
+    private long orderRegistrationId;
     private long orderTotalPrice;
     private String depositDate;
     private String orderDate;

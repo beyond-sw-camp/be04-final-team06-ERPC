@@ -1,6 +1,7 @@
 package com.cineverse.erpc.quotation.note.controller;
 
 import com.cineverse.erpc.quotation.note.dto.RequestRegistQuotationNoteDTO;
+import com.cineverse.erpc.quotation.note.dto.ResponseDeleteQuotationNote;
 import com.cineverse.erpc.quotation.note.dto.ResponseFindAllQuotationNotesDTO;
 import com.cineverse.erpc.quotation.note.dto.ResponseRegistQuotationNoteDTO;
 import com.cineverse.erpc.quotation.note.service.QuotationNoteService;
@@ -45,4 +46,14 @@ public class QuotationNoteController {
 
         return quotationNotes;
     }
+
+    @PatchMapping("/delete/{quotationNoteId}")
+    public ResponseEntity<ResponseDeleteQuotationNote> deleteQuotationNote(@PathVariable long quotationNoteId) {
+
+        ResponseDeleteQuotationNote responseDeleteQuotationNote =
+                quotationNoteService.deleteQuotationNote(quotationNoteId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseDeleteQuotationNote);
+    }
+
 }
