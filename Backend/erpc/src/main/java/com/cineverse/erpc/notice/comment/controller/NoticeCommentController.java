@@ -27,7 +27,7 @@ public class NoticeCommentController {
     /* 공지사항 댓글 작성 */
     @PostMapping("/regist")
     public ResponseEntity<NoticeCommentDTO> registNoticeComment(@RequestBody NoticeCommentDTO noticeCommentDTO) {
-
+        System.out.println("noticeCommentDTO: " + noticeCommentDTO);
         noticeCommentService.registNoticeComment(noticeCommentDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();

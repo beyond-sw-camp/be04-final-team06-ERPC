@@ -106,7 +106,10 @@
   
       const response = await axios.post('http://localhost:7775/notice_comment/regist', {
         commentContent: newComment.value,
-        employeeId: employeeId.value, 
+        employee: {
+                employeeId: employeeId.value,
+               
+            },
         noticeId: noticeId  
       });
   
