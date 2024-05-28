@@ -7,6 +7,8 @@ import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ResponseQuotationByCode {
     private long quotationId;
@@ -20,5 +22,5 @@ public class ResponseQuotationByCode {
     private Account account;
     private Transaction transaction;
     private Warehouse warehouse;
-    private QuotationProduct quotationProduct;
+    private List<QuotationProduct> quotationProduct;
 }
