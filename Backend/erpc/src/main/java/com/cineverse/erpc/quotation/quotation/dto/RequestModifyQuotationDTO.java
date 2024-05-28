@@ -5,12 +5,16 @@ import com.cineverse.erpc.employee.aggregate.Employee;
 import com.cineverse.erpc.file.aggregate.QuotationFile;
 import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class RequestModifyQuotationDTO {
     private long quotationId;
