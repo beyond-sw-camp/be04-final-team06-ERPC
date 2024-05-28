@@ -2,6 +2,7 @@ package com.cineverse.erpc.quotation.quotation.dto;
 
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.quotation.quotation.aggregate.QuotationProduct;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
 import lombok.Data;
@@ -19,4 +20,5 @@ public class ResponseQuotationByCode {
     private Account account;
     private Transaction transaction;
     private Warehouse warehouse;
+    private QuotationProduct quotationProduct;
 }
