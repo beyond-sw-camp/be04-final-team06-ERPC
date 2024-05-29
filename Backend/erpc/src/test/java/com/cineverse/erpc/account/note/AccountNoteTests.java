@@ -79,11 +79,11 @@ public class AccountNoteTests {
     @Transactional
     @DisplayName("거래처 참고사항 삭제 성공 테스트")
     public void successDeleteAccountNoteTest() {
-        AccountNote accountNote = accountNoteRepository.findById(Long.valueOf(2))
+        AccountNote accountNote = accountNoteRepository.findById(Long.valueOf(1))
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 참고사항 입니다."));
         assertThat(accountNote.getAccountDeleteDate()).isNull();
 
-        ResponseDeleteAccountNote testAccount = accountNoteService.deleteAccountNote(2);
+        ResponseDeleteAccountNote testAccount = accountNoteService.deleteAccountNote(1);
         assertThat(testAccount.getAccountDeleteDate()).isNotNull();
     }
 }

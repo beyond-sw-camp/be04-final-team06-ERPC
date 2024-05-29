@@ -42,7 +42,7 @@ public class AccessTests {
     @Transactional
     @DisplayName("권한신청 성공 테스트")
     public void successRegistAccessRequestTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(Long.valueOf(2))
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
         AccessRight accessRight = new AccessRight();
         accessRight.setAccessId(1);
@@ -66,10 +66,10 @@ public class AccessTests {
     @Transactional
     @DisplayName("권한신청 단일조회 성공 테스트")
     public void successFindAccessRequestByIdTest() {
-        AccessRequest accessRequest = accessRequestRepository.findById(Long.valueOf(1))
+        AccessRequest accessRequest = accessRequestRepository.findById(Long.valueOf(2))
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 권한신청입니다."));
 
-        ResponseFindAccessRequestDTO responseFindAccess = accessService.findAccessRequestById(Long.valueOf(1));
+        ResponseFindAccessRequestDTO responseFindAccess = accessService.findAccessRequestById(Long.valueOf(2));
 
         assertThat(accessRequest.getAccessRequestDate()).isEqualTo(responseFindAccess.getAccessRequestDate());
         assertThat(accessRequest.getAccessRequestStatus()).isEqualTo(responseFindAccess.getAccessRequestStatus());
