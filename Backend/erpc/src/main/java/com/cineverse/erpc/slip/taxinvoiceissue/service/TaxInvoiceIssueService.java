@@ -51,7 +51,6 @@ public class TaxInvoiceIssueService {
 
         taxInvoiceIssue.setTaxInvoiceIssueDate(issueDate);
 
-
         taxInvoiceIssueRepository.save(taxInvoiceIssue);
         taxInvoiceRequestRepository.save(taxInvoiceRequest);
 

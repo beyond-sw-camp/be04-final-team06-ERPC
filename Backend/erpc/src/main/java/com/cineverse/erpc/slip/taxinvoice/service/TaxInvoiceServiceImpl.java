@@ -29,7 +29,6 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
     private final TaxInvoiceRequestRepository taxInvoiceRequestRepository;
     private final TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository;
     private final FileUploadService fileUploadService;
-    private final TaxInvoiceIssueService taxInvoiceIssueService;
     private final TaxInvoiceIssueRepository taxInvoiceIssueRepository;
 
     @Autowired
@@ -37,13 +36,11 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
                                  TaxInvoiceRequestRepository taxInvoiceRequestRepository,
                                  TaxInvoiceRequestStatusRepository taxInvoiceRequestStatusRepository,
                                  FileUploadService fileUploadService,
-                                 TaxInvoiceIssueService taxInvoiceIssueService,
                                  TaxInvoiceIssueRepository taxInvoiceIssueRepository) {
         this.modelMapper = modelMapper;
         this.taxInvoiceRequestRepository = taxInvoiceRequestRepository;
         this.taxInvoiceRequestStatusRepository = taxInvoiceRequestStatusRepository;
         this.fileUploadService = fileUploadService;
-        this.taxInvoiceIssueService = taxInvoiceIssueService;
         this.taxInvoiceIssueRepository = taxInvoiceIssueRepository;
     }
 
@@ -60,14 +57,14 @@ public class TaxInvoiceServiceImpl implements TaxInvoiceService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         TaxInvoiceRequest newTaxInvoiceRequest = modelMapper.map(taxInvoiceRequestDTO, TaxInvoiceRequest.class);
 
-        TaxInvoiceIssue newTaxInvoiceIssue = new TaxInvoiceIssue();
-        newTaxInvoiceIssue.setTaxInvoiceRequest(newTaxInvoiceRequest.getTaxInvoiceRequestId());
-
         TaxInvoiceRequestStatus defaultStatus = taxInvoiceRequestStatusRepository.findById(1)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 세금처리 상태입니다."));
 
         newTaxInvoiceRequest.setTaxInvoiceRequestStatus(defaultStatus);
         newTaxInvoiceRequest = taxInvoiceRequestRepository.save(newTaxInvoiceRequest);
+
+        TaxInvoiceIssue newTaxInvoiceIssue = new TaxInvoiceIssue();
+        newTaxInvoiceIssue.setTaxInvoiceRequest(newTaxInvoiceRequest.getTaxInvoiceRequestId());
 
         newTaxInvoiceIssue.setTaxInvoiceRequestStatus(defaultStatus);
 
