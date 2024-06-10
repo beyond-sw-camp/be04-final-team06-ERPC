@@ -1,0 +1,131 @@
+.deposit-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.deposit-search,
+.deposit-search2 {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.deposit-search-text {
+    margin-top: 5%;
+    margin-bottom: 30px;
+}
+
+.deposit-search2-text {
+    margin-top: 100px;
+}
+
+.deposit-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+    gap: 1px;
+    max-width: 300px;
+}
+
+.search-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-start-date-text,
+.search-end-date-text {
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.search-start-date-box,
+.search-end-date-box {
+    flex-grow: 1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 220px;
+}
+
+.deposit-search-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.deposit-search-btn {
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 320px;
+}
+
+.deposit-list-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    margin-bottom: 7%;
+    gap: 1px;
+}
+
+.deposit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.deposit-table th,
+.deposit-table td {
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 160px; /* 너비 조절 */
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.deposit-table th {
+    background-color: #0C2092;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.deposit-table tr:hover {
+    background-color: #d5e6ff;
+}

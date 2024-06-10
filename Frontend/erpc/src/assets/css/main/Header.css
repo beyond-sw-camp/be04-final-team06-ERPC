@@ -1,0 +1,22 @@
+body {
+    margin: 0 !important;
+}
+
+.header {
+    display: flex;
+    justify-content: center; /* 중앙 배치 */
+    align-items: center;
+    padding: 25px 50px;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: #0C2092;
+}
+
+
+.logo .logoimage {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+}

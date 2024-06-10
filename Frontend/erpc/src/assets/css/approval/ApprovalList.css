@@ -1,0 +1,123 @@
+.approval-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.approval-search {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.approval-search-text {
+    margin-top: 5%;
+    margin-bottom: 30px;
+}
+
+.approval-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    height: auto;
+    max-width: 300px;
+}
+
+.search-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-start-date-text,
+.search-end-date-text {
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.search-start-date-box,
+.search-end-date-box {
+    flex-grow: 1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 220px;
+}
+
+.approval-search-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.approval-search-btn {
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 320px;
+}
+
+.approval-list-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    max-width: 1400px;
+    margin: 20px auto;
+    margin-bottom: 7%;
+    gap: 1px;
+}
+
+.approval-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.approval-table th,
+.approval-table td {
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 160px;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.approval-table th {
+    background-color: #0C2092;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.approval-table tr:hover {
+    background-color: #d5e6ff;
+    cursor: pointer;
+}

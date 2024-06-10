@@ -1,0 +1,212 @@
+.cbtext {
+    margin-bottom: 50px;
+}
+
+.cb-search-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.cb-search,
+.cb-search2 {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.cb-search-box,
+.cb-search-box2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.cb-search-box {
+    max-width: 400px;
+}
+
+.cb-search-box2 {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.cb-list-box1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    gap: 1px;
+}
+
+.cb-table1,
+.cb-table2,
+.cb-table3,
+.cb-table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.cb-table1 th,
+.cb-table1 td,
+.cb-table2 th,
+.cb-table2 td,
+.cb-table3 th,
+.cb-table3 td,
+.cb-table4 th,
+.cb-table4 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.cb-table1 th,
+.cb-table2 th,
+.cb-table3 th,
+.cb-table4 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.cb-table1 td,
+.cb-table2 td,
+.cb-table3 td,
+.cb-table4 td {
+    height: 40px;
+}
+
+.deposit-code-box2,
+.remark-box2 {
+    height: 35px; 
+    font-size: 15px;
+}
+
+.deposit-code-btn2 {
+    border-radius: 5px;
+    border: 2px solid #0C2092;
+    margin-left: 10px;
+    height: 30px;
+    width: auto;
+    background-color: #0C2092;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.order1-pdf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #CCEAFF;
+    border: 2px solid #CCEAFF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 800px;
+    height: 90px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+    gap: 70px;
+    margin-top: 30px;
+}
+
+.order1-pdf1,
+.order1-pdf2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    width: 330px;
+}
+
+.order1-pdf1:hover,
+.order1-pdf2:hover {
+    background-color: #d5e6ff;
+}
+
+.pdfimage1,
+.pdfimage2 {
+    width: 30px;
+    height: auto;
+    margin-left: 5px;
+    margin-right: -10px;
+}
+
+.search-btn-div1,
+.regist-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.search-btn1,
+.regist-btn2 {
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.search-btn1 {
+    max-width: 320px;
+}
+
+.regist-btn2 {
+    width: 350px;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 7%;
+}
