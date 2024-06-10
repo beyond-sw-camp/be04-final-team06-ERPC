@@ -1,0 +1,188 @@
+.search-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: calc(100% - 220px); /* main1의 너비를 뺀 나머지 공간 */
+}
+
+.customer-search {
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    height: auto;
+    gap: 1px;
+    max-width: 400px;
+}
+
+.regist-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.customer-regist {
+    text-align: center;
+}
+
+.business-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.business-number-text {
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.business-number-box {
+    width: 100%;
+    max-width: 320px;
+    flex-grow: 1;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: GmarketSansMedium;
+    font-size: 16px;
+    cursor: default;
+    background-color: white;
+}
+
+.search-btn-div1,
+.regist-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.search-btn1,
+.customer-regist-btn {
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.search-btn1 {
+    max-width: 320px;
+}
+
+.customer-regist-btn {
+    width: 320px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.customer-list-box1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    gap: 1px;
+}
+
+.customer-table1,
+.customer-table2,
+.customer-table3,
+.customer-table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.customer-table1 th,
+.customer-table1 td,
+.customer-table2 th,
+.customer-table2 td,
+.customer-table3 th,
+.customer-table3 td,
+.customer-table4 th,
+.customer-table4 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.customer-table1 th,
+.customer-table2 th,
+.customer-table3 th,
+.customer-table4 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.customer-table1 td,
+.customer-table2 td,
+.customer-table3 td,
+.customer-table4 td {
+    height: 40px;
+    width: 25%; /* 테이블 셀 너비를 균일하게 설정 */
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.customer-test1,
+.customer-test2,
+.customer-test3,
+.customer-test4,
+.customer-test5,
+.customer-test6,
+.customer-test7,
+.customer-test8,
+.customer-test9 {
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.customer-test4 {
+    width: 100%; /* 테이블 셀 너비와 맞춤 */
+}
+
+.customer-test9 {
+    width: 100%; /* 테이블 셀 너비와 맞춤 */
+}
+

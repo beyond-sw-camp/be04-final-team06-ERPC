@@ -1,0 +1,193 @@
+.regist-content {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: calc(100% - 220px); /* main1의 너비를 뺀 나머지 공간 */
+}
+
+.estimate-regist {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.estimate-list-box {
+    width: 90%; /* 너비를 90%로 설정 */
+    max-width: 1400px; /* 최대 너비를 1400px로 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    margin: 20px auto;
+    gap: 1px;
+}
+
+.estimate-table1,
+.estimate-table2,
+.estimate-table3 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.estimate-table1 th,
+.estimate-table1 td,
+.estimate-table2 th,
+.estimate-table2 td,
+.estimate-table3 th,
+.estimate-table3 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.estimate-table1 th,
+.estimate-table2 th,
+.estimate-table3 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.estimate-table1 td,
+.estimate-table2 td,
+.estimate-table3 td {
+    height: 40px;
+    width: 14.28%; /* 7개의 셀 너비를 균일하게 설정 (100% / 7) */
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.estimate-test2 {
+    width: 80px; /* 수량 필드의 너비를 좁게 설정 */
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.estimate-test1,
+.estimate-test3,
+.estimate-test4,
+.estimate-test5,
+.estimate-test6,
+.estimate-test7,
+.estimate-test8 {
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.item-code-box2,
+.storage-code-box2 {
+    width: 100%;
+    height: 35px; 
+    font-size: 15px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.item-code-btn2,
+.storage-code-btn2 {
+    border-radius: 5px;
+    border: 2px solid #0C2092;
+    margin-top: 5px;
+    height: 30px;
+    width: auto;
+    background-color: #0C2092;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.estimate-attachment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%; /* 너비를 90%로 설정 */
+    max-width: 1400px; /* 최대 너비를 1400px로 설정 */
+    height: 200px;
+    background-color: #d5e6ff;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.estimate-attachment-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: -20px;
+}
+
+.estimate-pdfimage {
+    width: 30px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.estimate-attachment-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.file-list {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 90%;
+    height: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -5px;
+}
+
+.file-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.file-name {
+    font-size: 18px;
+}
+
+.estimate-regist-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.estimate-regist-btn {
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 320px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
