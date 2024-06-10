@@ -12,7 +12,7 @@ public class RequestRegistAccountDTO {
     private String accountName;
     private String accountDeleteDate;
     private String corporationNum;
-    private String accountRepresentitive;   // 대표
+    private String accountRepresentative;   // 대표
     private String corporationStatus;       // 법인여부
     private String accountLocation;
     private String accountContact;          // 전화번호

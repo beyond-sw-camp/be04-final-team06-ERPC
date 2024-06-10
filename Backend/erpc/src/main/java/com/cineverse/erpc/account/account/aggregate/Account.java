@@ -19,8 +19,8 @@ public class Account {
     @Column(name = "corporation_num")
     private String corporationNum;
 
-    @Column(name = "account_representitive")
-    private String accountRepresentitive;   // 대표
+    @Column(name = "account_representative")
+    private String accountRepresentative;   // 대표
 
     @Column(name = "corporation_status")
     private String corporationStatus;       // 법인여부

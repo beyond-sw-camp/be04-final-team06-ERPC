@@ -69,8 +69,14 @@
     padding: 8px;
 }
 
+.estimate-test2 {
+    width: 80px; /* 수량 필드의 너비를 좁게 설정 */
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
 .estimate-test1,
-.estimate-test2,
 .estimate-test3,
 .estimate-test4,
 .estimate-test5,
@@ -96,7 +102,7 @@
 .storage-code-btn2 {
     border-radius: 5px;
     border: 2px solid #0C2092;
-    margin-left: 10px;
+    margin-top: 5px;
     height: 30px;
     width: auto;
     background-color: #0C2092;
@@ -104,6 +110,7 @@
     font-size: 14px;
     cursor: pointer;
 }
+
 
 .estimate-attachment {
     display: flex;
@@ -183,3 +190,4 @@
     margin-top: 20px;
     margin-bottom: 100px;
 }
+

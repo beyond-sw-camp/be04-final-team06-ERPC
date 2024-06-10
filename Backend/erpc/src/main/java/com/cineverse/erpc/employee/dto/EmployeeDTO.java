@@ -1,5 +1,7 @@
 package com.cineverse.erpc.employee.dto;
 
+import com.cineverse.erpc.employee.aggregate.EmployeeRank;
+import com.cineverse.erpc.employee.aggregate.TeamCode;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Getter
 @Setter
 @ToString
+@Builder
 public class EmployeeDTO {
     private long employeeId;
     private String employeeCode;
@@ -18,7 +21,7 @@ public class EmployeeDTO {
     private String employeeNumber;
     private String employmentDate;
     private String resignationDate;
-    private int employeeRankId;
-    private int teamCodeId;
+    private EmployeeRank employeeRank;
+    private TeamCode teamCode;
     private String employeeUUID;
 }

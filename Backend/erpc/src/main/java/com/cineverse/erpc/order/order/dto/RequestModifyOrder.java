@@ -7,12 +7,19 @@ import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RequestModifyOrder {
     private String contactDate;
     private String estimatedDeliveryDate;
@@ -36,4 +43,5 @@ public class RequestModifyOrder {
     private ContractCategory contractCategory;
     private List<OrderProduct> orderProduct;
     private List<OrderFile> orderFile;
+    private List<TaxInvoiceRequest> taxInvoiceRequest;
 }

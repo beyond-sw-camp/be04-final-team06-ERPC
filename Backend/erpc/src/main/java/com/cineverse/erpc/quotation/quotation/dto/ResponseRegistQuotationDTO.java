@@ -12,6 +12,7 @@ import java.util.List;
 
 @Data
 public class ResponseRegistQuotationDTO {
+    private long quotationId;
     private String quotationDate;
     private String quotationDeleteDate;
     private String quotationNote;

@@ -10,7 +10,6 @@ import com.cineverse.erpc.quotation.quotation.repo.QuotationDeleteRequestReposit
 import com.cineverse.erpc.quotation.quotation.repo.QuotationProductRepository;
 import com.cineverse.erpc.quotation.quotation.repo.QuotationRepository;
 import com.cineverse.erpc.quotation.quotation.repo.TransactionRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -51,7 +50,7 @@ public class QuotationServiceImpl implements QuotationService{
 
     @Override
     @Transactional
-    public void registQuotation(RequestRegistQuotationDTO requestQuotation, MultipartFile[] files) {
+    public Quotation registQuotation(RequestRegistQuotationDTO requestQuotation, MultipartFile[] files) {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat codeFormat = new SimpleDateFormat("yyyyMMdd");
@@ -108,6 +107,7 @@ public class QuotationServiceImpl implements QuotationService{
                 String url = fileUploadService.saveQuotationFile(file, quotation);
             }
         }
+        return quotation;
     }
 
     private boolean isQuotationCodeDuplicate(List<Quotation> quotationList, String quotationCode) {
@@ -180,10 +180,9 @@ public class QuotationServiceImpl implements QuotationService{
 
     @Override
     @Transactional
-    public ResponseModifyQuotationDTO modifyQuotation(long quotationId,
-                                                      RequestModifyQuotationDTO quotation,
+    public ResponseModifyQuotationDTO modifyQuotation(RequestModifyQuotationDTO quotation,
                                                       MultipartFile[] files) {
-        Quotation modifyQuotation = quotationRepository.findById(quotationId)
+        Quotation modifyQuotation = quotationRepository.findById(quotation.getQuotationId())
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 견적서입니다."));
 
         if (!quotation.getQuotationProduct().isEmpty()) {

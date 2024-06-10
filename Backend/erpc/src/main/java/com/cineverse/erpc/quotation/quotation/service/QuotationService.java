@@ -7,13 +7,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface QuotationService {
-    void registQuotation(RequestRegistQuotationDTO quotation, MultipartFile[] files);
+    Quotation registQuotation(RequestRegistQuotationDTO quotation, MultipartFile[] files);
 
     Quotation findQuotationById(long quotationId);
 
     List<QuotationDTO> findAllQuotations();
 
-    ResponseModifyQuotationDTO modifyQuotation(long quotationId, RequestModifyQuotationDTO quotation, MultipartFile[] files);
+    ResponseModifyQuotationDTO modifyQuotation(RequestModifyQuotationDTO quotation, MultipartFile[] files);
 
     ResponseDeleteQuotation deleteQuotation(RequestDeleteQuotation requestDeleteQuotation);
 

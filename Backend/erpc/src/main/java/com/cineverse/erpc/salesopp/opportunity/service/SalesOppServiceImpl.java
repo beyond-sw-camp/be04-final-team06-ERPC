@@ -2,15 +2,18 @@ package com.cineverse.erpc.salesopp.opportunity.service;
 
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOpp;
 import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppDeleteRequest;
+import com.cineverse.erpc.salesopp.opportunity.aggregate.SalesOppStatus;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDTO;
 import com.cineverse.erpc.salesopp.opportunity.dto.SalesOppDeleteRequestDTO;
 import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppDeleteRequestRepository;
 import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppRepository;
+import com.cineverse.erpc.salesopp.opportunity.repository.SalesOppStatusRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -25,15 +28,18 @@ public class SalesOppServiceImpl implements SalesOppService {
 
     private final ModelMapper modelMapper;
     private final SalesOppRepository salesOppRepository;
+    private final SalesOppStatusRepository salesOppStatusRepository;
     private final SalesOppDeleteRequestRepository salesOppDeleteRequestRepository;
 
     @Autowired
 
     public SalesOppServiceImpl(ModelMapper modelMapper,
                                SalesOppRepository salesOppRepository,
+                               SalesOppStatusRepository salesOppStatusRepository,
                                SalesOppDeleteRequestRepository salesOppDeleteRequestRepository) {
         this.modelMapper = modelMapper;
         this.salesOppRepository = salesOppRepository;
+        this.salesOppStatusRepository = salesOppStatusRepository;
         this.salesOppDeleteRequestRepository = salesOppDeleteRequestRepository;
     }
 
@@ -47,8 +53,14 @@ public class SalesOppServiceImpl implements SalesOppService {
 
         oppDTO.setOppDate(registDate);
 
+        SalesOppStatus defaultStatus = salesOppStatusRepository.findById(1)
+                .orElseThrow(() -> new IllegalStateException("Default sales opportunity status not found"));
+
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         SalesOpp newOpp = modelMapper.map(oppDTO, SalesOpp.class);
+
+        newOpp.setSalesOppStatus(defaultStatus);
+
         newOpp = salesOppRepository.save(newOpp);
 
         return newOpp;

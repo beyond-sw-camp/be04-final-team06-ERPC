@@ -29,15 +29,14 @@ public class ContractController {
     }
 
     /* 계약서 작성 */
-    @PostMapping("/regist")
+    @PostMapping(path = "/regist", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<ContractDTO> registContract(@RequestPart("contract") String contractJson,
                                                       @RequestPart(value = "files", required = false) MultipartFile[] files)
             throws JsonProcessingException {
 
-        String utf8Json = new String(contractJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         ObjectMapper objectMapper = new ObjectMapper();
 
-        ContractDTO newContract = objectMapper.readValue(utf8Json, ContractDTO.class);
+        ContractDTO newContract = objectMapper.readValue(contractJson, ContractDTO.class);
 
         contractService.registContract(newContract, files);
 
@@ -45,14 +44,13 @@ public class ContractController {
     }
 
     /* 계약서 수정 */
-    @PatchMapping("/modify/{contractId}")
+    @PatchMapping(path = "/modify/{contractId}", consumes = {"multipart/form-data;charset=UTF-8"})
     public ResponseEntity<Contract> modifyContract(@RequestPart("contract") String contractJson,
                                                    @RequestPart(value = "files", required = false) MultipartFile[] files,
                                                    @PathVariable Long contractId) throws JsonProcessingException {
 
-       String utf8Json = new String(contractJson.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
        ObjectMapper objectMapper = new ObjectMapper();
-       ContractDTO contract = objectMapper.readValue(utf8Json, ContractDTO.class);
+       ContractDTO contract = objectMapper.readValue(contractJson, ContractDTO.class);
 
        contractService.modifyContract(contractId, contract, files);
 

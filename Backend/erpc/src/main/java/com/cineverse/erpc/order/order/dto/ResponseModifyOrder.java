@@ -7,12 +7,16 @@ import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.order.order.aggregate.OrderProduct;
 import com.cineverse.erpc.order.order.aggregate.ShipmentStatus;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ResponseModifyOrder {
     private long orderRegistrationId;
     private String contactDate;
@@ -39,4 +43,5 @@ public class ResponseModifyOrder {
     private ContractCategory contractCategory;
     private List<OrderProduct> orderProduct;
     private List<OrderFile> orderFile;
+    private List<TaxInvoiceRequest> taxInvoiceRequest;
 }

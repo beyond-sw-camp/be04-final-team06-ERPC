@@ -3,17 +3,24 @@ package com.cineverse.erpc.order.order.aggregate;
 import com.cineverse.erpc.account.account.aggregate.Account;
 import com.cineverse.erpc.contract.aggregate.ContractCategory;
 import com.cineverse.erpc.employee.aggregate.Employee;
+import com.cineverse.erpc.file.aggregate.NoticeFile;
 import com.cineverse.erpc.file.aggregate.OrderFile;
 import com.cineverse.erpc.quotation.quotation.aggregate.Transaction;
+import com.cineverse.erpc.slip.taxinvoice.aggreagte.TaxInvoiceRequest;
 import com.cineverse.erpc.warehouse.aggregate.Warehouse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tbl_order")
 public class Order {
 
@@ -99,4 +106,7 @@ public class Order {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderFile> orderFile = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<TaxInvoiceRequest> taxInvoiceRequest = new ArrayList<>();
 }
