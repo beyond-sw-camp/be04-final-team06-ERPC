@@ -214,6 +214,18 @@
 <br>
 <details>
 <summary>6-12. 관리자 페이지</summary>
+  
+![사진 3](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1b1fe0eb-123a-4bf0-9047-19c2bb465742)
+
+![사진 4](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/36fe7f26-33b8-4aff-9fd8-845cb503186e)
+
+![사진 5](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/fea93cb4-2602-4cc4-a1f9-bf51a2152df5)
+
+![권한](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/2da44c8e-caee-4ed0-96eb-71743dfadf84)
+
+![권한 1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8c2f79eb-d30b-485b-9659-6225e58d55ec)
+
+![권한 2](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/aa5603c5-349d-48ce-a06d-86de8b23cf75)
 
 </details>
   
