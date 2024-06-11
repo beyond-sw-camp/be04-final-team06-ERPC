@@ -68,17 +68,64 @@
   <!-- 내용 작성 -->
 <br>
 <details>
-<summary>6-1. 로그인 </summary>
+<summary>6-1. 로그인 + 내 정보 </summary>
   
 ![와이어프레임 들](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8e5cac5d-6a34-47c7-9bff-26e291c65459)
 
 ![와이어프레임 들 (2)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/2e3ca30a-220c-4175-9ab0-4a8a0051d0ed)
 
+![이미지 1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/49031e60-8600-461e-b4a5-85928c2d9a48)
+
+![이미지 2](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/88ddc0b6-9530-42e3-816b-5e3ed8be5142)
+
+
 </details>
+
+<br>
+<details>
+<summary>6-2.공지사항 관리 </summary>
+
+![와이어프레임 들 (9)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/b2c0b401-69d3-403e-8615-d0010514c174)
+
+![와이어프레임 들 (10)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/288c68d5-c4f7-403d-8a07-788a6cc2e47e)
+
+![와이어프레임 들 (11)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8233a8a2-cc6d-4c7d-bf8d-61a06df4af0e)
+
+![와이어프레임 들 (12)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/67a251a6-9f79-4917-b0a7-9f42f5a52b81)
+
+
+
+
+<br>
+<details>
+<summary>6-3. 영업기회 관리 </summary>
+
+![와이어프레임 들 (5)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/7b572ad5-875f-460a-98a6-9e3a45fc24d4)
+
+![와이어프레임 들 (6)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/903f13d9-d034-4bd3-82b6-ca748c0eefcd)
+
+![와이어프레임 들 (7)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/6ea9679e-e60c-4bf0-b3b4-6c05d6b2cab6)
+
+
+![와이어프레임 들 (8)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/bd849cd9-ddbd-43b3-8bff-aad12751d8c1)
+
+</details>
+
+<br>
+<details>
+<summary>6-4. 품목 관리 </summary>
+  
+![와이어프레임 들 (3)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/4bc14d9c-421a-474e-a306-ff4f9b4aeaaa)
+
+![와이어프레임 들 (4)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/d4852f6f-b750-475a-940d-c5554756a176)
+
+</details>
+
+
   
 <br>
 <details>
-<summary>6-1. 거래처 관리</summary>
+<summary>6-5. 거래처 관리</summary>
     
 ![그림2](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/3a778131-aebf-4ad7-8a71-bb8fc6b927a1)
 
@@ -92,7 +139,7 @@
 
 <br>
 <details>
-<summary>6-2. 견적서 관리</summary>
+<summary>6-6. 견적서 관리</summary>
 
 ![그림6](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/4f608452-4ece-4b24-90b2-8e8ec33f3ae7)
 
@@ -106,7 +153,7 @@
 
 <br>
 <details>
-<summary>6-3. 계약서 관리</summary>
+<summary>6-7. 계약서 관리</summary>
 
 ![그림10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/d85c2316-d4da-4bdb-b110-9cf034879045)
 
@@ -120,7 +167,7 @@
 
 <br>
 <details>
-<summary>6-4. 수주 관리</summary>
+<summary>6-8. 수주 관리</summary>
 
 ![그림14](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/edf97edf-891f-4f30-ae0d-fb6aaf6a5955)
 
@@ -134,7 +181,7 @@
 
 <br>
 <details>
-<summary>6-4. 전표 관리</summary>
+<summary>6-9. 전표 관리</summary>
 
 ![그림18](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/f804940d-7c3a-421e-889b-09a9afb802c7)
 
@@ -144,7 +191,7 @@
 
 <br>
 <details>
-<summary>6-5. 실적 관리</summary>
+<summary>6-10. 실적 관리</summary>
 
 ![그림20](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/be4d5fc1-9b96-4ad3-a549-2dfe6a35c690)
 
@@ -152,7 +199,7 @@
 
 <br>
 <details>
-<summary>6-6. 결재 관리</summary>
+<summary>6-11. 결재 관리</summary>
 
 ![그림21](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/55d7c4c1-4c9e-4bfb-b854-851ecc8435be)
 
@@ -161,6 +208,12 @@
 ![그림23](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/31c7d00a-cd97-4279-b54e-9691ae6532f1)
 
 ![그림24](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/0d2b0ec5-f2f1-41d1-b1ae-d7e807ca490d)
+
+</details>
+
+<br>
+<details>
+<summary>6-12. 관리자 페이지</summary>
 
 </details>
   
