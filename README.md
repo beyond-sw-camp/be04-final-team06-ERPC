@@ -93,7 +93,7 @@
 
 ![와이어프레임 들 (12)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/67a251a6-9f79-4917-b0a7-9f42f5a52b81)
 
-
+</details>
 
 
 <br>
