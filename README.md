@@ -141,3 +141,36 @@
   ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/30425298-ce1d-4eb9-bf07-133bdd4077b3)
   ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7d81dd77-76fd-427a-b3a9-7f42b18b6e39)
 </details>
+
+<details>
+  <summary>12. PPT</summary>
+  <!-- 내용 작성 -->
+
+  <img width="741" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/eb392181-bb0d-4a54-a4d3-1b8e3c40af3e">
+  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/cedd0790-3118-4a31-b233-238dbf2a4f7c">
+  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ff27144c-ce27-4bc2-bfcd-22fae354232f">
+  <img width="740" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/b6b6ab03-760b-47a5-ba6b-b4b0b33f7c30">
+  <img width="738" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/07e4b2b9-ecc4-4cc3-bfeb-0226b11f0473">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/78c7aa2c-2346-4ed4-b61f-c49403dea038">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0050e058-86bd-4425-b257-d424f096a002">
+  <img width="737" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75aed171-1fac-412e-8357-957423cf95fc">
+  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/324c2e65-3c5e-42c2-abc7-ce7a4b7b9383">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fc69c18b-6012-477e-a18b-f4018b4be607">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f9606238-fb9a-4ecf-b4fc-1ee379467538">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/9815bbd3-3be6-4524-aa87-d7dae9419666">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/caafdc07-4c67-4004-99a6-c6b0226aa203">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/be95e955-4c7f-49c0-a366-ba081303e474">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/42bb6b2e-502d-42d4-99fb-c6e4487f34ea">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/48813d96-dba8-4f0d-a2ba-4e639e99a22e">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/62b56ccf-d485-46cd-8751-ee9b1bb7add4">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fec3b3ca-02af-4eda-b40b-eb9455343e94">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/6eed9e2e-6898-4d0f-8f5d-450c86111585">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/224b17b3-3273-4d5d-b140-5d889bd97432">
+  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/197e38ba-8b3b-4062-bd5a-b5dfac6f700d">
+  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7462ab86-c5d1-454e-b761-8787b9b68129">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a82044f2-35e4-4816-b575-4ce110814b42">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/c33820cd-8b69-47ba-ae1b-c50b7b8236fb">
+  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/39033f83-c7a9-4470-810e-7a5a84ee3363">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f7630568-d302-40af-a65f-01dd94fbed52">
+
+</details>
