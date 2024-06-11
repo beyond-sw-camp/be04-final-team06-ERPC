@@ -1,4 +1,4 @@
-<img width="622" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fdc237c7-ef55-4dd0-95df-ab8e98a3bdb1"># be04-final-team06-ERPC
+# be04-final-team06-ERPC
 
 <details>
   <summary>1. 서비스 개요 및 소개</summary>
