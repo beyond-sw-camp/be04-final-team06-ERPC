@@ -45,9 +45,9 @@ public class AccountNoteTests {
     @Transactional
     @DisplayName("거래처 참고사항 등록 성공 테스트")
     public void successRegistAccountNote() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
-        Account account = accountRepository.findById(Long.valueOf(1))
+        Account account = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
 
         RequestAccountNoteRegistDTO accountNote = RequestAccountNoteRegistDTO.builder()
@@ -78,7 +78,7 @@ public class AccountNoteTests {
     @Transactional
     @DisplayName("거래처 참고사항 삭제 성공 테스트")
     public void successDeleteAccountNoteTest() {
-        AccountNote accountNote = accountNoteRepository.findById(Long.valueOf(2))
+        AccountNote accountNote = accountNoteRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 참고사항 입니다."));
         assertThat(accountNote.getAccountDeleteDate()).isNull();
 

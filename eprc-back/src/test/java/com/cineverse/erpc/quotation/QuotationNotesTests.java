@@ -44,10 +44,10 @@ public class QuotationNotesTests {
     @Transactional
     @DisplayName("견적서 참고사항 등록 테스트")
     public void successRegistQuotationNoteTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
 
-        Quotation quotation = quotationRepository.findById(Long.valueOf(2))
+        Quotation quotation = quotationRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서 입니다."));
 
         RequestRegistQuotationNoteDTO requestQuotationNote = RequestRegistQuotationNoteDTO.builder()
@@ -70,7 +70,7 @@ public class QuotationNotesTests {
     @DisplayName("견적서 참고사항 전체조회 성공 테스트")
     public void successFindQuotationNotesTest() {
         List<ResponseFindAllQuotationNotesDTO> quotationNotes =
-                quotationNoteService.findAllQuotationNotes(Long.valueOf(5));
+                quotationNoteService.findAllQuotationNotes(5L);
 
         assertThat(quotationNotes).isNotEmpty();
     }
@@ -79,13 +79,13 @@ public class QuotationNotesTests {
     @Transactional
     @DisplayName("견적서 참고사항 삭제 성공 테스트")
     public void successDeleteQuotationNoteTest() {
-        QuotationNote quotationNote = quotationNoteRepository.findById(Long.valueOf(1))
+        QuotationNote quotationNote = quotationNoteRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 참고사항 입니다."));
 
         assertThat(quotationNote.getQuotationDeleteDate()).isNull();
 
         ResponseDeleteQuotationNote responseDeleteQuotationNote
-                = quotationNoteService.deleteQuotationNote(Long.valueOf(1));
+                = quotationNoteService.deleteQuotationNote(1L);
 
         assertThat(responseDeleteQuotationNote.getQuotationDeleteDate()).isNotNull();
     }

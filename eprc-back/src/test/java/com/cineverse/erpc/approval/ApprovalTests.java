@@ -48,7 +48,7 @@ public class ApprovalTests {
     @Transactional
     @DisplayName("견적서 결재요청 성공 테스트")
     public void successQuotationApprovalRequestTest() {
-        Quotation quotation = quotationRepository.findById(Long.valueOf(2))
+        Quotation quotation = quotationRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서입니다."));
 
         RequestRegistQuotationApproval approval = RequestRegistQuotationApproval.builder()
@@ -69,7 +69,7 @@ public class ApprovalTests {
     @Transactional
     @DisplayName("계약서 결재요청 성공 테스트")
     public void successContractApprovalRequestTest() {
-        Contract contract = contractRepository.findById(Long.valueOf(2))
+        Contract contract = contractRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
         RequestRegistContractApproval approval = RequestRegistContractApproval.builder()
@@ -90,7 +90,7 @@ public class ApprovalTests {
     @Transactional
     @DisplayName("수주 결재요청 성공 테스트")
     public void successShipmentApprovalRequestTest() {
-        Order order = orderRepository.findById(Long.valueOf(2))
+        Order order = orderRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주입니다."));
 
         RequestRegistShipmentApproval approval = RequestRegistShipmentApproval.builder()
@@ -138,7 +138,7 @@ public class ApprovalTests {
     @Transactional
     @DisplayName("견적서 결재 단일조회 성공 테스트")
     public void successFindQuotationApprovalTest() {
-        ResponseFindQuotationApproval approval = approvalService.findQuotationApproval(3);
+        ResponseFindQuotationApproval approval = approvalService.findQuotationApproval(13);
 
         assertThat(approval.getQuotation()).isNotNull();
         assertThat(approval.getApprovalStatus()).isNotNull();
@@ -149,7 +149,7 @@ public class ApprovalTests {
     @Transactional
     @DisplayName("계약서 결재 단일조회 성공 테스트")
     public void successFindContractApprovalTest() {
-        ResponseFindContractApproval approval = approvalService.findContractApproval(2);
+        ResponseFindContractApproval approval = approvalService.findContractApproval(13);
 
         assertThat(approval.getContract()).isNotNull();
         assertThat(approval.getApprovalStatus()).isNotNull();
@@ -160,7 +160,7 @@ public class ApprovalTests {
     @Transactional
     @DisplayName("수주 결재 단일조회 성공 테스트")
     public void successFindShipmentApprovalTest() {
-        ResponseFindShipmentApproval approval = approvalService.findShipmentApproval(2);
+        ResponseFindShipmentApproval approval = approvalService.findShipmentApproval(13);
 
         assertThat(approval.getOrder()).isNotNull();
         assertThat(approval.getApprovalStatus()).isNotNull();
@@ -176,7 +176,7 @@ public class ApprovalTests {
         approvalStatus.setApprovalStatus("승인");
 
         RequestQuotationApprovalProcess approvalProcess = RequestQuotationApprovalProcess.builder()
-                .quotationApprovalId(3)
+                .quotationApprovalId(13)
                 .approvalContent("결제 내용")
                 .approvalStatus(approvalStatus)
                 .build();
@@ -197,7 +197,7 @@ public class ApprovalTests {
         approvalStatus.setApprovalStatus("승인");
 
         RequestContractApprovalProcess approvalProcess = RequestContractApprovalProcess.builder()
-                .contractApprovalId(2)
+                .contractApprovalId(13)
                 .approvalContent("결제 내용")
                 .approvalStatus(approvalStatus)
                 .build();
@@ -218,7 +218,7 @@ public class ApprovalTests {
         approvalStatus.setApprovalStatus("승인");
 
         RequestShipmentApprovalProcess approvalProcess = RequestShipmentApprovalProcess.builder()
-                .shipmentApprovalId(2)
+                .shipmentApprovalId(13)
                 .approvalContent("결제 내용")
                 .approvalStatus(approvalStatus)
                 .build();

@@ -39,7 +39,7 @@ class NoticeCommentControllerTests {
     @Transactional
     @DisplayName("공지사항 댓글 작성 테스트")
     public void registNoticeComment() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
         NoticeCommentDTO testNoticeComment = NoticeCommentDTO.builder()
@@ -60,11 +60,11 @@ class NoticeCommentControllerTests {
     @Transactional
     @DisplayName("공지사항 댓글 삭제 테스트")
     public void deleteNoticeComment() {
-        NoticeComment comment = noticeCommentRepository.findById(Long.valueOf(1))
+        NoticeComment comment = noticeCommentRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항 댓글입니다."));
         assertThat(comment.getCommentDeleteDate()).isNull();
 
-        NoticeComment deletedComment = noticeCommentService.deleteNoticeComment(Long.valueOf(1));
+        NoticeComment deletedComment = noticeCommentService.deleteNoticeComment(1L);
         assertThat(deletedComment.getCommentDeleteDate()).isNotNull();
     }
 

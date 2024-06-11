@@ -60,16 +60,16 @@ class ContractControllerTests {
     @DisplayName("계약서 등록 테스트")
     public void registContract() {
         // 기존에 설정된 모의 데이터 사용
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
-        Account account = accountRepository.findById(Long.valueOf(1))
+        Account account = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
 
-        Warehouse warehouse = warehouseRepository.findById(Long.valueOf(1))
+        Warehouse warehouse = warehouseRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 창고입니다."));
 
-        Product product = productRepository.findById(Long.valueOf(1))
+        Product product = productRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 제품입니다."));
 
         ContractProductDTO contractProductDTO = ContractProductDTO.builder()
@@ -122,7 +122,6 @@ class ContractControllerTests {
         assertThat(testContract.getTransaction()).isEqualTo(contractDTO.getTransaction());
     }
 
-
     @Test
     @Transactional
     @DisplayName("계약서 수정 테스트")
@@ -133,7 +132,7 @@ class ContractControllerTests {
 
         MultipartFile[] files = new MultipartFile[0];
 
-        Product product = productRepository.findById(Long.valueOf(2))
+        Product product = productRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 제품입니다."));
         ContractProductDTO contractProductDTO = ContractProductDTO.builder()
                 .contractSupplyPrice(1000)
@@ -170,7 +169,7 @@ class ContractControllerTests {
     @Transactional
     @DisplayName("계약서 삭제 요청 테스트")
     public void deleteContract() {
-        Contract contract = contractRepository.findById(Long.valueOf(2))
+        Contract contract = contractRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
         ContractDeleteRequestDTO requestDeleteContract = ContractDeleteRequestDTO.builder()
@@ -200,7 +199,7 @@ class ContractControllerTests {
     @Transactional
     @DisplayName("계약서 단일조회 테스트")
     public void findContractById() {
-        Contract testContract = contractRepository.findById(Long.valueOf(2))
+        Contract testContract = contractRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
         ContractDTO contract = contractService.findContractById(2);

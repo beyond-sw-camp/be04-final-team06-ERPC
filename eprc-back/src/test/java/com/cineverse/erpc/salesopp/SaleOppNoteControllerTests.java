@@ -42,10 +42,10 @@ class SaleOppNoteControllerTests {
     @Transactional
     @DisplayName("영업기회 참고사항 등록 테스트")
     void registSalesOppNote() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
 
-        SalesOpp salesOpp = salesOppRepository.findById(Long.valueOf(2))
+        SalesOpp salesOpp = salesOppRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
 
         SalesOppNoteDTO oppNote = SalesOppNoteDTO.builder()
@@ -67,7 +67,7 @@ class SaleOppNoteControllerTests {
     @Transactional
     @DisplayName("영업기회 참고사항 수정 테스트")
     public void modifySalesOppNote() {
-        SalesOppNote existingNote = salesOppNoteRepository.findById(Long.valueOf(3))
+        SalesOppNote existingNote = salesOppNoteRepository.findById(3L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회 참고사항입니다."));
 
         SalesOppNoteDTO updatedNoteDTO = SalesOppNoteDTO.builder()
@@ -83,12 +83,12 @@ class SaleOppNoteControllerTests {
     @Transactional
     @DisplayName("영업기회 참고사항 삭제 테스트")
     void deleteSalesOppNote() {
-        SalesOppNote oppNote = salesOppNoteRepository.findById(Long.valueOf(3))
+        SalesOppNote oppNote = salesOppNoteRepository.findById(3L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회 참고사항입니다."));
 
         assertThat(oppNote.getSalesOppNoteDeleteDate()).isNull();
 
-        SalesOppNote deletedNote = salesOppNoteService.deleteSalesOppNote(Long.valueOf(3));
+        SalesOppNote deletedNote = salesOppNoteService.deleteSalesOppNote(3L);
 
         assertThat(deletedNote.getSalesOppNote()).isNotNull();
     }

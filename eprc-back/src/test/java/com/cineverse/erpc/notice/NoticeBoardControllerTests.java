@@ -39,7 +39,7 @@ public class NoticeBoardControllerTests {
     @Transactional
     @DisplayName("공지사항 등록 테스트")
     public void registNotice() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
         TeamCode team = new TeamCode();
@@ -67,7 +67,7 @@ public class NoticeBoardControllerTests {
     @Transactional
     @DisplayName("공지사항 수정 테스트")
     public void modifyNotice() {
-        NoticeBoard existingNotice = noticeBoardRepository.findById(Long.valueOf(1))
+        NoticeBoard existingNotice = noticeBoardRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항입니다."));
 
         NoticeBoardDTO updatedNotice = NoticeBoardDTO.builder()
@@ -86,7 +86,7 @@ public class NoticeBoardControllerTests {
     @Transactional
     @DisplayName("공지사항 삭제 테스트")
     void deleteNotice() {
-        NoticeBoard notice = noticeBoardRepository.findById(Long.valueOf(1))
+        NoticeBoard notice = noticeBoardRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항입니다."));
         assertThat(notice.getNoticeDeleteDate()).isNull();
 
@@ -109,7 +109,7 @@ public class NoticeBoardControllerTests {
     @Transactional
     @DisplayName("공지사항 단일 조회 테스트")
     void findNoticeById() {
-        NoticeBoard testNotice = noticeBoardRepository.findById(Long.valueOf(2))
+        NoticeBoard testNotice = noticeBoardRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 공지사항입니다"));
 
         NoticeBoardDTO notice = noticeBoardService.findNoticeById(2);
@@ -120,5 +120,4 @@ public class NoticeBoardControllerTests {
         assertThat(notice.getEmployee()).isEqualTo(testNotice.getEmployee());
         assertThat(notice.getTeam()).isEqualTo(testNotice.getTeam());
     }
-
 }

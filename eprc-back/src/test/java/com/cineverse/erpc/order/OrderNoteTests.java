@@ -44,10 +44,10 @@ public class OrderNoteTests {
     @Transactional
     @DisplayName("수주 참고사항 등록 테스트")
     public void successRegistOrderNoteTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
 
-        Order order = orderRepository.findById(Long.valueOf(2))
+        Order order = orderRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주입니다."));
 
         RequestRegistOrderNoteDTO orderNote = RequestRegistOrderNoteDTO.builder()
@@ -69,7 +69,7 @@ public class OrderNoteTests {
     @Transactional
     @DisplayName("수주 참고사항 전체조회 성공 테스트")
     public void successFindOrderNotesTest() {
-        List<ResponseFindOrderNotesDTO> orderNotes = orderNoteService.findNotesByOrderId(Long.valueOf(1));
+        List<ResponseFindOrderNotesDTO> orderNotes = orderNoteService.findNotesByOrderId(1L);
 
         assertThat(orderNotes).isNotEmpty();
     }
@@ -78,12 +78,12 @@ public class OrderNoteTests {
     @Transactional
     @DisplayName("수주 참고사항 삭제 성공 테스트")
     public void successDeleteOrderNoteTest() {
-        OrderNote orderNote = orderNoteRepository.findById(Long.valueOf(2))
+        OrderNote orderNote = orderNoteRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 참고사항 입니다."));
 
         assertThat(orderNote.getOrderDeleteDate()).isNull();
 
-        ResponseDeleteOrderNote testOrderNote = orderNoteService.deleteOrderNote(Long.valueOf(2));
+        ResponseDeleteOrderNote testOrderNote = orderNoteService.deleteOrderNote(2L);
 
         assertThat(testOrderNote.getOrderDeleteDate()).isNotNull();
 

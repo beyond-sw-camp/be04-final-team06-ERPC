@@ -40,7 +40,7 @@ class SalesOppControllerTests {
     @Transactional
     @DisplayName("영업기회 등록 테스트")
     public void registSalesOpp() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
         SalesOppDTO testOpp = SalesOppDTO.builder()
@@ -68,7 +68,7 @@ class SalesOppControllerTests {
     @Transactional
     @DisplayName("영업기회 수정 테스트")
     public void modifySalesOpp() {
-        SalesOpp existingOpp = salesOppRepository.findById(Long.valueOf(2))
+        SalesOpp existingOpp = salesOppRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
 
         SalesOppDTO updatedOpp = SalesOppDTO.builder()
@@ -114,7 +114,7 @@ class SalesOppControllerTests {
     @DisplayName("영업기회 삭제 요청 성공 테스트")
     public void successSalesOppDeleteRequest() {
 
-        SalesOpp salesOpp = salesOppRepository.findById(Long.valueOf(2))
+        SalesOpp salesOpp = salesOppRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
 
         SalesOppDeleteRequestDTO requestDeleteOpp = SalesOppDeleteRequestDTO.builder()
@@ -141,7 +141,7 @@ class SalesOppControllerTests {
     @Transactional
     @DisplayName("영업기회 단일 조회 테스트")
     public void findSalesOppById() {
-        SalesOpp testOpp = salesOppRepository.findById(Long.valueOf(2))
+        SalesOpp testOpp = salesOppRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
 
         SalesOppDTO salesOpp = salesOppService.findSalesOppById(2);

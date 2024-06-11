@@ -54,7 +54,6 @@ public class DeleteTests {
     private final AccountDeleteRequestRepository accountDeleteRequestRepository;
     private final OrderDeleteRequestRepository orderDeleteRequestRepository;
 
-
     @Autowired
     public DeleteTests(DeleteService deleteService,
                        SalesOppDeleteRequestRepository salesOppDeleteRequestRepository,
@@ -85,7 +84,6 @@ public class DeleteTests {
 
         assertThat(testSalesOppDeleteRequestList.size()).isEqualTo(actualSalesOppDeleteRequestList.size());
         assertThat(testSalesOppDeleteRequestList).isNotEmpty();
-
     }
 
     @Test
@@ -93,11 +91,11 @@ public class DeleteTests {
     @DisplayName("영업기회 삭제요청 단일조회 테스트")
     public void findSalesOppDeleteRequest() {
         SalesOppDeleteRequest salesOppDeleteRequest =
-                salesOppDeleteRequestRepository.findById(4L)
+                salesOppDeleteRequestRepository.findById(17L)
                         .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회 삭제요청입니다."));
 
         SalesOppDeleteRequestDTO testOppDeleteRequest =
-                deleteService.findSalesOppDeleteRequestById(4);
+                deleteService.findSalesOppDeleteRequestById(17);
 
         assertThat(salesOppDeleteRequest.getSalesOppDeleteRequestReason())
                 .isEqualTo(testOppDeleteRequest.getSalesOppDeleteRequestReason());
@@ -113,11 +111,11 @@ public class DeleteTests {
     @Transactional
     @DisplayName("영업기회 삭제처리 테스트")
     public void deleteSalesOpp() {
-        SalesOpp salesOpp = salesOppRepository.findById(1L)
+        SalesOpp salesOpp = salesOppRepository.findById(32L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 영업기회입니다."));
 
         SalesOppDeleteRequest deleteOppRequest = SalesOppDeleteRequest.builder()
-                .salesOppDeleteRequestId(1)
+                .salesOppDeleteRequestId(17)
                 .salesOpp(salesOpp)
                 .build();
 
@@ -143,11 +141,11 @@ public class DeleteTests {
     @Transactional
     @DisplayName("계약서 삭제요청 단일조회 테스트")
     public void findContractDeleteRequest() {
-        ContractDeleteRequest contractDeleteRequest = contractDeleteRequestRepository.findById(1L)
+        ContractDeleteRequest contractDeleteRequest = contractDeleteRequestRepository.findById(14L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서 삭제요청입니다."));
 
         ContractDeleteRequestDTO testContractDeleteRequest =
-                deleteService.findContractDeleteRequestById(1);
+                deleteService.findContractDeleteRequestById(14);
 
         assertThat(contractDeleteRequest.getContractDeleteRequestReason())
                 .isEqualTo(testContractDeleteRequest.getContractDeleteRequestReason());
@@ -162,11 +160,11 @@ public class DeleteTests {
     @Transactional
     @DisplayName("계약서 삭제처리 테스트")
     public void deleteContract() {
-        Contract contract = contractRepository.findById(1L)
+        Contract contract = contractRepository.findById(60L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 계약서입니다."));
 
         ContractDeleteRequest contractDeleteRequest = ContractDeleteRequest.builder()
-                .contractDeleteRequestId(1)
+                .contractDeleteRequestId(26)
                 .contract(contract)
                 .build();
 
@@ -192,11 +190,11 @@ public class DeleteTests {
     @DisplayName("견적서 삭제요청 단일조회 성공 테스트")
     public void successFindQuotationDeleteRequestByIdTest() {
         QuotationDeleteRequest quotationDeleteRequest =
-                quotationDeleteRequestRepository.findById(Long.valueOf(3))
+                quotationDeleteRequestRepository.findById(13L)
                         .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 삭제요청입니다."));
 
         ResponseFindQuotationDeleteRequest testQuotationDeleteRequest =
-                deleteService.findQuotationDeleteRequestById(Long.valueOf(3));
+                deleteService.findQuotationDeleteRequestById(13L);
 
         assertThat(quotationDeleteRequest.getQuotationDeleteRequestReason())
                 .isEqualTo(testQuotationDeleteRequest.getQuotationDeleteRequestReason());
@@ -212,12 +210,12 @@ public class DeleteTests {
     @Transactional
     @DisplayName("견적서 삭제요청 처리 성공 테스트")
     public void successQuotationDeleteRequestProcessTest() {
-        Quotation quotation = quotationRepository.findById(Long.valueOf(2))
+        Quotation quotation = quotationRepository.findById(216L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서입니다."));
 
         RequestQuotationDeleteRequestProcess requestQuotationDeleteRequestProcess
                 = RequestQuotationDeleteRequestProcess.builder()
-                .quotationDeleteRequestId(3)
+                .quotationDeleteRequestId(20)
                 .quotation(quotation)
                 .build();
 
@@ -242,11 +240,11 @@ public class DeleteTests {
     @Transactional
     @DisplayName("거래처 삭제요청 단일조회 성공 테스트")
     public void successFindAccountDeleteRequestByIdTest() {
-        AccountDeleteRequest accountDeleteRequest = accountDeleteRequestRepository.findById(Long.valueOf(3))
+        AccountDeleteRequest accountDeleteRequest = accountDeleteRequestRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 삭제요청 입니다."));
 
         ResponseFindAccoundDeleteRequest testAccountDeleteRequest =
-                deleteService.findAccountDeleteRequestById(3);
+                deleteService.findAccountDeleteRequestById(1L);
 
         assertThat(accountDeleteRequest.getAccount()).isEqualTo(testAccountDeleteRequest.getAccount());
 
@@ -263,7 +261,7 @@ public class DeleteTests {
     public void successAccountDeleteRequestProcessTest() {
         RequestAccountDeleteRequestProcess accountDeleteRequestProcess
                 = RequestAccountDeleteRequestProcess.builder()
-                .accountDeleteRequestId(4)
+                .accountDeleteRequestId(5)
                 .build();
 
         ResponseAccountDeleteRequestProcess testAccountDeleteRequestProcess
@@ -287,11 +285,11 @@ public class DeleteTests {
     @Transactional
     @DisplayName("수주 삭제요청 단일조회 성공 테스트")
     public void successFindOrderDeleteRequestById() {
-        OrderDeleteRequest orderDeleteRequest = orderDeleteRequestRepository.findById(Long.valueOf(4))
+        OrderDeleteRequest orderDeleteRequest = orderDeleteRequestRepository.findById(11L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주 삭제요청 입니다."));
 
         ResponseFindOrderDeleteRequest testOrderDeleteRequest
-                = deleteService.findOrderDeleteRequestById(4);
+                = deleteService.findOrderDeleteRequestById(11);
 
         assertThat(orderDeleteRequest.getOrderDeleteRequestReason())
                 .isEqualTo(testOrderDeleteRequest.getOrderDeleteRequestReason());
@@ -308,7 +306,7 @@ public class DeleteTests {
     public void successOrderDeleteRequestProcessTest() {
         RequestOrderDeleteRequestProcess requestOrderDeleteRequestProcess
                 = RequestOrderDeleteRequestProcess.builder()
-                .orderDeleteRequestId(4)
+                .orderDeleteRequestId(11)
                 .build();
 
         ResponseOrderDeleteRequestProcess responseOrderDeleteRequestProcess

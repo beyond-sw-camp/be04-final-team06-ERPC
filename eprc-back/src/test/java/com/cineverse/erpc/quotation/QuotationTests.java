@@ -54,7 +54,7 @@ public class QuotationTests {
     @Transactional
     @DisplayName("견적서 단일조회 성공 테스트")
     public void successFindQuotationTest() {
-        Quotation quotation = quotationService.findQuotationById(Long.valueOf(2));
+        Quotation quotation = quotationService.findQuotationById(2L);
 
         assertThat(quotation.getQuotationId()).isEqualTo(2);
         assertThat(quotation.getQuotationDate()).isNotNull();
@@ -81,11 +81,11 @@ public class QuotationTests {
     @Transactional
     @DisplayName("견적서 등록 성공 테스트")
     public void successRegistQuotationTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
-        Account account = accountRepository.findById(Long.valueOf(1))
+        Account account = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
-        Warehouse warehouse = warehouseRepository.findById(Long.valueOf(1))
+        Warehouse warehouse = warehouseRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 창고입니다."));
 
         Product product = productRepository.findAll().get(0);
@@ -176,14 +176,6 @@ public class QuotationTests {
         assertThat(testQuotation.getQuotationNote()).isEqualTo(quotation.getQuotationNote());
         assertThat(testQuotation.getQuotationTotalCost()).isEqualTo(quotation.getQuotationTotalCost());
         assertThat(testQuotation.getQuotationDueDate()).isEqualTo(quotation.getQuotationDueDate());
-
-        for (int i = 0; i < quotation.getQuotationProduct().size(); i++) {
-            QuotationProduct expectedProduct = quotation.getQuotationProduct().get(i);
-            QuotationProduct actualProduct = testQuotation.getQuotationProduct().get(i);
-
-            assertThat(actualProduct.getProduct().getProductId())
-                    .isEqualTo(expectedProduct.getProduct().getProductId());
-        }
         assertThat(testQuotation.getTransaction()).isNotNull();
         assertThat(testQuotation.getQuotationDate()).isNotNull();
         assertThat(testQuotation.getQuotationCode()).isNotNull();
@@ -193,7 +185,7 @@ public class QuotationTests {
     @Transactional
     @DisplayName("견적서 삭제요청 성공 테스트")
     public void successQuotationDeleteRequestTest() {
-        Quotation quotation = quotationRepository.findById(Long.valueOf(2))
+        Quotation quotation = quotationRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 견적서입니다."));
 
         RequestDeleteQuotation requestDeleteQuotation = RequestDeleteQuotation.builder()

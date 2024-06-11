@@ -66,7 +66,7 @@ class TargetControllerTests {
         TeamCode teamCode = teamRepository.findById(3)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 팀입니다."));
 
-        List<Target> expectedTargets = targetRepository.findByTeamTeamCodeId(teamCode.getTeamCodeId());
+        List<Target> expectedTargets = targetRepository.findByTeamTeamCodeIdAndEmployeeEmployeeIdIsNull(teamCode.getTeamCodeId());
 
         List<Target> actualTargets = targetService.getTargetsByTeam(teamCode.getTeamCodeId());
 

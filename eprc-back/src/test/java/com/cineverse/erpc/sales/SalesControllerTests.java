@@ -34,7 +34,6 @@ class SalesControllerTests {
     @Transactional
     @DisplayName("사원별 실적 조회 테스트")
     public void getEmployeeSales() {
-
         Employee employee = employeeRepository.findById(Long.valueOf(1)).
                 orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
@@ -46,7 +45,6 @@ class SalesControllerTests {
     @Transactional
     @DisplayName("팀별 실적 조회 테스트")
     public void getTeamSales() {
-
         TeamCode teamCode = teamRepository.findById(3)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 팀입니다."));
 

@@ -37,34 +37,21 @@ public class OrderTests {
     private final EmployeeRepository employeeRepository;
     private final OrderRepository orderRepository;
     private final OrderService orderService;
-    private final ShipmentService shipmentService;
     private final AccountRepository accountRepository;
     private final WarehouseRepository warehouseRepository;
-    private final ShipmentRepository shipmentRepository;
-    private final QuotationRepository quotationRepository;
-    private final QuotationService quotationService;
 
     @Autowired
     public OrderTests(EmployeeRepository employeeRepository,
                       OrderRepository orderRepository,
                       OrderService orderService,
-                      ShipmentService shipmentService,
                       AccountRepository accountRepository,
-                      WarehouseRepository warehouseRepository,
-                      ShipmentRepository shipmentRepository,
-                      QuotationRepository quotationRepository,
-                      QuotationService quotationService) {
+                      WarehouseRepository warehouseRepository) {
         this.employeeRepository = employeeRepository;
         this.orderRepository = orderRepository;
         this.orderService = orderService;
-        this.shipmentService = shipmentService;
         this.accountRepository = accountRepository;
         this.warehouseRepository = warehouseRepository;
-        this.shipmentRepository = shipmentRepository;
-        this.quotationRepository = quotationRepository;
-        this.quotationService = quotationService;
     }
-
 
     @Test
     @Transactional
@@ -89,14 +76,12 @@ public class OrderTests {
     @DisplayName("수주 등록 성공 테스트")
     public void successResistOrderTest() {
 
-
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
-        Account account = accountRepository.findById(Long.valueOf(1))
+        Account account = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
-        Warehouse warehouse = warehouseRepository.findById(Long.valueOf(1))
+        Warehouse warehouse = warehouseRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 창고입니다."));
-
 
         Product product = Product.builder()
                 .productId(1)
@@ -135,7 +120,6 @@ public class OrderTests {
                 .contractCategory(contractCategory)
                 .orderDueDate("2024-06-10")
                 .build();
-
 
         ResponseRegistOrderDTO testOrder = orderService.registOrder(order, files);
 
@@ -204,7 +188,7 @@ public class OrderTests {
     @Transactional
     @DisplayName("수주 삭제요청 성공 테스트")
     public void successOrderDeleteRequestTest() {
-        Order order = orderRepository.findById(Long.valueOf(2))
+        Order order = orderRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주입니다."));
 
         RequestDeleteOrder requestDeleteOrder = RequestDeleteOrder.builder()

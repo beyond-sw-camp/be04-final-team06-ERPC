@@ -43,7 +43,7 @@ class ProductControllerTests {
     @Transactional
     @DisplayName("품목 단일 조회 테스트")
     public void fineProductById() {
-        Product testProduct = productRepository.findById(Long.valueOf(1))
+        Product testProduct = productRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 품목입니다."));
 
         ProductDTO product = productService.findProductById(1);

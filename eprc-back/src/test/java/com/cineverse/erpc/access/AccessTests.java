@@ -42,7 +42,7 @@ public class AccessTests {
     @Transactional
     @DisplayName("권한신청 성공 테스트")
     public void successRegistAccessRequestTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
         List<AccessRight> accessRights = new ArrayList<>();
 
@@ -69,7 +69,7 @@ public class AccessTests {
     @Transactional
     @DisplayName("권한신청 단일조회 성공 테스트")
     public void successFindAccessRequestByIdTest() {
-        AccessRequest accessRequest = accessRequestRepository.findById(Long.valueOf(17))
+        AccessRequest accessRequest = accessRequestRepository.findById(17L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 권한신청입니다."));
 
         ResponseFindAccessRequestDTO responseFindAccess = accessService.findAccessRequestById(Long.valueOf(17));
@@ -102,7 +102,7 @@ public class AccessTests {
     @Transactional
     @DisplayName("권한신청 처리 성공 테스트")
     public void successAddAccessTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
 
         AccessRight accessRight = new AccessRight();

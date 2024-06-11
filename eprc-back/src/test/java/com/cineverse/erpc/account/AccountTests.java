@@ -38,7 +38,7 @@ public class AccountTests {
     @Transactional
     @DisplayName("거래처 등록 성공 테스트")
     public void successRegistAccount() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
         AccountStatus accountStatus = new AccountStatus();
         accountStatus.setAccountStatusId(1);
@@ -88,7 +88,7 @@ public class AccountTests {
     @Transactional
     @DisplayName("거래처 단일조회 성공 테스트")
     public void successFindAccount() {
-        Account testAccount = accountRepository.findById(Long.valueOf(1))
+        Account testAccount = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 입니다."));
 
         ResponseFindAccountDTO account = accountService.findAccountByAccountId(1);
@@ -110,7 +110,7 @@ public class AccountTests {
     @Transactional
     @DisplayName("거래처 수정 성공 테스트")
     public void successModifyAccount() {
-        Account testAccount = accountRepository.findById(Long.valueOf(1))
+        Account testAccount = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처 입니다."));
         AccountStatus accountStatus = new AccountStatus();
         accountStatus.setAccountStatusId(2);
@@ -148,7 +148,7 @@ public class AccountTests {
     @Transactional
     @DisplayName("거래처 삭제요청 성공 테스트")
     public void successAccountDeleteRequest() {
-        Account account = accountRepository.findById(Long.valueOf(1))
+        Account account = accountRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
 
         RequestDeleteAccount testDeleteRequest = RequestDeleteAccount.builder()

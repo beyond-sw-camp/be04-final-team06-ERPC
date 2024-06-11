@@ -83,10 +83,10 @@ public class EmployeeTests {
     @Transactional
     @DisplayName("사원 단일조회 성공 테스트")
     public void successFindEmployeeByIdTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
 
-        ResponseEmployeeDTO testEmployee = employeeService.findEmployeeById(Long.valueOf(1));
+        ResponseEmployeeDTO testEmployee = employeeService.findEmployeeById(1L);
 
         assertThat(employee.getEmployeeCode()).isEqualTo(testEmployee.getEmployeeCode());
         assertThat(employee.getEmployeeName()).isEqualTo(testEmployee.getEmployeeName());
@@ -103,7 +103,7 @@ public class EmployeeTests {
     @Transactional
     @DisplayName("사원 비밀번호 변경 성공 테스트")
     public void successModifyEmployeePasswordTest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다."));
         String password = employee.getEmployeePassword();
 
@@ -145,7 +145,6 @@ public class EmployeeTests {
                 .build();
 
         ResponseModifyEmployee testEmployee = employeeService.modifyEmployee(employee);
-
 
         assertThat(employee.getEmployeeCode()).isEqualTo(testEmployee.getEmployeeCode());
         assertThat(employee.getEmployeeName()).isEqualTo(testEmployee.getEmployeeName());

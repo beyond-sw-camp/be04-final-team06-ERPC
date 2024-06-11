@@ -53,18 +53,17 @@ class TaxInvoiceControllerTests {
     @Transactional
     @DisplayName("세금계산서 요청 등록 테스트")
     public void registTaxInvoiceRequest() {
-        Employee employee = employeeRepository.findById(Long.valueOf(1))
+        Employee employee = employeeRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 사원입니다"));
 
-        Order order = orderRepository.findById(Long.valueOf(2))
+        Order order = orderRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수주입니다."));
 
-        Account account = accountRepository.findById(Long.valueOf(1))
+        Account account = accountRepository.findById(2L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 거래처입니다."));
 
-        Collection collection = collectionRepository.findById(Long.valueOf(1))
+        Collection collection = collectionRepository.findById(1L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 수금내역입니다."));
-
 
         TaxInvoiceRequestDTO testTaxInvoice = TaxInvoiceRequestDTO.builder()
                 .taxInvoiceNote("테스트 세금계산서 요청 비고")
@@ -100,10 +99,10 @@ class TaxInvoiceControllerTests {
     @Transactional
     @DisplayName("요청한 세금계산서 단일조회 테스트")
     public void findTaxInvoiceRequestById() {
-        TaxInvoiceRequest testRequest = taxInvoiceRequestRepository.findById(Long.valueOf(4))
+        TaxInvoiceRequest testRequest = taxInvoiceRequestRepository.findById(4L)
                 .orElseThrow(() -> new EntityNotFoundException("존재하지 않는 세금계산서 요청입니다."));
 
-        TaxInvoiceRequestDTO request = taxInvoiceService.findTaxInvoiceById(Long.valueOf(4));
+        TaxInvoiceRequestDTO request = taxInvoiceService.findTaxInvoiceById(4L);
 
         assertThat(request.getTaxInvoiceNote()).isEqualTo(testRequest.getTaxInvoiceNote());
         assertThat(request.getTaxInvoiceRequestDate()).isNotNull();
@@ -112,5 +111,4 @@ class TaxInvoiceControllerTests {
         assertThat(request.getEmployee()).isEqualTo(testRequest.getEmployee());
         assertThat(request.getCollection()).isEqualTo(testRequest.getCollection());
     }
-
 }
