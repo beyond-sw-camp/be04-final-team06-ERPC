@@ -1,4 +1,4 @@
-# be04-final-team06-ERPC
+<img width="622" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fdc237c7-ef55-4dd0-95df-ab8e98a3bdb1"># be04-final-team06-ERPC
 
 <details>
   <summary>1. 서비스 개요 및 소개</summary>
@@ -172,5 +172,20 @@
   <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/c33820cd-8b69-47ba-ae1b-c50b7b8236fb">
   <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/39033f83-c7a9-4470-810e-7a5a84ee3363">
   <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f7630568-d302-40af-a65f-01dd94fbed52">
+
+</details>
+
+<details>
+  <summary>13. API 명세서</summary>
+  <!-- 내용 작성 -->
+
+  <img width="653" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/772c46b3-9873-4905-8427-ed795a62fe61">
+  <img width="653" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f6d8fc32-45fb-42b3-b971-c90719b6043d">
+  <img width="635" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/11006561-2fa3-4e85-8fa3-d984dca72cf5">
+  <img width="641" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/9f73eed5-6334-488c-9458-ebf856e3fab0">
+  <img width="624" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5bea75bc-f9c5-4c1e-8739-3823c9ef0922">
+  <img width="621" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3dc8eb85-b00d-441c-bbfc-f5d297252986">
+  <img width="622" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7ee25378-e270-4e25-b22c-a1075d8aa1e0">
+  <img width="622" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e994ba61-8746-4b23-9aae-51d32dc296e5">
 
 </details>
