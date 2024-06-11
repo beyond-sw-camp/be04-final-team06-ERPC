@@ -67,8 +67,9 @@
   <summary>6. 화면설계서</summary>
   <!-- 내용 작성 -->
 
-  <details>
-  <summary>6-1. 거래처</summary>
+<br>
+<details>
+<summary>6-1. 거래처 관리</summary>
     
 ![그림2](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/3a778131-aebf-4ad7-8a71-bb8fc6b927a1)
 
@@ -78,7 +79,11 @@
 
 ![그림5](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/c2ede112-945f-43d6-959d-78a51691cfb3)
 
-  </details>
+</details>
+
+<br>
+<details>
+<summary>6-2. 견적서 관리</summary>
 
 ![그림6](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/4f608452-4ece-4b24-90b2-8e8ec33f3ae7)
 
@@ -88,6 +93,12 @@
 
 ![그림9](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/d804846b-708b-473d-b7c0-2d6d3137518c)
 
+</details>
+
+<br>
+<details>
+<summary>6-3. 계약서 관리</summary>
+
 ![그림10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/d85c2316-d4da-4bdb-b110-9cf034879045)
 
 ![그림11](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/3a41a8eb-17c0-4b25-9e56-0ee0403cd6f3)
@@ -95,6 +106,12 @@
 ![그림12](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/fb9f3353-0bf7-4004-988c-770a8d511243)
 
 ![그림13](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/e27c0f8e-64bf-4dfc-9687-0fa54134a2d8)
+
+</details>
+
+<br>
+<details>
+<summary>6-4. 수주 관리</summary>
 
 ![그림14](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/edf97edf-891f-4f30-ae0d-fb6aaf6a5955)
 
@@ -104,11 +121,29 @@
 
 ![그림17](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/836bc2fb-8453-4422-b5ef-e8eaa0591919)
 
+</details>
+
+<br>
+<details>
+<summary>6-4. 전표 관리</summary>
+
 ![그림18](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/f804940d-7c3a-421e-889b-09a9afb802c7)
 
 ![그림19](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/63ddd0b7-926c-4a09-8b7e-f7ae60d682be)
 
+</details>
+
+<br>
+<details>
+<summary>6-5. 실적 관리</summary>
+
 ![그림20](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/be4d5fc1-9b96-4ad3-a549-2dfe6a35c690)
+
+</details>
+
+<br>
+<details>
+<summary>6-6. 결재 관리</summary>
 
 ![그림21](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/55d7c4c1-4c9e-4bfb-b854-851ecc8435be)
 
@@ -118,6 +153,7 @@
 
 ![그림24](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/0d2b0ec5-f2f1-41d1-b1ae-d7e807ca490d)
 
+</details>
   
 </details>
 
