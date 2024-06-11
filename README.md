@@ -66,7 +66,14 @@
 <details>
   <summary>6. 화면설계서</summary>
   <!-- 내용 작성 -->
+<br>
+<details>
+<summary>6-1. 로그인 </summary>
+  
+![와이어프레임 들](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8e5cac5d-6a34-47c7-9bff-26e291c65459)
 
+![와이어프레임 들 (2)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/2e3ca30a-220c-4175-9ab0-4a8a0051d0ed)
+  
 <br>
 <details>
 <summary>6-1. 거래처 관리</summary>
