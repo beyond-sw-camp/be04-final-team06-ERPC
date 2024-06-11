@@ -73,6 +73,8 @@
 ![와이어프레임 들](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8e5cac5d-6a34-47c7-9bff-26e291c65459)
 
 ![와이어프레임 들 (2)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/2e3ca30a-220c-4175-9ab0-4a8a0051d0ed)
+
+</details>
   
 <br>
 <details>
