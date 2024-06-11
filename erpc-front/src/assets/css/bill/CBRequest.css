@@ -1,0 +1,214 @@
+.cb-search-content33 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: calc(100% - 220px);
+}
+
+.cb-search33 {
+    text-align: center;
+}
+
+.order-number-div33,
+.deposit-code-div33 {
+    display: flex;
+    align-items: center;
+}
+
+.order-number-box33,
+.deposit-code-box33 {
+    width: calc(100% - 50px);
+    height: 35px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    font-family: GmarketSansMedium;
+    font-size: 15px;
+}
+
+.order-number-btn33,
+.deposit-code-btn33 {
+    border-radius: 0 5px 5px 0;
+    border: 2px solid #0C2092;
+    height: 35px;
+    background-color: #0C2092;
+    color: white;
+    font-size: 11px;
+    cursor: pointer;
+    margin-left: -1px;
+    padding: 0 10px;
+}
+
+.order-test333 {
+    width: 250px;
+}
+
+.cb-list-box1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    gap: 1px;
+}
+
+.cb-table1,
+.cb-table2,
+.cb-table3,
+.cb-table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.cb-table1 th,
+.cb-table1 td,
+.cb-table2 th,
+.cb-table2 td,
+.cb-table3 th,
+.cb-table3 td,
+.cb-table4 th,
+.cb-table4 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.cb-table1 th,
+.cb-table2 th,
+.cb-table3 th,
+.cb-table4 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.cb-table1 td,
+.cb-table2 td,
+.cb-table3 td,
+.cb-table4 td {
+    height: 40px;
+}
+
+.deposit-code-box2,
+.remark-box2 {
+    height: 35px; 
+    font-size: 15px;
+}
+
+.deposit-code-btn2 {
+    border-radius: 5px;
+    border: 2px solid #0C2092;
+    margin-left: 10px;
+    height: 30px;
+    width: auto;
+    background-color: #0C2092;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.billing-attachment23 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    background-color: #d5e6ff;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.file-list23 {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 80%;
+    max-width: 700px;
+    min-height: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.file-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.file-name {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-upload-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-upload-label {
+    font-size: 12px;
+    background-color: #0C2092;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+.billing-regist-btn-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.billing-regist-btn {
+    width: 320px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.billing-regist-btn:hover {
+    background-color: #007bff;
+}

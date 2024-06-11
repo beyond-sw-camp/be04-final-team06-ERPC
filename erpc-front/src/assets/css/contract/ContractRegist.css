@@ -1,0 +1,228 @@
+.contract-regist-content11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: calc(100% - 80px);
+}
+
+.contract-regist {
+    text-align: center;
+}
+
+.contract-list-box1 {
+    width: 90%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    margin: 20px auto;
+    gap: 1px;
+}
+
+.contract-table1,
+.contract-table2,
+.contract-table3,
+.contract-table4,
+.contract-table5 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.contract-table1 th,
+.contract-table1 td,
+.contract-table2 th,
+.contract-table2 td,
+.contract-table3 th,
+.contract-table3 td,
+.contract-table4 th,
+.contract-table4 td,
+.contract-table5 th,
+.contract-table5 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.contract-table1 th,
+.contract-table2 th,
+.contract-table3 th,
+.contract-table4 th,
+.contract-table5 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.contract-table1 td,
+.contract-table2 td,
+.contract-table3 td,
+.contract-table4 td,
+.contract-table5 td {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.contract-table3 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    table-layout: fixed; /* 테이블 레이아웃을 고정으로 설정 */
+}
+
+.contract-table3 th:nth-child(1),
+.contract-table3 td:nth-child(1) {
+    width: 250px; /* 원하는 너비로 설정 */
+}
+
+.contract-test2 {
+    width: 80px;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.contract-test1,
+.contract-test3,
+.contract-test4,
+.contract-test5,
+.contract-test6,
+.contract-test7,
+.contract-test8 {
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.contract-attachment77 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    max-width: 1400px;
+    background-color: #d5e6ff;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.file-list77 {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 80%;
+    max-width: 700px;
+    min-height: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.file-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.file-name {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-upload-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-upload-label {
+    font-size: 12px;
+    background-color: #0C2092;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.contract-regist-btn-div33 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contract-regist-btn33 {
+    width: 320px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.contract-regist-btn33:hover {
+    background-color: #007bff;
+}
+
+.quotation-number-div33 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 가운데 정렬 추가 */
+}
+
+.quotation-number-box33 {
+    width: 200px; /* 원하는 너비로 설정 */
+    height: 35px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    font-family: GmarketSansMedium;
+    font-size: 15px;
+    margin-right: -1px; /* 테두리 겹침 방지 */
+}
+
+.quotation-number-btn33 {
+    border-radius: 0 5px 5px 0;
+    border: 2px solid #0C2092;
+    height: 35px;
+    background-color: #0C2092;
+    color: white;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 0 10px;
+    margin-left: 0px;
+}

@@ -1,0 +1,47 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Dependencies
+        run: npm install axios
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Prepare Deployment Package
+        run: |
+          mkdir -p deploy
+          cp -r dist deploy/
+          cp server.js package.json Procfile deploy/
+          cp -r .ebextensions/ deploy/.ebextensions/
+          cd deploy
+          zip -r ../deploy.zip .
+
+      - name: Beanstalk Deploy
+        uses: einaregilsson/beanstalk-deploy@v22
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: erpc-frontend
+          environment_name: Erpc-frontend-env-1
+          version_label: github-action-${{ github.run_id }}
+          region: ap-northeast-2
+          deployment_package: deploy.zip

@@ -1,0 +1,221 @@
+.contract-edit-content11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: calc(100% - 80px);
+}
+
+.contract-regist {
+    text-align: center;
+}
+
+.contract-list-box1 {
+    width: 90%; /* 부모 요소의 너비를 90%로 설정 */
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    margin: 20px auto;
+    gap: 1px;
+}
+
+.contract-table1,
+.contract-table2,
+.contract-table3,
+.contract-table4,
+.contract-table5 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.contract-table1 th,
+.contract-table1 td,
+.contract-table2 th,
+.contract-table2 td,
+.contract-table3 th,
+.contract-table3 td,
+.contract-table4 th,
+.contract-table4 td,
+.contract-table5 th,
+.contract-table5 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: GmarketSansMedium;
+}
+
+.contract-table1 th,
+.contract-table2 th,
+.contract-table3 th,
+.contract-table4 th,
+.contract-table5 th {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    height: 60px;
+}
+
+.contract-table1 td,
+.contract-table2 td,
+.contract-table3 td,
+.contract-table4 td,
+.contract-table5 td {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.contract-dropdown1 {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+}
+
+.contract-dropdown-btn1 {
+    background-color: white;
+    border: 2px solid #0C2092;
+    border-radius: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    color: #0C2092;
+}
+
+.contract-dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.contract-dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+
+.contract-dropdown-content1 a:hover {
+    background-color: #d5e6ff;
+}
+
+.contract-dropdown1:hover .contract-dropdown-content1 {
+    display: block;
+}
+
+.contract-attachment55 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 수직 방향으로 위에서 아래로 정렬 */
+    align-items: center;
+    position: relative;
+    width: 90%;
+    max-width: 1400px; /* 최대 너비를 더 길게 설정 */
+    background-color: #d5e6ff;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 20px; /* 패딩 추가 */
+    box-sizing: border-box; /* 패딩이 포함되도록 설정 */
+    height: auto; /* height를 auto로 설정하여 내용물에 맞게 늘어나도록 설정 */
+}
+
+.file-list55 {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 100%; /* width를 100%로 설정 */
+    max-width: 1200px; /* 최대 너비를 더 길게 설정 */
+    min-height: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px; /* 각 파일 간의 간격을 위해 margin-top 추가 */
+    box-sizing: border-box; /* 패딩이 포함되도록 설정 */
+    margin-bottom: 10px; /* 각 파일 간의 간격을 위해 margin-bottom 추가 */
+    white-space: nowrap; /* 줄 바꿈 하지 않음 */
+    overflow: hidden; /* 넘치는 내용 숨김 */
+}
+
+.file-icon {
+    font-size: 24px;
+    margin-right: 10px; /* 아이콘과 파일명 사이의 간격을 위해 margin-right 추가 */
+}
+
+.file-name55 {
+    font-size: 18px;
+    white-space: nowrap; /* 줄 바꿈 하지 않음 */
+    overflow: hidden; /* 넘치는 내용 숨김 */
+    text-overflow: ellipsis; /* 넘치는 내용 생략 부호 (...)로 표시 */
+}
+
+.file-upload-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-upload-label {
+    font-size: 12px;
+    background-color: #0C2092;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* 파일 목록 아래에 간격 추가 */
+}
+
+
+.remove-file-btn {
+    margin-left: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.contract-edit-btn-div33 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contract-edit-btn33 {
+    width: 320px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.contract-edit-btn33:hover {
+    background-color: #007bff;
+}

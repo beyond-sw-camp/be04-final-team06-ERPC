@@ -1,0 +1,36 @@
+body {
+    margin: 0 !important;
+}
+
+.footer {
+    display: flex;
+    justify-content: center; /* 중앙 배치 */
+    flex-direction: column; 
+    align-items: center;
+    padding: 25px 50px;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: #0C2092;
+    margin-top: 20px; /* 여백 추가 */
+}
+
+.logo2 .logoimage2 {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.middle2 {
+    margin-top: 3.5px;
+    margin-left: 20px;
+}

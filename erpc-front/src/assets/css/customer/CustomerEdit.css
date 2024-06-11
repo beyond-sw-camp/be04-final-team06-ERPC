@@ -1,0 +1,121 @@
+.customer-edit-content11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: calc(100% - 220px);
+}
+
+.customer-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.customer-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.customer-code-text {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.customer-code-box {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #BEE7FF;
+    border: 2px solid #BEE7FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 350px;
+    margin-bottom: 20px;
+    font-family: GmarketSansMedium;
+    font-size: 17px;
+}
+
+.customer-list-box33 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    gap: 1px;
+}
+
+.customer-table1,
+.customer-table2,
+.customer-table3,
+.customer-table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.customer-table1 th,
+.customer-table1 td,
+.customer-table2 th,
+.customer-table2 td,
+.customer-table3 th,
+.customer-table3 td,
+.customer-table4 th,
+.customer-table4 td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.customer-table1 th,
+.customer-table2 th,
+.customer-table3 th,
+.customer-table4 th {
+    background-color: #f0f0f0;
+}
+
+.customer-test1,
+.customer-test2,
+.customer-test3,
+.customer-test4,
+.customer-test5,
+.customer-test6,
+.customer-test7,
+.customer-test9 {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.customer-edit-btn-div33 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.customer-edit-btn33 {
+    width: 320px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C2092;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    /* margin-top: 20px; */
+    margin-bottom: 50px;
+}
+
+.customer-edit-btn33:hover {
+    background-color: #007bff;
+}

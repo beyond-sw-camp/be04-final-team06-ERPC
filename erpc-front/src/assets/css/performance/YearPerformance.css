@@ -1,0 +1,190 @@
+.target-list-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.target-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.year-filter,
+.team-filter {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.year-filter select,
+.team-filter select {
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #e5f0ff;
+    color: #0c2092;
+    outline: none;
+    width: 200px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #e5f0ff;
+    color: #0c2092;
+    outline: none;
+    width: 200px;
+}
+
+.search-btn {
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0C2092;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #007bff;
+}
+
+.filter-toggle {
+    margin-top: 20px;
+}
+
+.filter-btn {
+    height: 30px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    /* 버튼 색상을 초록색으로 변경 */
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    /* 버튼과 텍스트 간격 조절 */
+}
+
+.filter-btn:hover {
+    background-color: #45a049;
+}
+
+.target-list-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    height: auto;
+    max-width: 1600px;
+    /* 전체 너비를 더 넓게 설정 */
+    margin: 20px auto;
+    margin-bottom: 7%;
+    gap: 1px;
+}
+
+.target-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.target-table th,
+.target-table td {
+    text-align: center;
+    /* 기본 중앙 정렬 */
+    border: 1px solid #ccc;
+    padding: 13px;
+    font-family: GmarketSansMedium;
+    width: 180px;
+    /* 기본 열 너비를 더 넓게 설정 */
+}
+
+.target-table th {
+    background-color: #0C2092;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    position: relative;
+}
+
+/* 달성 필요금액 칸 좌측 정렬 */
+.target-table th:nth-child(5) {
+    text-align: left;
+}
+
+.target-table th:nth-child(5) .filter-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.target-table th:nth-child(1),
+.target-table th:nth-child(2),
+.target-table td:nth-child(1),
+.target-table td:nth-child(2) {
+    width: 80px;
+}
+
+.target-table th:nth-child(6),
+.target-table td:nth-child(6) {
+    width: 100px;
+}
+
+.quarter-row {
+    background-color: #E5F7FE;
+}
+
+.total-row {
+    background-color: #F6E5FF;
+}
+
+.year-select {
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #e5f0ff;
+    color: #0c2092;
+    outline: none;
+    width: 200px;
+}
+
+/* 달성 필요금액이 양수일 때 빨간색 텍스트 */
+.positive {
+    color: red;
+}
