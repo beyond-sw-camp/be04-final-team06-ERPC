@@ -248,7 +248,7 @@
 비밀번호 변경 후 로그인 및 로그아웃 
 
 ![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
-
+</details>
 
 </details>
 
