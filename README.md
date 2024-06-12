@@ -248,6 +248,16 @@
 비밀번호 변경 후 로그인 및 로그아웃 
 
 ![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
+
+내 정보 확인 비밀번호 변경 권한신청
+
+![2024-06-12 15;24;47](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/b80b577a-194e-40a1-8b41-6deafca96abd)
+</details>
+<br>
+<details>
+<summary> 7-2. 공지사항 </summary>
+
+
 </details>
 
 </details>
