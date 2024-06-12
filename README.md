@@ -47,7 +47,7 @@
   - [기술스택](#기술스택)
 <br>
 
-## 개요
+## ✏개요
  저희 팀은 컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템을 주제로 선정하였습니다. <br>
  개발자로서 컴퓨터를 가장 많이 접기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
  펜데믹 동안 원격 근무 와 온라인 교육으로 인해 성장세를 보였던 시장이 잠시 정체된 후, <br>
@@ -101,25 +101,24 @@
 <br>
   
 ## 기획의도
-|![image](https://user-images.githubusercontent.com/66003567/216818254-18683c3f-af80-4009-b2cc-35bdee865f23.png)|![image](https://user-images.githubusercontent.com/66003567/216818272-8749569b-b217-4572-9738-32b0058459f4.png)|
-|:---:|:---:|
-|시작 화면|사용자 정보 화면|
 
-긴장감, 압박감과 같이 일상에서 느낄 수 있는 부정적인 감정에서 벗어나 편안한 분위기 속에서 즐길 수 있는 힐링 게임을 만들고자 소소빌리지(SosoVillage)를 개발하게 되었습니다.<br>
-- 모험과 힐링을 동시에 즐겨라! ⚔️<br>
-소소빌리지에선 모험과 힐링을 동시에 즐길 수 있다는 특징이 있습니다. 기본 홈(Home)맵에서는 작물도 기르고 요리도 할 수 있으며, 숲(Forest)에서는 나무, 두더지 등의 몬스터와 싸우고 낚시를 통해 물고기를 얻을 수도 있습니다. 이 과정을 통해 캐릭터는 생산물을 얻고 성장할 수 있습니다. 
-- 다양한 미니게임을 즐겨라! 🎯<br>
-각 스테이지별로 다양한 종류의 미니게임을 통해 하나의 게임에서 여러 재미를 향유할 수 있습니다. 이 게임의 목적은 플레이어의 지속되는 생활을 위한 물품을 얻는 것에 있습니다. 
-- 자유를 즐겨라! 🏄🏻<br>
-캐릭터는 높은 자율성을 가집니다. 특정 일에 대해 강제성을 부여하지 않고 오직 캐릭터의 활동만으로 게임이 진행됩니다. 예를 들어 낚시에 흥미를 느낀다면, 낚시에 빠져들어 최강의 어부가 될 수 있습니다. 어떠한 제약도 소소빌리지에서는 존재하지 않습니다.
-- 초보자도 누구나! 👶<br>
-높은 자율성이 존재하는 만큼 처음 플레이하게 되었을 때 낯섦을 느낄 수 있습니다. 소소빌리지는 모든 게임 화면에서 설명을 기재하였으며 언제든지 궁금한 경우 열람할 수 있도록 하였습니다. 더불어 모든 상황에 대한 경고를 해주어, 예기치 못한 일을 방지할 수 있습니다.
-
-## 문서
+## 🗂문서
 <details>
-  <summary>3. WBS</summary>
-  <!-- 내용 작성 -->
-  <img width="1318" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/6198a29e-19fc-46bb-9ab9-0ff00e0d232e">
+  <summary><h3>⏱일정관리</h3></summary>
+  <a href = "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">1. WBS</a>
+  <br>
+  <a href= "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">2. 요구사항 명세서</a>
+</details>
+
+<details>
+  <summary><h3>📋설계문서</h3></summary>
+  <a href = "">1. DDD</a>
+  <br>
+  <a href = "">2. ERD</a>
+  <br>
+  <a href = "">3. 화면설계서</a>
+  <br>
+  <a href = "">4. API 명세서</a>
 </details>
 
 <details>
@@ -311,14 +310,6 @@
 
 </details>
   
-</details>
-
-<details>
-  <summary>7. 요구사항 명세서</summary>
-  <!-- 내용 작성 -->
-
-  <img width="1054" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/d9402607-0b65-4610-96f8-8b715f0d2f43">
-
 </details>
 
 <details>
