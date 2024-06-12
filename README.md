@@ -1,39 +1,102 @@
-# be04-final-team06-ERPC
 
 <details>
-  <summary>1. 서비스 개요 및 소개</summary>
+  <summary>12. PPT</summary>
   <!-- 내용 작성 -->
-  [주제 선정 이유] 
-저희 팀은 컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템을 주제로 선정하였습니다. 개발
-자로서 컴퓨터를 가장 많이 접기도 하고, 관련 동향과 전망을 찾아본 결과, 펜데믹 동안 원격 근무
-와 온라인 교육으로 인해 성장세를 보였던 시장이 잠시 정체된 후, AI와 게임 등 기술 발전에 따른 
-고성능 컴퓨터 수요 증가로 다시 성장할 것으로 기대되고 있습니다. 이러한 이유들로 컴퓨터 및 
-관련 부품들을 영업하는 회사의 EPR 시스템을 주제로 선정하게 되었습니다. 
-  
+
+  <img width="741" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/eb392181-bb0d-4a54-a4d3-1b8e3c40af3e">
+  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/cedd0790-3118-4a31-b233-238dbf2a4f7c">
+  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ff27144c-ce27-4bc2-bfcd-22fae354232f">
+  <img width="740" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/b6b6ab03-760b-47a5-ba6b-b4b0b33f7c30">
+  <img width="738" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/07e4b2b9-ecc4-4cc3-bfeb-0226b11f0473">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/78c7aa2c-2346-4ed4-b61f-c49403dea038">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0050e058-86bd-4425-b257-d424f096a002">
+  <img width="737" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75aed171-1fac-412e-8357-957423cf95fc">
+  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/324c2e65-3c5e-42c2-abc7-ce7a4b7b9383">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fc69c18b-6012-477e-a18b-f4018b4be607">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f9606238-fb9a-4ecf-b4fc-1ee379467538">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/9815bbd3-3be6-4524-aa87-d7dae9419666">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/caafdc07-4c67-4004-99a6-c6b0226aa203">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/be95e955-4c7f-49c0-a366-ba081303e474">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/42bb6b2e-502d-42d4-99fb-c6e4487f34ea">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/48813d96-dba8-4f0d-a2ba-4e639e99a22e">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/62b56ccf-d485-46cd-8751-ee9b1bb7add4">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fec3b3ca-02af-4eda-b40b-eb9455343e94">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/6eed9e2e-6898-4d0f-8f5d-450c86111585">
+  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/224b17b3-3273-4d5d-b140-5d889bd97432">
+  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/197e38ba-8b3b-4062-bd5a-b5dfac6f700d">
+  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7462ab86-c5d1-454e-b761-8787b9b68129">
+  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a82044f2-35e4-4816-b575-4ce110814b42">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/c33820cd-8b69-47ba-ae1b-c50b7b8236fb">
+  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/39033f83-c7a9-4470-810e-7a5a84ee3363">
+  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f7630568-d302-40af-a65f-01dd94fbed52">
+
 </details>
 
-<details>
-  <summary>2. 기획의도/차별화/기대효과</summary>
-  <!-- 내용 작성 -->
+
+<div align="center">
+<h1>🖥 ERPC 🖥</h1>
+여러 영업관리 ERP들을 직접 사용해보며 영업관리 ERP가 필수적으로 갖추어야 할 기능들을 취합하고 <br>
+느꼈던 단점들을 개선하고 보완해 저희 서비스를 만드는 걸 개발 방향을 결정했습니다.
+</div>
+
+
+## 목차
+  - [개요](#개요) 
+  - [팀원](#팀원)
+  - [기획의도](#기획의도)
+<br>
+
+## 개요
+- 프로젝트 이름: ERPC
+- 프로젝트 지속기간: 2024.04.19 ~ 2024.06.14
+<br>
+ 저희 팀은 컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템을 주제로 선정하였습니다. <br>
+ 개발자로서 컴퓨터를 가장 많이 접기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
+ 펜데믹 동안 원격 근무 와 온라인 교육으로 인해 성장세를 보였던 시장이 잠시 정체된 후, <br>
+ AI와 게임 등 기술 발전에 따른 고성능 컴퓨터 수요 증가로 다시 성장할 것으로 기대되고 있습니다. <br>
+ 이러한 이유들로 컴퓨터 및 관련 부품들을 영업하는 회사의 EPR 시스템을 주제로 선정하게 되었습니다.
+<br>
+
+## 👨‍👨‍👦‍👦팀원
+<table>
+  <tr>
+    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%9D%B4%EC%9E%AC%EC%9B%90.png?raw=true" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%9E%A5%EB%AF%BC%EC%84%9D.jpg?raw=true" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%A1%B0%EC%98%88%EB%A6%B0.jpg?raw=true" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%A7%80%ED%98%84%EA%B7%BC.png?raw=true" height=150 width=150/></td>
+  </tr>
+  <tr>
+    <td>윤재은</td>
+    <td>조수빈</td>
+    <td>송동준</td>
+    <td>양지혜</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/yunjaeeun"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+    <td><a href="https://github.com/chosoobin37"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+    <td><a href="https://github.com/dongjunsong"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+    <td><a href="https://github.com/Jihye1101"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+  </tr>
+</table>
+
+<br>
   
-[기획의도] 
-여러 영업관리 ERP들을 직접 사용해보며 영업관리 ERP가 필수적으로 갖추어야 할 기능들을 취
-합하고, 느꼈던 단점들을 개선하고 보완해 저희 서비스를 만드는 걸 개발 방향을 결정했습니다.  
+## 기획의도
+|![image](https://user-images.githubusercontent.com/66003567/216818254-18683c3f-af80-4009-b2cc-35bdee865f23.png)|![image](https://user-images.githubusercontent.com/66003567/216818272-8749569b-b217-4572-9738-32b0058459f4.png)|
+|:---:|:---:|
+|시작 화면|사용자 정보 화면|
 
-[차별점] 
-저희 서비스만의 경쟁력, 즉 다른 ERP와의 가장 큰 차별점은 문서화 시간을 최소화 할 수 있다는 
-점과 직관적인 화면 설계입니다. 
-여러 ERP들을 사용해본 결과, 화면 구성이 어렵거나 복잡해 한 눈에 쉽게 들어오지 않는 경우들
-이 많았고, 영업관리의 시작이 되는 영업기회를 관리하는 기능이 없는 ERP들이 있었습니다.  
-또한 동일한 내용을 반복해서 작성해야 하는 영업관리 업무 특성상, 중복된 내용을 작성하는 시
-간을 줄이면 더욱 효율적인 업무가 가능하다고 생각했습니다.
+긴장감, 압박감과 같이 일상에서 느낄 수 있는 부정적인 감정에서 벗어나 편안한 분위기 속에서 즐길 수 있는 힐링 게임을 만들고자 소소빌리지(SosoVillage)를 개발하게 되었습니다.<br>
+- 모험과 힐링을 동시에 즐겨라! ⚔️<br>
+소소빌리지에선 모험과 힐링을 동시에 즐길 수 있다는 특징이 있습니다. 기본 홈(Home)맵에서는 작물도 기르고 요리도 할 수 있으며, 숲(Forest)에서는 나무, 두더지 등의 몬스터와 싸우고 낚시를 통해 물고기를 얻을 수도 있습니다. 이 과정을 통해 캐릭터는 생산물을 얻고 성장할 수 있습니다. 
+- 다양한 미니게임을 즐겨라! 🎯<br>
+각 스테이지별로 다양한 종류의 미니게임을 통해 하나의 게임에서 여러 재미를 향유할 수 있습니다. 이 게임의 목적은 플레이어의 지속되는 생활을 위한 물품을 얻는 것에 있습니다. 
+- 자유를 즐겨라! 🏄🏻<br>
+캐릭터는 높은 자율성을 가집니다. 특정 일에 대해 강제성을 부여하지 않고 오직 캐릭터의 활동만으로 게임이 진행됩니다. 예를 들어 낚시에 흥미를 느낀다면, 낚시에 빠져들어 최강의 어부가 될 수 있습니다. 어떠한 제약도 소소빌리지에서는 존재하지 않습니다.
+- 초보자도 누구나! 👶<br>
+높은 자율성이 존재하는 만큼 처음 플레이하게 되었을 때 낯섦을 느낄 수 있습니다. 소소빌리지는 모든 게임 화면에서 설명을 기재하였으며 언제든지 궁금한 경우 열람할 수 있도록 하였습니다. 더불어 모든 상황에 대한 경고를 해주어, 예기치 못한 일을 방지할 수 있습니다.
 
-  <img width="580" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0af3a601-51fc-4c3d-984e-dcfd9de3eca4">
-  
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1549363e-f9f0-4106-957d-f0da4fbc3238)
-
-</details>
-
+## 문서
 <details>
   <summary>3. WBS</summary>
   <!-- 내용 작성 -->
@@ -354,39 +417,6 @@
 </details>
 
 <details>
-  <summary>12. PPT</summary>
-  <!-- 내용 작성 -->
-
-  <img width="741" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/eb392181-bb0d-4a54-a4d3-1b8e3c40af3e">
-  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/cedd0790-3118-4a31-b233-238dbf2a4f7c">
-  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ff27144c-ce27-4bc2-bfcd-22fae354232f">
-  <img width="740" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/b6b6ab03-760b-47a5-ba6b-b4b0b33f7c30">
-  <img width="738" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/07e4b2b9-ecc4-4cc3-bfeb-0226b11f0473">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/78c7aa2c-2346-4ed4-b61f-c49403dea038">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0050e058-86bd-4425-b257-d424f096a002">
-  <img width="737" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75aed171-1fac-412e-8357-957423cf95fc">
-  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/324c2e65-3c5e-42c2-abc7-ce7a4b7b9383">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fc69c18b-6012-477e-a18b-f4018b4be607">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f9606238-fb9a-4ecf-b4fc-1ee379467538">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/9815bbd3-3be6-4524-aa87-d7dae9419666">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/caafdc07-4c67-4004-99a6-c6b0226aa203">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/be95e955-4c7f-49c0-a366-ba081303e474">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/42bb6b2e-502d-42d4-99fb-c6e4487f34ea">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/48813d96-dba8-4f0d-a2ba-4e639e99a22e">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/62b56ccf-d485-46cd-8751-ee9b1bb7add4">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fec3b3ca-02af-4eda-b40b-eb9455343e94">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/6eed9e2e-6898-4d0f-8f5d-450c86111585">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/224b17b3-3273-4d5d-b140-5d889bd97432">
-  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/197e38ba-8b3b-4062-bd5a-b5dfac6f700d">
-  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7462ab86-c5d1-454e-b761-8787b9b68129">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a82044f2-35e4-4816-b575-4ce110814b42">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/c33820cd-8b69-47ba-ae1b-c50b7b8236fb">
-  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/39033f83-c7a9-4470-810e-7a5a84ee3363">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f7630568-d302-40af-a65f-01dd94fbed52">
-
-</details>
-
-<details>
   <summary>13. API 명세서</summary>
   <!-- 내용 작성 -->
 
@@ -400,70 +430,3 @@
   <img width="622" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e994ba61-8746-4b23-9aae-51d32dc296e5">
 
 </details>
-
-<div align="center">
-<h1>🖥 ERPC 🖥</h1>
-효율적인 영업을 위한 영업관리 프로그램, ERPC입니다!<br> 영업사원의 문서화 시간을 줄여주기 위한 시스템과 직관적인 UI를 볼 수 있습니다. 🍀
-</div>
-
-## 멤버
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/yunjaeeun"><img src="![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153914718/e71bf978-bbe6-4d03-8ae2-4303da1355be)
-" width="100px;" alt="Stefan Retief"/><br /><sub><b>윤재은</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/issues?q=author%3AStefanRetief" title="Bug reports">🐛</a> <a href="https://github.com/codesandbox/codesandbox-client/commits?author=StefanRetief" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chosoobin37"><img src="https://avatars.githubusercontent.com/u/23213686?v=4?s=100" width="100px;" alt="Aditya"/><br /><sub><b>조수빈</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/issues?q=author%3Aaditya211935" title="Bug reports">🐛</a> <a href="https://github.com/codesandbox/codesandbox-client/commits?author=aditya211935" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/dongjunsong"><img src="https://avatars.githubusercontent.com/u/36991862?v=4?s=100" width="100px;" alt="B2D1"/><br /><sub><b>송동준</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=B2D1" title="Documentation">📖</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Jihye1101"><img src="https://github.com/kettanaito.png?s=100" width="100px;" alt="Artem"/><br /><sub><b>양지혜</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=kettanaito" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
-
-## 목차
-  - [개요](#개요) 
-  - [기획의도](#기획의도)
-  - [게임 플레이 방식](#게임-플레이-방식)
-
-## 개요
-- 프로젝트 이름: ERPC
-- 프로젝트 지속기간: 2024.04.19 ~ 2024.06.14
-- 개발 엔진 및 언어: Unity & C#
-- 멤버: 팀 정현지(이정현, 김민정, 김민지)
-
-## 기획의도
-|![image](https://user-images.githubusercontent.com/66003567/216818254-18683c3f-af80-4009-b2cc-35bdee865f23.png)|![image](https://user-images.githubusercontent.com/66003567/216818272-8749569b-b217-4572-9738-32b0058459f4.png)|
-|:---:|:---:|
-|시작 화면|사용자 정보 화면|
-
-긴장감, 압박감과 같이 일상에서 느낄 수 있는 부정적인 감정에서 벗어나 편안한 분위기 속에서 즐길 수 있는 힐링 게임을 만들고자 소소빌리지(SosoVillage)를 개발하게 되었습니다.<br>
-- 모험과 힐링을 동시에 즐겨라! ⚔️<br>
-소소빌리지에선 모험과 힐링을 동시에 즐길 수 있다는 특징이 있습니다. 기본 홈(Home)맵에서는 작물도 기르고 요리도 할 수 있으며, 숲(Forest)에서는 나무, 두더지 등의 몬스터와 싸우고 낚시를 통해 물고기를 얻을 수도 있습니다. 이 과정을 통해 캐릭터는 생산물을 얻고 성장할 수 있습니다. 
-- 다양한 미니게임을 즐겨라! 🎯<br>
-각 스테이지별로 다양한 종류의 미니게임을 통해 하나의 게임에서 여러 재미를 향유할 수 있습니다. 이 게임의 목적은 플레이어의 지속되는 생활을 위한 물품을 얻는 것에 있습니다. 
-- 자유를 즐겨라! 🏄🏻<br>
-캐릭터는 높은 자율성을 가집니다. 특정 일에 대해 강제성을 부여하지 않고 오직 캐릭터의 활동만으로 게임이 진행됩니다. 예를 들어 낚시에 흥미를 느낀다면, 낚시에 빠져들어 최강의 어부가 될 수 있습니다. 어떠한 제약도 소소빌리지에서는 존재하지 않습니다.
-- 초보자도 누구나! 👶<br>
-높은 자율성이 존재하는 만큼 처음 플레이하게 되었을 때 낯섦을 느낄 수 있습니다. 소소빌리지는 모든 게임 화면에서 설명을 기재하였으며 언제든지 궁금한 경우 열람할 수 있도록 하였습니다. 더불어 모든 상황에 대한 경고를 해주어, 예기치 못한 일을 방지할 수 있습니다.
-
-## 게임 플레이 방식
-- 캐릭터 이동 방법
-
-|이동방향|상(위)|좌(왼쪽)|하(아래)|우(오른쪽)|
-|---|---|---|---|---|
-|키보드| W | A | S | D |
-|방향키|⬆️|⬅️|⬇️|➡️|
-
-- 맵의 이동 가능 장소
-
-|Home|Forest|Store|Room|
-|---|---|---|---|
-|![image](https://user-images.githubusercontent.com/66003567/216816017-bfd18669-9f70-45c2-8561-bae648690602.png)|![image](https://user-images.githubusercontent.com/66003567/216815971-d8ed6ea8-1f92-45f8-9611-1cbe2b5e8db0.png)|![image](https://user-images.githubusercontent.com/66003567/216815991-88e0f4d6-3e5d-4c19-9eb9-97047b40c0d0.png)|![image](https://user-images.githubusercontent.com/66003567/216816002-4eca6510-4436-44f5-b949-347e75129ada.png)|
-|옥수수 농사 가능|슈팅, 두더지 잡기, 낚시 미니게임 입장 가능|물품 판매 및 구매 가능|게임 저장 가능|
-
-- 미니게임
-
-|베이킹|슈팅|두더지 잡기|낚시|
-|---|---|---|---|
-|![image](https://user-images.githubusercontent.com/66003567/216816081-cf4a29c6-72f3-4b75-b01d-3dd6e3faabc5.png)|![image](https://user-images.githubusercontent.com/66003567/216816088-cd83d20a-e023-4af2-b406-98197af5ff35.png)|![image](https://user-images.githubusercontent.com/66003567/216816106-5a97f26e-565b-43a6-bfab-d22e36745f80.png)|![image](https://user-images.githubusercontent.com/66003567/216816119-fb22c507-f6c4-49a3-b4f0-28ecaae94f6c.png)|
-|오븐 타이머 조절 성공시 빵 획득|나무 몬스터 제거시 코인 획득|일정 수 이상 두더지 잡기 성공시 코인 획득|찌를 올바른 위치에 멈추기 3회 성공시 선택한 난이도의 물고기 획득|
-
