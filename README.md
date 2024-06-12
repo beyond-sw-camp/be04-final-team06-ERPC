@@ -242,20 +242,68 @@
 <details>
   <summary>8. UI/UX 단위 테스트 결과서 및  통합테스트</summary>
   <!-- 내용 작성 -->
+<br>
+<details>
+<summary> 8-1. 로그인 </summary>
+비밀번호 변경 후 로그인 및 로그아웃 
 
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 001](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5ac6d9ed-257c-491e-993f-7b83a5b6345f)
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 002](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/83f0eab4-0c95-4df4-ac13-8592096aed7a)
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 003](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/11551674-1f0a-4b49-9ee4-76f2980126bb)
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 004](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3e94d722-365d-486b-b24a-1efc9c394f86)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 005](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/841de3ef-1f66-4b23-91e2-571055035f0b)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 006](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/766cdf61-5b47-4e34-802a-ae1913e2ce5d)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 007](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/62aff38b-a0c0-4be3-af5f-8fcc6cc60e78)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 008](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/8fc72bdf-00b2-4614-8755-d7cc3d3f2675)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 009](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a9d5ec9f-5683-4f75-b2c2-4ae921872084)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 010](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3199ff1a-e6ab-4771-ab2a-7980683da970)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 011](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a25b2f69-67cd-4fac-8012-a02a1b52050e)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 012](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/31683082-8a98-4ccd-984f-103c0e7059b3)
-  ![KakaoTalk_Photo_2024-06-11-16-44-00](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/673682ed-981b-4996-a09f-6ea4f56bbeff)
+![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
+
+내 정보 확인 비밀번호 변경 권한신청
+
+![2024-06-12 15;24;47](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/b80b577a-194e-40a1-8b41-6deafca96abd)
+</details>
+<br>
+<details>
+<summary> 8-2. 공지사항 </summary>
+공지사항 등록
+
+![2024-06-12 15;25;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ccb53b22-6780-4c5b-8cf7-
+3f1632de4166)
+
+댓글 작성 및 삭제
+
+![2024-06-12 15;27;06](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/48d61703-9714-471a-bcc6-5e6a1fc77ae5)
+
+공지사항 수정
+
+![2024-06-12 15;28;29](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/3d9f0808-5947-4556-9adf-1666230941a7)
+
+</details>
+
+<br>
+<details>
+<summary> 8-3. 품목관리 </summary>
+
+품목 목록
+![2024-06-12 15;53;24](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1355f400-cb2a-4a7b-97e8-de8902aaaa4a)
+
+창고 목록
+
+![2024-06-12 16;12;43](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ab8eae5f-e095-4bfd-a1ff-c07bcfbe87cf)
+
+</details>
+
+<br>
+<details>
+<summary> 8-4. 영업기회 </summary>
+영업기회 목록
+  
+![2024-06-12 16;21;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/caa4b370-4f07-4fe5-8ecf-db26d3ad3c8c)
+
+영업기회 상태변경 및 참고사항 작성 및 삭제
+
+![2024-06-12 16;39;10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/557c1a19-5f59-4e3d-a08c-ce22bfbe637c)
+
+영업기회 등록( 전화번호 형식 이메일 형식 맞아야함)
+
+![2024-06-12 16;43;48](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ff9c010c-f396-4fba-b863-6cf1259ea640)
+
+영업기회 수정
+
+![2024-06-12 16;45;35](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/03fe1030-605c-4c31-baa0-d4d25190c378)
+
+</details>
 
 </details>
 
