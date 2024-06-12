@@ -288,6 +288,7 @@
 <details>
 <summary> 8-4. 영업기회 </summary>
 영업기회 목록
+  
 ![2024-06-12 16;21;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/caa4b370-4f07-4fe5-8ecf-db26d3ad3c8c)
 
 </details>
