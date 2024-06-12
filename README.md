@@ -242,20 +242,13 @@
 <details>
   <summary>8. UI/UX 단위 테스트 결과서 및  통합테스트</summary>
   <!-- 내용 작성 -->
+<br>
+<details>
+<summary> 7-1. 로그인 </summary>
+비밀번호 변경 후 로그인 및 로그아웃 
 
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 001](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5ac6d9ed-257c-491e-993f-7b83a5b6345f)
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 002](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/83f0eab4-0c95-4df4-ac13-8592096aed7a)
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 003](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/11551674-1f0a-4b49-9ee4-76f2980126bb)
-  ![KakaoTalk_Photo_2024-06-11-16-38-20 004](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3e94d722-365d-486b-b24a-1efc9c394f86)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 005](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/841de3ef-1f66-4b23-91e2-571055035f0b)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 006](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/766cdf61-5b47-4e34-802a-ae1913e2ce5d)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 007](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/62aff38b-a0c0-4be3-af5f-8fcc6cc60e78)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 008](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/8fc72bdf-00b2-4614-8755-d7cc3d3f2675)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 009](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a9d5ec9f-5683-4f75-b2c2-4ae921872084)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 010](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3199ff1a-e6ab-4771-ab2a-7980683da970)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 011](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a25b2f69-67cd-4fac-8012-a02a1b52050e)
-  ![KakaoTalk_Photo_2024-06-11-16-38-21 012](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/31683082-8a98-4ccd-984f-103c0e7059b3)
-  ![KakaoTalk_Photo_2024-06-11-16-44-00](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/673682ed-981b-4996-a09f-6ea4f56bbeff)
+![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
+
 
 </details>
 
