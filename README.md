@@ -406,6 +406,19 @@
 효율적인 영업을 위한 영업관리 프로그램, ERPC입니다!<br> 영업사원의 문서화 시간을 줄여주기 위한 시스템과 직관적인 UI를 볼 수 있습니다. 🍀
 </div>
 
+## 멤버
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/yunjaeeun"><img src="![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153914718/e71bf978-bbe6-4d03-8ae2-4303da1355be)
+" width="100px;" alt="Stefan Retief"/><br /><sub><b>윤재은</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/issues?q=author%3AStefanRetief" title="Bug reports">🐛</a> <a href="https://github.com/codesandbox/codesandbox-client/commits?author=StefanRetief" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chosoobin37"><img src="https://avatars.githubusercontent.com/u/23213686?v=4?s=100" width="100px;" alt="Aditya"/><br /><sub><b>조수빈</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/issues?q=author%3Aaditya211935" title="Bug reports">🐛</a> <a href="https://github.com/codesandbox/codesandbox-client/commits?author=aditya211935" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/dongjunsong"><img src="https://avatars.githubusercontent.com/u/36991862?v=4?s=100" width="100px;" alt="B2D1"/><br /><sub><b>송동준</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=B2D1" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Jihye1101"><img src="https://github.com/kettanaito.png?s=100" width="100px;" alt="Artem"/><br /><sub><b>양지혜</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=kettanaito" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
 ## 목차
   - [개요](#개요) 
   - [기획의도](#기획의도)
