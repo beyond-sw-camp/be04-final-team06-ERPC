@@ -295,6 +295,14 @@
 
 ![2024-06-12 16;39;10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/557c1a19-5f59-4e3d-a08c-ce22bfbe637c)
 
+영업기회 등록( 전화번호 형식 이메일 형식 맞아야함)
+
+![2024-06-12 16;43;48](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ff9c010c-f396-4fba-b863-6cf1259ea640)
+
+영업기회 수정
+
+![2024-06-12 16;45;35](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/03fe1030-605c-4c31-baa0-d4d25190c378)
+
 </details>
 
 </details>
