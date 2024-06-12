@@ -244,7 +244,7 @@
   <!-- 내용 작성 -->
 <br>
 <details>
-<summary> 7-1. 로그인 </summary>
+<summary> 8-1. 로그인 </summary>
 비밀번호 변경 후 로그인 및 로그아웃 
 
 ![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
@@ -255,8 +255,40 @@
 </details>
 <br>
 <details>
-<summary> 7-2. 공지사항 </summary>
+<summary> 8-2. 공지사항 </summary>
+공지사항 등록
 
+![2024-06-12 15;25;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ccb53b22-6780-4c5b-8cf7-
+3f1632de4166)
+
+댓글 작성 및 삭제
+
+![2024-06-12 15;27;06](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/48d61703-9714-471a-bcc6-5e6a1fc77ae5)
+
+공지사항 수정
+
+![2024-06-12 15;28;29](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/3d9f0808-5947-4556-9adf-1666230941a7)
+
+</details>
+
+<br>
+<details>
+<summary> 8-3. 품목관리 </summary>
+
+품목 목록
+![2024-06-12 15;53;24](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1355f400-cb2a-4a7b-97e8-de8902aaaa4a)
+
+창고 목록
+
+![2024-06-12 16;12;43](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ab8eae5f-e095-4bfd-a1ff-c07bcfbe87cf)
+
+</details>
+
+<br>
+<details>
+<summary> 8-4. 영업기회 </summary>
+영업기회 목록
+![2024-06-12 16;21;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/caa4b370-4f07-4fe5-8ecf-db26d3ad3c8c)
 
 </details>
 
