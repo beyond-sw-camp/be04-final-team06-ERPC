@@ -40,16 +40,14 @@
 </div>
 
 
-## 목차
+## 📚목차
   - [개요](#개요) 
   - [팀원](#팀원)
   - [기획의도](#기획의도)
+  - [기술스택](#기술스택)
 <br>
 
 ## 개요
-- 프로젝트 이름: ERPC
-- 프로젝트 지속기간: 2024.04.19 ~ 2024.06.14
-<br>
  저희 팀은 컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템을 주제로 선정하였습니다. <br>
  개발자로서 컴퓨터를 가장 많이 접기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
  펜데믹 동안 원격 근무 와 온라인 교육으로 인해 성장세를 보였던 시장이 잠시 정체된 후, <br>
@@ -78,6 +76,27 @@
     <td><a href="https://github.com/Jihye1101"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
   </tr>
 </table>
+
+<br>
+
+## 🛠기술스택
+<h3>Backend</h3>
+
+| SpringBoot | MariaDB | Spring Data JPA | Jenkins | Kubernetes | Docker | ngrok |
+| --- | --- | --- | --- | --- | --- | --- |
+| ![SpringBoot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white) | ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) | ![SpringDataJPA](https://img.shields.io/badge/Spring_Data_JPA-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) | ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white) | ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | ![ngrok](https://img.shields.io/badge/ngrok-1A1A1A?style=for-the-badge&logo=ngrok&logoColor=white) |
+
+<h3>Frontend</h3>
+
+| Python | JavaScript | Vue | HTML | CSS |
+| --- | --- | --- | --- | --- | 
+| ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) |
+
+<h3>Database</h3>
+
+<h3>CI/CD</h3>
+
+<h3>Etc</h3>
 
 <br>
   
