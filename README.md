@@ -104,7 +104,7 @@
 
 ## 🗂문서
 <details>
-  <summary><h3>⏱일정관리</h3></summary>
+  <summary><h3>📅일정관리</h3></summary>
   <a href = "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">1. WBS</a>
   <br>
   <a href= "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">2. 요구사항 명세서</a>
@@ -119,7 +119,125 @@
   <a href = "">3. 화면설계서</a>
   <br>
   <a href = "">4. API 명세서</a>
+  <br>
 </details>
+
+<details>
+  <summary><h3>📊테스트</h3></summary>
+  <details>
+  <summary>8. UI/UX 단위 테스트 결과서 및  통합테스트</summary>
+  <!-- 내용 작성 -->
+<br>
+<details>
+<summary> 8-1. 로그인 </summary>
+비밀번호 변경 후 로그인 및 로그아웃 
+
+![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
+
+내 정보 확인 비밀번호 변경 권한신청
+
+![2024-06-12 15;24;47](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/b80b577a-194e-40a1-8b41-6deafca96abd)
+</details>
+<br>
+<details>
+<summary> 8-2. 공지사항 </summary>
+공지사항 등록
+
+![2024-06-12 15;25;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ccb53b22-6780-4c5b-8cf7-
+3f1632de4166)
+
+댓글 작성 및 삭제
+
+![2024-06-12 15;27;06](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/48d61703-9714-471a-bcc6-5e6a1fc77ae5)
+
+공지사항 수정
+
+![2024-06-12 15;28;29](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/3d9f0808-5947-4556-9adf-1666230941a7)
+
+</details>
+
+<br>
+<details>
+<summary> 8-3. 품목관리 </summary>
+
+품목 목록
+![2024-06-12 15;53;24](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1355f400-cb2a-4a7b-97e8-de8902aaaa4a)
+
+창고 목록
+
+![2024-06-12 16;12;43](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ab8eae5f-e095-4bfd-a1ff-c07bcfbe87cf)
+
+</details>
+
+<br>
+<details>
+<summary> 8-4. 영업기회 </summary>
+영업기회 목록
+  
+![2024-06-12 16;21;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/caa4b370-4f07-4fe5-8ecf-db26d3ad3c8c)
+
+영업기회 상태변경 및 참고사항 작성 및 삭제
+
+![2024-06-12 16;39;10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/557c1a19-5f59-4e3d-a08c-ce22bfbe637c)
+
+영업기회 등록( 전화번호 형식 이메일 형식 맞아야함)
+
+![2024-06-12 16;43;48](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ff9c010c-f396-4fba-b863-6cf1259ea640)
+
+영업기회 수정
+
+![2024-06-12 16;45;35](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/03fe1030-605c-4c31-baa0-d4d25190c378)
+
+</details>
+
+</details>
+
+<details>
+  <summary>9. 백엔드 단위테스트 결과서</summary>
+  <!-- 내용 작성 -->
+  
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7edc557c-a78f-433c-9558-505de677ddb4)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/41ee6f28-2a4b-478d-bd3c-aa746233ff69)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7f12605a-1104-4010-8c12-dfc14051bff8)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/af0764c3-d141-48cd-b6a6-06e1554aa2e8)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5c956da7-5671-4259-b42b-13b59b764aed)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/44ff3f05-26ff-4eba-a37e-567c28a1b98e)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3a9adb4c-8093-44ac-9d14-5216358e2724)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/474c28f4-e883-410a-b013-f6de6d446081)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/d0c9e419-5612-4fef-8997-3b0faefde153)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/4cf08a90-f671-4f60-a984-531aeb8b49b2)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0dac4a1b-7b8e-4018-81aa-064399d1b957)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e92818fe-998f-47c8-ae24-0ff4d148a3a5)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/20336cea-a827-45b4-b469-d69129f05a7b)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fcad079c-87e6-4c7d-8ed9-26130f2b0279)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5fda40bd-515d-4297-9a80-2406625bd436)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec4f905e-ec86-493f-891c-64580aead599)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/521be372-7217-4845-ae8e-bf0a6b4895d2)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1f0baba0-c84b-4259-9763-5fd6ed575836)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7e357c40-36a7-44c0-bded-07dd2a6dd554)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/dac3f716-91b6-415d-82e5-9e8d8463f929)
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1ae40ac9-f51f-4e01-b78b-0461b70855ce)
+
+
+</details>
+</details>
+
+
+<details>
+  <summary><h3>📈시스템 아키텍처 및 모니터링</h3></summary>
+  <h4>1. 시스템 아키텍처</h4>
+  <img width="1318" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/469ff274-9418-4376-91cc-652a03f84668">
+
+  <h4>2. Prometheus</h4>
+  
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/30425298-ce1d-4eb9-bf07-133bdd4077b3)
+
+  <h4>3. Grafana</h4>
+  
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7d81dd77-76fd-427a-b3a9-7f42b18b6e39)
+</details>
+
+
 
 <details>
   <summary>4. DDD</summary>
@@ -310,120 +428,6 @@
 
 </details>
   
-</details>
-
-<details>
-  <summary>8. UI/UX 단위 테스트 결과서 및  통합테스트</summary>
-  <!-- 내용 작성 -->
-<br>
-<details>
-<summary> 8-1. 로그인 </summary>
-비밀번호 변경 후 로그인 및 로그아웃 
-
-![영상1](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f4088fda-dffe-4409-b138-3f5856dd187b)
-
-내 정보 확인 비밀번호 변경 권한신청
-
-![2024-06-12 15;24;47](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/b80b577a-194e-40a1-8b41-6deafca96abd)
-</details>
-<br>
-<details>
-<summary> 8-2. 공지사항 </summary>
-공지사항 등록
-
-![2024-06-12 15;25;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ccb53b22-6780-4c5b-8cf7-
-3f1632de4166)
-
-댓글 작성 및 삭제
-
-![2024-06-12 15;27;06](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/48d61703-9714-471a-bcc6-5e6a1fc77ae5)
-
-공지사항 수정
-
-![2024-06-12 15;28;29](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/3d9f0808-5947-4556-9adf-1666230941a7)
-
-</details>
-
-<br>
-<details>
-<summary> 8-3. 품목관리 </summary>
-
-품목 목록
-![2024-06-12 15;53;24](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1355f400-cb2a-4a7b-97e8-de8902aaaa4a)
-
-창고 목록
-
-![2024-06-12 16;12;43](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ab8eae5f-e095-4bfd-a1ff-c07bcfbe87cf)
-
-</details>
-
-<br>
-<details>
-<summary> 8-4. 영업기회 </summary>
-영업기회 목록
-  
-![2024-06-12 16;21;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/caa4b370-4f07-4fe5-8ecf-db26d3ad3c8c)
-
-영업기회 상태변경 및 참고사항 작성 및 삭제
-
-![2024-06-12 16;39;10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/557c1a19-5f59-4e3d-a08c-ce22bfbe637c)
-
-영업기회 등록( 전화번호 형식 이메일 형식 맞아야함)
-
-![2024-06-12 16;43;48](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/ff9c010c-f396-4fba-b863-6cf1259ea640)
-
-영업기회 수정
-
-![2024-06-12 16;45;35](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/03fe1030-605c-4c31-baa0-d4d25190c378)
-
-</details>
-
-</details>
-
-<details>
-  <summary>9. 백엔드 단위테스트 결과서</summary>
-  <!-- 내용 작성 -->
-  
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7edc557c-a78f-433c-9558-505de677ddb4)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/41ee6f28-2a4b-478d-bd3c-aa746233ff69)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7f12605a-1104-4010-8c12-dfc14051bff8)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/af0764c3-d141-48cd-b6a6-06e1554aa2e8)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5c956da7-5671-4259-b42b-13b59b764aed)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/44ff3f05-26ff-4eba-a37e-567c28a1b98e)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3a9adb4c-8093-44ac-9d14-5216358e2724)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/474c28f4-e883-410a-b013-f6de6d446081)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/d0c9e419-5612-4fef-8997-3b0faefde153)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/4cf08a90-f671-4f60-a984-531aeb8b49b2)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0dac4a1b-7b8e-4018-81aa-064399d1b957)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e92818fe-998f-47c8-ae24-0ff4d148a3a5)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/20336cea-a827-45b4-b469-d69129f05a7b)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fcad079c-87e6-4c7d-8ed9-26130f2b0279)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5fda40bd-515d-4297-9a80-2406625bd436)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec4f905e-ec86-493f-891c-64580aead599)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/521be372-7217-4845-ae8e-bf0a6b4895d2)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1f0baba0-c84b-4259-9763-5fd6ed575836)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7e357c40-36a7-44c0-bded-07dd2a6dd554)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/dac3f716-91b6-415d-82e5-9e8d8463f929)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1ae40ac9-f51f-4e01-b78b-0461b70855ce)
-
-
-</details>
-
-<details>
-  <summary>10. Backend 사양서</summary>
-  <!-- 내용 작성 -->
-
-  <img width="978" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/6237fed8-1b14-4624-a1ff-60dccdf80993">
-</details>
-
-<details>
-  <summary>11. CI/CD 및 모니터링</summary>
-  <!-- 내용 작성 -->
-
-  <img width="1318" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/469ff274-9418-4376-91cc-652a03f84668">
-  
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/30425298-ce1d-4eb9-bf07-133bdd4077b3)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7d81dd77-76fd-427a-b3a9-7f42b18b6e39)
 </details>
 
 <details>
