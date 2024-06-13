@@ -10,16 +10,18 @@
   - [개요](#개요-및-주제-선정) 
   - [기획의도](#기획의도)
   - [기술스택](#기술스택)
-<br>
 
 ## 👨‍👨‍👦‍👦팀원
 <table>
   <tr>
+  <tr>
     <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75edf6b2-ecb1-46b6-a4be-ae24f8a45756" height=150 width=150/></td>
     <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7b351752-aeb0-4525-bd25-168bd694741f" height=150 width=150/></td>
-    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%A1%B0%EC%98%88%EB%A6%B0.jpg?raw=true" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/08e4faa5-89cd-47e6-b4fb-62e19a582939" height=150 width=150/></td>
     <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec7e609b-e780-488b-a132-119f3bfa4440" height=150 width=150/></td>
   </tr>
+  <br>
+
   <tr>
     <td>윤재은</td>
     <td>조수빈</td>
@@ -33,7 +35,6 @@
     <td><a href="https://github.com/Jihye1101"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
   </tr>
 </table>
-
 <br>
 
 ## ✏개요 및 주제 선정
