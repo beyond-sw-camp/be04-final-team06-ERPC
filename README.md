@@ -440,6 +440,10 @@
 
 ![거래처-조회-및-수정](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/354b54f8-a674-4cb4-bf01-a610f20d66cf)
 
+<h5>2-5-3. 거래처별 수주 내역 조회</h5>
+
+![거래처별 수주 내역 조회](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/8694f5b2-39a4-4b48-97e5-d3fb0328764c)
+
 </details>
 
 <br>
