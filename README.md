@@ -516,15 +516,15 @@
 
 <h5>2-10-1. 견적서 결재</h5>
   
-![결재 관리 - 견적](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/af0b6230-598f-4e77-9b4e-8af1407026a6)
+<img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/af0b6230-598f-4e77-9b4e-8af1407026a6" width="100%" >
 
 <h5>2-10-2. 계약서 결재</h5>
 
-![결재 관리 - 계약](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/7c810259-d265-4e1c-a7cc-fdc6c54cc6fa)
+<img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/7c810259-d265-4e1c-a7cc-fdc6c54cc6fa" width="100%" >
 
 <h5>2-10-3. 수주 결재</h5>
 
-![결재 관리 - 수주](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/dbf9ffff-e5bc-498e-8ebc-d1dc4b4af0ef)
+<img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/dbf9ffff-e5bc-498e-8ebc-d1dc4b4af0ef" width="100%" >
 
 </details>
 
