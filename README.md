@@ -50,8 +50,8 @@ www.erpc.site
 
 * 주제 선정 이유
 <div style="display: flex; justify-content: space-between;">
-  <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1c4ded56-994c-4d90-8a15-c7c77d571c28" width="500" alt="image">
-  <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5d0a3157-fd9b-4de2-bae4-7a206379ad5b" width="500" alt="image">
+  <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1c4ded56-994c-4d90-8a15-c7c77d571c28" width="300" alt="image">
+  <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5d0a3157-fd9b-4de2-bae4-7a206379ad5b" width="300" alt="image">
 </div>
 <br>
   개발자로서 컴퓨터를 가장 많이 접하기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
