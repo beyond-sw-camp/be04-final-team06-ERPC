@@ -357,27 +357,8 @@
   <details>
   <summary><h4>1. 백엔드 단위테스트 결과서</h4></summary>
   
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7edc557c-a78f-433c-9558-505de677ddb4)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/41ee6f28-2a4b-478d-bd3c-aa746233ff69)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7f12605a-1104-4010-8c12-dfc14051bff8)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/af0764c3-d141-48cd-b6a6-06e1554aa2e8)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5c956da7-5671-4259-b42b-13b59b764aed)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/44ff3f05-26ff-4eba-a37e-567c28a1b98e)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3a9adb4c-8093-44ac-9d14-5216358e2724)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/474c28f4-e883-410a-b013-f6de6d446081)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/d0c9e419-5612-4fef-8997-3b0faefde153)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/4cf08a90-f671-4f60-a984-531aeb8b49b2)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0dac4a1b-7b8e-4018-81aa-064399d1b957)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e92818fe-998f-47c8-ae24-0ff4d148a3a5)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/20336cea-a827-45b4-b469-d69129f05a7b)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fcad079c-87e6-4c7d-8ed9-26130f2b0279)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5fda40bd-515d-4297-9a80-2406625bd436)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec4f905e-ec86-493f-891c-64580aead599)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/521be372-7217-4845-ae8e-bf0a6b4895d2)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1f0baba0-c84b-4259-9763-5fd6ed575836)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7e357c40-36a7-44c0-bded-07dd2a6dd554)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/dac3f716-91b6-415d-82e5-9e8d8463f929)
-  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1ae40ac9-f51f-4e01-b78b-0461b70855ce)
+  <img width="489" alt="백엔드 테스트 명세서" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/77635e98-3f4d-4118-a070-19cab77b9ffe">
+
 </details>
   
   <details>
