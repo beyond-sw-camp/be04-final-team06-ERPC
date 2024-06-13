@@ -1,7 +1,8 @@
 
 <div align="center">
 <h1>🖥 ERPC 🖥</h1>
-최적의 영업을 위한 영업관리 시스템
+최적의 영업을 위한 영업관리 시스템 <br>
+www.erpc.site
 </div>
 
 
@@ -23,10 +24,10 @@
   <br>
 
   <tr>
-    <td>윤재은</td>
-    <td>조수빈</td>
-    <td>송동준</td>
-    <td>양지혜</td>
+    <td>윤재은 (@yunjaeeun)</td>
+    <td>조수빈 (@chosoobin37)</td>
+    <td>송동준 (@dongjunsong)</td>
+    <td>양지혜 (@Jihye1101)</td>
   </tr>
   <tr>
     <td><a href="https://github.com/yunjaeeun"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
@@ -38,36 +39,66 @@
 <br>
 
 ## ✏개요 및 주제 선정
- 저희 팀은 컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템을 주제로 선정하였습니다. <br>
- 개발자로서 컴퓨터를 가장 많이 접기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
- 펜데믹 동안 원격 근무 와 온라인 교육으로 인해 성장세를 보였던 시장이 잠시 정체된 후, <br>
- AI와 게임 등 기술 발전에 따른 고성능 컴퓨터 수요 증가로 다시 성장할 것으로 기대되고 있습니다. <br>
- 이러한 이유들로 컴퓨터 및 관련 부품들을 영업하는 회사의 EPR 시스템을 주제로 선정하게 되었습니다.
+
+1. 개요
+최적의 영업을 위한 영업관리 시스템
+
+2. 주제 및 선정 이유
+* 주제
+  <br>
+  컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템 <br>
+
+* 주제 선정 이유
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1c4ded56-994c-4d90-8a15-c7c77d571c28" width="500" alt="image">
+  <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5d0a3157-fd9b-4de2-bae4-7a206379ad5b" width="500" alt="image">
+</div>
+<br>
+  개발자로서 컴퓨터를 가장 많이 접하기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
+  펜데믹 동안 원격근무와 온라인 교육으로 인해 성장세를 보였던 시장이 정체되었지만,<br>
+  AI와 게임 등 기술 발전에 따른 고성능 컴퓨터의 수요 증가로 다시 성장할 것으로 기대됩니다.
 <br>
 
   
 ## ✍🏻기획의도
+기존 영업 ERP들의 필수 기능 + 단점 보완 -> 문서화 시간 최소화 및 직관적인 화면 설계
+
+1. 관련 코드를 통해 연관된 데이터 불러오기 -> 중복된 데이터 입력 생략으로 문서화 시간 감소
+2. 
 
 <br>
 
 ## 🛠기술스택
 <h3>Backend</h3>
 
-| SpringBoot | MariaDB | Spring Data JPA | Jenkins | Kubernetes | Docker | ngrok |
-| --- | --- | --- | --- | --- | --- | --- |
-| ![SpringBoot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white) | ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) | ![SpringDataJPA](https://img.shields.io/badge/Spring_Data_JPA-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) | ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white) | ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | ![ngrok](https://img.shields.io/badge/ngrok-1A1A1A?style=for-the-badge&logo=ngrok&logoColor=white) |
+| Spring Boot | Spring JPA | AWS S3 | Java 17 |
+| --- | --- | --- | --- |
+| ![Spring Boot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white) | ![Spring JPA](https://img.shields.io/badge/Spring%20Data%20JPA-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) | ![AWS S3](https://img.shields.io/badge/Amazon%20S3-569A31?style=for-the-badge&logo=amazonaws&logoColor=white) | ![Java 17](https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=java&logoColor=white) |
 
 <h3>Frontend</h3>
 
-| Python | JavaScript | Vue | HTML | CSS |
-| --- | --- | --- | --- | --- | 
-| ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) |
+| Vue3 | JavaScript | HTML | CSS |
+| --- | --- | --- | --- |
+| ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) |
 
 <h3>Database</h3>
 
+| MariaDB | AWS RDS |
+| --- | --- |
+| ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) | ![AWS RDS](https://img.shields.io/badge/Amazon%20RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white) |
+
 <h3>CI/CD</h3>
 
+| GitHub Actions | Route53 | Elastic Beanstalk | Prometheus | Grafana |
+| --- | --- | --- | --- | --- |
+| ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) | ![Route53](https://img.shields.io/badge/Amazon%20Route53-4B8EC6?style=for-the-badge&logo=amazonroute53&logoColor=white) | ![Elastic Beanstalk](https://img.shields.io/badge/AWS%20Elastic%20Beanstalk-6B9CE0?style=for-the-badge&logo=aws-elastic-beanstalk&logoColor=white) | ![Prometheus](https://img.shields.io/badge/Prometheus-%233E3E3E.svg?style=for-the-badge&logo=prometheus&logoColor=white) | ![Grafana](https://img.shields.io/badge/Grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white) |
+
 <h3>Etc</h3>
+
+| GitHub | Discord | Slack |
+| --- | --- | --- |
+| ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) | ![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white) | ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white) |
+
 
 <br>
 
