@@ -428,6 +428,7 @@
 <br>
 <details>
 <summary> <h4>2-4. 영업기회</h4> </summary>
+  
 <h5>2-4-1. 영업기회 목록</h5>
   
 ![2024-06-12 16;21;58](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/caa4b370-4f07-4fe5-8ecf-db26d3ad3c8c)
@@ -445,6 +446,103 @@
 ![2024-06-12 16;45;35](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/03fe1030-605c-4c31-baa0-d4d25190c378)
 
 </details>
+
+<br>
+<details>
+<summary> <h4>2-5. 거래처 관리</h4> </summary>
+
+<h5>2-5-1. 거래처 등록 및 목록</h5>
+  
+![거래처-등록](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/512ea4ff-8da6-454d-a39a-bb0dd2f6bafc)
+
+<h5>2-5-2. 거래처 상세 및 수정/삭제 요청</h5>
+
+![거래처-조회-및-수정](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/354b54f8-a674-4cb4-bf01-a610f20d66cf)
+
+</details>
+
+<br>
+<details>
+<summary> <h4>2-6. 견적서 관리</h4> </summary>
+
+<h5>2-6-1. 견적서 등록 및 목록</h5>
+  
+![견적서-등록](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/40f38cc5-1744-4f7e-b31a-eff34030c7ea)
+
+<h5>2-6-2. 견적서 상세 및 수정/엑셀다운/결재요청/삭제요청</h5>
+
+![견적서-조회-및-수정](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/14ceb326-98e6-4985-b150-d1cf9ed839be)
+
+</details>
+
+<br>
+<details>
+<summary> <h4>2-7. 계약서 관리</h4> </summary>
+
+<h5>2-7-1. 계약서 등록 및 목록</h5>
+  
+![계약서-등록](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/509a89e6-3416-4d27-8ec4-47c6cca3b3d0)
+
+<h5>2-7-2. 계약서 상세 및 수정/엑셀다운/결재요청/삭제요청</h5>
+
+![계약서-조회-및-수정](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/1b61caa8-995c-4b91-96bb-96900d1d27e5)
+
+</details>
+
+<br>
+<details>
+<summary> <h4>2-8. 수주/전표 관리</h4> </summary>
+
+<h5>2-8-1. 수주 등록 및 목록</h5>
+  
+![수주-등록](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/cfd41820-8fab-4f4d-9bb8-39a9d6b7a0e8)
+
+<h5>2-8-2. 수주 상세 및 수정/엑셀다운/결재요청/삭제요청</h5>
+
+![수주-조회-및-수정](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/0d921cbf-27ae-44dc-9b40-b6d458efc977)
+
+<h5>2-8-3. 세금계산서 발행 요청 및 발행내역/출하상태 확인</h5>
+
+![세금계산서-발행-및-수주-출하-확인](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/c3a8b327-659a-476e-97bd-0bbdd592aa8b)
+
+</details>
+
+<br>
+<details>
+<summary> <h4>2-9. 실적 관리</h4> </summary>
+
+<h5>2-9-1. 연간 실적 조회</h5>
+  
+![실적 조회 - 연간](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/1c770eb6-c1c4-4f23-a9de-5db402ba4c85)
+
+<h5>2-9-2. 팀별 실적 조회</h5>
+
+![실적 조회 - 팀](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/6213682a-fa9d-4f66-a77b-7b8c94a2303a)
+
+<h5>2-9-3. 사원별 실적 조회</h5>
+
+![실적 조회 - 사원별](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/e38a6d58-f0a1-4561-a4d8-808d2b007441)
+
+</details>
+
+<br>
+<details>
+<summary> <h4>2-10. 결재 관리</h4> </summary>
+
+<h5>2-10-1. 견적서 결재</h5>
+  
+![결재 관리 - 견적](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/af0b6230-598f-4e77-9b4e-8af1407026a6)
+
+<h5>2-10-2. 계약서 결재</h5>
+
+![결재 관리 - 계약](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/7c810259-d265-4e1c-a7cc-fdc6c54cc6fa)
+
+<h5>2-10-3. 수주 결재</h5>
+
+![결재 관리 - 수주](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/dbf9ffff-e5bc-498e-8ebc-d1dc4b4af0ef)
+
+</details>
+
 
 </details>
 
