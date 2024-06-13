@@ -555,7 +555,6 @@
 
 ![영업기회 삭제 요청 밎 삭제](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1ed8955b-91be-4a93-80b6-571caf894100)
 
-<br>
 <h5> 계약서 삭제 요청 관리</h5>
 
 ![계약서 삭제 요청 밎 관리](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8f9c8426-eb93-4865-a770-c1a52fa12fb6)
