@@ -1,38 +1,4 @@
 
-<details>
-  <summary>12. PPT</summary>
-  <!-- 내용 작성 -->
-
-  <img width="741" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/eb392181-bb0d-4a54-a4d3-1b8e3c40af3e">
-  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/cedd0790-3118-4a31-b233-238dbf2a4f7c">
-  <img width="739" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ff27144c-ce27-4bc2-bfcd-22fae354232f">
-  <img width="740" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/b6b6ab03-760b-47a5-ba6b-b4b0b33f7c30">
-  <img width="738" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/07e4b2b9-ecc4-4cc3-bfeb-0226b11f0473">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/78c7aa2c-2346-4ed4-b61f-c49403dea038">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/0050e058-86bd-4425-b257-d424f096a002">
-  <img width="737" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75aed171-1fac-412e-8357-957423cf95fc">
-  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/324c2e65-3c5e-42c2-abc7-ce7a4b7b9383">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fc69c18b-6012-477e-a18b-f4018b4be607">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f9606238-fb9a-4ecf-b4fc-1ee379467538">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/9815bbd3-3be6-4524-aa87-d7dae9419666">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/caafdc07-4c67-4004-99a6-c6b0226aa203">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/be95e955-4c7f-49c0-a366-ba081303e474">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/42bb6b2e-502d-42d4-99fb-c6e4487f34ea">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/48813d96-dba8-4f0d-a2ba-4e639e99a22e">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/62b56ccf-d485-46cd-8751-ee9b1bb7add4">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/fec3b3ca-02af-4eda-b40b-eb9455343e94">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/6eed9e2e-6898-4d0f-8f5d-450c86111585">
-  <img width="733" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/224b17b3-3273-4d5d-b140-5d889bd97432">
-  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/197e38ba-8b3b-4062-bd5a-b5dfac6f700d">
-  <img width="732" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7462ab86-c5d1-454e-b761-8787b9b68129">
-  <img width="734" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/a82044f2-35e4-4816-b575-4ce110814b42">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/c33820cd-8b69-47ba-ae1b-c50b7b8236fb">
-  <img width="736" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/39033f83-c7a9-4470-810e-7a5a84ee3363">
-  <img width="731" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f7630568-d302-40af-a65f-01dd94fbed52">
-
-</details>
-
-
 <div align="center">
 <h1>🖥 ERPC 🖥</h1>
 여러 영업관리 ERP들을 직접 사용해보며 영업관리 ERP가 필수적으로 갖추어야 할 기능들을 취합하고 <br>
@@ -58,10 +24,10 @@
 ## 👨‍👨‍👦‍👦팀원
 <table>
   <tr>
-    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%9D%B4%EC%9E%AC%EC%9B%90.png?raw=true" height=150 width=150/></td>
-    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%9E%A5%EB%AF%BC%EC%84%9D.jpg?raw=true" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75edf6b2-ecb1-46b6-a4be-ae24f8a45756" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7b351752-aeb0-4525-bd25-168bd694741f" height=150 width=150/></td>
     <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%A1%B0%EC%98%88%EB%A6%B0.jpg?raw=true" height=150 width=150/></td>
-    <td><img src="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/README_IMAGE/contributors/%EC%A7%80%ED%98%84%EA%B7%BC.png?raw=true" height=150 width=150/></td>
+    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec7e609b-e780-488b-a132-119f3bfa4440" height=150 width=150/></td>
   </tr>
   <tr>
     <td>윤재은</td>
@@ -103,17 +69,23 @@
 ## 기획의도
 
 ## 🗂문서
-<details>
-  <summary><h3>📅일정관리</h3></summary>
-  <a href = "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">1. WBS</a>
-  <br>
-  <a href= "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">2. 요구사항 명세서</a>
-</details>
 
 <details>
   <summary><h3>📋설계문서</h3></summary>
 <details>
-  <summary><h4>1. DDD</h4></summary>
+  <summary><h4>1. WBS</h4></summary>
+  <a href = "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">WBS</a>
+  <img width="1270" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/3a89bcde-4694-4e94-add2-70347bb099a2">
+</details>
+  
+<details>
+  <summary><h4>2. 요구사항 명세서</h4></summary>
+  <a href= "https://docs.google.com/spreadsheets/d/17O6hW-91EbhwNmIE26s_ZMHHAI28S691gpfcICxbrkk/edit?usp=sharing">요구사항 명세서</a>
+  <img width="1178" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e8f0aa6e-4937-4180-9edf-b18815084da7">
+</details>
+
+<details>
+  <summary><h4>3. DDD</h4></summary>
   
   ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/f635e785-cff2-421a-89de-3cf62c1af5e2)
   ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/569bc660-9da4-46ea-9d7f-7cbd88b16b23)
@@ -128,18 +100,21 @@
 </details>
   
 <details>
-  <summary><h4>2. ERD</h4></summary>
+  <summary><h4>4. ERD</h4></summary>
   <h5>1. 논리 모델링</h5>
   
   ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/607eddf2-36db-4798-9a6f-b642fbeddb87)
   <h5>2. 물리 모델링</h5>
+  
+  ![image](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/d407b761-27f5-4c3e-833a-382881782702)
+
 </details>
 
 <details>
-  <summary><h4>3. 화면 설계서</h4></summary>
+  <summary><h4>5. 화면 설계서</h4></summary>
 
 <details>
-<summary><h4>3-1. 로그인 + 내 정보</h4> </summary>
+<summary><h4>5-1. 로그인 + 내 정보</h4> </summary>
   
 ![와이어프레임 들](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8e5cac5d-6a34-47c7-9bff-26e291c65459)
 
@@ -154,7 +129,7 @@
 
 <br>
 <details>
-<summary><h4>3-2.공지사항 관리</h4> </summary>
+<summary><h4>5-2.공지사항 관리</h4> </summary>
 
 ![와이어프레임 들 (9)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/b2c0b401-69d3-403e-8615-d0010514c174)
 
@@ -169,7 +144,7 @@
 
 <br>
 <details>
-<summary><h4>3-3. 영업기회 관리</h4> </summary>
+<summary><h4>5-3. 영업기회 관리</h4> </summary>
 
 ![와이어프레임 들 (5)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/7b572ad5-875f-460a-98a6-9e3a45fc24d4)
 
@@ -184,7 +159,7 @@
 
 <br>
 <details>
-<summary><h4>3-4. 품목 관리</h4> </summary>
+<summary><h4>5-4. 품목 관리</h4> </summary>
   
 ![와이어프레임 들 (3)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/4bc14d9c-421a-474e-a306-ff4f9b4aeaaa)
 
@@ -196,7 +171,7 @@
   
 <br>
 <details>
-<summary><h4>3-5. 거래처 관리</h4></summary>
+<summary><h4>5-5. 거래처 관리</h4></summary>
     
 ![그림2](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/3a778131-aebf-4ad7-8a71-bb8fc6b927a1)
 
@@ -210,7 +185,7 @@
 
 <br>
 <details>
-<summary><h4>3-6. 견적서 관리</h4></summary>
+<summary><h4>5-6. 견적서 관리</h4></summary>
 
 ![그림6](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/4f608452-4ece-4b24-90b2-8e8ec33f3ae7)
 
@@ -224,7 +199,7 @@
 
 <br>
 <details>
-<summary><h4>3-7. 계약서 관리</h4></summary>
+<summary><h4>5-7. 계약서 관리</h4></summary>
 
 ![그림10](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/d85c2316-d4da-4bdb-b110-9cf034879045)
 
@@ -238,7 +213,7 @@
 
 <br>
 <details>
-<summary><h4>3-8. 수주 관리</h4></summary>
+<summary><h4>5-8. 수주 관리</h4></summary>
 
 ![그림14](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/edf97edf-891f-4f30-ae0d-fb6aaf6a5955)
 
@@ -252,7 +227,7 @@
 
 <br>
 <details>
-<summary><h4>3-9. 전표 관리</h4></summary>
+<summary><h4>5-9. 전표 관리</h4></summary>
 
 ![그림18](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/f804940d-7c3a-421e-889b-09a9afb802c7)
 
@@ -262,7 +237,7 @@
 
 <br>
 <details>
-<summary><h4>3-10. 실적 관리</h4></summary>
+<summary><h4>5-10. 실적 관리</h4></summary>
 
 ![그림20](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/be4d5fc1-9b96-4ad3-a549-2dfe6a35c690)
 
@@ -270,7 +245,7 @@
 
 <br>
 <details>
-<summary><h4>3-11. 결재 관리</h4></summary>
+<summary><h4>5-11. 결재 관리</h4></summary>
 
 ![그림21](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/55d7c4c1-4c9e-4bfb-b854-851ecc8435be)
 
@@ -284,7 +259,7 @@
 
 <br>
 <details>
-<summary><h4>3-12. 관리자 페이지</h4></summary>
+<summary><h4>5-12. 관리자 페이지</h4></summary>
   
 ![사진 3](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1b1fe0eb-123a-4bf0-9047-19c2bb465742)
 
@@ -303,7 +278,7 @@
 </details>
 
 <details>
-  <summary><h4>4. API 명세서</h4></summary>
+  <summary><h4>6. API 명세서</h4></summary>
       <h5>1-1. 세금계산서, 영업기회</h5>
   <img width="653" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/772c46b3-9873-4905-8427-ed795a62fe61">
 
@@ -328,6 +303,19 @@
   <h5>1-8. 실적, 품목, POI</h5>
   <img width="622" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/e994ba61-8746-4b23-9aae-51d32dc296e5">
   </details>
+
+<details>
+  <summary><h4>7. 업무 흐름도</h4></summary>
+  <h5>1-1. 영업관리 업무 흐름도</h5>
+  <img width="653" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/509f052b-d768-4500-bccf-e7fe15284b36">
+
+  <h5>1-2. ERP 관리자 업무 흐름도</h5>
+  <img width="653" alt="image" src=https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/c3dd0923-9dd8-4283-8b5b-89c27c9a9c5c">
+
+  <h5>1-3. 상급자(팀장) 업무 흐름도</h5>
+  <img width="635" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/34f8dcd2-1628-4a76-a519-f61412053de6">
+</details>
+</details>
 </details>
 
 <details>
