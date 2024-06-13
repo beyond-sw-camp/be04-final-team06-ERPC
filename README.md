@@ -1,17 +1,16 @@
-
+---
 <div align="center">
 <h1>🖥 ERPC 🖥</h1>
-최적의 영업을 위한 영업관리 시스템 <br>
-www.erpc.site
 </div>
 
-
-## 📚목차
+---
+## 📚 목차
   - [팀원](#팀원)
-  - [개요](#개요-및-주제-선정) 
-  - [기획의도](#기획의도)
+  - [프로젝트 소개 및 기획의도](#-프로젝트-소개-및-기획의도) 
   - [기술스택](#기술스택)
+  - [문서](#문서)
 
+---
 ## 👨‍👨‍👦‍👦팀원
 <div style="display: flex; justify-content: center;">
   <table style="margin: 0 auto; text-align: center;">
@@ -36,38 +35,38 @@ www.erpc.site
   </table>
 </div>
 
-<br>
+---
+## ✏ 프로젝트 소개 및 기획의도
 
-## ✏개요 및 주제 선정
-
-1. 개요
+### 1. 개요
 최적의 영업을 위한 영업관리 시스템
 
-2. 주제 및 선정 이유
-* 주제
-  <br>
-  컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템 <br>
+### 2. 주제 
+컴퓨터와 관련부품들을 영업하는 회사의 ERP 시스템
 
-* 주제 선정 이유
-<div style="display: flex; justify-content: space-between;">
+### 3. 주제 선정 이유
+* 개발자로서 가장 많이 접하는 주제
+  
+* 관련 동향과 전망
+  <div style="display: flex; justify-content: space-between;">
   <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/1c4ded56-994c-4d90-8a15-c7c77d571c28" width="300" alt="image">
   <img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/5d0a3157-fd9b-4de2-bae4-7a206379ad5b" width="300" alt="image">
 </div>
-<br>
-  개발자로서 컴퓨터를 가장 많이 접하기도 하고, 관련 동향과 전망을 찾아본 결과, <br>
-  펜데믹 동안 원격근무와 온라인 교육으로 인해 성장세를 보였던 시장이 정체되었지만,<br>
-  AI와 게임 등 기술 발전에 따른 고성능 컴퓨터의 수요 증가로 다시 성장할 것으로 기대됩니다.
-<br>
 
+* 팬데믹 동안 원격근무와 온라인 교육으로 인해 성장세를 보였던 시장의 정체 <br>
+
+  ➡️ AI와 게임 등 기술 발전에 따른 고성능 컴퓨터의 수요 증가로 다시 성장할 것으로 기대
+
+### 4. 기획의도
+* 기존 영업 ERP들의 필수 기능 + 단점 보완 ➡️ 문서화 시간 최소화 및 직관적인 화면 설계
   
-## ✍🏻기획의도
-기존 영업 ERP들의 필수 기능 + 단점 보완 -> 문서화 시간 최소화 및 직관적인 화면 설계
+* 관련 코드를 통해 연관된 데이터 불러오기 ➡️ 중복된 데이터 입력 생략으로 문서화 시간 감소
+  
+* 자동 엑셀 변환 및 다운로드 ➡️ 견적서, 계약서, 수주 엑셀 형식으로 자동 변환 및 다운로드 후 첨부 가능
 
-1. 관련 코드를 통해 연관된 데이터 불러오기 -> 중복된 데이터 입력 생략으로 문서화 시간 감소
-2. 
+* 직관적인 화면 설계 ➡️ 처음 서비스를 이용하는 사용자도 쉽게 서비스 이용 가능
 
-<br>
-
+---
 ## 🛠기술스택
 <h3>Backend</h3>
 
@@ -100,8 +99,7 @@ www.erpc.site
 | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) | ![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white) | ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white) |
 
 
-<br>
-
+---
 ## 🗂문서
 
 <details>
@@ -200,8 +198,6 @@ www.erpc.site
 ![와이어프레임 들 (4)](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/d4852f6f-b750-475a-940d-c5554756a176)
 
 </details>
-
-
   
 <br>
 <details>
@@ -453,7 +449,6 @@ www.erpc.site
 </details>
 
 </details>
-
 
 <details>
   <summary><h3>📈시스템 아키텍처 및 모니터링</h3></summary>
