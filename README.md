@@ -560,6 +560,18 @@
 
 ![계약서 삭제 요청 밎 관리](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8f9c8426-eb93-4865-a770-c1a52fa12fb6)
 
+<h5> 거래처 삭제 요청 관리</h5>
+
+![거래처 삭제요청 밎 관리](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/f3ac5be7-c719-4f36-a44a-08d005892020)
+
+<h5> 견적서 삭제 요청 관리</h5>
+
+![견적서 삭제 요청 및 관리](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/c446cd0f-487d-4ec8-af3a-33081607d1aa)
+
+<h5> 수주 삭제 요청 관리</h5>
+
+![수주 삭제요청 및 관리](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/bfd992e4-c15d-4964-ba14-1d7a25e06c86)
+
 </details>
 
 
