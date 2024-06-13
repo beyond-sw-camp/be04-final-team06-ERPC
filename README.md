@@ -357,7 +357,7 @@
   <details>
   <summary><h4>1. 백엔드 단위테스트 결과서</h4></summary>
   
-  <img width="489" alt="백엔드 테스트 명세서" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/77635e98-3f4d-4118-a070-19cab77b9ffe">
+  <img width="489" alt="백엔드 테스트 명세서" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/77635e98-3f4d-4118-a070-19cab77b9ffe" width="100%" >
 
 </details>
   
