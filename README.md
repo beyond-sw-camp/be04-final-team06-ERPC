@@ -528,6 +528,40 @@
 
 </details>
 
+<br>
+<details>
+<summary> <h4>2-11. 관리자 페이지 </h4> </summary>
+
+<h5>2-11-1. 사원조회 및 수정</h5>
+
+![사원리스트밎저장](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/4b3837c6-4159-4006-8643-e07115102408)
+
+<h5>2-11-2. 사원등록</h5>
+
+![사원등록](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/eed69439-3c5d-477c-a561-86888742e3dd)
+
+<h5>2-11-3. 권한신청 및 조회</h5>
+
+![권한신청 밎 조회](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/2a4f70e1-dc46-4587-bd7a-a4a766c4e067)
+
+<h5>2-11-4. 권한조회 및 등록</h5>
+
+![권한조회 및 등록](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/470a727f-efec-4e54-bca5-f3de91f37d3f)
+
+<h5>2-11-5. 삭제요청 및 관리 </h5>
+
+<br>
+<h5> 영업기회 삭제 요청 관리</h5>
+
+![영업기회 삭제 요청 밎 삭제](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/1ed8955b-91be-4a93-80b6-571caf894100)
+
+<br>
+<h5> 계약서 삭제 요청 관리</h5>
+
+![계약서 삭제 요청 밎 관리](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/113569573/8f9c8426-eb93-4865-a770-c1a52fa12fb6)
+
+
+
 
 </details>
 
