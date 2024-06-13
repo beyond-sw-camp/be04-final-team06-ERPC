@@ -498,15 +498,15 @@
 
 <h5>2-9-1. 연간 실적 조회</h5>
   
-![실적 조회 - 연간](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/1c770eb6-c1c4-4f23-a9de-5db402ba4c85)
+<img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/1c770eb6-c1c4-4f23-a9de-5db402ba4c85" width="100%" >
 
 <h5>2-9-2. 팀별 실적 조회</h5>
 
-![실적 조회 - 팀](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/6213682a-fa9d-4f66-a77b-7b8c94a2303a)
+<img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/6213682a-fa9d-4f66-a77b-7b8c94a2303a" width="100%" >
 
 <h5>2-9-3. 사원별 실적 조회</h5>
 
-![실적 조회 - 사원별](https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/e38a6d58-f0a1-4561-a4d8-808d2b007441)
+<img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/153909291/e38a6d58-f0a1-4561-a4d8-808d2b007441" width="100%" >
 
 </details>
 
