@@ -13,29 +13,29 @@ www.erpc.site
   - [기술스택](#기술스택)
 
 ## 👨‍👨‍👦‍👦팀원
-<table>
-  <tr>
-  <tr>
-    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75edf6b2-ecb1-46b6-a4be-ae24f8a45756" height=150 width=150/></td>
-    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7b351752-aeb0-4525-bd25-168bd694741f" height=150 width=150/></td>
-    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/08e4faa5-89cd-47e6-b4fb-62e19a582939" height=150 width=150/></td>
-    <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec7e609b-e780-488b-a132-119f3bfa4440" height=150 width=150/></td>
-  </tr>
-  <br>
+<div style="display: flex; justify-content: center;">
+  <table style="margin: 0 auto; text-align: center;">
+    <tr>
+      <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/75edf6b2-ecb1-46b6-a4be-ae24f8a45756" height=150 width=150/></td>
+      <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/7b351752-aeb0-4525-bd25-168bd694741f" height=150 width=150/></td>
+      <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/08e4faa5-89cd-47e6-b4fb-62e19a582939" height=150 width=150/></td>
+      <td><img src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/ec7e609b-e780-488b-a132-119f3bfa4440" height=150 width=150/></td>
+    </tr>
+    <tr>
+      <td>윤재은</td>
+      <td>조수빈</td>
+      <td>송동준</td>
+      <td>양지혜</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/yunjaeeun"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+      <td><a href="https://github.com/chosoobin37"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+      <td><a href="https://github.com/dongjunsong"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+      <td><a href="https://github.com/Jihye1101"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
+    </tr>
+  </table>
+</div>
 
-  <tr>
-    <td>윤재은 (@yunjaeeun)</td>
-    <td>조수빈 (@chosoobin37)</td>
-    <td>송동준 (@dongjunsong)</td>
-    <td>양지혜 (@Jihye1101)</td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/yunjaeeun"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
-    <td><a href="https://github.com/chosoobin37"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
-    <td><a href="https://github.com/dongjunsong"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
-    <td><a href="https://github.com/Jihye1101"><img src="https://img.shields.io/badge/Github-Link-181717?logo=Github"></a></td>
-  </tr>
-</table>
 <br>
 
 ## ✏개요 및 주제 선정
@@ -91,7 +91,7 @@ www.erpc.site
 
 | GitHub Actions | Route53 | Elastic Beanstalk | Prometheus | Grafana |
 | --- | --- | --- | --- | --- |
-| ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) | ![Route53](https://img.shields.io/badge/Amazon%20Route53-4B8EC6?style=for-the-badge&logo=amazonroute53&logoColor=white) | ![Elastic Beanstalk](https://img.shields.io/badge/AWS%20Elastic%20Beanstalk-6B9CE0?style=for-the-badge&logo=aws-elastic-beanstalk&logoColor=white) | ![Prometheus](https://img.shields.io/badge/Prometheus-%233E3E3E.svg?style=for-the-badge&logo=prometheus&logoColor=white) | ![Grafana](https://img.shields.io/badge/Grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white) |
+| ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) | ![Route53](https://img.shields.io/badge/Amazon%20Route53-4B8EC6?style=for-the-badge&logo=amazonroute53&logoColor=white) | ![Elastic Beanstalk](https://img.shields.io/badge/AWS%20Elastic%20Beanstalk-%23FF9900?style=for-the-badge&logo=aws-elastic-beanstalk&logoColor=white) | ![Prometheus](https://img.shields.io/badge/Prometheus-%233E3E3E.svg?style=for-the-badge&logo=prometheus&logoColor=white) | ![Grafana](https://img.shields.io/badge/Grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white) |
 
 <h3>Etc</h3>
 
@@ -313,7 +313,10 @@ www.erpc.site
 
 <details>
   <summary><h4>6. API 명세서</h4></summary>
-      <h5>1-1. 세금계산서, 영업기회</h5>
+  
+  [API 명세서](http://erpc-back-ver2-env.eba-3inzi7ji.ap-northeast-2.elasticbeanstalk.com/swagger-ui/index.html#/)
+  
+  <h5>1-1. 세금계산서, 영업기회</h5>
   <img width="653" alt="image" src="https://github.com/beyond-sw-camp/be04-final-team06-ERPC/assets/71023617/772c46b3-9873-4905-8427-ed795a62fe61">
 
   <h5>1-2. 영업기회 참고사항, 견적서 참고사항, 견적서</h5>
