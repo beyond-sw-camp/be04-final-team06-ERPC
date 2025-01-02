@@ -76,6 +76,7 @@ public class WebSecurity {
                 .requestMatchers(new AntPathRequestMatcher("/issue/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/error/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/actuator/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/api/v1/redis/singleData/**")).permitAll()
                 .requestMatchers("/swagger", "/swagger-ui.html", "/swagger-ui/**",
                         "/api-docs", "/api-docs/**", "/v3/api-docs/**")
                 .permitAll()

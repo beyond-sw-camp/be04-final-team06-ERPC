@@ -9,7 +9,7 @@ import java.time.Duration;
 
 @Service
 @RequiredArgsConstructor
-public class RedisSingleServiceImpl implements RedisSingleService{
+public class RedisSingleDataServiceImpl implements RedisSingleDataService {
     private final RedisHandler redisHandler;
     private final RedisConfig redisConfig;
 
