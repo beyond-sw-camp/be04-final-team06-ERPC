@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.time.Duration;
 
 @Service
-public interface RedisSingleService {
+public interface RedisSingleDataService {
     /* Redis 단일 데이터 값 등록/삭제 */
     int setSingleData(String key, Object value);
 
