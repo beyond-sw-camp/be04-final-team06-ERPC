@@ -6,6 +6,8 @@ import com.cineverse.erpc.employee.repo.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,6 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
+    @CacheEvict(value = "employeeCache", allEntries = true)     // redis에 저장된 데이터 무효화
     public ResponseRegistDTO registEmployee(EmployeeDTO employeeDTO) {
 
         employeeDTO.setEmployeeUUID(UUID.randomUUID().toString());
@@ -49,6 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Cacheable(value = "employeeCache") // 첫 조회시에 redis에 저장, 이후부턴 redis에서 조회
     public List<ResponseEmployeesDTO> findEmployeeList() {
         List<Employee> employees = employeeRepository.findAll();
 
