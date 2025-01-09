@@ -70,6 +70,12 @@ dependencies {
 
 	// redis
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+	// My SQL
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// aop
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 tasks.named('test') {
