@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,6 +39,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 
     @Override
     @Transactional
+    @CacheEvict(value = "noticeCache", allEntries = true)
     public NoticeBoard registNotice(NoticeBoardDTO noticeDTO, MultipartFile[] files) {
 
         Date date = new Date();
@@ -107,6 +110,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
     }
 
     @Override
+    @Cacheable(value = "noticeCache")
     public List<NoticeBoard> findNoticeList() {
         List<NoticeBoard> noticeBoardList = noticeBoardRepository.findByNoticeDeleteDateIsNullOrderByNoticeIdDesc();
 
